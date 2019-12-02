@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private Animator animator;
 
+    private bool isJumping = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,15 +30,23 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (characterController.isGrounded)
+        if (characterController.isGrounded == true)
         {
+
+            if(isJumping == true)
+            {
+                isJumping = false;
+                animator.Play("Unarmed-Idle");
+            }
+
+
             // We are grounded, so recalculate
             // move direction directly from axes
 
             if(Input.GetAxis("Vertical") > 0.0f)
             {
 
-                moveDirection = new Vector3(0.0f, 0.0f, Input.GetAxis("Vertical"));
+                moveDirection = Camera.main.transform.forward;
                 moveDirection *= speed;
                 animator.SetBool("Running", true);
             } else
@@ -46,9 +56,11 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("Running", false);
             }
 
-            if (Input.GetButton("Jump"))
+            if (Input.GetButton("Jump") == true)
             {
                 moveDirection.y = jumpSpeed;
+                animator.Play("Unarmed-Jump");
+                isJumping = true;
             }
         }
 
