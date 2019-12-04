@@ -16,16 +16,20 @@ public class PlayerController : MonoBehaviour
     public float gravity = 20.0f;
     public float rotation = 0.0f;
 
-    private Vector3 moveDirection = Vector3.zero;
-    private Animator animator;
+    private bool _canJump = true;
 
-    private bool isJumping = false;
+    private Vector3 _moveDirection = Vector3.zero;
+    private Animator _animator;
+
+    private bool _isJumping = false;
+
+    public bool CanJump { get => _canJump; set => _canJump = value; }
 
     // Start is called before the first frame update
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -33,12 +37,12 @@ public class PlayerController : MonoBehaviour
         if (characterController.isGrounded == true)
         {
 
-            if(isJumping == true)
+            if(_isJumping == true)
             {
-                isJumping = false;
-                animator.Play("Unarmed-Idle");
+                _isJumping = false;
+                _animator.SetBool("Jumping", false);
+                _animator.Play("Unarmed-Land");
             }
-
 
             // We are grounded, so recalculate
             // move direction directly from axes
@@ -46,21 +50,22 @@ public class PlayerController : MonoBehaviour
             if(Input.GetAxis("Vertical") > 0.0f)
             {
 
-                moveDirection = Camera.main.transform.forward;
-                moveDirection *= speed;
-                animator.SetBool("Running", true);
+                _moveDirection = Camera.main.transform.forward;
+                _moveDirection *= speed;
+                _animator.SetBool("Running", true);
             } else
             {
-                moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
-                moveDirection *= speed;
-                animator.SetBool("Running", false);
+                _moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
+                _moveDirection *= speed;
+                _animator.SetBool("Running", false);
             }
 
-            if (Input.GetButton("Jump") == true)
+            if (Input.GetButton("Jump") == true && CanJump == true)
             {
-                moveDirection.y = jumpSpeed;
-                animator.Play("Unarmed-Jump");
-                isJumping = true;
+                _moveDirection.y = jumpSpeed;
+                _animator.SetBool("Jumping", true);
+                _isJumping = true;
+                CanJump = false;
             }
         }
 
@@ -70,10 +75,11 @@ public class PlayerController : MonoBehaviour
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
-        moveDirection.y -= gravity * Time.deltaTime;
+        _moveDirection.y -= gravity * Time.deltaTime;
 
         // Move the controller
-        characterController.Move(moveDirection * Time.deltaTime);
+        characterController.Move(_moveDirection * Time.deltaTime);
 
     }
+
 }

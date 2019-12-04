@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 8651054410497774476}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.16066775, y: -0, z: -0, w: 0.9870086}
-  m_LocalPosition: {x: 0, y: 3.29, z: -3.69}
+  m_LocalPosition: {x: 0, y: 3.5, z: -4.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5381478617760416540}
@@ -83,6 +84,22 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
+--- !u!114 &8651054410497774476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad71962dc12fa14b85426b61962234c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomSpeed: 0.5
+  scrollWheelMinDistance: -2
+  scrollWheelMaxDistance: 6
+  scrollCount: 2
 --- !u!1 &5377861287068168408
 GameObject:
   m_ObjectHideFlags: 0
@@ -30491,8 +30508,9 @@ GameObject:
   - component: {fileID: 5381478617760416540}
   - component: {fileID: 5473284439886655476}
   - component: {fileID: 5377773023696503293}
-  - component: {fileID: 3033028677912300037}
   - component: {fileID: 3620839242696364148}
+  - component: {fileID: 3033028677912300037}
+  - component: {fileID: 2207325038422327595}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -30550,23 +30568,6 @@ CapsuleCollider:
   m_Height: 1.9519689
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &3033028677912300037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5378747087404009320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3650288fa66004541bd5fefc1519f717, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 6
-  rotationSpeed: 100
-  jumpSpeed: 8
-  gravity: 20
-  rotation: 0
 --- !u!143 &3620839242696364148
 CharacterController:
   m_ObjectHideFlags: 0
@@ -30585,6 +30586,35 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &3033028677912300037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378747087404009320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3650288fa66004541bd5fefc1519f717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  rotationSpeed: 120
+  jumpSpeed: 10
+  gravity: 20
+  rotation: 0
+--- !u!114 &2207325038422327595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378747087404009320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1bc0b656fe73342827338b51e66481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5378749885177770242
 GameObject:
   m_ObjectHideFlags: 0
