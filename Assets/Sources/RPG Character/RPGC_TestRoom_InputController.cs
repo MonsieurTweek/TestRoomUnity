@@ -22,10 +22,15 @@ namespace RPGC_TestRoom_Anims{
 		[HideInInspector] public Vector3 moveInput;
 		[HideInInspector] public Vector2 aimInput;
 
-		/// <summary>
-		/// Input abstraction for easier asset updates using outside control schemes.
-		/// </summary>
-		void Inputs(){
+        private float _rotation = 0f;
+        private float _rorationSpeed = 100f;
+
+        RPGC_TestRoom_Controller RPGC_TestRoom_Controller;
+
+        /// <summary>
+        /// Input abstraction for easier asset updates using outside control schemes.
+        /// </summary>
+        void Inputs(){
 			inputJump = Input.GetButtonDown("Jump");
 			//inputAttackL = Input.GetButtonDown("AttackL");
 			//inputAttackR = Input.GetButtonDown("AttackR");
@@ -33,20 +38,25 @@ namespace RPGC_TestRoom_Anims{
 			//inputStrafe = Input.GetKey(KeyCode.LeftShift);
 			//inputAimVertical = Input.GetAxisRaw("AimVertical");
 			//inputAimHorizontal = Input.GetAxisRaw("AimHorizontal");
-			//inputHorizontal = Input.GetAxisRaw("Horizontal");
-			//inputVertical = Input.GetAxisRaw("Vertical");
+			inputHorizontal = Input.GetAxisRaw("Horizontal");
+			inputVertical = Input.GetAxisRaw("Vertical");
 			//inputRoll = Input.GetButtonDown("L3");
 		}
 
 		void Awake(){
 			allowedInput = true;
-		}
+            RPGC_TestRoom_Controller = GetComponent<RPGC_TestRoom_Controller>();
+        }
 
 		void Update(){
 			Inputs();
-			moveInput = CameraRelativeInput(inputHorizontal, inputVertical);
-			aimInput = new Vector2(inputAimHorizontal, inputAimVertical);
-		}
+			moveInput = CameraRelativeInput(0f, inputVertical);
+            aimInput = new Vector2(inputAimHorizontal, inputAimVertical);
+
+            // Rotation
+            _rotation += inputHorizontal * _rorationSpeed * Time.deltaTime;
+            transform.eulerAngles = new Vector3(0, _rotation, 0);
+        }
 
 		/// <summary>
 		/// Movement based off camera facing.

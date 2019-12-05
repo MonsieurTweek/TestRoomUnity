@@ -22,8 +22,9 @@ namespace RPGC_TestRoom_Anims{
 		[HideInInspector] public bool isBlocking = false;
 		[HideInInspector] public bool isStrafing = false;
 		[HideInInspector] public bool canAction = true;
+        [HideInInspector] public bool isTurning = false;
 
-		public float animationSpeed = 1;
+        public float animationSpeed = 1;
 
 		#region Initialization
 
@@ -126,11 +127,11 @@ namespace RPGC_TestRoom_Anims{
 		//Turning.
 		public IEnumerator _Turning(int direction){
 			if(direction == 1){
-				Lock(true, true, true, 0, 0.55f);
+				Lock(true, true, true, 0, 0.15f);
 				animator.SetTrigger("TurnLeftTrigger");
 			}
 			if(direction == 2){
-				Lock(true, true, true, 0, 0.55f);
+				Lock(true, true, true, 0, 0.15f);
 				animator.SetTrigger("TurnRightTrigger");
 			}
 			yield return null;
