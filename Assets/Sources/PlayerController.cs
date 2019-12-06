@@ -40,8 +40,6 @@ public class PlayerController : MonoBehaviour
             if(_isJumping == true)
             {
                 _isJumping = false;
-                _animator.SetBool("Jumping", false);
-                _animator.Play("Unarmed-Land");
             }
 
             // We are grounded, so recalculate
@@ -49,21 +47,22 @@ public class PlayerController : MonoBehaviour
 
             if(Input.GetAxis("Vertical") > 0.0f)
             {
-
                 _moveDirection = Camera.main.transform.forward;
                 _moveDirection *= speed;
-                _animator.SetBool("Running", true);
+            } else if(Input.GetAxis("Vertical") < 0.0f)
+            {
+                _moveDirection = -1 * Camera.main.transform.forward;
+                _moveDirection *= speed;
+
             } else
             {
                 _moveDirection = new Vector3(0.0f, 0.0f, 0.0f);
                 _moveDirection *= speed;
-                _animator.SetBool("Running", false);
             }
 
             if (Input.GetButton("Jump") == true && CanJump == true)
             {
                 _moveDirection.y = jumpSpeed;
-                _animator.SetBool("Jumping", true);
                 _isJumping = true;
                 CanJump = false;
             }

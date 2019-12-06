@@ -119,7 +119,7 @@ namespace RPGCharacterAnims{
 					RotateTowardsMovementDir();
 				}
 			}
-			else{
+			else if(rpgCharacterController.target != null) {
 				Strafing(rpgCharacterController.target.transform.position);
 			}
 		}
@@ -203,7 +203,7 @@ namespace RPGCharacterAnims{
 				//Strafing or Walking.
 				if(rpgCharacterController.isStrafing){
 					currentVelocity = Vector3.MoveTowards(currentVelocity, LocalMovement() * walkSpeed, movementAcceleration * superCharacterController.deltaTime);
-					if(rpgCharacterController.weapon != Weapon.RELAX){
+					if(rpgCharacterController.weapon != Weapon.RELAX && rpgCharacterController.target != null){
 						Strafing(rpgCharacterController.target.transform.position);
 					}
 					return;

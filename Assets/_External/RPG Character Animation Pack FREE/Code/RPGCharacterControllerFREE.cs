@@ -36,10 +36,6 @@ namespace RPGCharacterAnims{
 				Debug.LogError("ERROR: There is no animator for character.");
 				Destroy(this);
 			}
-			if(target == null){
-				Debug.LogError("ERROR: There is no target set for character.");
-				Destroy(this);
-			}
 			ikHands = GetComponent<IKHandsFREE>();
 			//Set for starting Unarmed state.
 			weapon = Weapon.UNARMED;
@@ -58,38 +54,16 @@ namespace RPGCharacterAnims{
 		void Update(){
 			UpdateAnimationSpeed();
 			if(rpgCharacterMovementController.MaintainingGround()){
-				//Revive.
-				if(rpgCharacterInputController.inputDeath){
-					if(isDead){
-						Revive();
-					}
-				}
 				if(canAction){
 					if(!isBlocking){
 						Strafing();
 						Rolling();
-						//Hit.
-						if(rpgCharacterInputController.inputLightHit){
-							GetHit();
-						}
-						//Death.
-						if(rpgCharacterInputController.inputDeath){
-							if(!isDead){
-								Death();
-							}
-							else{
-								Revive();
-							}
-						}
 						//Attacks.
 						if(rpgCharacterInputController.inputAttackL){
 							Attack(1);
 						}
 						if(rpgCharacterInputController.inputAttackR){
 							Attack(2);
-						}
-						if(rpgCharacterInputController.inputLightHit){
-							GetHit();
 						}
 						//Switch weapons.
 						if(rpgCharacterInputController.inputSwitchUpDown){
