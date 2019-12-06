@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CustomizationGridController : MonoBehaviour
 {
-    private const int CUSTOMIZATION_LAYER = 8;
+    private const int CUSTOMIZATION_LAYER = 9;
     private static CustomizationGridController _instance = null;
     public static CustomizationGridController instance { get { return _instance; } set { _instance = value; } }
 
