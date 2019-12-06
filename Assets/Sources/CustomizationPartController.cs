@@ -3,8 +3,13 @@
 [RequireComponent(typeof(SphereCollider))]
 public class CustomizationPartController : MonoBehaviour
 {
+    public static CustomizationPartController currentBone = null;
+
     [SerializeField]
-    private GameObject[] _parts = null;
+    private Vector3 _cameraOffset = Vector3.zero;
+
+    [SerializeField]
+    protected GameObject[] _parts = null;
 
     private uint _currentPartIndex = 0;
 
@@ -12,32 +17,34 @@ public class CustomizationPartController : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0) == true && GetClick() == true)
         {
-            _parts[_currentPartIndex].SetActive(false);
-
-            if (++ _currentPartIndex >= _parts.Length)
+            if (CustomizationPartController.currentBone != this)
             {
-                _currentPartIndex = 0;
-            }
+                CustomizationPartController.currentBone = this;
 
-            _parts[_currentPartIndex].SetActive(true);
+                CustomizationGridController.RefreshGrid(_parts, _cameraOffset);
+            }
         }
     }
 
     private bool GetClick()
     {
-        // Did we hit the surface?
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //Debug.DrawRay(ray.origin, ray.direction * 10, Color.yellow);
 
         if (Physics.Raycast(ray, out hit))
         {
-            //  Do whatever you want to detect what's been hit from the data stored in the "hit" variable - this should rotate it...
-
             return gameObject == hit.collider.gameObject;
-
         }
 
         return false;
+    }
+
+    public void SetPart(uint index)
+    {
+        _parts[_currentPartIndex].SetActive(false);
+
+        _currentPartIndex = index;
+
+        _parts[_currentPartIndex].SetActive(true);
     }
 }
