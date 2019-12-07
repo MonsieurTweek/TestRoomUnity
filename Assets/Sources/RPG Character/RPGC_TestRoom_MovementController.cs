@@ -45,7 +45,7 @@ namespace RPGC_TestRoom_Anims{
 		public float movementAcceleration = 90.0f;
 		public float walkSpeed = 4f;
 		public float runSpeed = 6f;
-		float rotationSpeed = 40f;
+		public float rotationSpeed = 40f;
 		public float groundFriction = 50f;
 
 		//Rolling.
@@ -87,9 +87,13 @@ namespace RPGC_TestRoom_Anims{
 
 		//Put any code in here you want to run AFTER the state's update function.  This is run regardless of what state you're in.
 		protected override void LateGlobalSuperUpdate(){
-			//Move the player by our velocity every frame.
-			transform.position += currentVelocity * superCharacterController.deltaTime;
+            //Move the player by our velocity every frame.
+            if (currentVelocity.z != 0f || currentVelocity.y != 0f)
+            {
+                transform.position += currentVelocity * superCharacterController.deltaTime;
+            }
 			//If using Navmesh nagivation, update values.
+            /*
 			if(navMeshAgent != null){
 				if(useMeshNav){
 					if(navMeshAgent.velocity.sqrMagnitude > 0){
@@ -101,21 +105,34 @@ namespace RPGC_TestRoom_Anims{
 					}
 				}
 			}
+            */
 			//If alive and is moving, set animator.
 			if(!useMeshNav && !RPGC_TestRoom_Controller.isDead && canMove){
 				if(currentVelocity.magnitude > 0 && RPGC_TestRoom_InputController.HasMoveInput()){
-					isMoving = true;
-					animator.SetBool("Moving", true);
-					animator.SetFloat("Velocity Z", currentVelocity.magnitude);
+                    // Case when the player is really moving
+                    if(RPGC_TestRoom_InputController.inputVertical != 0f)
+                    {
+                        isMoving = true;
+                        animator.SetBool("Moving", true);
+                        animator.SetFloat("Velocity Z", RPGC_TestRoom_InputController.inputVertical);
+                    }
+                    // Case when the player is only rotating
+                    else
+                    {
+                        isMoving = false;
+                        animator.SetBool("Moving", false);
+                        animator.SetFloat("Velocity Z", 0f);
+                    }
 				}
 				else{
 					isMoving = false;
 					animator.SetBool("Moving", false);
-				}
+                    animator.SetFloat("Velocity Z", 0f);
+                }
 			}
 			//Strafing.
 			if(!RPGC_TestRoom_Controller.isStrafing){
-				if(RPGC_TestRoom_InputController.HasMoveInput() && canMove){
+				if(RPGC_TestRoom_InputController.HasMoveInputHorizontal() && canMove){
 					RotateTowardsMovementDir();
 				}
 			}
@@ -171,14 +188,18 @@ namespace RPGC_TestRoom_Anims{
 				rpgCharacterState = RPGCharacterState.Fall;
 				return;
 			}
-			if(RPGC_TestRoom_InputController.HasMoveInput() && canMove){
+			if(RPGC_TestRoom_InputController.HasMoveInputVertical() && canMove){
 				currentState = RPGCharacterState.Move;
 				rpgCharacterState = RPGCharacterState.Move;
 				return;
 			}
 			//Apply friction to slow to a halt.
 			currentVelocity = Vector3.MoveTowards(currentVelocity, Vector3.zero, groundFriction * superCharacterController.deltaTime);
-		}
+            if(RPGC_TestRoom_InputController.HasMoveInputVertical() == false)
+            {
+                currentVelocity = Vector3.zero;
+            }
+        }
 
 		void Idle_ExitState(){
 			//Run once when exit the idle state.
@@ -197,9 +218,9 @@ namespace RPGC_TestRoom_Anims{
 				return;
 			}
 			//Set speed determined by movement type.
-			if(RPGC_TestRoom_InputController.HasMoveInput() && canMove){
+			if(RPGC_TestRoom_InputController.HasMoveInputVertical() && canMove){
 				//Keep strafing animations from playing.
-				animator.SetFloat("Velocity X", 0F);
+				animator.SetFloat("Velocity X", 0f);
 				//Strafing or Walking.
 				if(RPGC_TestRoom_Controller.isStrafing){
 					currentVelocity = Vector3.MoveTowards(currentVelocity, LocalMovement() * walkSpeed, movementAcceleration * superCharacterController.deltaTime);
@@ -208,8 +229,13 @@ namespace RPGC_TestRoom_Anims{
 					}
 					return;
 				}
-				//Run.
-				currentVelocity = Vector3.MoveTowards(currentVelocity, LocalMovement() * runSpeed, movementAcceleration * superCharacterController.deltaTime);
+                //Run.
+                float currentSpeed = runSpeed;
+                if(RPGC_TestRoom_InputController.inputVertical < 0f)
+                {
+                    currentSpeed = walkSpeed;
+                }
+				currentVelocity = Vector3.MoveTowards(currentVelocity, LocalMovement() * currentSpeed, movementAcceleration * superCharacterController.deltaTime);
 			}
 			else{
 				currentState = RPGCharacterState.Idle;
@@ -377,7 +403,9 @@ namespace RPGC_TestRoom_Anims{
 		}
 
 		void RotateTowardsMovementDir(){
-			if(RPGC_TestRoom_InputController.moveInput != Vector3.zero){
+			if(RPGC_TestRoom_InputController.moveInput != Vector3.zero && RPGC_TestRoom_InputController.inputVertical >= 0f)
+            {
+                //Vector3 moveInputLocal = RPGC_TestRoom_InputController.CameraRelativeInput(RPGC_TestRoom_InputController.inputHorizontal, 0f);
 				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(RPGC_TestRoom_InputController.moveInput), Time.deltaTime * rotationSpeed);
 			}
 		}

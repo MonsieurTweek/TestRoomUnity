@@ -23,7 +23,6 @@ namespace RPGC_TestRoom_Anims{
 		[HideInInspector] public Vector2 aimInput;
 
         private float _rotation = 0f;
-        private float _rorationSpeed = 100f;
 
         RPGC_TestRoom_Controller RPGC_TestRoom_Controller;
 
@@ -50,18 +49,18 @@ namespace RPGC_TestRoom_Anims{
 
 		void Update(){
 			Inputs();
-			moveInput = CameraRelativeInput(0f, inputVertical);
+			moveInput = CameraRelativeInput(inputHorizontal, inputVertical);
             aimInput = new Vector2(inputAimHorizontal, inputAimVertical);
 
             // Rotation
-            _rotation += inputHorizontal * _rorationSpeed * Time.deltaTime;
-            transform.eulerAngles = new Vector3(0, _rotation, 0);
+            //_rotation += inputHorizontal * RPGC_TestRoom_Controller.RPGC_TestRoom_MovementController.rotationSpeed * Time.deltaTime;
+            //transform.eulerAngles = new Vector3(0, _rotation, 0);
         }
 
 		/// <summary>
 		/// Movement based off camera facing.
 		/// </summary>
-		Vector3 CameraRelativeInput(float inputX, float inputZ){
+		public Vector3 CameraRelativeInput(float inputX, float inputZ){
 			//Forward vector relative to the camera along the x-z plane   
 			Vector3 forward = Camera.main.transform.TransformDirection(Vector3.forward);
 			forward.y = 0;
@@ -83,10 +82,34 @@ namespace RPGC_TestRoom_Anims{
 			else{
 				return false;
 			}
-		}
-		
-		public bool HasMoveInput(){
-			if(allowedInput && moveInput != Vector3.zero){
+        }
+
+        public bool HasMoveInputVertical()
+        {
+            if (allowedInput && inputVertical != 0f)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool HasMoveInputHorizontal()
+        {
+            if (allowedInput && inputHorizontal != 0f)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool HasMoveInput(){
+			if(allowedInput && (HasMoveInputHorizontal() || HasMoveInputVertical())){
 				return true;
 			}
 			else{

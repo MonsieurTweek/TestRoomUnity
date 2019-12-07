@@ -127,11 +127,11 @@ namespace RPGC_TestRoom_Anims{
 		//Turning.
 		public IEnumerator _Turning(int direction){
 			if(direction == 1){
-				Lock(true, true, true, 0, 0.15f);
+				Lock(true, true, true, 0, 0.55f);
 				animator.SetTrigger("TurnLeftTrigger");
 			}
 			if(direction == 2){
-				Lock(true, true, true, 0, 0.15f);
+				Lock(true, true, true, 0, 0.55f);
 				animator.SetTrigger("TurnRightTrigger");
 			}
 			yield return null;
