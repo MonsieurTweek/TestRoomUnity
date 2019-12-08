@@ -172,7 +172,7 @@ namespace RPGC_TestRoom_Anims{
 							}
 							//Set the Locks.
 							if(attackSide != 3){
-								Lock(true, true, true, 0, 1.25f);
+								Lock(true, true, true, 0, 0.5f);
 							}
 						}
 						else{

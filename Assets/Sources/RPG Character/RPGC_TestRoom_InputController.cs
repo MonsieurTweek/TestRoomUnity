@@ -22,8 +22,6 @@ namespace RPGC_TestRoom_Anims{
 		[HideInInspector] public Vector3 moveInput;
 		[HideInInspector] public Vector2 aimInput;
 
-        private float _rotation = 0f;
-
         RPGC_TestRoom_Controller RPGC_TestRoom_Controller;
 
         /// <summary>
@@ -31,8 +29,8 @@ namespace RPGC_TestRoom_Anims{
         /// </summary>
         void Inputs(){
 			inputJump = Input.GetButtonDown("Jump");
-			//inputAttackL = Input.GetButtonDown("AttackL");
-			//inputAttackR = Input.GetButtonDown("AttackR");
+			inputAttackL = Input.GetButtonDown("AttackL");
+			inputAttackR = Input.GetButtonDown("AttackR");
 			//inputSwitchUpDown = Input.GetButtonDown("SwitchUpDown");
 			//inputStrafe = Input.GetKey(KeyCode.LeftShift);
 			//inputAimVertical = Input.GetAxisRaw("AimVertical");

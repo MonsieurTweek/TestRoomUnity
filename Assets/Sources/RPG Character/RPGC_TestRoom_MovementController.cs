@@ -45,7 +45,7 @@ namespace RPGC_TestRoom_Anims{
 		public float movementAcceleration = 90.0f;
 		public float walkSpeed = 4f;
 		public float runSpeed = 6f;
-		public float rotationSpeed = 40f;
+		public float rotationSpeed = 4.5f;
 		public float groundFriction = 50f;
 
 		//Rolling.
@@ -139,7 +139,17 @@ namespace RPGC_TestRoom_Anims{
 			else if(RPGC_TestRoom_Controller.target != null) {
 				Strafing(RPGC_TestRoom_Controller.target.transform.position);
 			}
-		}
+
+            // Security to avoid goind under the map
+            if(gameObject.transform.position.y < -5f && RPGC_TestRoom_Controller.isDead == false)
+            {
+                RPGC_TestRoom_Controller.Death();
+            } else if(gameObject.transform.position.y < -10f && RPGC_TestRoom_Controller.isDead == true)
+            {
+                gameObject.transform.position = Vector3.zero;
+                RPGC_TestRoom_Controller.Revive();
+            }
+        }
 
 		private bool AcquiringGround(){
 			return superCharacterController.currentGround.IsGrounded(false, 0.01f);
@@ -292,7 +302,12 @@ namespace RPGC_TestRoom_Anims{
 			if(!doublejumped){
 				canDoubleJump = true;
 			}
-			if(RPGC_TestRoom_InputController.inputJump && canDoubleJump && !doublejumped){
+            // Too close from the ground
+            if(superCharacterController.currentGround.IsGrounded(false, 1f))
+            {
+                canDoubleJump = false;
+            }
+			if (RPGC_TestRoom_InputController.inputJump && canDoubleJump && !doublejumped){
 				currentState = RPGCharacterState.DoubleJump;
 				rpgCharacterState = RPGCharacterState.DoubleJump;
 			}
@@ -403,10 +418,16 @@ namespace RPGC_TestRoom_Anims{
 		}
 
 		void RotateTowardsMovementDir(){
-			if(RPGC_TestRoom_InputController.moveInput != Vector3.zero && RPGC_TestRoom_InputController.inputVertical >= 0f)
+			if(RPGC_TestRoom_InputController.moveInput != Vector3.zero)
             {
+                // If not running, the rotation speed is halved
+                float _currentRotationSpeed = rotationSpeed;
+                if(RPGC_TestRoom_InputController.inputVertical <= 0f)
+                {
+                    _currentRotationSpeed = rotationSpeed / 2;
+                }
                 //Vector3 moveInputLocal = RPGC_TestRoom_InputController.CameraRelativeInput(RPGC_TestRoom_InputController.inputHorizontal, 0f);
-				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(RPGC_TestRoom_InputController.moveInput), Time.deltaTime * rotationSpeed);
+				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(RPGC_TestRoom_InputController.moveInput), Time.deltaTime * _currentRotationSpeed);
 			}
 		}
 
@@ -416,7 +437,6 @@ namespace RPGC_TestRoom_Anims{
 		}
 
 		void Aiming(){
-//			Debug.Log("Aiming");
 			for(int i = 0; i < Input.GetJoystickNames().Length; i++){
 				//If right joystick is moved, use that for facing.
 				if(Mathf.Abs(RPGC_TestRoom_InputController.inputAimHorizontal) > 0.8 || Mathf.Abs(RPGC_TestRoom_InputController.inputAimVertical) < -0.8){
