@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 7789085508148086749}
   - component: {fileID: 7817702141955700357}
   - component: {fileID: 7808347638594464337}
-  - component: {fileID: 8741206722384240490}
+  - component: {fileID: 1153917346}
+  - component: {fileID: 1153917343}
+  - component: {fileID: 1153917347}
   m_Layer: 0
   m_Name: SM_Buildings_Floor_2x2_01P
   m_TagString: Untagged
@@ -79,8 +81,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &8741206722384240490
-BoxCollider:
+--- !u!64 &1153917346
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,6 +91,34 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 0.099999994, z: 2}
-  m_Center: {x: 1, y: -0.049999997, z: 1}
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 9f00cae941aaaa142ade9d9171b47d06, type: 3}
+--- !u!114 &1153917343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786695111153281511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5a6afaf80069348aa068ae586fb3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawMeshTreeOnStart: 0
+--- !u!114 &1153917347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7786695111153281511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c1a1d27540a1248b096f8960864448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StandAngle: 80
+  SlopeLimit: 80

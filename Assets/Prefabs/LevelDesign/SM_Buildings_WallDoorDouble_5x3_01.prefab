@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4531878096123176042}
   - component: {fileID: 4526068552563535946}
   - component: {fileID: 7898795392688140128}
+  - component: {fileID: 1246121998721204}
+  - component: {fileID: 1246121998721205}
   m_Layer: 0
   m_Name: SM_Buildings_WallDoorDouble_5x3_01
   m_TagString: Untagged
@@ -93,3 +95,30 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 48d84bda24591244bbc6b1afcb9c31ac, type: 3}
+--- !u!114 &1246121998721204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4510534094318787920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c1a1d27540a1248b096f8960864448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StandAngle: 80
+  SlopeLimit: 80
+--- !u!114 &1246121998721205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4510534094318787920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5a6afaf80069348aa068ae586fb3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawMeshTreeOnStart: 0

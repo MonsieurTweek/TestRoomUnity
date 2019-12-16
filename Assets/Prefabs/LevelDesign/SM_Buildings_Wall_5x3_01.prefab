@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 8295592105630552432}
   - component: {fileID: 8320897629945260662}
   - component: {fileID: 8312855678392995358}
-  - component: {fileID: -4929513320106674969}
+  - component: {fileID: 4083180254075049582}
+  - component: {fileID: 5570115430607779204}
+  - component: {fileID: 394657112140388202}
   m_Layer: 0
   m_Name: SM_Buildings_Wall_5x3_01
   m_TagString: Untagged
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8289922499637698216}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.73, y: 0, z: 8.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -79,8 +81,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &-4929513320106674969
-BoxCollider:
+--- !u!64 &4083180254075049582
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -89,6 +91,34 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 3, z: 0.099999994}
-  m_Center: {x: 2.5, y: 1.5, z: 0.049999997}
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: b0391de1f01e7c3498a2b52e8c634d06, type: 3}
+--- !u!114 &5570115430607779204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289922499637698216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5a6afaf80069348aa068ae586fb3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawMeshTreeOnStart: 0
+--- !u!114 &394657112140388202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8289922499637698216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c1a1d27540a1248b096f8960864448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StandAngle: 80
+  SlopeLimit: 80

@@ -33,8 +33,8 @@ namespace RPGC_TestRoom_Anims{
 			inputAttackR = Input.GetButtonDown("AttackR");
 			//inputSwitchUpDown = Input.GetButtonDown("SwitchUpDown");
 			//inputStrafe = Input.GetKey(KeyCode.LeftShift);
-			//inputAimVertical = Input.GetAxisRaw("AimVertical");
-			//inputAimHorizontal = Input.GetAxisRaw("AimHorizontal");
+			inputAimVertical = Input.GetAxisRaw("Mouse X");
+			inputAimHorizontal = Input.GetAxisRaw("Mouse Y");
 			inputHorizontal = Input.GetAxisRaw("Horizontal");
 			inputVertical = Input.GetAxisRaw("Vertical");
 			//inputRoll = Input.GetButtonDown("L3");
