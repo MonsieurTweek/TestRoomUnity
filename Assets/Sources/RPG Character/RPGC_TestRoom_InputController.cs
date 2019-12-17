@@ -50,7 +50,14 @@ namespace RPGC_TestRoom_Anims{
 
 		void Update(){
 			Inputs();
-			moveInput = CameraRelativeInput(inputHorizontal, inputVertical);
+            // Horizontal movement is only for strafing
+            if(inputVertical != 0f)
+            {
+                moveInput = CameraRelativeInput(0f, inputVertical);
+            } else
+            {
+                moveInput = CameraRelativeInput(inputHorizontal, 0f);
+            }
             aimInput = new Vector2(inputAimHorizontal, inputAimVertical);
         }
 
@@ -64,7 +71,7 @@ namespace RPGC_TestRoom_Anims{
 			forward = forward.normalized;
 			//Right vector relative to the camera always orthogonal to the forward vector.
 			Vector3 right = new Vector3(forward.z, 0, -forward.x);
-			Vector3 relativeVelocity = inputHorizontal * right + inputVertical * forward;
+			Vector3 relativeVelocity = inputX * right + inputZ * forward;
 			//Reduce input for diagonal movement.
 			if(relativeVelocity.magnitude > 1){
 				relativeVelocity.Normalize();

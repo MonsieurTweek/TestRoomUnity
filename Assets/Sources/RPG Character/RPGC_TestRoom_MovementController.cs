@@ -114,19 +114,29 @@ namespace RPGC_TestRoom_Anims{
                     {
                         isMoving = true;
                         animator.SetBool("Moving", true);
+                        animator.SetFloat("Velocity X", 0f);
                         animator.SetFloat("Velocity Z", RPGC_TestRoom_InputController.inputVertical);
                     }
                     // Case when the player is only rotating
+                    else if(RPGC_TestRoom_InputController.inputHorizontal != 0f)
+                    {
+                        isMoving = true;
+                        animator.SetBool("Moving", true);
+                        animator.SetFloat("Velocity Z", 0f);
+                        animator.SetFloat("Velocity X", RPGC_TestRoom_InputController.inputHorizontal);
+                    }
                     else
                     {
                         isMoving = false;
                         animator.SetBool("Moving", false);
+                        animator.SetFloat("Velocity X", 0f);
                         animator.SetFloat("Velocity Z", 0f);
                     }
 				}
 				else{
 					isMoving = false;
 					animator.SetBool("Moving", false);
+                    animator.SetFloat("Velocity X", 0f);
                     animator.SetFloat("Velocity Z", 0f);
                 }
 			}
@@ -196,17 +206,13 @@ namespace RPGC_TestRoom_Anims{
 				rpgCharacterState = RPGCharacterState.Fall;
 				return;
 			}
-			if(RPGC_TestRoom_InputController.HasMoveInputVertical() && canMove){
+			if(RPGC_TestRoom_InputController.HasMoveInput() && canMove){
 				currentState = RPGCharacterState.Move;
 				rpgCharacterState = RPGCharacterState.Move;
 				return;
 			}
 			//Apply friction to slow to a halt.
 			currentVelocity = Vector3.MoveTowards(currentVelocity, Vector3.zero, groundFriction * superCharacterController.deltaTime);
-            if(RPGC_TestRoom_InputController.HasMoveInputVertical() == false)
-            {
-                currentVelocity = Vector3.zero;
-            }
         }
 
 		void Idle_ExitState(){
@@ -226,9 +232,12 @@ namespace RPGC_TestRoom_Anims{
 				return;
 			}
 			//Set speed determined by movement type.
-			if(RPGC_TestRoom_InputController.HasMoveInputVertical() && canMove){
-				//Keep strafing animations from playing.
-				animator.SetFloat("Velocity X", 0f);
+			if(RPGC_TestRoom_InputController.HasMoveInput() && canMove){
+                // Keep strafing animations from playing when the player is moving forward or backward
+                if(RPGC_TestRoom_InputController.HasMoveInputVertical())
+                {
+                    animator.SetFloat("Velocity X", 0f);
+                }
 				//Strafing or Walking.
 				if(RPGC_TestRoom_Controller.isStrafing){
 					currentVelocity = Vector3.MoveTowards(currentVelocity, LocalMovement() * walkSpeed, movementAcceleration * superCharacterController.deltaTime);
@@ -239,11 +248,25 @@ namespace RPGC_TestRoom_Anims{
 				}
                 //Run.
                 float currentSpeed = runSpeed;
-                if(RPGC_TestRoom_InputController.inputVertical < 0f)
+                if(RPGC_TestRoom_InputController.inputVertical <= 0f)
                 {
                     currentSpeed = walkSpeed;
                 }
-                Vector3 target = LocalMovement() * currentSpeed;
+                // Target is locked if we are strafing
+                Vector3 target;
+                if(RPGC_TestRoom_InputController.HasMoveInputVertical() == false)
+                {
+                    if (RPGC_TestRoom_InputController.inputHorizontal < 0f)
+                    {
+                        target = -1 * transform.right * currentSpeed;
+                    } else
+                    {
+                        target = transform.right * currentSpeed;
+                    }
+                } else
+                {
+                    target = LocalMovement() * currentSpeed;
+                }
                 currentVelocity = Vector3.MoveTowards(currentVelocity, target, movementAcceleration * superCharacterController.deltaTime);
             }
 			else{
