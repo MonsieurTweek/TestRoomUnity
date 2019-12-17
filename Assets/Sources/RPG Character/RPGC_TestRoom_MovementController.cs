@@ -132,9 +132,7 @@ namespace RPGC_TestRoom_Anims{
 			}
 			//Strafing.
 			if(!RPGC_TestRoom_Controller.isStrafing){
-				if(RPGC_TestRoom_InputController.HasMoveInputHorizontal() && canMove){
-					RotateTowardsMovementDir();
-				}
+				RotateTowardsMovementDir();
 			}
 			else if(RPGC_TestRoom_Controller.target != null) {
 				Strafing(RPGC_TestRoom_Controller.target.transform.position);
@@ -245,8 +243,9 @@ namespace RPGC_TestRoom_Anims{
                 {
                     currentSpeed = walkSpeed;
                 }
-				currentVelocity = Vector3.MoveTowards(currentVelocity, LocalMovement() * currentSpeed, movementAcceleration * superCharacterController.deltaTime);
-			}
+                Vector3 target = LocalMovement() * currentSpeed;
+                currentVelocity = Vector3.MoveTowards(currentVelocity, target, movementAcceleration * superCharacterController.deltaTime);
+            }
 			else{
 				currentState = RPGCharacterState.Idle;
 				rpgCharacterState = RPGCharacterState.Idle;
@@ -418,17 +417,18 @@ namespace RPGC_TestRoom_Anims{
 		}
 
 		void RotateTowardsMovementDir(){
-			if(RPGC_TestRoom_InputController.moveInput != Vector3.zero)
+            if (currentVelocity != Vector3.zero)
             {
-                // If not running, the rotation speed is halved
-                float _currentRotationSpeed = rotationSpeed;
-                if(RPGC_TestRoom_InputController.inputVertical <= 0f)
+                if (RPGC_TestRoom_InputController.inputVertical > 0f)
                 {
-                    _currentRotationSpeed = rotationSpeed / 2;
+                    Quaternion targetRotation = Quaternion.LookRotation(new Vector3(currentVelocity.x, 0f, currentVelocity.z));
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+                } else if (RPGC_TestRoom_InputController.inputVertical < 0f)
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(new Vector3(currentVelocity.x, 0f, currentVelocity.z) * -1);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
                 }
-                //Vector3 moveInputLocal = RPGC_TestRoom_InputController.CameraRelativeInput(RPGC_TestRoom_InputController.inputHorizontal, 0f);
-				transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(RPGC_TestRoom_InputController.moveInput), Time.deltaTime * _currentRotationSpeed);
-			}
+            }
 		}
 
 		void RotateTowardsTarget(Vector3 targetPosition){

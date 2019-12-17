@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Cinemachine;
 
 namespace RPGC_TestRoom_Anims{
 	
@@ -24,6 +25,8 @@ namespace RPGC_TestRoom_Anims{
 
         RPGC_TestRoom_Controller RPGC_TestRoom_Controller;
 
+        public CinemachineFreeLook thirdPersonCamera;
+
         /// <summary>
         /// Input abstraction for easier asset updates using outside control schemes.
         /// </summary>
@@ -33,8 +36,8 @@ namespace RPGC_TestRoom_Anims{
 			inputAttackR = Input.GetButtonDown("AttackR");
 			//inputSwitchUpDown = Input.GetButtonDown("SwitchUpDown");
 			//inputStrafe = Input.GetKey(KeyCode.LeftShift);
-			inputAimVertical = Input.GetAxisRaw("Mouse X");
-			inputAimHorizontal = Input.GetAxisRaw("Mouse Y");
+			inputAimVertical = Input.GetAxisRaw("Mouse Y");
+			inputAimHorizontal = Input.GetAxisRaw("Mouse X");
 			inputHorizontal = Input.GetAxisRaw("Horizontal");
 			inputVertical = Input.GetAxisRaw("Vertical");
 			//inputRoll = Input.GetButtonDown("L3");
@@ -49,16 +52,12 @@ namespace RPGC_TestRoom_Anims{
 			Inputs();
 			moveInput = CameraRelativeInput(inputHorizontal, inputVertical);
             aimInput = new Vector2(inputAimHorizontal, inputAimVertical);
-
-            // Rotation
-            //_rotation += inputHorizontal * RPGC_TestRoom_Controller.RPGC_TestRoom_MovementController.rotationSpeed * Time.deltaTime;
-            //transform.eulerAngles = new Vector3(0, _rotation, 0);
         }
 
-		/// <summary>
-		/// Movement based off camera facing.
-		/// </summary>
-		public Vector3 CameraRelativeInput(float inputX, float inputZ){
+        /// <summary>
+        /// Movement based off camera facing.
+        /// </summary>
+        public Vector3 CameraRelativeInput(float inputX, float inputZ){
 			//Forward vector relative to the camera along the x-z plane   
 			Vector3 forward = Camera.main.transform.TransformDirection(Vector3.forward);
 			forward.y = 0;
