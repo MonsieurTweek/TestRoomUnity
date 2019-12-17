@@ -286,6 +286,7 @@ namespace RPGC_TestRoom_Anims{
 		}
 
 		void DoubleJump_EnterState(){
+            RotateTowardsMovementDir();
 			currentVelocity += superCharacterController.up * CalculateJumpSpeed(doubleJumpHeight, gravity);
 			canDoubleJump = false;
 			doublejumped = true;
@@ -465,7 +466,6 @@ namespace RPGC_TestRoom_Anims{
 
 		//Update animator with local movement values.
 		void Strafing(Vector3 targetPosition){
-//			Debug.Log("Strafing");
 			animator.SetFloat("Velocity X", transform.InverseTransformDirection(currentVelocity).x);
 			animator.SetFloat("Velocity Z", transform.InverseTransformDirection(currentVelocity).z);
 			RotateTowardsTarget(targetPosition);
