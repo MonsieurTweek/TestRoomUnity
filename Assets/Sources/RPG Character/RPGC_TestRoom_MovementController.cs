@@ -230,7 +230,7 @@ namespace RPGC_TestRoom_Anims{
 				}
                 //Run.
                 float currentSpeed = runSpeed;
-                if(RPGC_TestRoom_InputController.inputVertical <= 0.5f)
+                if(RPGC_TestRoom_InputController.inputVertical < 0f)
                 {
                     currentSpeed = walkSpeed;
                 }
@@ -412,15 +412,15 @@ namespace RPGC_TestRoom_Anims{
 		void RotateTowardsMovementDir(){
             if (currentVelocity != Vector3.zero)
             {
-                if (RPGC_TestRoom_InputController.inputVertical > 0f)
-                {
+                /*if (RPGC_TestRoom_InputController.inputVertical > 0f)
+                {*/
                     Quaternion targetRotation = Quaternion.LookRotation(new Vector3(currentVelocity.x, 0f, currentVelocity.z));
                     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-                } else if (RPGC_TestRoom_InputController.inputVertical < 0f)
+                /*} else if (RPGC_TestRoom_InputController.inputVertical < 0f)
                 {
                     Quaternion targetRotation = Quaternion.LookRotation(new Vector3(currentVelocity.x, 0f, currentVelocity.z) * -1);
                     transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
-                }
+                }*/
             }
 		}
 
