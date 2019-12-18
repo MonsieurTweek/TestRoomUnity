@@ -108,31 +108,13 @@ namespace RPGC_TestRoom_Anims{
             */
 			//If alive and is moving, set animator.
 			if(!useMeshNav && !RPGC_TestRoom_Controller.isDead && canMove){
-				if(currentVelocity.magnitude > 0 && RPGC_TestRoom_InputController.HasMoveInput()){
-                    // Case when the player is really moving
-                    if(RPGC_TestRoom_InputController.inputVertical != 0f)
-                    {
-                        isMoving = true;
-                        animator.SetBool("Moving", true);
-                        animator.SetFloat("Velocity X", 0f);
-                        animator.SetFloat("Velocity Z", RPGC_TestRoom_InputController.inputVertical);
-                    }
-                    // Case when the player is only rotating
-                    else if(RPGC_TestRoom_InputController.inputHorizontal != 0f)
-                    {
-                        isMoving = true;
-                        animator.SetBool("Moving", true);
-                        animator.SetFloat("Velocity Z", 0f);
-                        animator.SetFloat("Velocity X", RPGC_TestRoom_InputController.inputHorizontal);
-                    }
-                    else
-                    {
-                        isMoving = false;
-                        animator.SetBool("Moving", false);
-                        animator.SetFloat("Velocity X", 0f);
-                        animator.SetFloat("Velocity Z", 0f);
-                    }
-				}
+				if(currentVelocity.magnitude > 0 && RPGC_TestRoom_InputController.HasMoveInput())
+                {
+                    isMoving = true;
+                    animator.SetBool("Moving", true);
+                    animator.SetFloat("Velocity X", RPGC_TestRoom_InputController.inputHorizontal);
+                    animator.SetFloat("Velocity Z", RPGC_TestRoom_InputController.inputVertical);
+                }
 				else{
 					isMoving = false;
 					animator.SetBool("Moving", false);
@@ -234,10 +216,10 @@ namespace RPGC_TestRoom_Anims{
 			//Set speed determined by movement type.
 			if(RPGC_TestRoom_InputController.HasMoveInput() && canMove){
                 // Keep strafing animations from playing when the player is moving forward or backward
-                if(RPGC_TestRoom_InputController.HasMoveInputVertical())
+                /*if(RPGC_TestRoom_InputController.HasMoveInputVertical())
                 {
                     animator.SetFloat("Velocity X", 0f);
-                }
+                }*/
 				//Strafing or Walking.
 				if(RPGC_TestRoom_Controller.isStrafing){
 					currentVelocity = Vector3.MoveTowards(currentVelocity, LocalMovement() * walkSpeed, movementAcceleration * superCharacterController.deltaTime);
@@ -248,25 +230,12 @@ namespace RPGC_TestRoom_Anims{
 				}
                 //Run.
                 float currentSpeed = runSpeed;
-                if(RPGC_TestRoom_InputController.inputVertical <= 0f)
+                if(RPGC_TestRoom_InputController.inputVertical <= 0.5f)
                 {
                     currentSpeed = walkSpeed;
                 }
                 // Target is locked if we are strafing
-                Vector3 target;
-                if(RPGC_TestRoom_InputController.HasMoveInputVertical() == false)
-                {
-                    if (RPGC_TestRoom_InputController.inputHorizontal < 0f)
-                    {
-                        target = -1 * transform.right * currentSpeed;
-                    } else
-                    {
-                        target = transform.right * currentSpeed;
-                    }
-                } else
-                {
-                    target = LocalMovement() * currentSpeed;
-                }
+                Vector3 target = LocalMovement() * currentSpeed;
                 currentVelocity = Vector3.MoveTowards(currentVelocity, target, movementAcceleration * superCharacterController.deltaTime);
             }
 			else{

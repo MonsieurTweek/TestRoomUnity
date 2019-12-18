@@ -51,13 +51,7 @@ namespace RPGC_TestRoom_Anims{
 		void Update(){
 			Inputs();
             // Horizontal movement is only for strafing
-            if(inputVertical != 0f)
-            {
-                moveInput = CameraRelativeInput(0f, inputVertical);
-            } else
-            {
-                moveInput = CameraRelativeInput(inputHorizontal, 0f);
-            }
+            moveInput = CameraRelativeInput(inputHorizontal, inputVertical);
             aimInput = new Vector2(inputAimHorizontal, inputAimVertical);
         }
 
