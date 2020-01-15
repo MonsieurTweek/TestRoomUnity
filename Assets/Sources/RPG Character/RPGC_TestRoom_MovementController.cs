@@ -230,10 +230,11 @@ namespace RPGC_TestRoom_Anims{
 				}
                 //Run.
                 float currentSpeed = runSpeed;
-                if(RPGC_TestRoom_InputController.inputVertical < 0f)
-                {
-                    currentSpeed = walkSpeed;
-                }
+                //[ALT CONTROL]
+                //if(RPGC_TestRoom_InputController.inputVertical < 0f)
+                //{
+                //    currentSpeed = walkSpeed;
+                //}
                 // Target is locked if we are strafing
                 Vector3 target = LocalMovement() * currentSpeed;
                 currentVelocity = Vector3.MoveTowards(currentVelocity, target, movementAcceleration * superCharacterController.deltaTime);

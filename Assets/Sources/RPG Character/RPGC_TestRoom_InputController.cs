@@ -30,7 +30,8 @@ namespace RPGC_TestRoom_Anims{
         /// <summary>
         /// Input abstraction for easier asset updates using outside control schemes.
         /// </summary>
-        void Inputs(){
+        void Inputs()
+        {
 			inputJump = Input.GetButtonDown("Jump");
 			inputAttackL = Input.GetButtonDown("AttackL");
 			inputAttackR = Input.GetButtonDown("AttackR");
@@ -43,22 +44,32 @@ namespace RPGC_TestRoom_Anims{
 			//inputRoll = Input.GetButtonDown("L3");
 		}
 
-		void Awake(){
+		void Awake()
+        {
 			allowedInput = true;
             RPGC_TestRoom_Controller = GetComponent<RPGC_TestRoom_Controller>();
+            thirdPersonCamera.m_RecenterToTargetHeading.m_enabled = true;
         }
 
-		void Update(){
+		void Update()
+        {
 			Inputs();
-            // Horizontal movement is only for strafing
             moveInput = CameraRelativeInput(inputHorizontal, inputVertical);
+            if(inputVertical < 0)
+            {
+                thirdPersonCamera.m_RecenterToTargetHeading.m_enabled = false;
+            } else
+            {
+                thirdPersonCamera.m_RecenterToTargetHeading.m_enabled = true;
+            }
             aimInput = new Vector2(inputAimHorizontal, inputAimVertical);
         }
 
         /// <summary>
         /// Movement based off camera facing.
         /// </summary>
-        public Vector3 CameraRelativeInput(float inputX, float inputZ){
+        public Vector3 CameraRelativeInput(float inputX, float inputZ)
+        {
 			//Forward vector relative to the camera along the x-z plane   
 			Vector3 forward = Camera.main.transform.TransformDirection(Vector3.forward);
 			forward.y = 0;
@@ -67,14 +78,16 @@ namespace RPGC_TestRoom_Anims{
 			Vector3 right = new Vector3(forward.z, 0, -forward.x);
 			Vector3 relativeVelocity = inputX * right + inputZ * forward;
 			//Reduce input for diagonal movement.
-			if(relativeVelocity.magnitude > 1){
+			if(relativeVelocity.magnitude > 1)
+            {
 				relativeVelocity.Normalize();
 			}
 			return relativeVelocity;
 		}
 
 		public bool HasAnyInput(){
-			if(allowedInput && moveInput != Vector3.zero && aimInput != Vector2.zero && inputJump != false){
+			if(allowedInput && moveInput != Vector3.zero && aimInput != Vector2.zero && inputJump != false)
+            {
 				return true;
 			}
 			else{
@@ -106,8 +119,10 @@ namespace RPGC_TestRoom_Anims{
             }
         }
 
-        public bool HasMoveInput(){
-			if(allowedInput && (HasMoveInputHorizontal() || HasMoveInputVertical())){
+        public bool HasMoveInput()
+        {
+			if(allowedInput && (HasMoveInputHorizontal() || HasMoveInputVertical()))
+            {
 				return true;
 			}
 			else{
@@ -115,8 +130,10 @@ namespace RPGC_TestRoom_Anims{
 			}
 		}
 		
-		public bool HasAimInput(){
-			if(allowedInput && (aimInput.x < -0.8f || aimInput.x > 0.8f) || (aimInput.y < -0.8f || aimInput.y > 0.8f)){
+		public bool HasAimInput()
+        {
+			if(allowedInput && (aimInput.x < -0.8f || aimInput.x > 0.8f) || (aimInput.y < -0.8f || aimInput.y > 0.8f))
+            {
 				return true;
 			}
 			else{

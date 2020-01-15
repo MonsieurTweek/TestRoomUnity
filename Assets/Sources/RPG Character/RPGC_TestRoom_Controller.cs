@@ -12,8 +12,8 @@ namespace RPGC_TestRoom_Anims{
 		[HideInInspector]	public RPGC_TestRoom_MovementController RPGC_TestRoom_MovementController;
 		[HideInInspector]	public RPGC_TestRoom_WeaponController RPGC_TestRoom_WeaponController;
 		[HideInInspector]	public RPGC_TestRoom_InputController RPGC_TestRoom_InputController;
-		[HideInInspector] public Animator animator;
-		[HideInInspector] public RPGC_TestRoom_IKHands RPGC_TestRoom_IKHands;
+		[HideInInspector]   public Animator animator;
+		[HideInInspector]   public RPGC_TestRoom_IKHands RPGC_TestRoom_IKHands;
 		public Weapon weapon = Weapon.UNARMED;
 		public GameObject target;
 
