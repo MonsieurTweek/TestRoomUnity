@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace RPGC_TestRoom_Anims{
 
@@ -48,28 +49,37 @@ namespace RPGC_TestRoom_Anims{
 			RPGC_TestRoom_MovementController.SwitchCollisionOn();
 		}
 
-		#endregion
+        #endregion
 
-		#region Updates
+        #region Updates
 
-		void Update(){
+        void Update(){
+            AcquireTarget();
 			UpdateAnimationSpeed();
-			if(RPGC_TestRoom_MovementController.MaintainingGround()){
-				if(canAction){
-					if(!isBlocking){
+			if(RPGC_TestRoom_MovementController.MaintainingGround())
+            {
+				if(canAction)
+                {
+					if(!isBlocking)
+                    {
 						Strafing();
 						Rolling();
 						//Attacks.
-						if(RPGC_TestRoom_InputController.inputAttackL){
+						if(RPGC_TestRoom_InputController.inputAttackL)
+                        {
 							Attack(1);
 						}
-						if(RPGC_TestRoom_InputController.inputAttackR){
+						if(RPGC_TestRoom_InputController.inputAttackR)
+                        {
 							Attack(2);
 						}
 						//Switch weapons.
-						if(RPGC_TestRoom_InputController.inputSwitchUpDown){
-							if(RPGC_TestRoom_WeaponController.isSwitchingFinished){
-								if(weapon == Weapon.UNARMED){
+						if(RPGC_TestRoom_InputController.inputSwitchUpDown)
+                        {
+							if(RPGC_TestRoom_WeaponController.isSwitchingFinished)
+                            {
+								if(weapon == Weapon.UNARMED)
+                                {
 									RPGC_TestRoom_WeaponController.SwitchWeaponTwoHand(1);
 								}
 								else{
@@ -78,10 +88,13 @@ namespace RPGC_TestRoom_Anims{
 							}
 						}
 						//Navmesh.
-						if(Input.GetMouseButtonDown(0)){
-							if(RPGC_TestRoom_MovementController.useMeshNav){
+						if(Input.GetMouseButtonDown(0))
+                        {
+							if(RPGC_TestRoom_MovementController.useMeshNav)
+                            {
 								RaycastHit hit;
-								if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100)){
+								if(Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+                                {
 									RPGC_TestRoom_MovementController.navMeshAgent.destination = hit.point;
 								}
 							}
@@ -90,7 +103,8 @@ namespace RPGC_TestRoom_Anims{
 				}
 			}
 			//Slow time toggle.
-			if(Input.GetKeyDown(KeyCode.T)){
+			if(Input.GetKeyDown(KeyCode.T))
+            {
 				if(Time.timeScale != 1){
 					Time.timeScale = 1;
 				}
@@ -99,7 +113,8 @@ namespace RPGC_TestRoom_Anims{
 				}
 			}
 			//Pause toggle.
-			if(Input.GetKeyDown(KeyCode.P)){
+			if(Input.GetKeyDown(KeyCode.P))
+            {
 				if(Time.timeScale != 1){
 					Time.timeScale = 1;
 				}
@@ -108,7 +123,8 @@ namespace RPGC_TestRoom_Anims{
 				}
 			}
 			//Strafe toggle.
-			if(RPGC_TestRoom_InputController.inputStrafe){
+			if(RPGC_TestRoom_InputController.inputStrafe)
+            {
 				animator.SetBool("Strafing", true);
 			}
 			else{
@@ -116,16 +132,64 @@ namespace RPGC_TestRoom_Anims{
 			}
 		}
 
-		void UpdateAnimationSpeed(){
+		void UpdateAnimationSpeed()
+        {
 			animator.SetFloat("AnimationSpeed", animationSpeed);
 		}
 
-		#endregion
+        private GameObject[] FindTargetInRange()
+        {
+            List<GameObject> potentialTargets = new List<GameObject>();
+            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, 10);
+            int i = 0;
+            while(i < hitColliders.Length)
+            {
+                if(hitColliders[i].tag == "Enemy")
+                {
+                    potentialTargets.Add(hitColliders[i].gameObject);
+                }
+                i++;
+            }
 
-		#region Aiming / Turning
+            return potentialTargets.ToArray();
+        }
 
-		//Turning.
-		public IEnumerator _Turning(int direction){
+        void AcquireTarget()
+        {
+            GameObject[] enemies = FindTargetInRange();
+            GameObject bestTarget = null;
+            float closestDistanceSqr = Mathf.Infinity;
+            Vector3 currentPosition = transform.position;
+            foreach(GameObject enemy in enemies)
+            {
+                Transform potentialTarget = enemy.transform;
+                Vector3 directionToTarget = potentialTarget.position - currentPosition;
+                float dSqrtToTarget = directionToTarget.sqrMagnitude;
+                if(dSqrtToTarget < closestDistanceSqr)
+                {
+                    closestDistanceSqr = dSqrtToTarget;
+                    bestTarget = enemy;
+                }
+            }
+
+            target = bestTarget;
+
+            // [TODO] A mettre dans une fonction à part
+            /*if(target == null)
+            {
+                RPGC_TestRoom_InputController.thirdPersonCamera.m_LookAt = transform;
+            } else
+            {
+                RPGC_TestRoom_InputController.thirdPersonCamera.m_LookAt = target.transform;
+            }*/
+        }
+
+        #endregion
+
+        #region Aiming / Turning
+
+        //Turning.
+        public IEnumerator _Turning(int direction){
 			if(direction == 1){
 				Lock(true, true, true, 0, 0.55f);
 				animator.SetTrigger("TurnLeftTrigger");
