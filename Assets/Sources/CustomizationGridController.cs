@@ -59,7 +59,7 @@ public class CustomizationGridController : MonoBehaviour
             }
         }
 
-        for (int j = 0; j < parts.Length - count; ++j)
+        for (int i = 0; i < parts.Length - count; ++i)
         {
             CustomizationTileController tile = Instantiate<CustomizationTileController>(instance._tilePrefab, instance._scrollRect.content);
 
@@ -67,7 +67,16 @@ public class CustomizationGridController : MonoBehaviour
 
             instance._tilePool.Add(tile);
 
-            instance.RefreshTile(tile, parts[j]);
+            instance.RefreshTile(tile, parts[i]);
+        }
+
+        for (int i = 0; i < parts.Length; ++i)
+        {
+            if (parts[i].activeSelf == true)
+            {
+                instance.SelectTile((uint) i);
+                break;
+            }
         }
 
         instance._scrollRect.Rebuild(CanvasUpdate.Layout);
