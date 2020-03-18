@@ -187,6 +187,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &577916096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1562355524927442498, guid: f5478bee132f21744b7048e46afb89c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7120878639599230172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &577916097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577916096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4dc50ac9802d647a6b7207223c661d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 5
+  sensibility: 3
+  treshold: 0.1
+  _root: {fileID: 1231095746}
 --- !u!1 &696874999
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +601,12 @@ MonoBehaviour:
   _tilePrefab: {fileID: 1204172325073857974, guid: a76a80537b8671d4e9a9fab89944e069,
     type: 3}
   _customizationCamera: {fileID: 696875001}
+--- !u!1 &1231095746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1562375988406547504, guid: f5478bee132f21744b7048e46afb89c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7120878639599230172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1291130674
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,13 +793,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 20
-    m_Right: 0
+    m_Right: 20
     m_Top: 20
-    m_Bottom: 0
+    m_Bottom: 20
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 75, y: 75}
+  m_CellSize: {x: 70, y: 70}
   m_Spacing: {x: 4, y: 4}
   m_Constraint: 0
   m_ConstraintCount: 2
