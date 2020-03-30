@@ -1,50 +1,46 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
 public class CustomizationPartController : MonoBehaviour
 {
-    public static CustomizationPartController currentBone = null;
+    public static CustomizationPartController currentPart = null;
+
+    [SerializeField]
+    private GameObject _bone = null;
+    public GameObject bone { get { return _bone; } }
 
     [SerializeField]
     private Vector3 _cameraOffset = Vector3.zero;
 
     [SerializeField]
-    protected GameObject[] _parts = null;
+    protected GameObject[] _femaleSkins = null;
+
+    [SerializeField]
+    protected GameObject[] _maleSkins = null;
+
+    private GameObject[] _skins = null;
 
     private uint _currentPartIndex = 0;
 
-    private void Update()
+    public void RefreshGrid()
     {
-        if (Input.GetMouseButtonUp(0) == true && GetClick() == true)
-        {
-            if (CustomizationPartController.currentBone != this)
-            {
-                CustomizationPartController.currentBone = this;
+        CustomizationPartController.currentPart = this;
 
-                CustomizationGridController.RefreshGrid(_parts, _cameraOffset);
-            }
-        }
-    }
+        _skins = GetGenderSkins();
 
-    private bool GetClick()
-    {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            return gameObject == hit.collider.gameObject;
-        }
-
-        return false;
+        CustomizationGridController.RefreshGrid(_skins, _cameraOffset);
     }
 
     public void SetPart(uint index)
     {
-        _parts[_currentPartIndex].SetActive(false);
+        _skins[_currentPartIndex].SetActive(false);
 
         _currentPartIndex = index;
 
-        _parts[_currentPartIndex].SetActive(true);
+        _skins[_currentPartIndex].SetActive(true);
+    }
+
+    public GameObject[] GetGenderSkins()
+    {
+        return CustomizationController.instance.isMale == true ? _maleSkins : _femaleSkins;
     }
 }

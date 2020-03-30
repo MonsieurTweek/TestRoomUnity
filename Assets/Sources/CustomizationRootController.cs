@@ -43,8 +43,6 @@ public class CustomizationRootController : MonoBehaviour
             //Get the angle to rotate and rotate
             float angle = _root.transform.localRotation.y + (_origin - mousePos.x) / sensibility;
 
-            UnityEngine.Debug.Log("Rotate with angle of " + angle);
-
             _root.transform.localRotation = Quaternion.Slerp(_root.transform.localRotation, Quaternion.Euler(0, angle, 0), rotationSpeed * Time.deltaTime);
         }
     }

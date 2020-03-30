@@ -6,20 +6,9 @@ using UnityEngine.UI;
 public class CustomizationGridController : MonoBehaviour
 {
     private const int CUSTOMIZATION_LAYER = 9;
+    
     private static CustomizationGridController _instance = null;
     public static CustomizationGridController instance { get { return _instance; } set { _instance = value; } }
-
-    public CustomizationGridController()
-    {
-        if (CustomizationGridController.instance == null)
-        {
-            CustomizationGridController.instance = this;
-        }
-        else
-        {
-            throw new System.Exception("One instance of CustomizationGridController already exists on game object " + this.gameObject);
-        }
-    }
 
     public event Action<uint> onTileSelected;
 
@@ -38,28 +27,37 @@ public class CustomizationGridController : MonoBehaviour
     {
         _scrollRect = GetComponent<ScrollRect>();
         _customizationCamera.enabled = false;
+
+        if (CustomizationGridController.instance == null)
+        {
+            CustomizationGridController.instance = this;
+        }
+        else
+        {
+            throw new System.Exception("One instance of CustomizationGridController already exists on game object " + this.gameObject);
+        }
     }
 
-    public static void RefreshGrid(GameObject[] parts, Vector3 cameraOffset)
+    public static void RefreshGrid(GameObject[] skins, Vector3 cameraOffset)
     {
-        instance._customizationCamera.transform.position = CustomizationPartController.currentBone.transform.position + cameraOffset;
+        instance._customizationCamera.transform.position = CustomizationPartController.currentPart.bone.transform.position + cameraOffset;
 
         int count = 0;
 
         for (int i = 0; i < instance._tilePool.Count; ++i)
         {
-            bool isActive = i < parts.Length;
+            bool isActive = i < skins.Length;
 
             instance._tilePool[i].gameObject.SetActive(isActive);
 
             if (isActive == true)
             {
-                instance.RefreshTile(instance._tilePool[i], parts[i]);
+                instance.RefreshTile(instance._tilePool[i], skins[i]);
                 count++;
             }
         }
 
-        for (int i = 0; i < parts.Length - count; ++i)
+        for (int i = 0; i < skins.Length - count; ++i)
         {
             CustomizationTileController tile = Instantiate<CustomizationTileController>(instance._tilePrefab, instance._scrollRect.content);
 
@@ -67,12 +65,12 @@ public class CustomizationGridController : MonoBehaviour
 
             instance._tilePool.Add(tile);
 
-            instance.RefreshTile(tile, parts[i]);
+            instance.RefreshTile(tile, skins[i]);
         }
 
-        for (int i = 0; i < parts.Length; ++i)
+        for (int i = 0; i < skins.Length; ++i)
         {
-            if (parts[i].activeSelf == true)
+            if (skins[i].activeSelf == true)
             {
                 instance.SelectTile((uint) i);
                 break;
@@ -84,7 +82,8 @@ public class CustomizationGridController : MonoBehaviour
 
     private void RefreshTile(CustomizationTileController tile, GameObject part)
     {
-        bool wasActive = part.activeSelf; 
+        bool wasActive = part.activeSelf;
+        int currentLayer = part.layer;
 
         part.SetActive(true);
         _customizationCamera.enabled = true;
@@ -111,7 +110,7 @@ public class CustomizationGridController : MonoBehaviour
         tile.icon.texture = texture;
         tile.background.color = Color.white;
 
-        part.layer = 0;
+        part.layer = currentLayer;
 
         _customizationCamera.enabled = false;
         part.SetActive(wasActive);
@@ -121,6 +120,6 @@ public class CustomizationGridController : MonoBehaviour
     {
         onTileSelected(index);
 
-        CustomizationPartController.currentBone.SetPart(index);
+        CustomizationPartController.currentPart.SetPart(index);
     }
 }
