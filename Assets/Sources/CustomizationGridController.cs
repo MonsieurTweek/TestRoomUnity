@@ -11,6 +11,8 @@ public class CustomizationGridController : MonoBehaviour
     public static CustomizationGridController instance { get { return _instance; } set { _instance = value; } }
 
     public event Action<uint> onTileSelected;
+    public event Action onGridRefreshing;
+    public event Action onGridRefreshed;
 
     private ScrollRect _scrollRect = null;
 
@@ -40,6 +42,8 @@ public class CustomizationGridController : MonoBehaviour
 
     public static void RefreshGrid(GameObject[] skins, Vector3 cameraOffset)
     {
+        instance.onGridRefreshing();
+
         instance._customizationCamera.transform.position = CustomizationPartController.currentPart.bone.transform.position + cameraOffset;
 
         int count = 0;
@@ -78,6 +82,8 @@ public class CustomizationGridController : MonoBehaviour
         }
 
         instance._scrollRect.Rebuild(CanvasUpdate.Layout);
+
+        instance.onGridRefreshed();
     }
 
     private void RefreshTile(CustomizationTileController tile, GameObject part)

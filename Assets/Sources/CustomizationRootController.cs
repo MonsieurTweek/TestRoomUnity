@@ -11,6 +11,13 @@ public class CustomizationRootController : MonoBehaviour
 
     private float _origin = 0f;
     private bool _isMovementStarted = false;
+    private Quaternion _currentRotation = Quaternion.identity;
+
+    private void Start()
+    {
+        CustomizationGridController.instance.onGridRefreshing += ResetRotation;
+        CustomizationGridController.instance.onGridRefreshed += ResumeRotation;
+    }
 
     private void Update()
     {
@@ -45,5 +52,16 @@ public class CustomizationRootController : MonoBehaviour
 
             _root.transform.localRotation = Quaternion.Slerp(_root.transform.localRotation, Quaternion.Euler(0, angle, 0), rotationSpeed * Time.deltaTime);
         }
+    }
+
+    private void ResetRotation()
+    {
+        _currentRotation = _root.transform.localRotation;
+        _root.transform.localRotation = Quaternion.identity;
+    }
+
+    private void ResumeRotation()
+    {
+        _root.transform.localRotation = _currentRotation;
     }
 }

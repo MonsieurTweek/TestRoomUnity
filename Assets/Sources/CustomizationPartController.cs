@@ -12,10 +12,10 @@ public class CustomizationPartController : MonoBehaviour
     private Vector3 _cameraOffset = Vector3.zero;
 
     [SerializeField]
-    protected GameObject[] _femaleSkins = null;
+    protected GameObject[] _maleSkins = null;
 
     [SerializeField]
-    protected GameObject[] _maleSkins = null;
+    protected GameObject[] _femaleSkins = null;
 
     private GameObject[] _skins = null;
 

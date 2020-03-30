@@ -5276,12 +5276,12 @@ PrefabInstance:
     - target: {fileID: 6587520776204804226, guid: f5170197d5c66424db9f76f838d5a2a8,
         type: 3}
       propertyPath: _cameraOffset.y
-      value: 0
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 6587520776204804226, guid: f5170197d5c66424db9f76f838d5a2a8,
         type: 3}
       propertyPath: _cameraOffset.z
-      value: -1
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6587520776204804226, guid: f5170197d5c66424db9f76f838d5a2a8,
         type: 3}
@@ -7347,12 +7347,12 @@ PrefabInstance:
     - target: {fileID: 6587520776204804226, guid: f5170197d5c66424db9f76f838d5a2a8,
         type: 3}
       propertyPath: _cameraOffset.y
-      value: 0
+      value: -0.225
       objectReference: {fileID: 0}
     - target: {fileID: 6587520776204804226, guid: f5170197d5c66424db9f76f838d5a2a8,
         type: 3}
       propertyPath: _cameraOffset.z
-      value: -1
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6587520776204804226, guid: f5170197d5c66424db9f76f838d5a2a8,
         type: 3}
