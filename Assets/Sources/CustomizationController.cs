@@ -14,8 +14,6 @@ public class CustomizationController : MonoBehaviour
 
     [SerializeField]
     protected Toggle _toggleButton = null;
-    [SerializeField]
-    protected Text _toggleLabel = null;
 
     public void Awake()
     {
@@ -38,7 +36,6 @@ public class CustomizationController : MonoBehaviour
         isMale = toggle;
 
         _toggleButton.isOn = isMale == true;
-        _toggleLabel.text = isMale == true ? "Your character is a male" : "Your character is a female";
 
         if (CustomizationPartController.currentPart != null)
         {
