@@ -23,9 +23,9 @@ public class CustomizationPartController : MonoBehaviour
 
     public void RefreshGrid()
     {
-        CustomizationPartController.currentPart = this;
+        GetSkinsByGender();
 
-        _skins = GetGenderSkins();
+        CustomizationPartController.currentPart = this;
 
         CustomizationGridController.RefreshGrid(_skins, _cameraOffset);
     }
@@ -39,8 +39,17 @@ public class CustomizationPartController : MonoBehaviour
         _skins[_currentPartIndex].SetActive(true);
     }
 
-    public GameObject[] GetGenderSkins()
+    public void GetSkinsByGender()
     {
-        return CustomizationController.instance.isMale == true ? _maleSkins : _femaleSkins;
+        GameObject[] skins = CustomizationController.instance.isMale == true ? _maleSkins : _femaleSkins;
+
+        if (_skins != null)
+        {
+            int offset = skins.Length - _skins.Length;
+
+            _currentPartIndex = (uint) Mathf.Max(0, _currentPartIndex + offset);
+        }
+
+        _skins = skins;
     }
 }

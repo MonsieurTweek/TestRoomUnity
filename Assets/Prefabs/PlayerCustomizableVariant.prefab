@@ -1,293 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &513235379645335418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560984735420368854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: -0.1, y: 0, z: -0.6}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &5612454513007495023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561005481833784834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: 0, z: -0.7}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &7890891311529315016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561640481839926198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: 0, z: -0.6}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &1104734810854119170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561672805637108566}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: -0.3, z: -1.25}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &7644184288858371898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561796458959866278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: 0, z: -1}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &2914946551910685262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561832359600678058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0.1, y: 0, z: -0.6}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &2863307988683598666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561870515690995086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: 0, z: -0.6}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &4886422978236222801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1561904182264088902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: -0.3, y: 0, z: -1}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &202139662220944455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562253187241466416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: -0.23, z: -1.15}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &577916097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562355524927442498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a4dc50ac9802d647a6b7207223c661d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 5
-  sensibility: 3
-  treshold: 0.1
-  _root: {fileID: 1562375988406547504}
---- !u!114 &6433076276827641233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562435958944634624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0.15, y: 0, z: -0.8}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &1924739278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562463298531040672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: 0, z: -1.1}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &702658129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562499223880458820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: 0, z: -1.1}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &2597664416584304938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562504476153122988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0.3, y: 0, z: -1}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &7517118858812208594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562514615912817178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: -0.23, z: -1.15}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &5478291582934558975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562584067059004400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: -0.15, y: 0, z: -0.8}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &9170824047316933650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562586907361998438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: 0, z: -0.7}
-  _femaleSkins: []
-  _maleSkins: []
---- !u!114 &663802464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562685926884358332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: -0.15, z: -1.3}
-  _femaleSkins: []
-  _maleSkins: []
 --- !u!1 &2897569357514769376
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +83,294 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2897569357514769376}
   m_Enabled: 1
+--- !u!114 &577916097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562355524927442498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a4dc50ac9802d647a6b7207223c661d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 5
+  sensibility: 3
+  treshold: 0.1
+  _root: {fileID: 1562375988406547504}
+--- !u!114 &7644184288858371898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561796458959866278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: 0, z: -1}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &1104734810854119170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561672805637108566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: -0.3, z: -1.25}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &2597664416584304938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562504476153122988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0.3, y: 0, z: -1}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &702658129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562499223880458820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: 0, z: -1.1}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &6433076276827641233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562435958944634624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0.15, y: 0, z: -0.8}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &2863307988683598666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561870515690995086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: 0, z: -0.6}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &2914946551910685262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561832359600678058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0.1, y: 0, z: -0.6}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &4886422978236222801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561904182264088902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: -0.3, y: 0, z: -1}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &1924739278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562463298531040672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: 0, z: -1.1}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &5478291582934558975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562584067059004400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: -0.15, y: 0, z: -0.8}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &7890891311529315016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561640481839926198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: 0, z: -0.6}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &513235379645335418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560984735420368854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: -0.1, y: 0, z: -0.6}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &663802464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562685926884358332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: -0.15, z: -1.3}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &202139662220944455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562253187241466416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: -0.23, z: -1.15}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &9170824047316933650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562586907361998438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: 0, z: -0.7}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &7517118858812208594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562514615912817178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: -0.23, z: -1.15}
+  _maleSkins: []
+  _femaleSkins: []
+--- !u!114 &5612454513007495023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561005481833784834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bone: {fileID: 0}
+  _cameraOffset: {x: 0, y: 0, z: -0.7}
+  _maleSkins: []
+  _femaleSkins: []
 --- !u!1001 &6848778661857413418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3492,6 +3492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381512572751280282, guid: cce89ec5d9ba0e84bb8e36396d25a416,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 762134656, guid: cce89ec5d9ba0e84bb8e36396d25a416, type: 3}
