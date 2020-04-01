@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TabGroupController : MonoBehaviour
 {
-    public List<TabButtonController> tabButtons = null;
-    public List<GameObject> pages = null;
+    private List<TabButtonController> _tabButtons = null;
 
     public Sprite tabIdle = null;
     public Sprite tabHover = null;
@@ -12,8 +12,15 @@ public class TabGroupController : MonoBehaviour
 
     public TabButtonController selectedTab = null;
 
-    private void Awake()
+    private void Start()
     {
+        StartCoroutine("Initialize");
+    }
+
+    private IEnumerator Initialize()
+    {
+        yield return new WaitForEndOfFrame();
+        
         if (selectedTab != null)
         {
             OnTabSelected(selectedTab);
@@ -22,12 +29,12 @@ public class TabGroupController : MonoBehaviour
 
     public void Subscribe(TabButtonController button)
     {
-        if (tabButtons == null)
+        if (_tabButtons == null)
         {
-            tabButtons = new List<TabButtonController>();
+            _tabButtons = new List<TabButtonController>();
         }
 
-        tabButtons.Add(button);
+        _tabButtons.Add(button);
     }
 
     public void OnTabEnter(TabButtonController button)
@@ -62,7 +69,7 @@ public class TabGroupController : MonoBehaviour
 
     public void ResetTabs()
     {
-        foreach(TabButtonController button in tabButtons)
+        foreach(TabButtonController button in _tabButtons)
         {
             if (selectedTab == null || button != selectedTab)
             {
@@ -71,20 +78,8 @@ public class TabGroupController : MonoBehaviour
         }
     }
 
-    public void SwapContent()
+    public virtual void SwapContent()
     {
-        int index = selectedTab.transform.GetSiblingIndex();
-
-        for (int i = 0; i < pages.Count; i++)
-        {
-            if (i == index)
-            {
-                pages[i].SetActive(true);
-            }
-            else
-            {
-                pages[i].SetActive(false);
-            }
-        }
+        UnityEngine.Debug.LogWarning("Implement a custom swap content method");
     }
 }

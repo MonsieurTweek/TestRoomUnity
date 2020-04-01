@@ -3,6 +3,7 @@
 public class CustomizationPartController : MonoBehaviour
 {
     public static CustomizationPartController currentPart = null;
+    public static Material currentMaterial = null;
 
     [SerializeField]
     private GameObject _bone = null;
@@ -27,7 +28,14 @@ public class CustomizationPartController : MonoBehaviour
 
         CustomizationPartController.currentPart = this;
 
-        CustomizationGridController.RefreshGrid(_skins, _cameraOffset);
+        if (CustomizationPartController.currentMaterial != null)
+        {
+            SetMaterial(CustomizationPartController.currentMaterial);
+        }
+        else
+        {
+            CustomizationGridController.RefreshGrid(_skins, _cameraOffset);
+        }
     }
 
     public void SetPart(uint index)
@@ -37,6 +45,18 @@ public class CustomizationPartController : MonoBehaviour
         _currentPartIndex = index;
 
         _skins[_currentPartIndex].SetActive(true);
+    }
+
+    public void SetMaterial(Material material)
+    {
+        foreach (GameObject skin in _skins)
+        {
+            skin.GetComponent<SkinnedMeshRenderer>().material = material;
+        }
+
+        CustomizationPartController.currentMaterial = material;
+
+        CustomizationGridController.RefreshGrid(_skins, _cameraOffset);
     }
 
     public void GetSkinsByGender()

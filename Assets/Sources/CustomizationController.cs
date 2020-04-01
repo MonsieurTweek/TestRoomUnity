@@ -13,17 +13,27 @@ public class CustomizationController : MonoBehaviour
     public bool isMale = true;
 
     [SerializeField]
+    private CustomizationPartController _firstPart = null;
+
+    [SerializeField]
     protected Toggle _toggleButton = null;
 
-    public void Awake()
+    public void Start()
     {
         if (CustomizationController.instance == null)
         {
             CustomizationController.instance = this;
 
+            // Force initialization on Male
             CustomizationController.instance._toggleButton.onValueChanged.AddListener(ToggleMale);
-
             ToggleMale(true);
+
+            // Force initialization on a specific part
+            if (_firstPart != null)
+            {
+                CustomizationPartController.currentPart = _firstPart;
+                CustomizationPartController.currentPart.RefreshGrid();
+            }
         }
         else
         {
