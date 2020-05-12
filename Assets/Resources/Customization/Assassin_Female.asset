@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b0a2d98873e4c45bcd1982136239b4, type: 3}
+  m_Name: Assassin_Female
+  m_EditorClassIdentifier: 
+  isMale: 0
+  material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+  skins:
+    list:
+    - name: Head_FacialHair
+      index: 2
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: Head_Hair
+      index: 21
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: UpperLeg_R_LowerLeg_R
+      index: 3
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: Elbow_R_Hand_R
+      index: 17
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: Elbow_L_Hand_L
+      index: 3
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: Shoulder_L_Elbow_L
+      index: 3
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: Root_Hips
+      index: 23
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: LowerLeg_R_Knee_Attachment_R
+      index: 6
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: Shoulder_R_Elbow_R
+      index: 3
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: 
+      index: 0
+      material: {fileID: 0}
+    - name: Spine_03_Clavicle_R
+      index: 11
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: 
+      index: 0
+      material: {fileID: 0}
+    - name: Clavicle_R_Shoulder_Attachment_R
+      index: 5
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: LowerLeg_L_Knee_Attachment_L
+      index: 6
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: Clavicle_L_Shoulder_Attachment_L
+      index: 5
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: 
+      index: 0
+      material: {fileID: 0}
+    - name: Spine_03_Chest_Attachment
+      index: 1
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: Neck_Head
+      index: 12
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: Spine_03_Clavicle_L
+      index: 11
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: 
+      index: 0
+      material: {fileID: 0}
+    - name: 
+      index: 0
+      material: {fileID: 0}
+    - name: UpperLeg_L_LowerLeg_L
+      index: 3
+      material: {fileID: 2100000, guid: 803b01c21ba47cd418250631b259be4d, type: 2}
+    - name: 
+      index: 0
+      material: {fileID: 0}
+    - name: 
+      index: 0
+      material: {fileID: 0}
+    - name: 
+      index: 0
+      material: {fileID: 0}

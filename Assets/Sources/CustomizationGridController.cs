@@ -44,7 +44,7 @@ public class CustomizationGridController : MonoBehaviour
     {
         instance.onGridRefreshing();
 
-        instance._customizationCamera.transform.position = CustomizationPartController.currentPart.bone.transform.position + cameraOffset;
+        instance._customizationCamera.transform.position = CustomizationPartOnGUI.currentPart.bone.transform.position + cameraOffset;
 
         int count = 0;
 
@@ -126,6 +126,6 @@ public class CustomizationGridController : MonoBehaviour
     {
         onTileSelected(index);
 
-        CustomizationPartController.currentPart.SetPart(index);
+        CustomizationPartOnGUI.currentPart.SetPart(index);
     }
 }

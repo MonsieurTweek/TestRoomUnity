@@ -83,6 +83,154 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 8.670319, z: -2.5707622}
     m_Extent: {x: 15.14296, y: 5.692749, z: 4.9923406}
   m_DirtyAABB: 0
+--- !u!1 &3666248690031901626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5024218875285371750}
+  - component: {fileID: 3260329568413609881}
+  m_Layer: 0
+  m_Name: FacialHair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5024218875285371750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3666248690031901626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5382363968605068754}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3260329568413609881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3666248690031901626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5378519800593103496}
+  - {fileID: 5378652990169449716}
+  - {fileID: 5378979676868883886}
+  - {fileID: 5378457236771084024}
+  - {fileID: 5378626400513374674}
+  - {fileID: 5378976850250403916}
+  - {fileID: 5379354308630462796}
+  - {fileID: 5379299217816124922}
+  - {fileID: 5378674444010762126}
+  - {fileID: 5379335420166996092}
+  - {fileID: 5378505946688167688}
+  - {fileID: 5378596801897746140}
+  - {fileID: 5378456276175483084}
+  - {fileID: 5379453225996680354}
+  - {fileID: 5378553289987755882}
+  - {fileID: 5379338306979178278}
+  - {fileID: 5378529047564215566}
+  - {fileID: 5378795272185657950}
+  - {fileID: 5378728614601425940}
+  - {fileID: 5377962386152071512}
+  - {fileID: 5378788025076457654}
+  - {fileID: 5377994942935716352}
+  _femaleSkins:
+  - {fileID: 5378728614601425940}
+  - {fileID: 5377962386152071512}
+  - {fileID: 5378788025076457654}
+  - {fileID: 5377994942935716352}
+  genderHasChanged: 1
+--- !u!1 &4973524675955843573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 368744639799130656}
+  - component: {fileID: 5351292384459998832}
+  m_Layer: 0
+  m_Name: Face_Attachment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &368744639799130656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973524675955843573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5382363968605068754}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5351292384459998832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973524675955843573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5377946307072895652}
+  - {fileID: 5378871708004255850}
+  - {fileID: 5377931242392492598}
+  - {fileID: 5378787191615618690}
+  - {fileID: 5377987084741175272}
+  - {fileID: 5379468017286400240}
+  - {fileID: 5378887441682246894}
+  - {fileID: 5379455816735730730}
+  - {fileID: 5379304253063799558}
+  - {fileID: 5378813484006278026}
+  - {fileID: 5378490771353248798}
+  - {fileID: 5378551060991235942}
+  - {fileID: 5378658150776138056}
+  _femaleSkins:
+  - {fileID: 5378731752811670174}
+  - {fileID: 5379309346238077516}
+  - {fileID: 5377965879297321750}
+  - {fileID: 5378613915784447366}
+  - {fileID: 5379382456002792480}
+  - {fileID: 5378502007554594696}
+  - {fileID: 5378805344962952976}
+  - {fileID: 5378474491140385964}
+  - {fileID: 5379377151183030698}
+  - {fileID: 5378715075857245342}
+  - {fileID: 5378521247353323498}
+  - {fileID: 5379290963323586478}
+  - {fileID: 5379369836202169284}
+  genderHasChanged: 1
 --- !u!1 &5377861287068168408
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5381523423990773658
 Transform:
   m_ObjectHideFlags: 0
@@ -684,6 +832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382258537776507856}
+  - component: {fileID: 4038123814499022851}
   m_Layer: 0
   m_Name: Hand_R
   m_TagString: Untagged
@@ -708,6 +857,59 @@ Transform:
   m_Father: {fileID: 5382157166386209034}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4038123814499022851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5377866062144507644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5378586808963386284}
+  - {fileID: 5379195136551673298}
+  - {fileID: 5379384084404414438}
+  - {fileID: 5379480330021916016}
+  - {fileID: 5378656627961265882}
+  - {fileID: 5378922615670197532}
+  - {fileID: 5378631233491643816}
+  - {fileID: 5379181507731682364}
+  - {fileID: 5379414658177786810}
+  - {fileID: 5378949433838360034}
+  - {fileID: 5377904968318398426}
+  - {fileID: 5379362179655069852}
+  - {fileID: 5378481369555068800}
+  - {fileID: 5377876689796198882}
+  - {fileID: 5379503881212805514}
+  - {fileID: 5379541565532268804}
+  - {fileID: 5378674288942029426}
+  - {fileID: 5379484907310655820}
+  _femaleSkins:
+  - {fileID: 5379452720749793788}
+  - {fileID: 5378698973499039488}
+  - {fileID: 5379302605335123908}
+  - {fileID: 5378643880858993200}
+  - {fileID: 5377955166766187886}
+  - {fileID: 5377993081551514320}
+  - {fileID: 5379523832069066176}
+  - {fileID: 5378967640263849660}
+  - {fileID: 5378434882613301368}
+  - {fileID: 5378907444805519736}
+  - {fileID: 5379442683985921102}
+  - {fileID: 5378702586354538898}
+  - {fileID: 5378873076855669094}
+  - {fileID: 5379192201043632410}
+  - {fileID: 5378574588919797458}
+  - {fileID: 5378816291371397202}
+  - {fileID: 5378610942690886134}
+  - {fileID: 5378977890711501394}
+  genderHasChanged: 1
 --- !u!1 &5377867267230713330
 GameObject:
   m_ObjectHideFlags: 0
@@ -3110,7 +3312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5381257138676178586
 Transform:
   m_ObjectHideFlags: 0
@@ -6135,7 +6337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5381850484846869146
 Transform:
   m_ObjectHideFlags: 0
@@ -7556,6 +7758,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382043409595776864}
+  - component: {fileID: 9211301051682063616}
   m_Layer: 0
   m_Name: Knee_Attachment_R
   m_TagString: Untagged
@@ -7577,6 +7780,45 @@ Transform:
   m_Father: {fileID: 5381588613799244622}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9211301051682063616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5377986107632430888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5378755986677489082}
+  - {fileID: 5378554927090088866}
+  - {fileID: 5378570124686835928}
+  - {fileID: 5379498457068422032}
+  - {fileID: 5378465172082125804}
+  - {fileID: 5378762934528968566}
+  - {fileID: 5378613333355787504}
+  - {fileID: 5377905029332461672}
+  - {fileID: 5378763755108551154}
+  - {fileID: 5379356068395016294}
+  - {fileID: 5378871320536318832}
+  _femaleSkins:
+  - {fileID: 5378755986677489082}
+  - {fileID: 5378554927090088866}
+  - {fileID: 5378570124686835928}
+  - {fileID: 5379498457068422032}
+  - {fileID: 5378465172082125804}
+  - {fileID: 5378762934528968566}
+  - {fileID: 5378613333355787504}
+  - {fileID: 5377905029332461672}
+  - {fileID: 5378763755108551154}
+  - {fileID: 5379356068395016294}
+  - {fileID: 5378871320536318832}
+  genderHasChanged: 1
 --- !u!1 &5377987084741175272
 GameObject:
   m_ObjectHideFlags: 0
@@ -12279,7 +12521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5382074652654157606
 Transform:
   m_ObjectHideFlags: 0
@@ -17246,6 +17488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382158317792078126}
+  - component: {fileID: 3145124698419234638}
   m_Layer: 0
   m_Name: Head_Attachment
   m_TagString: Untagged
@@ -17261,12 +17504,81 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5378557420856996246}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.4071083e-13, y: 21.543543, z: 1.0532024}
+  m_LocalPosition: {x: 0, y: 21.543543, z: 1.0532024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5382363968605068754}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3145124698419234638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378557420856996246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5379403601524486932}
+  - {fileID: 5378600383832498514}
+  - {fileID: 5378822484043155500}
+  - {fileID: 5377986083986073524}
+  - {fileID: 5377945380454715702}
+  - {fileID: 5378825365841626120}
+  - {fileID: 5378574991330931568}
+  - {fileID: 5379351173263790024}
+  - {fileID: 5378972455588905544}
+  - {fileID: 5378867108338426598}
+  - {fileID: 5377929877344899438}
+  - {fileID: 5378794758504995458}
+  - {fileID: 5378715106050711096}
+  - {fileID: 5378467965460255386}
+  - {fileID: 5377909467204487010}
+  - {fileID: 5378496066029944532}
+  - {fileID: 5379407423338176276}
+  - {fileID: 5379397358770515874}
+  - {fileID: 5378722974887932230}
+  - {fileID: 5378794385904864498}
+  - {fileID: 5378541304947487346}
+  - {fileID: 5378795212581241538}
+  - {fileID: 5378936356132414404}
+  - {fileID: 5378605039036642092}
+  - {fileID: 5377867267230713330}
+  - {fileID: 5378700098209290986}
+  _femaleSkins:
+  - {fileID: 5379403601524486932}
+  - {fileID: 5378600383832498514}
+  - {fileID: 5378822484043155500}
+  - {fileID: 5377986083986073524}
+  - {fileID: 5377945380454715702}
+  - {fileID: 5378825365841626120}
+  - {fileID: 5378574991330931568}
+  - {fileID: 5379351173263790024}
+  - {fileID: 5378972455588905544}
+  - {fileID: 5378867108338426598}
+  - {fileID: 5377929877344899438}
+  - {fileID: 5378794758504995458}
+  - {fileID: 5378715106050711096}
+  - {fileID: 5378467965460255386}
+  - {fileID: 5377909467204487010}
+  - {fileID: 5378496066029944532}
+  - {fileID: 5379407423338176276}
+  - {fileID: 5379397358770515874}
+  - {fileID: 5378722974887932230}
+  - {fileID: 5378794385904864498}
+  - {fileID: 5378541304947487346}
+  - {fileID: 5378795212581241538}
+  - {fileID: 5378936356132414404}
+  - {fileID: 5378605039036642092}
+  - {fileID: 5377867267230713330}
+  - {fileID: 5378700098209290986}
+  genderHasChanged: 1
 --- !u!1 &5378558355840963368
 GameObject:
   m_ObjectHideFlags: 0
@@ -18292,8 +18604,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5378579758560084206}
-  m_LocalRotation: {x: -8.012619e-16, y: 1.2480334e-15, z: -0.2700158, w: 0.96285594}
-  m_LocalPosition: {x: -11.284036, y: -1.15463195e-14, z: -2.113351e-15}
+  m_LocalRotation: {x: 0.000000014901159, y: -0.000000029802319, z: -0.27001575, w: 0.96285594}
+  m_LocalPosition: {x: -11.284041, y: 0.0000014898598, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5381481307052514670}
@@ -18701,7 +19013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5381800073036591340
 Transform:
   m_ObjectHideFlags: 0
@@ -18873,6 +19185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381588613799244622}
+  - component: {fileID: 2158215088084977572}
   m_Layer: 0
   m_Name: LowerLeg_R
   m_TagString: Untagged
@@ -18896,6 +19209,63 @@ Transform:
   m_Father: {fileID: 5381822564419923676}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2158215088084977572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378587869732383536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5377912381224583936}
+  - {fileID: 5379285258576473828}
+  - {fileID: 5379437069928386578}
+  - {fileID: 5378831452595057586}
+  - {fileID: 5378852945851816214}
+  - {fileID: 5378706088299115236}
+  - {fileID: 5379386478494515670}
+  - {fileID: 5378920449396673534}
+  - {fileID: 5379186559729670652}
+  - {fileID: 5377950191964556510}
+  - {fileID: 5378600050343980550}
+  - {fileID: 5379502743145128826}
+  - {fileID: 5378630391551552712}
+  - {fileID: 5379326919137164668}
+  - {fileID: 5377969002224832014}
+  - {fileID: 5379166696809369688}
+  - {fileID: 5378587714182624136}
+  - {fileID: 5378746738810158114}
+  - {fileID: 5378621803705659712}
+  - {fileID: 5378627632244264882}
+  _femaleSkins:
+  - {fileID: 5379409096043414298}
+  - {fileID: 5378677318651054432}
+  - {fileID: 5379343048987681160}
+  - {fileID: 5379429282027357510}
+  - {fileID: 5379328824950267338}
+  - {fileID: 5378576698495637288}
+  - {fileID: 5378442139408644438}
+  - {fileID: 5378873970858028552}
+  - {fileID: 5379274511017937610}
+  - {fileID: 5379535181490255124}
+  - {fileID: 5378720864877358610}
+  - {fileID: 5378919287634555400}
+  - {fileID: 5379197824076543030}
+  - {fileID: 5379508306759540290}
+  - {fileID: 5378437652356209148}
+  - {fileID: 5378761313886772148}
+  - {fileID: 5377861959464773920}
+  - {fileID: 5379359173164123004}
+  - {fileID: 5379459685552534270}
+  - {fileID: 5377861898569290812}
+  genderHasChanged: 1
 --- !u!1 &5378589986351970302
 GameObject:
   m_ObjectHideFlags: 0
@@ -19660,6 +20030,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381788581810951354}
+  - component: {fileID: 2874503036670849652}
   m_Layer: 0
   m_Name: Clavicle_L
   m_TagString: Untagged
@@ -19683,6 +20054,65 @@ Transform:
   m_Father: {fileID: 5381259549355129874}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2874503036670849652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378598002763618694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5377966395410487678}
+  - {fileID: 5378555153756409316}
+  - {fileID: 5379516093502541488}
+  - {fileID: 5378690741513072560}
+  - {fileID: 5379296381919050640}
+  - {fileID: 5378530813324582166}
+  - {fileID: 5378689574071668822}
+  - {fileID: 5378734573049642638}
+  - {fileID: 5379456362171201300}
+  - {fileID: 5377982354002366192}
+  - {fileID: 5379366100276250818}
+  - {fileID: 5378926662812824752}
+  - {fileID: 5377969714083994366}
+  - {fileID: 5378432480704589852}
+  - {fileID: 5379475263046518656}
+  - {fileID: 5378766041527852906}
+  - {fileID: 5378715622789804264}
+  - {fileID: 5378767550308067334}
+  - {fileID: 5378687236896407708}
+  - {fileID: 5378628405982658554}
+  - {fileID: 5379434231278929668}
+  _femaleSkins:
+  - {fileID: 5378598061314130108}
+  - {fileID: 5378433473076127470}
+  - {fileID: 5378480507876440454}
+  - {fileID: 5378754662187401946}
+  - {fileID: 5378740641354456284}
+  - {fileID: 5378519905231284982}
+  - {fileID: 5379454779184644208}
+  - {fileID: 5378467033194355672}
+  - {fileID: 5379294765217362858}
+  - {fileID: 5378701319536009270}
+  - {fileID: 5378465835444444306}
+  - {fileID: 5377980150871202786}
+  - {fileID: 5379358508537988706}
+  - {fileID: 5378545941333683318}
+  - {fileID: 5378500351657891498}
+  - {fileID: 5378556387521425500}
+  - {fileID: 5378707755403242340}
+  - {fileID: 5378563863735501756}
+  - {fileID: 5378791076478435828}
+  - {fileID: 5378972986272229264}
+  - {fileID: 5378724439458638232}
+  genderHasChanged: 1
 --- !u!1 &5378598061314130108
 GameObject:
   m_ObjectHideFlags: 0
@@ -20207,6 +20637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381772285547486082}
+  - component: {fileID: 8135338289964664181}
   m_Layer: 0
   m_Name: Shoulder_Attachment_L
   m_TagString: Untagged
@@ -20228,6 +20659,65 @@ Transform:
   m_Father: {fileID: 5381788581810951354}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8135338289964664181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378603264704949102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5379294407383248730}
+  - {fileID: 5378805472598306462}
+  - {fileID: 5378547070577969076}
+  - {fileID: 5378542365716809828}
+  - {fileID: 5378823006880986808}
+  - {fileID: 5378835902162401276}
+  - {fileID: 5378929158108973598}
+  - {fileID: 5378744284750963960}
+  - {fileID: 5377867484987205312}
+  - {fileID: 5379422479019581542}
+  - {fileID: 5379187518133021144}
+  - {fileID: 5378594907900603956}
+  - {fileID: 5378628444237338236}
+  - {fileID: 5379467581773782680}
+  - {fileID: 5377934447878156868}
+  - {fileID: 5378941601762425266}
+  - {fileID: 5379459384563225628}
+  - {fileID: 5379493795197667966}
+  - {fileID: 5379288563784085134}
+  - {fileID: 5378667572138894718}
+  - {fileID: 5379282652683944720}
+  _femaleSkins:
+  - {fileID: 5379294407383248730}
+  - {fileID: 5378805472598306462}
+  - {fileID: 5378547070577969076}
+  - {fileID: 5378542365716809828}
+  - {fileID: 5378823006880986808}
+  - {fileID: 5378835902162401276}
+  - {fileID: 5378929158108973598}
+  - {fileID: 5378744284750963960}
+  - {fileID: 5377867484987205312}
+  - {fileID: 5379422479019581542}
+  - {fileID: 5379187518133021144}
+  - {fileID: 5378594907900603956}
+  - {fileID: 5378628444237338236}
+  - {fileID: 5379467581773782680}
+  - {fileID: 5377934447878156868}
+  - {fileID: 5378941601762425266}
+  - {fileID: 5379459384563225628}
+  - {fileID: 5379493795197667966}
+  - {fileID: 5379288563784085134}
+  - {fileID: 5378667572138894718}
+  - {fileID: 5379282652683944720}
+  genderHasChanged: 1
 --- !u!1 &5378605039036642092
 GameObject:
   m_ObjectHideFlags: 0
@@ -23684,6 +24174,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381264257818547822}
+  - component: {fileID: 18919519709663802}
   m_Layer: 0
   m_Name: Chest_Attachment
   m_TagString: Untagged
@@ -23705,6 +24196,81 @@ Transform:
   m_Father: {fileID: 5381259549355129874}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &18919519709663802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378653833439212104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5378487483113414126}
+  - {fileID: 5378560029090469844}
+  - {fileID: 5378483986777942056}
+  - {fileID: 5378000234245894526}
+  - {fileID: 5378001181138860766}
+  - {fileID: 5377884011957830958}
+  - {fileID: 5379191400735476014}
+  - {fileID: 5377977843428373700}
+  - {fileID: 5378934559612340562}
+  - {fileID: 5379292985147400290}
+  - {fileID: 5377881445200824892}
+  - {fileID: 5379352468244933396}
+  - {fileID: 5378830514306240516}
+  - {fileID: 5379547291263508116}
+  - {fileID: 5378591215397493796}
+  - {fileID: 5379514934504757394}
+  - {fileID: 5378656614790716536}
+  - {fileID: 5378699273705681034}
+  - {fileID: 5379272953512045934}
+  - {fileID: 5379524381407655190}
+  - {fileID: 5377941522191189646}
+  - {fileID: 5378714057035124966}
+  - {fileID: 5378654556505726798}
+  - {fileID: 5378640761865462506}
+  - {fileID: 5378444936017049204}
+  - {fileID: 5379517806566550462}
+  - {fileID: 5378865433517385352}
+  - {fileID: 5378740717551233838}
+  - {fileID: 5378585272432236704}
+  _femaleSkins:
+  - {fileID: 5377965457628551384}
+  - {fileID: 5378853012342385798}
+  - {fileID: 5378594208301574532}
+  - {fileID: 5378614068895207292}
+  - {fileID: 5379407033719233212}
+  - {fileID: 5379519256946908318}
+  - {fileID: 5377954744462252388}
+  - {fileID: 5378679992312865578}
+  - {fileID: 5379358144711413808}
+  - {fileID: 5379281644422021150}
+  - {fileID: 5378592772057787888}
+  - {fileID: 5378861867036878062}
+  - {fileID: 5377979069078747710}
+  - {fileID: 5378824572601122408}
+  - {fileID: 5378920691627316836}
+  - {fileID: 5378675191974946930}
+  - {fileID: 5377931839249562498}
+  - {fileID: 5378787894267655582}
+  - {fileID: 5378954669058999544}
+  - {fileID: 5378694155916466022}
+  - {fileID: 5379308406737714770}
+  - {fileID: 5379412881200621868}
+  - {fileID: 5378722779414062824}
+  - {fileID: 5379417780375145266}
+  - {fileID: 5378825964333753672}
+  - {fileID: 5379187621006224626}
+  - {fileID: 5378834492543104710}
+  - {fileID: 5379346644082090324}
+  - {fileID: 5377891028068760902}
+  genderHasChanged: 1
 --- !u!1 &5378654556505726798
 GameObject:
   m_ObjectHideFlags: 0
@@ -23899,6 +24465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381512430432757882}
+  - component: {fileID: 5759566237198637950}
   m_Layer: 0
   m_Name: Knee_Attachment_L
   m_TagString: Untagged
@@ -23920,6 +24487,45 @@ Transform:
   m_Father: {fileID: 5382349004277199628}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5759566237198637950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378656313426689868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5379532961855279326}
+  - {fileID: 5378762319200010092}
+  - {fileID: 5378476971273277704}
+  - {fileID: 5377892448076045214}
+  - {fileID: 5378720492433917142}
+  - {fileID: 5379375655694070738}
+  - {fileID: 5378973567432697014}
+  - {fileID: 5378575006527968754}
+  - {fileID: 5377900518356501342}
+  - {fileID: 5379461015457938320}
+  - {fileID: 5377935618316602622}
+  _femaleSkins:
+  - {fileID: 5379532961855279326}
+  - {fileID: 5378762319200010092}
+  - {fileID: 5378476971273277704}
+  - {fileID: 5377892448076045214}
+  - {fileID: 5378720492433917142}
+  - {fileID: 5379375655694070738}
+  - {fileID: 5378973567432697014}
+  - {fileID: 5378575006527968754}
+  - {fileID: 5377900518356501342}
+  - {fileID: 5379461015457938320}
+  - {fileID: 5377935618316602622}
+  genderHasChanged: 1
 --- !u!1 &5378656614790716536
 GameObject:
   m_ObjectHideFlags: 0
@@ -24229,6 +24835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382157166386209034}
+  - component: {fileID: 3340149420492040257}
   m_Layer: 0
   m_Name: Elbow_R
   m_TagString: Untagged
@@ -24252,6 +24859,61 @@ Transform:
   m_Father: {fileID: 5382206069027204318}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3340149420492040257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378659176479587034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5377864929568900554}
+  - {fileID: 5378541219493399144}
+  - {fileID: 5378629973165061416}
+  - {fileID: 5378648659353337792}
+  - {fileID: 5378972711730391130}
+  - {fileID: 5378754083233321040}
+  - {fileID: 5377889426952861346}
+  - {fileID: 5377948970827998308}
+  - {fileID: 5378922543001752072}
+  - {fileID: 5378558355840963368}
+  - {fileID: 5378774243538986666}
+  - {fileID: 5379274124617948688}
+  - {fileID: 5377974931119891674}
+  - {fileID: 5378768574339076360}
+  - {fileID: 5378459063604466128}
+  - {fileID: 5379390440038003366}
+  - {fileID: 5378720642685066788}
+  - {fileID: 5378925381787457830}
+  - {fileID: 5379412483792353034}
+  _femaleSkins:
+  - {fileID: 5378581304191243516}
+  - {fileID: 5378550782869911266}
+  - {fileID: 5378863026073864786}
+  - {fileID: 5378607032169493128}
+  - {fileID: 5378609670934732030}
+  - {fileID: 5377978902948931050}
+  - {fileID: 5377943285745390908}
+  - {fileID: 5377896590401549834}
+  - {fileID: 5378894480999038884}
+  - {fileID: 5378530782256860154}
+  - {fileID: 5378566201014950978}
+  - {fileID: 5379377619922839420}
+  - {fileID: 5379331615046212482}
+  - {fileID: 5379507364448786936}
+  - {fileID: 5379302910824908036}
+  - {fileID: 5378459544734796876}
+  - {fileID: 5378868846001214746}
+  - {fileID: 5378664417338680772}
+  - {fileID: 5379375716122971928}
+  genderHasChanged: 1
 --- !u!1 &5378660938702320410
 GameObject:
   m_ObjectHideFlags: 0
@@ -24353,7 +25015,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5381287118301646448
 Transform:
   m_ObjectHideFlags: 0
@@ -24599,6 +25261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381813197180505836}
+  - component: {fileID: 1824049711854625973}
   m_Layer: 0
   m_Name: Back_Attachment
   m_TagString: Untagged
@@ -24621,6 +25284,53 @@ Transform:
   m_Father: {fileID: 5381259549355129874}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1824049711854625973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378669573230676758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5378934409278439296}
+  - {fileID: 5378960599508774254}
+  - {fileID: 5378794888937915232}
+  - {fileID: 5377973608384803988}
+  - {fileID: 5378712291041174110}
+  - {fileID: 5379537366909179658}
+  - {fileID: 5378631122770242402}
+  - {fileID: 5378814557298434396}
+  - {fileID: 5379330136203088984}
+  - {fileID: 5379383346561550326}
+  - {fileID: 5379512510548928044}
+  - {fileID: 5378730226082585328}
+  - {fileID: 5379480787439924764}
+  - {fileID: 5378454359962165524}
+  - {fileID: 5378754797678832732}
+  _femaleSkins:
+  - {fileID: 5378934409278439296}
+  - {fileID: 5378960599508774254}
+  - {fileID: 5378794888937915232}
+  - {fileID: 5377973608384803988}
+  - {fileID: 5378712291041174110}
+  - {fileID: 5379537366909179658}
+  - {fileID: 5378631122770242402}
+  - {fileID: 5378814557298434396}
+  - {fileID: 5379330136203088984}
+  - {fileID: 5379383346561550326}
+  - {fileID: 5379512510548928044}
+  - {fileID: 5378730226082585328}
+  - {fileID: 5379480787439924764}
+  - {fileID: 5378454359962165524}
+  - {fileID: 5378754797678832732}
+  genderHasChanged: 1
 --- !u!1 &5378671388855951136
 GameObject:
   m_ObjectHideFlags: 0
@@ -25634,7 +26344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5381852242080406860
 Transform:
   m_ObjectHideFlags: 0
@@ -26869,7 +27579,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5382331878318057844
 Transform:
   m_ObjectHideFlags: 0
@@ -30667,6 +31377,7 @@ GameObject:
   - component: {fileID: 5473284439886655476}
   - component: {fileID: 5377773023696503293}
   - component: {fileID: 762134656}
+  - component: {fileID: 5813687418545304631}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -30723,12 +31434,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5378747087404009320}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68a4648eb7f0fd642a2f0145215b614e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useNavAgent: 1
+  useNavAgent: 0
 --- !u!114 &571235992386136384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30761,7 +31472,7 @@ MonoBehaviour:
     isHead: 1
   Walkable:
     serializedVersion: 2
-    m_Bits: 310
+    m_Bits: 1
   ownCollider: {fileID: 5377773023696503293}
   radius: 0.5
 --- !u!114 &4427713207009682878
@@ -30816,9 +31527,9 @@ MonoBehaviour:
   isMoving: 0
   canMove: 1
   movementAcceleration: 90
-  walkSpeed: 4
-  runSpeed: 6
-  rotationSpeed: 4.5
+  walkSpeed: 3
+  runSpeed: 8
+  rotationSpeed: 10
   groundFriction: 50
   isRolling: 0
   rollSpeed: 8
@@ -30851,7 +31562,7 @@ Animator:
   m_GameObject: {fileID: 5378747087404009320}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  m_Controller: {fileID: 9100000, guid: 6dee869aad0265c4a9c0345467f495a8, type: 2}
+  m_Controller: {fileID: 9100000, guid: e79cb0569b0cd6642adeaf7ef6c56c96, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 1
   m_ApplyRootMotion: 0
@@ -30881,7 +31592,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5378747087404009320}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 8
@@ -30896,6 +31607,45 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5813687418545304631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378747087404009320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf17a47f9063b144a26694811188a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customization: {fileID: 0}
+  customizableParts:
+  - {fileID: 4895262738483572074}
+  - {fileID: 7220365483537549058}
+  - {fileID: 1824049711854625973}
+  - {fileID: 18919519709663802}
+  - {fileID: 2874503036670849652}
+  - {fileID: 8135338289964664181}
+  - {fileID: 1623121354026418036}
+  - {fileID: 6204135723056845937}
+  - {fileID: 6675149113092682299}
+  - {fileID: 3151926201032508048}
+  - {fileID: 8188790708042566850}
+  - {fileID: 3340149420492040257}
+  - {fileID: 8873764138363441180}
+  - {fileID: 4038123814499022851}
+  - {fileID: 2324244298445753162}
+  - {fileID: 4765209832122805578}
+  - {fileID: 2532233237424888673}
+  - {fileID: 5640722944698331638}
+  - {fileID: 3260329568413609881}
+  - {fileID: 3145124698419234638}
+  - {fileID: 5351292384459998832}
+  - {fileID: 973504591197925270}
+  - {fileID: 5759566237198637950}
+  - {fileID: 2158215088084977572}
+  - {fileID: 9211301051682063616}
 --- !u!1 &5378749885177770242
 GameObject:
   m_ObjectHideFlags: 0
@@ -30990,6 +31740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381486876760998742}
+  - component: {fileID: 2532233237424888673}
   m_Layer: 0
   m_Name: Eyebrows
   m_TagString: Untagged
@@ -31009,8 +31760,35 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5382363968605068754}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2532233237424888673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378750853852319466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5378702459203783614}
+  - {fileID: 5378732266095289284}
+  - {fileID: 5377946481885293082}
+  - {fileID: 5378455917125322102}
+  - {fileID: 5378786012535274000}
+  - {fileID: 5379346391190052144}
+  - {fileID: 5377953526691355232}
+  - {fileID: 5378740821606555524}
+  - {fileID: 5378707546632282188}
+  - {fileID: 5378809186635320346}
+  _femaleSkins: []
+  genderHasChanged: 1
 --- !u!1 &5378751833510018834
 GameObject:
   m_ObjectHideFlags: 0
@@ -31896,7 +32674,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5382083289085933904
 Transform:
   m_ObjectHideFlags: 0
@@ -32431,7 +33209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5381848792561966082
 Transform:
   m_ObjectHideFlags: 0
@@ -33308,6 +34086,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381847775097560128}
+  - component: {fileID: 8188790708042566850}
   m_Layer: 0
   m_Name: Shoulder_Attachment_R
   m_TagString: Untagged
@@ -33329,6 +34108,65 @@ Transform:
   m_Father: {fileID: 5381802144249772966}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8188790708042566850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378780094318662794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5379309781109216808}
+  - {fileID: 5378721815339649378}
+  - {fileID: 5378784705045220214}
+  - {fileID: 5378724423651810612}
+  - {fileID: 5378446343322838414}
+  - {fileID: 5378442718744021250}
+  - {fileID: 5378952561301666540}
+  - {fileID: 5378872321014905088}
+  - {fileID: 5379529053734004760}
+  - {fileID: 5378942275134260466}
+  - {fileID: 5378790155705605798}
+  - {fileID: 5378977929421750896}
+  - {fileID: 5377967196732009362}
+  - {fileID: 5378737284519819598}
+  - {fileID: 5379400647458937924}
+  - {fileID: 5378902157270934552}
+  - {fileID: 5378455348544510842}
+  - {fileID: 5379524287556878994}
+  - {fileID: 5379476448519778882}
+  - {fileID: 5378697336856641464}
+  - {fileID: 5379338654834481432}
+  _femaleSkins:
+  - {fileID: 5379309781109216808}
+  - {fileID: 5378721815339649378}
+  - {fileID: 5378784705045220214}
+  - {fileID: 5378724423651810612}
+  - {fileID: 5378446343322838414}
+  - {fileID: 5378442718744021250}
+  - {fileID: 5378952561301666540}
+  - {fileID: 5378872321014905088}
+  - {fileID: 5379529053734004760}
+  - {fileID: 5378942275134260466}
+  - {fileID: 5378790155705605798}
+  - {fileID: 5378977929421750896}
+  - {fileID: 5377967196732009362}
+  - {fileID: 5378737284519819598}
+  - {fileID: 5379400647458937924}
+  - {fileID: 5378902157270934552}
+  - {fileID: 5378455348544510842}
+  - {fileID: 5379524287556878994}
+  - {fileID: 5379476448519778882}
+  - {fileID: 5378697336856641464}
+  - {fileID: 5379338654834481432}
+  genderHasChanged: 1
 --- !u!1 &5378780230625170394
 GameObject:
   m_ObjectHideFlags: 0
@@ -35320,6 +36158,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381948222329438960}
+  - component: {fileID: 1623121354026418036}
   m_Layer: 0
   m_Name: Elbow_L
   m_TagString: Untagged
@@ -35343,6 +36182,61 @@ Transform:
   m_Father: {fileID: 5381278632016740208}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1623121354026418036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378807386582048298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5379541037758485036}
+  - {fileID: 5379514943452722582}
+  - {fileID: 5379169127906319772}
+  - {fileID: 5379529571056264000}
+  - {fileID: 5378797229998035626}
+  - {fileID: 5379361449001183592}
+  - {fileID: 5378673984977703874}
+  - {fileID: 5377938477911614504}
+  - {fileID: 5378649976128577446}
+  - {fileID: 5379437759424830796}
+  - {fileID: 5378507696496081522}
+  - {fileID: 5378647967895031086}
+  - {fileID: 5379305701187274236}
+  - {fileID: 5378962334096775236}
+  - {fileID: 5378723374786589234}
+  - {fileID: 5379394948048533276}
+  - {fileID: 5378769358515552346}
+  - {fileID: 5379535153646669780}
+  - {fileID: 5377898529491813056}
+  _femaleSkins:
+  - {fileID: 5378660938702320410}
+  - {fileID: 5379427572179528012}
+  - {fileID: 5377963979492410242}
+  - {fileID: 5378864336936660986}
+  - {fileID: 5377877355469744786}
+  - {fileID: 5379352426441509900}
+  - {fileID: 5378751833510018834}
+  - {fileID: 5377945951634478172}
+  - {fileID: 5378812664719855662}
+  - {fileID: 5378853984626369582}
+  - {fileID: 5379334922715994016}
+  - {fileID: 5379444600626962738}
+  - {fileID: 5379295424502293036}
+  - {fileID: 5378708670189992452}
+  - {fileID: 5378000437699005722}
+  - {fileID: 5378526305742988378}
+  - {fileID: 5378705129590022772}
+  - {fileID: 5379270537241682680}
+  - {fileID: 5379412648314497752}
+  genderHasChanged: 1
 --- !u!1 &5378807674084720844
 GameObject:
   m_ObjectHideFlags: 0
@@ -37852,6 +38746,7 @@ Transform:
   - {fileID: 5381247034890254342}
   - {fileID: 5381478914827397792}
   - {fileID: 5381760993943641942}
+  - {fileID: 5647693562350826922}
   m_Father: {fileID: 5381497425202888062}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38127,6 +39022,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382349004277199628}
+  - component: {fileID: 973504591197925270}
   m_Layer: 0
   m_Name: LowerLeg_L
   m_TagString: Untagged
@@ -38150,6 +39046,63 @@ Transform:
   m_Father: {fileID: 5381976088045547834}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &973504591197925270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378849465710318362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5378689761198614846}
+  - {fileID: 5378876369601526548}
+  - {fileID: 5378914458068554036}
+  - {fileID: 5378508091831572286}
+  - {fileID: 5378847817190805626}
+  - {fileID: 5379352653232074478}
+  - {fileID: 5378836791997587992}
+  - {fileID: 5378953523376048314}
+  - {fileID: 5377952901320051994}
+  - {fileID: 5379190878765786580}
+  - {fileID: 5378943139029519776}
+  - {fileID: 5378759956316012470}
+  - {fileID: 5379425579260044486}
+  - {fileID: 5378623817901029292}
+  - {fileID: 5378520710742701946}
+  - {fileID: 5379294631609841458}
+  - {fileID: 5377861287068168408}
+  - {fileID: 5378924840231076840}
+  - {fileID: 5378870384339060154}
+  - {fileID: 5378608392487680278}
+  _femaleSkins:
+  - {fileID: 5379484138431334612}
+  - {fileID: 5378548652852961626}
+  - {fileID: 5378854277413035850}
+  - {fileID: 5378764935878266162}
+  - {fileID: 5378908814499224246}
+  - {fileID: 5378963556057625216}
+  - {fileID: 5378860225274947992}
+  - {fileID: 5378906136372379156}
+  - {fileID: 5378720126465742950}
+  - {fileID: 5379390404927536504}
+  - {fileID: 5378949611103897346}
+  - {fileID: 5379373048802256938}
+  - {fileID: 5379440796016324466}
+  - {fileID: 5378983773219466666}
+  - {fileID: 5377962638721357852}
+  - {fileID: 5378664404304174058}
+  - {fileID: 5378618979270255492}
+  - {fileID: 5378732207194807396}
+  - {fileID: 5377941485537506154}
+  - {fileID: 5379367934505438146}
+  genderHasChanged: 1
 --- !u!1 &5378851133888193558
 GameObject:
   m_ObjectHideFlags: 0
@@ -38159,6 +39112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381363630624359182}
+  - component: {fileID: 4895262738483572074}
   m_Layer: 0
   m_Name: Hips
   m_TagString: Untagged
@@ -38184,6 +39138,81 @@ Transform:
   m_Father: {fileID: 5382301924260665568}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4895262738483572074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378851133888193558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5379301117051137726}
+  - {fileID: 5378631194052526726}
+  - {fileID: 5378977958115423508}
+  - {fileID: 5379493385343443736}
+  - {fileID: 5378959534428328684}
+  - {fileID: 5378932195445344396}
+  - {fileID: 5378920981503654120}
+  - {fileID: 5378873978116899814}
+  - {fileID: 5379534889921910596}
+  - {fileID: 5379515421765177566}
+  - {fileID: 5378807674084720844}
+  - {fileID: 5378519479955283424}
+  - {fileID: 5379355708476255480}
+  - {fileID: 5379394698504169066}
+  - {fileID: 5377980469045457396}
+  - {fileID: 5377991277347543126}
+  - {fileID: 5378493823431411364}
+  - {fileID: 5378829094904535470}
+  - {fileID: 5378486127453386288}
+  - {fileID: 5377992110964505448}
+  - {fileID: 5377946229692978800}
+  - {fileID: 5378984983229552694}
+  - {fileID: 5378511316649696544}
+  - {fileID: 5378632947220693684}
+  - {fileID: 5379274948996168192}
+  - {fileID: 5378640236830374570}
+  - {fileID: 5379320459256859182}
+  - {fileID: 5377943378545184330}
+  - {fileID: 5379182050370009406}
+  _femaleSkins:
+  - {fileID: 5378907561456901790}
+  - {fileID: 5378765288555599712}
+  - {fileID: 5378536414262067042}
+  - {fileID: 5379460001224571222}
+  - {fileID: 5379278287916400336}
+  - {fileID: 5378535475823966582}
+  - {fileID: 5378693914142445888}
+  - {fileID: 5379514815660410612}
+  - {fileID: 5378490354649771440}
+  - {fileID: 5379289999328798684}
+  - {fileID: 5378935742798963400}
+  - {fileID: 5379511627275094214}
+  - {fileID: 5379278639075082600}
+  - {fileID: 5378535970924829706}
+  - {fileID: 5377900945690041194}
+  - {fileID: 5378767986655281318}
+  - {fileID: 5378979338198971748}
+  - {fileID: 5378457963189911398}
+  - {fileID: 5379534266679701096}
+  - {fileID: 5378776680600936698}
+  - {fileID: 5378957969769795466}
+  - {fileID: 5378467280621882072}
+  - {fileID: 5379182529042762158}
+  - {fileID: 5377962982627827438}
+  - {fileID: 5379418525153765858}
+  - {fileID: 5378862139206623224}
+  - {fileID: 5378798118840225604}
+  - {fileID: 5378863495520741444}
+  - {fileID: 5379338824201935664}
+  genderHasChanged: 1
 --- !u!1 &5378852928258021316
 GameObject:
   m_ObjectHideFlags: 0
@@ -39630,7 +40659,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5382097636335420414
 Transform:
   m_ObjectHideFlags: 0
@@ -46736,6 +47765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382363968605068754}
+  - component: {fileID: 2324244298445753162}
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
@@ -46754,12 +47784,79 @@ Transform:
   m_LocalPosition: {x: -12.164435, y: -1.5099033e-14, z: -5.059176e-15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 641740026141431031}
   - {fileID: 5381486876760998742}
   - {fileID: 5381850803200177600}
+  - {fileID: 687862259717317557}
+  - {fileID: 5024218875285371750}
   - {fileID: 5382158317792078126}
+  - {fileID: 368744639799130656}
   m_Father: {fileID: 5381275110542570968}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2324244298445753162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5378981525015542870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5379171598748046428}
+  - {fileID: 5377863246891724710}
+  - {fileID: 5378537263309683584}
+  - {fileID: 5377909905357832810}
+  - {fileID: 5378946465657885976}
+  - {fileID: 5378946283575738204}
+  - {fileID: 5379422832119247104}
+  - {fileID: 5379508146378860082}
+  - {fileID: 5378516809373967762}
+  - {fileID: 5378965659889972540}
+  - {fileID: 5378896867817821748}
+  - {fileID: 5379468274942303776}
+  - {fileID: 5377993878223212598}
+  - {fileID: 5379294288768373602}
+  - {fileID: 5377931729489214658}
+  - {fileID: 5379396790827549738}
+  - {fileID: 5378643984151359808}
+  - {fileID: 5378785759808923072}
+  - {fileID: 5377974684562764172}
+  - {fileID: 5378881848099670800}
+  - {fileID: 5378956993476324066}
+  - {fileID: 5379293765950947248}
+  - {fileID: 5379520574322892168}
+  _femaleSkins:
+  - {fileID: 5378556530093489972}
+  - {fileID: 5378717032865965882}
+  - {fileID: 5378646055131964444}
+  - {fileID: 5378759645248949146}
+  - {fileID: 5378436116707212194}
+  - {fileID: 5378683173338314670}
+  - {fileID: 5378938017894979866}
+  - {fileID: 5378825848086580786}
+  - {fileID: 5377876152124868038}
+  - {fileID: 5378834552328667566}
+  - {fileID: 5377957725967653938}
+  - {fileID: 5378927024493559492}
+  - {fileID: 5379477675190581098}
+  - {fileID: 5377995812270696432}
+  - {fileID: 5379271081381744522}
+  - {fileID: 5378785098472407992}
+  - {fileID: 5379186280324014602}
+  - {fileID: 5378770327849603596}
+  - {fileID: 5379187076906112514}
+  - {fileID: 5378714717694473262}
+  - {fileID: 5377863507601285202}
+  - {fileID: 5378599279285227916}
+  - {fileID: 5377882684925329476}
+  genderHasChanged: 1
 --- !u!1 &5378983023404102122
 GameObject:
   m_ObjectHideFlags: 0
@@ -47228,7 +48325,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5382363968605068754}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5379162804579977050
 GameObject:
@@ -47246,7 +48343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5382044700810940656
 Transform:
   m_ObjectHideFlags: 0
@@ -47645,7 +48742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5381960116115908198
 Transform:
   m_ObjectHideFlags: 0
@@ -48604,7 +49701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5381558409762293182
 Transform:
   m_ObjectHideFlags: 0
@@ -48870,6 +49967,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381607452903158290}
+  - component: {fileID: 6675149113092682299}
   m_Layer: 0
   m_Name: Hand_L
   m_TagString: Untagged
@@ -48894,6 +49992,59 @@ Transform:
   m_Father: {fileID: 5381948222329438960}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6675149113092682299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379270107526344064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5379369410884342864}
+  - {fileID: 5379275236963499768}
+  - {fileID: 5378888822894473800}
+  - {fileID: 5378463867009086460}
+  - {fileID: 5378469741410665084}
+  - {fileID: 5378756327149949572}
+  - {fileID: 5379328810514210242}
+  - {fileID: 5379164933811836648}
+  - {fileID: 5377934936091199726}
+  - {fileID: 5377894089364681048}
+  - {fileID: 5378424391337788436}
+  - {fileID: 5378840162570396480}
+  - {fileID: 5379522119101499150}
+  - {fileID: 5378810232871729092}
+  - {fileID: 5379506496997509068}
+  - {fileID: 5378590317962359012}
+  - {fileID: 5379479717163989082}
+  - {fileID: 5378675278592797504}
+  _femaleSkins:
+  - {fileID: 5378634231817330940}
+  - {fileID: 5379468453624493390}
+  - {fileID: 5379279075507503284}
+  - {fileID: 5378592458005404166}
+  - {fileID: 5379162804579977050}
+  - {fileID: 5378984398340637954}
+  - {fileID: 5379289089616696160}
+  - {fileID: 5379431839680351376}
+  - {fileID: 5379466928282813706}
+  - {fileID: 5378845849651766234}
+  - {fileID: 5378980196554243388}
+  - {fileID: 5379544029594348190}
+  - {fileID: 5377971383297561456}
+  - {fileID: 5378727496129414942}
+  - {fileID: 5379280282883058026}
+  - {fileID: 5379301970925690576}
+  - {fileID: 5378985036794027684}
+  - {fileID: 5378536073522431102}
+  genderHasChanged: 1
 --- !u!1 &5379270537241682680
 GameObject:
   m_ObjectHideFlags: 0
@@ -50061,7 +51212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5382045654168015176
 Transform:
   m_ObjectHideFlags: 0
@@ -51720,7 +52871,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5382189158792158706
 Transform:
   m_ObjectHideFlags: 0
@@ -52242,6 +53393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381295774935976604}
+  - component: {fileID: 7220365483537549058}
   m_Layer: 0
   m_Name: Hips_Attachment
   m_TagString: Untagged
@@ -52263,6 +53415,47 @@ Transform:
   m_Father: {fileID: 5381363630624359182}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7220365483537549058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379306156672761996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5378724246071504910}
+  - {fileID: 5378497149620488794}
+  - {fileID: 5379457246087824364}
+  - {fileID: 5378527389981127486}
+  - {fileID: 5379296330447600266}
+  - {fileID: 5379491151564638738}
+  - {fileID: 5379276655211296046}
+  - {fileID: 5379331030780084618}
+  - {fileID: 5378780230625170394}
+  - {fileID: 5378795630862234672}
+  - {fileID: 5378475272174655468}
+  - {fileID: 5377897708961496362}
+  _femaleSkins:
+  - {fileID: 5378724246071504910}
+  - {fileID: 5378497149620488794}
+  - {fileID: 5379457246087824364}
+  - {fileID: 5378527389981127486}
+  - {fileID: 5379296330447600266}
+  - {fileID: 5379491151564638738}
+  - {fileID: 5379276655211296046}
+  - {fileID: 5379331030780084618}
+  - {fileID: 5378780230625170394}
+  - {fileID: 5378795630862234672}
+  - {fileID: 5378475272174655468}
+  - {fileID: 5377897708961496362}
+  genderHasChanged: 1
 --- !u!1 &5379308406737714770
 GameObject:
   m_ObjectHideFlags: 0
@@ -53722,6 +54915,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381802144249772966}
+  - component: {fileID: 3151926201032508048}
   m_Layer: 0
   m_Name: Clavicle_R
   m_TagString: Untagged
@@ -53745,6 +54939,65 @@ Transform:
   m_Father: {fileID: 5381259549355129874}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3151926201032508048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379339181241991276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 5379518215587927844}
+  - {fileID: 5379456423313091568}
+  - {fileID: 5378600964145291464}
+  - {fileID: 5377881294776147606}
+  - {fileID: 5378885385845978862}
+  - {fileID: 5379456695879893072}
+  - {fileID: 5378589986351970302}
+  - {fileID: 5378749885177770242}
+  - {fileID: 5378468602621770864}
+  - {fileID: 5378477439879671704}
+  - {fileID: 5379339297517165466}
+  - {fileID: 5378720800122011342}
+  - {fileID: 5379439892199779870}
+  - {fileID: 5378485912666183086}
+  - {fileID: 5378609911605777562}
+  - {fileID: 5378871498186176200}
+  - {fileID: 5377987634711254358}
+  - {fileID: 5378857634926745144}
+  - {fileID: 5378872004066996538}
+  - {fileID: 5379401217289900574}
+  - {fileID: 5379419199522947746}
+  _femaleSkins:
+  - {fileID: 5378519297493922614}
+  - {fileID: 5379500034761015146}
+  - {fileID: 5377944149038419618}
+  - {fileID: 5379280549964824284}
+  - {fileID: 5379535534330903084}
+  - {fileID: 5379417458842177052}
+  - {fileID: 5379280513512258698}
+  - {fileID: 5379524557828040870}
+  - {fileID: 5378762139630471490}
+  - {fileID: 5378599637455962226}
+  - {fileID: 5378535701508052352}
+  - {fileID: 5377880395823866550}
+  - {fileID: 5378718633632620824}
+  - {fileID: 5378617886211648316}
+  - {fileID: 5377970384716774222}
+  - {fileID: 5378546124558979148}
+  - {fileID: 5379319702630916158}
+  - {fileID: 5378862133682640050}
+  - {fileID: 5378533697135141744}
+  - {fileID: 5378954786090865476}
+  - {fileID: 5379446836286769330}
+  genderHasChanged: 1
 --- !u!1 &5379339297517165466
 GameObject:
   m_ObjectHideFlags: 0
@@ -55564,7 +56817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5381493678637047236
 Transform:
   m_ObjectHideFlags: 0
@@ -55824,6 +57077,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382329418865451960}
+  - component: {fileID: 6204135723056845937}
   m_Layer: 0
   m_Name: Elbow_Attachment_L
   m_TagString: Untagged
@@ -55845,6 +57099,35 @@ Transform:
   m_Father: {fileID: 5381948222329438960}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6204135723056845937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379372859915482276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5378543592064091316}
+  - {fileID: 5379410827780887432}
+  - {fileID: 5378928376785747044}
+  - {fileID: 5378952184464139696}
+  - {fileID: 5378905317181251716}
+  - {fileID: 5378498757916384026}
+  _femaleSkins:
+  - {fileID: 5378543592064091316}
+  - {fileID: 5379410827780887432}
+  - {fileID: 5378928376785747044}
+  - {fileID: 5378952184464139696}
+  - {fileID: 5378905317181251716}
+  - {fileID: 5378498757916384026}
+  genderHasChanged: 1
 --- !u!1 &5379373048802256938
 GameObject:
   m_ObjectHideFlags: 0
@@ -58013,7 +59296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5382137298692214732
 Transform:
   m_ObjectHideFlags: 0
@@ -60738,7 +62021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5382167715253741278
 Transform:
   m_ObjectHideFlags: 0
@@ -61686,6 +62969,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5382040824634541630}
+  - component: {fileID: 8873764138363441180}
   m_Layer: 0
   m_Name: Elbow_Attachment_R
   m_TagString: Untagged
@@ -61707,6 +62991,35 @@ Transform:
   m_Father: {fileID: 5382157166386209034}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8873764138363441180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5379462166010725020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5378648912364184490}
+  - {fileID: 5377893138574841266}
+  - {fileID: 5378586226077177738}
+  - {fileID: 5378631329698267686}
+  - {fileID: 5379361908523814904}
+  - {fileID: 5378521986668701858}
+  _femaleSkins:
+  - {fileID: 5378648912364184490}
+  - {fileID: 5377893138574841266}
+  - {fileID: 5378586226077177738}
+  - {fileID: 5378631329698267686}
+  - {fileID: 5379361908523814904}
+  - {fileID: 5378521986668701858}
+  genderHasChanged: 1
 --- !u!1 &5379466928282813706
 GameObject:
   m_ObjectHideFlags: 0
@@ -62390,7 +63703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5381842418088190828
 Transform:
   m_ObjectHideFlags: 0
@@ -64693,7 +66006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5381635395436265828
 Transform:
   m_ObjectHideFlags: 0
@@ -66262,7 +67575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5381473418726095548
 Transform:
   m_ObjectHideFlags: 0
@@ -66610,3 +67923,213 @@ SkinnedMeshRenderer:
     m_Center: {x: -31.26894, y: 2.0823212, z: 0}
     m_Extent: {x: 35.65843, y: 23.304722, z: 31.850513}
   m_DirtyAABB: 0
+--- !u!1 &7179245621420354347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5647693562350826922}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5647693562350826922
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179245621420354347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5382047859164202690}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7185267181156311569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641740026141431031}
+  - component: {fileID: 4765209832122805578}
+  m_Layer: 0
+  m_Name: Ears
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &641740026141431031
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185267181156311569}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 21.543543, z: 1.0532024}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5382363968605068754}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4765209832122805578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7185267181156311569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 1
+  _maleSkins:
+  - {fileID: 2459625910941904793}
+  - {fileID: 5377891714337139134}
+  - {fileID: 5377966364097533136}
+  - {fileID: 5378847257604531162}
+  _femaleSkins:
+  - {fileID: 2459625910941904793}
+  - {fileID: 5377891714337139134}
+  - {fileID: 5377966364097533136}
+  - {fileID: 5378847257604531162}
+  genderHasChanged: 1
+--- !u!1 &7427173289137903115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 687862259717317557}
+  - component: {fileID: 5640722944698331638}
+  m_Layer: 0
+  m_Name: Hair
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &687862259717317557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7427173289137903115}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.4071083e-13, y: 21.543543, z: 1.0532024}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5382363968605068754}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5640722944698331638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7427173289137903115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _controller: {fileID: 5813687418545304631}
+  _firstSkinIsDefault: 0
+  _maleSkins:
+  - {fileID: 5378522113620633924}
+  - {fileID: 5378654899857671630}
+  - {fileID: 5378578016097236496}
+  - {fileID: 5378572434565170572}
+  - {fileID: 5378925178100214462}
+  - {fileID: 5378943606456483666}
+  - {fileID: 5378688097336059546}
+  - {fileID: 5378934096770600406}
+  - {fileID: 5378868862613774810}
+  - {fileID: 5378943886998738496}
+  - {fileID: 5378633375454384698}
+  - {fileID: 5378704241723180336}
+  - {fileID: 5379381724553796274}
+  - {fileID: 5379372818211076934}
+  - {fileID: 5379442872357652586}
+  - {fileID: 5377912285085213560}
+  - {fileID: 5378818957919070052}
+  - {fileID: 5378436601886305574}
+  - {fileID: 5378634243702161708}
+  - {fileID: 5377987274502513278}
+  - {fileID: 5378794946856251502}
+  - {fileID: 5378813266527621872}
+  - {fileID: 5379404762176216220}
+  - {fileID: 5379382234320924612}
+  - {fileID: 5378841600875433864}
+  - {fileID: 5378467846672116904}
+  - {fileID: 5378694282822928992}
+  - {fileID: 5379273067427416846}
+  - {fileID: 5378713377269458312}
+  - {fileID: 5379399239287926836}
+  - {fileID: 5378548978974516340}
+  - {fileID: 5379389186924066150}
+  - {fileID: 5378916490793112410}
+  - {fileID: 5378585292168923500}
+  - {fileID: 5378551026104395380}
+  - {fileID: 5379365214434398498}
+  - {fileID: 5378759787612685200}
+  - {fileID: 5378454402247710494}
+  _femaleSkins:
+  - {fileID: 5378522113620633924}
+  - {fileID: 5378654899857671630}
+  - {fileID: 5378578016097236496}
+  - {fileID: 5378572434565170572}
+  - {fileID: 5378925178100214462}
+  - {fileID: 5378943606456483666}
+  - {fileID: 5378688097336059546}
+  - {fileID: 5378934096770600406}
+  - {fileID: 5378868862613774810}
+  - {fileID: 5378943886998738496}
+  - {fileID: 5378633375454384698}
+  - {fileID: 5378704241723180336}
+  - {fileID: 5379381724553796274}
+  - {fileID: 5379372818211076934}
+  - {fileID: 5379442872357652586}
+  - {fileID: 5377912285085213560}
+  - {fileID: 5378818957919070052}
+  - {fileID: 5378436601886305574}
+  - {fileID: 5378634243702161708}
+  - {fileID: 5377987274502513278}
+  - {fileID: 5378794946856251502}
+  - {fileID: 5378813266527621872}
+  - {fileID: 5379404762176216220}
+  - {fileID: 5379382234320924612}
+  - {fileID: 5378841600875433864}
+  - {fileID: 5378467846672116904}
+  - {fileID: 5378694282822928992}
+  - {fileID: 5379273067427416846}
+  - {fileID: 5378713377269458312}
+  - {fileID: 5379399239287926836}
+  - {fileID: 5378548978974516340}
+  - {fileID: 5379389186924066150}
+  - {fileID: 5378916490793112410}
+  - {fileID: 5378585292168923500}
+  - {fileID: 5378551026104395380}
+  - {fileID: 5379365214434398498}
+  - {fileID: 5378759787612685200}
+  - {fileID: 5378454402247710494}
+  genderHasChanged: 1

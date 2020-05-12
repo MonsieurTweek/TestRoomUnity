@@ -11,11 +11,9 @@ public class PageGroupController : TabGroupController
 
         for (int i = 0; i < pages.Count; i++)
         {
-            if (i == index)
-            {
-                pages[i].SetActive(true);
-            }
-            else
+            pages[i].SetActive(true);
+
+            if (i != index)
             {
                 pages[i].SetActive(false);
             }

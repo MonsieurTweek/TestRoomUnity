@@ -9,13 +9,13 @@ public class MaterialGroupController : TabGroupController
     {
         int index = selectedTab.transform.GetSiblingIndex();
 
-        if (CustomizationPartController.currentPart != null)
+        if (CustomizationPartOnGUI.currentPart != null)
         {
             for (int i = 0; i < materials.Count; i++)
             {
                 if (i == index)
                 {
-                    CustomizationPartController.currentPart.SetMaterial(materials[i]);
+                    CustomizationPartOnGUI.currentPart.SetMaterial(materials[i]);
                 }
             }
         }

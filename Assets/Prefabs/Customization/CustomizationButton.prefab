@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 6587520776204804229}
   - component: {fileID: 6587520776204804228}
   - component: {fileID: 6587520776204804231}
-  - component: {fileID: 6587520776204804226}
+  - component: {fileID: 260194383551557575}
   m_Layer: 5
   m_Name: CustomizationButton
   m_TagString: Untagged
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6587520776204804226}
+      - m_Target: {fileID: 260194383551557575}
         m_MethodName: RefreshGrid
         m_Mode: 1
         m_Arguments:
@@ -281,7 +281,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6587520776204804226
+--- !u!114 &260194383551557575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,10 +290,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6587520776204804249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67c13bded5e86164b877c6921f559ada, type: 3}
+  m_Script: {fileID: 11500000, guid: 30b0477f411b94641a673a22adda4cbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bone: {fileID: 0}
-  _cameraOffset: {x: 0, y: 0.1, z: -1.18}
-  _maleSkins: []
-  _femaleSkins: []
+  _partOnPlayer: {fileID: 0}
+  _cameraOffset: {x: 0, y: 0, z: -1}
