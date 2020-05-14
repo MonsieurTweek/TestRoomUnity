@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5378424788836720482, guid: cce89ec5d9ba0e84bb8e36396d25a416,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5378747087404009320, guid: cce89ec5d9ba0e84bb8e36396d25a416,
         type: 3}
       propertyPath: m_Name
@@ -182,13 +187,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e79cb0569b0cd6642adeaf7ef6c56c96, type: 2}
+      objectReference: {fileID: 9100000, guid: d2049ac6f551a464e8b07fd393858d5f, type: 2}
     - target: {fileID: 5813687418545304631, guid: cce89ec5d9ba0e84bb8e36396d25a416,
         type: 3}
       propertyPath: customization
       value: 
-      objectReference: {fileID: 11400000, guid: 7ef62077e045cad4c8455238e92eff3f,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8954282449041866860, guid: cce89ec5d9ba0e84bb8e36396d25a416,
         type: 3}
       propertyPath: useNavAgent
