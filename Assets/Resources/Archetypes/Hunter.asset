@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7e6c26511f6fd45b753811ad1ff232, type: 3}
+  m_Name: Hunter
+  m_EditorClassIdentifier: 
+  title: Hunter
+  description: 
+  icon: {fileID: 21300000, guid: 4a35a0ac5c261384996009c867858799, type: 3}
+  animationController: {fileID: 22100000, guid: 97565beecdf879f4ca52625d2c139727,
+    type: 2}
+  gearLeft: {fileID: 5406931375169002946, guid: 5467eee1cea89184d830980d2fb44300,
+    type: 3}
+  gearRight: {fileID: 0}

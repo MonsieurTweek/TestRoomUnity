@@ -4,7 +4,7 @@
 /// Define what to do when enemy dies
 /// </summary>
 [Serializable]
-public class EnemyStateDie : FSM.State
+public class EnemyStateDie : CharacterFSM.State
 {
     private const string ANIMATION_PARAM = "Die";
 

@@ -59,6 +59,6 @@ public class CharacterSelectionController : MonoBehaviour
     private void SelectCharacter(int index)
     {
         characters[index].Select();
-        canvas.UpdateContent(characters[index].name, characters[index].icon);
+        canvas.UpdateContent(characters[index].title, characters[index].icon);
     }
 }

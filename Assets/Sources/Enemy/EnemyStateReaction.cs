@@ -4,7 +4,7 @@
 /// Trigger a reaction when the target enters a range
 /// </summary>
 [Serializable]
-public class EnemyStateReaction : FSM.State1Param<Action>
+public class EnemyStateReaction : CharacterFSM.State1Param<Action>
 {
     public float reactionRange = 1f;
 

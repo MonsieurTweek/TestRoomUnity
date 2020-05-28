@@ -3,11 +3,13 @@
 /// <summary>
 /// Handle enemy behavior
 /// </summary>
-public class EnemyFSM : FSM
+public class EnemyFSM : CharacterFSM, ICharacter
 {
+    [Header("References")]
     public Transform target = null;
     public Animator animator = null;
 
+    [Header("States")]
     public EnemyStateReaction stateIdle = new EnemyStateReaction();
     public EnemyStateMove stateMove = new EnemyStateMove();
     public EnemyStateAttack stateAttack = new EnemyStateAttack();
@@ -16,12 +18,30 @@ public class EnemyFSM : FSM
 
     public Vector3 direction { private set; get; }
 
-    private EnemyData data = new EnemyData();
+    [HideInInspector]
+    public EnemyData data = new EnemyData();
+
+    // Transitions to states
+    public void TransitionToIdle() { ChangeState(stateIdle, TransitionToMove); }
+    public void TransitionToMove() { ChangeState(stateMove, TransitionToAttack); }
+    public void TransitionToAttack() { ChangeState(stateAttack); }
+
+    public void TransitionToHit() { ChangeState(stateHit); }
+    public void TransitionToDie() { ChangeState(stateDie); }
 
     private void Awake()
     {
         data.Populate();
 
+        stateIdle.flag = StateEnum.IDLE;
+        stateMove.flag = StateEnum.MOVE;
+        stateAttack.flag = StateEnum.ATTACK;
+        stateHit.flag = StateEnum.HIT;
+        stateDie.flag = StateEnum.DIE;
+}
+
+    private void Start()
+    {
         TransitionToIdle();
     }
 
@@ -49,14 +69,6 @@ public class EnemyFSM : FSM
 
         transform.Rotate(0, angle, 0);
     }
-
-    // Transitions to states
-    public void TransitionToIdle() { ChangeState(stateIdle, TransitionToMove); }
-    public void TransitionToMove() { ChangeState(stateMove, TransitionToAttack); }
-    public void TransitionToAttack() { ChangeState(stateAttack); }
-
-    public void TransitionToHit() { ChangeState(stateHit); }
-    public void TransitionToDie() { ChangeState(stateDie); }
 
     /// <summary>
     /// Apply damage to the enemy

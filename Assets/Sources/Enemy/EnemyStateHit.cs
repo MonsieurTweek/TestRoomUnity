@@ -4,7 +4,7 @@
 /// Defines what to do when enemy is hit
 /// </summary>
 [Serializable]
-public class EnemyStateHit : FSM.State
+public class EnemyStateHit : CharacterFSM.State
 {
     private const string ANIMATION_PARAM = "Hit";
 

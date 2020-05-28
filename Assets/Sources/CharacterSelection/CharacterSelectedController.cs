@@ -6,9 +6,11 @@ using UnityEngine;
 /// </summary>
 public class CharacterSelectedController : MonoBehaviour
 {
-    //TODO: Create a struct instead of fields for name and icon
-    public string name = null;
-    public Sprite icon = null;
+    public string title { get { return _archetype.title; } }
+    public Sprite icon { get { return _archetype.icon; } }
+
+    [SerializeField]
+    private Archetype _archetype = null;
 
     [SerializeField]
     private PlayerCustomizationController _character = null;

@@ -4393,8 +4393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aa205220dc57e4c82b00498763229c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Sorcerer
-  icon: {fileID: 21300000, guid: 44c04ac908b31dc46b9b260c9c88937d, type: 3}
+  _archetype: {fileID: 11400000, guid: 5c11e528831f9044e8833ead04a11d46, type: 2}
   _character: {fileID: 330467194}
   _light: {fileID: 1406993339}
   _camera: {fileID: 1517340888}
@@ -6510,8 +6509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aa205220dc57e4c82b00498763229c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Paladin
-  icon: {fileID: 21300000, guid: a58bcfd9ca02afa40b525bd6ba284048, type: 3}
+  _archetype: {fileID: 11400000, guid: 833306aab46fdfb498e987b61f912efd, type: 2}
   _character: {fileID: 2147325371}
   _light: {fileID: 1033597409}
   _camera: {fileID: 1705769173}
@@ -12764,8 +12762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aa205220dc57e4c82b00498763229c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Rogue
-  icon: {fileID: 21300000, guid: 73dc97cd572eaf04d8d7624917de0e3a, type: 3}
+  _archetype: {fileID: 11400000, guid: 54761ca5e2121f3408e9aa9ee00ecba0, type: 2}
   _character: {fileID: 250512483}
   _light: {fileID: 252641513}
   _camera: {fileID: 1802699924}
@@ -14824,8 +14821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aa205220dc57e4c82b00498763229c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Hunter
-  icon: {fileID: 21300000, guid: 4a35a0ac5c261384996009c867858799, type: 3}
+  _archetype: {fileID: 11400000, guid: 2596a2514c733cc4eb28dba22e636dd2, type: 2}
   _character: {fileID: 1024332548}
   _light: {fileID: 1344207896}
   _camera: {fileID: 1484848468}
@@ -17346,8 +17342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aa205220dc57e4c82b00498763229c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Priest
-  icon: {fileID: 21300000, guid: 0b8b38220679f7e47957ea359213522e, type: 3}
+  _archetype: {fileID: 11400000, guid: 75a4c7e911aff9f4e85e44aa909c19c1, type: 2}
   _character: {fileID: 1518583868}
   _light: {fileID: 816509537}
   _camera: {fileID: 1167446504}
@@ -17970,8 +17965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aa205220dc57e4c82b00498763229c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Warlock
-  icon: {fileID: 21300000, guid: 3987fae0e09db6547af248046030c655, type: 3}
+  _archetype: {fileID: 11400000, guid: aad3d7109fb35204f8aec6af9d579af2, type: 2}
   _character: {fileID: 48202887}
   _light: {fileID: 962021301}
   _camera: {fileID: 97776129}
@@ -19361,8 +19355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aa205220dc57e4c82b00498763229c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Warrior
-  icon: {fileID: 21300000, guid: e6d72a5564735d844916a42ec9c7aed8, type: 3}
+  _archetype: {fileID: 11400000, guid: e16799361cda24643a9bfe34f8d73dc8, type: 2}
   _character: {fileID: 992461090}
   _light: {fileID: 1375661661}
   _camera: {fileID: 275142816}
@@ -23008,8 +23001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aa205220dc57e4c82b00498763229c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Assassin
-  icon: {fileID: 21300000, guid: a0939375850c51645ade4e41ce7142db, type: 3}
+  _archetype: {fileID: 11400000, guid: 90df19dc19e957246a7776d6576b875b, type: 2}
   _character: {fileID: 48827614}
   _light: {fileID: 1288162892}
   _camera: {fileID: 1797065025}
@@ -24127,8 +24119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88aa205220dc57e4c82b00498763229c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Barbarian
-  icon: {fileID: 21300000, guid: 565933ea2f5abea40ba0347d18ca9fb5, type: 3}
+  _archetype: {fileID: 11400000, guid: 9b069565e1de3c646bf6a8a7e5ad0629, type: 2}
   _character: {fileID: 807778784}
   _light: {fileID: 1566826612}
   _camera: {fileID: 196631550}
