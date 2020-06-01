@@ -10,8 +10,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
     [Header("References")]
     public Animator animator = null;
     public PlayerCameraController cameraController = null;
-    public Image gaugeHealth = null;
-    public Image gaugeHealthTarget = null;
 
     [Header("States")]
     public PlayerStateMove stateMove = new PlayerStateMove();
@@ -30,12 +28,11 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
 
-    public GameObject target { private set; get; }
-
-    private PlayerData data = new PlayerData();
+    public CharacterFSM target { private set; get; }
 
     private void Awake()
     {
+        data = new PlayerData();
         data.Populate();
 
         stateMove.flag = StateEnum.MOVE;
@@ -74,16 +71,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
                 ReleaseTarget();
             }
         }
-
-        if (target == null)
-        {
-            gaugeHealthTarget.enabled = false;
-        }
-        else
-        {
-            gaugeHealthTarget.enabled = true;
-            gaugeHealthTarget.fillAmount = target.GetComponent<EnemyFSM>().data.health / 10f;
-        }
     }
     
     private GameObject[] FindTargetInRange()
@@ -111,7 +98,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     private void AcquireTarget()
     {
         GameObject[] enemies = FindTargetInRange();
-        GameObject bestTarget = null;
+        EnemyFSM bestTarget = null;
         float closestDistance = Mathf.Infinity;
         Vector3 currentPosition = transform.position;
 
@@ -123,7 +110,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
             if (magnitude < closestDistance)
             {
                 closestDistance = magnitude;
-                bestTarget = enemy;
+                bestTarget = enemy.GetComponent<EnemyFSM>();
             }
         }
 
@@ -131,6 +118,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
         if(bestTarget != null)
         {
             cameraController.FollowTarget(bestTarget.transform);
+            CharacterGameEvent.instance.TargetSelectedRaised(bestTarget.data);
             target = bestTarget;
         }
     }
@@ -143,6 +131,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
         if (target != null)
         {
             cameraController.ReleaseTarget(target.transform);
+            CharacterGameEvent.instance.TargetDeselectedRaised(target.data);
             target = null;
         }
     }
@@ -171,11 +160,12 @@ public class PlayerFSM : CharacterFSM, ICharacter
     /// <param name="damage">Amount of damage. Reduction will be applied in this method.</param>
     public void Hit(int damage)
     {
+        // Ensure player is in a state where he can take a hit
         if (((uint)currentState.flag & FLAG_CAN_HIT) != 0)
         {
             data.ApplyDamage(damage);
 
-            gaugeHealth.fillAmount = data.health / 10f;
+            CharacterGameEvent.instance.HitRaised(data, damage);
 
             if (data.isAlive == true)
             {

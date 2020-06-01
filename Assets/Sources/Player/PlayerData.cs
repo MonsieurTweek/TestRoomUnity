@@ -4,4 +4,9 @@
 public class PlayerData : AbstractCharacterData
 {
     public static readonly string TAG = "Player";
+
+    public PlayerData() : base()
+    {
+
+    }
 }

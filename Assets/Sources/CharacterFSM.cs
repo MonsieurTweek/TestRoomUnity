@@ -29,6 +29,8 @@ public class CharacterFSM : MonoBehaviour
     //Current state being handled in this FSM
     public StateBase currentState { private set; get; }
 
+    public AbstractCharacterData data { protected set; get; }
+
     private bool ChangeStateBase(StateBase newState)
     {
         //Exit the current state
@@ -39,8 +41,6 @@ public class CharacterFSM : MonoBehaviour
 
         //Change to the new state
         currentState = newState;
-
-        Debug.Log(currentState);
 
         if (newState != null)
         {

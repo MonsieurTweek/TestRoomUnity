@@ -18,9 +18,6 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
     public Vector3 direction { private set; get; }
 
-    [HideInInspector]
-    public EnemyData data = new EnemyData();
-
     // Transitions to states
     public void TransitionToIdle() { ChangeState(stateIdle, TransitionToMove); }
     public void TransitionToMove() { ChangeState(stateMove, TransitionToAttack); }
@@ -31,6 +28,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
     private void Awake()
     {
+        data = new EnemyData();
         data.Populate();
 
         stateIdle.flag = StateEnum.IDLE;
@@ -77,6 +75,8 @@ public class EnemyFSM : CharacterFSM, ICharacter
     public void Hit(int damage)
     {
         data.ApplyDamage(damage);
+
+        CharacterGameEvent.instance.HitRaised(data, damage);
 
         if (data.isAlive == true)
         {
