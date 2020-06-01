@@ -150,7 +150,11 @@ public class PlayerFSM : CharacterFSM, ICharacter
         // Otherwise follow target
         else if (target != null)
         {
-            transform.LookAt(target.transform);
+            Vector3 direction = target.transform.position - transform.position;
+            direction.y = 0.0f;
+
+            // Rotate over time to get a smooth look at
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(direction), rotationSpeed);
         }
     }
 

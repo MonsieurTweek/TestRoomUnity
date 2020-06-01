@@ -14,6 +14,7 @@ public class CharacterFSM : MonoBehaviour
         public virtual void Update() { }
         public virtual void FixedUpdate() { }
         public virtual void Exit() { }
+        public virtual void OnDrawGizmos() { }
 
         public override string ToString()
         {
@@ -98,6 +99,14 @@ public class CharacterFSM : MonoBehaviour
         if (currentState != null)
         {
             currentState.FixedUpdate();
+        }
+    }
+
+    public virtual void OnDrawGizmos()
+    {
+        if (currentState != null)
+        {
+            currentState.OnDrawGizmos();
         }
     }
 }

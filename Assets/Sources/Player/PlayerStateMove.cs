@@ -28,17 +28,13 @@ public class PlayerStateMove : CharacterFSM.State
 
         // Get input amplitude
         _input.z = Input.GetAxis("Vertical") * modifier;
+        // Apply velocity to straf direction only when targetting
+        _input.x = ((PlayerFSM)owner).target != null ? Input.GetAxis("Horizontal") * modifier : 0f;
 
         // Apply input amplitude to forward velocity
         _velocity.z = _input.z * movementSpeed;
-
-        // Apply velocity to straf direction only when targetting
-        if (((PlayerFSM)owner).target != null)
-        {
-            _input.x = Input.GetAxis("Horizontal") * modifier;
-
-            _velocity.x = _input.x * movementSpeed;
-        }
+        // Apply input amplitude to left velocity
+        _velocity.x = _input.x * movementSpeed;
     }
 
     private void Animate()
@@ -57,9 +53,15 @@ public class PlayerStateMove : CharacterFSM.State
 
     public override void Exit()
     {
-        // Reset _input before exiting move state
+        // Reset _input and _velocity before exiting move state
         _input = Vector3.zero;
+        _velocity = Vector3.zero;
 
         Animate();
+    }
+
+    public override void OnDrawGizmos()
+    {
+        UnityEditor.Handles.Label(owner.transform.position, "Velocity : " + _velocity);
     }
 }
