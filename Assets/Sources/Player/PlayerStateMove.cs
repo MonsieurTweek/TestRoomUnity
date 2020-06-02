@@ -60,8 +60,10 @@ public class PlayerStateMove : CharacterFSM.State
         Animate();
     }
 
+#if UNITY_EDITOR
     public override void OnDrawGizmos()
     {
         UnityEditor.Handles.Label(owner.transform.position, "Velocity : " + _velocity);
     }
+#endif
 }
