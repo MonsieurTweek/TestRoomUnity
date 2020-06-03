@@ -11,9 +11,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1
+  m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &832505296
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -22,7 +22,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 86961308576054558}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
@@ -131,7 +131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4939805754032154, guid: 93c0dd75ddc1c9f4dabe9f061ef19748, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.62
       objectReference: {fileID: 0}
     - target: {fileID: 4939805754032154, guid: 93c0dd75ddc1c9f4dabe9f061ef19748, type: 3}
       propertyPath: m_LocalPosition.y
@@ -139,19 +139,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4939805754032154, guid: 93c0dd75ddc1c9f4dabe9f061ef19748, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.62
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4939805754032154, guid: 93c0dd75ddc1c9f4dabe9f061ef19748, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4939805754032154, guid: 93c0dd75ddc1c9f4dabe9f061ef19748, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4939805754032154, guid: 93c0dd75ddc1c9f4dabe9f061ef19748, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4939805754032154, guid: 93c0dd75ddc1c9f4dabe9f061ef19748, type: 3}
       propertyPath: m_LocalRotation.w

@@ -102,11 +102,15 @@ public class CharacterFSM : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     public virtual void OnDrawGizmos()
     {
         if (currentState != null)
         {
+            UnityEditor.Handles.Label(transform.position + Vector3.up, "State : " + currentState);
+
             currentState.OnDrawGizmos();
         }
     }
+#endif
 }

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerFSM : CharacterFSM, ICharacter
 {
@@ -8,6 +7,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     private const uint FLAG_CAN_HIT = (uint)(StateEnum.MOVE | StateEnum.ATTACK);
 
     [Header("References")]
+    public Transform model = null;
     public Animator animator = null;
     public PlayerCameraController cameraController = null;
 
@@ -29,6 +29,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public void TransitionToDie() { ChangeState(stateDie); }
 
     public CharacterFSM target { private set; get; }
+    public bool isGrounded { private set; get; }
 
     private void Awake()
     {
@@ -72,7 +73,31 @@ public class PlayerFSM : CharacterFSM, ICharacter
             }
         }
     }
-    
+
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+
+        RaycastHit hit;
+        float rayLength = 10.0f; //use any value.
+                                    //shoot a debug ray down to show you the ray it's casting--have to turn gizmos on in gameView window
+
+        Debug.DrawRay(model.position, new Vector3(0f, -rayLength, 0f), Color.yellow);
+
+        //cast the actual ray for ground detection
+        if (Physics.Raycast(model.position, model.TransformDirection(Vector3.down), out hit, rayLength) == true)
+        {
+            //if the RayCast hit something below the player
+            //check the actual distance of the hit object
+            isGrounded = hit.distance <= 0.15f;
+        }
+        // if nothing found assume player is grounded
+        else
+        {
+            isGrounded = true;
+        }
+    }
+
     private GameObject[] FindTargetInRange()
     {
         List<GameObject> potentialTargets = new List<GameObject>();
