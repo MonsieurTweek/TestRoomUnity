@@ -5,36 +5,60 @@ using UnityEngine;
 [Serializable]
 public class PlayerStateAttack : CharacterFSM.State
 {
-    private const string ANIMATION_PARAM = "Attack_1H";
+    private const string ANIMATION_PARAM_ATTACK_LIGHT = "AttackLight";
+    private const string ANIMATION_PARAM_ATTACK_HEAVY = "AttackHeavy";
 
-    public GameObject fx = null;
     public Transform anchor = null;
+
+    private GameObject _currentFx = null;
 
     private List<GameObject> _fxInPool = new List<GameObject>();
     private List<GameObject> _fxInUse = new List<GameObject>();
 
     public override void Enter()
     {
-        ((PlayerFSM)owner).animator.SetTrigger(ANIMATION_PARAM);
+        ((PlayerFSM)owner).animator.SetTrigger(ANIMATION_PARAM_ATTACK_LIGHT);
     }
 
-    public void OnAttackPlayFx()
+    public void OnAttackSendProjectile(UnityEngine.Object projectile, bool isRooted)
     {
-        if (fx != null && anchor != null)
+        GameObject gameObject = InstantiateObject(projectile, isRooted);
+
+        GearController currentProjectile = gameObject.GetComponent<GearController>();
+
+        currentProjectile.Attach(owner);
+    }
+
+    public void OnAttackPlayFx(UnityEngine.Object fx, bool isRooted)
+    {
+        if (fx != null && (isRooted == true || anchor != null))
         {
             if (_fxInUse.Count >= _fxInPool.Count)
             {
-                GameObject newFx = GameObject.Instantiate<GameObject>(fx);
-
-                newFx.transform.position = anchor.position;
-                newFx.transform.rotation = owner.transform.rotation;
-
-                _fxInUse.Add(newFx);
+                _currentFx = InstantiateObject(fx, isRooted);
+                _fxInUse.Add(_currentFx);
             }
             else
             {
-                // Use from pool
+                // TODO : Use from pool
             }
         }
+    }
+
+    private GameObject InstantiateObject(UnityEngine.Object prefab, bool isRooted)
+    {
+        GameObject gameObject = GameObject.Instantiate<GameObject>((GameObject)prefab);
+        
+        gameObject.transform.position = isRooted == true ? owner.transform.position : anchor.position;
+        gameObject.transform.rotation = owner.transform.rotation;
+
+        return gameObject;
+        
+    }
+
+    public override void Exit()
+    {
+        // TODO : Keep fx back to the pool instead
+        GameObject.Destroy(_currentFx);
     }
 }

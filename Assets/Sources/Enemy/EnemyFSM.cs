@@ -5,6 +5,8 @@
 /// </summary>
 public class EnemyFSM : CharacterFSM, ICharacter
 {
+    private const uint FLAG_CAN_HIT = (uint)(StateEnum.IDLE | StateEnum.MOVE | StateEnum.ATTACK);
+
     [Header("References")]
     public Transform target = null;
     public Animator animator = null;
@@ -74,17 +76,21 @@ public class EnemyFSM : CharacterFSM, ICharacter
     /// <param name="damage">Amount of damage. Reduction will be applied in this method.</param>
     public void Hit(int damage)
     {
-        data.ApplyDamage(damage);
-
-        CharacterGameEvent.instance.HitRaised(data, damage);
-
-        if (data.isAlive == true)
+        // Ensure player is in a state where he can take a hit
+        if (((uint)currentState.flag & FLAG_CAN_HIT) != 0)
         {
-            TransitionToHit();
-        }
-        else
-        {
-            TransitionToDie();
+            data.ApplyDamage(damage);
+
+            CharacterGameEvent.instance.HitRaised(data, damage);
+
+            if (data.isAlive == true)
+            {
+                TransitionToHit();
+            }
+            else
+            {
+                TransitionToDie();
+            }
         }
     }
 

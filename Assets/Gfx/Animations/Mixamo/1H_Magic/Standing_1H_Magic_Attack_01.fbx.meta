@@ -60,9 +60,10 @@ ModelImporter:
       curves: []
       events:
       - time: 0.31075695
-        functionName: OnAnimationPlayFx
+        functionName: OnAnimationSendProjectile
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 385740892927425757, guid: e4265732c06fa0b438460e5c71409110,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
@@ -72,6 +73,14 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: OnAnimationPlayFx
+        data: 
+        objectReferenceParameter: {fileID: 4962193528027548667, guid: e184c44ec1b1f144c9c493c898b02196,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3

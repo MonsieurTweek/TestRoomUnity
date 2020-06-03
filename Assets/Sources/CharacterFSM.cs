@@ -102,6 +102,14 @@ public class CharacterFSM : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (currentState != null)
+        {
+            currentState.Exit();
+        }
+    }
+
 #if UNITY_EDITOR
     public virtual void OnDrawGizmos()
     {

@@ -6,7 +6,7 @@ public class AbstractCharacterData
     private static uint ID = 0;
 
     public uint uniqueId { private set; get; }
-    public int health { private set; get; }
+    public int health { protected set; get; }
     public bool isAlive { get { return health > 0; } }
 
     public AbstractCharacterData()
