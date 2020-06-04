@@ -10,6 +10,6 @@ public class PlayerStateDie : CharacterFSM.State
 
     public override void Enter()
     {
-        ((PlayerFSM)owner).animator.SetTrigger(ANIMATION_PARAM);
+        owner.animator.SetTrigger(ANIMATION_PARAM);
     }
 }

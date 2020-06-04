@@ -5,6 +5,9 @@
 /// </summary>
 public class CharacterFSM : MonoBehaviour
 {
+    // Common references across FSMs
+    public Animator animator = null;
+
     //Base class for all states, only the required methods need to be overriden 
     public class StateBase
     {

@@ -9,7 +9,6 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
     [Header("References")]
     public Transform target = null;
-    public Animator animator = null;
 
     [Header("States")]
     public EnemyStateReaction stateIdle = new EnemyStateReaction();
@@ -23,7 +22,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
     // Transitions to states
     public void TransitionToIdle() { ChangeState(stateIdle, TransitionToMove); }
     public void TransitionToMove() { ChangeState(stateMove, TransitionToAttack); }
-    public void TransitionToAttack() { ChangeState(stateAttack); }
+    public void TransitionToAttack() { ChangeState(stateAttack, Random.Range(0, 2) == 1); } // Randomize ligh/heavy attack
 
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }

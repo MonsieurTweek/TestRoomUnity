@@ -13,7 +13,7 @@ public class EnemyStateDie : CharacterFSM.State
 
     public override void Enter()
     {
-        ((EnemyFSM)owner).animator.SetTrigger(ANIMATION_PARAM);
+        owner.animator.SetTrigger(ANIMATION_PARAM);
     }
 
     public override void Exit()

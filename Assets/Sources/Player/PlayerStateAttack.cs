@@ -3,22 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class PlayerStateAttack : CharacterFSM.State
+public class PlayerStateAttack : CharacterStateAttack
 {
-    private const string ANIMATION_PARAM_ATTACK_LIGHT = "AttackLight";
-    private const string ANIMATION_PARAM_ATTACK_HEAVY = "AttackHeavy";
-
     public Transform anchor = null;
 
     private GameObject _currentFx = null;
 
     private List<GameObject> _fxInPool = new List<GameObject>();
     private List<GameObject> _fxInUse = new List<GameObject>();
-
-    public override void Enter()
-    {
-        ((PlayerFSM)owner).animator.SetTrigger(ANIMATION_PARAM_ATTACK_LIGHT);
-    }
 
     public void OnAttackSendProjectile(UnityEngine.Object projectile, bool isRooted)
     {

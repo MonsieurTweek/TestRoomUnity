@@ -10,6 +10,6 @@ public class EnemyStateHit : CharacterFSM.State
 
     public override void Enter()
     {
-        ((EnemyFSM)owner).animator.SetTrigger(ANIMATION_PARAM);
+        owner.animator.SetTrigger(ANIMATION_PARAM);
     }
 }

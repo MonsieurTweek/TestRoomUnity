@@ -8,7 +8,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
     [Header("References")]
     public Transform model = null;
-    public Animator animator = null;
     public PlayerCameraController cameraController = null;
 
     [Header("States")]
@@ -24,9 +23,9 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
     // Transitions to states
     public void TransitionToMove() { ChangeState(stateMove); }
-    public void TransitionToAttack() { ChangeState(stateAttack); }
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
+    public void TransitionToAttack(bool isHeavy) { ChangeState(stateAttack, isHeavy); }
 
     public CharacterFSM target { private set; get; }
     public bool isGrounded { private set; get; }
@@ -54,10 +53,15 @@ public class PlayerFSM : CharacterFSM, ICharacter
     {
         base.Update();
 
-        // Attack
+        // Light Attack
         if (Input.GetMouseButtonUp(0) == true)
         {
-            TransitionToAttack();
+            TransitionToAttack(false);
+        }
+        // Heavy Attack
+        else if (Input.GetMouseButtonUp(1) == true)
+        {
+            TransitionToAttack(true);
         }
 
         // Toggle target mode

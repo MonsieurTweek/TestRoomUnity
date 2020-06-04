@@ -4,22 +4,17 @@
 /// Defines what to do when enemy attacks
 /// </summary>
 [Serializable]
-public class EnemyStateAttack : CharacterFSM.State
+public class EnemyStateAttack : CharacterStateAttack
 {
-    private const string ANIMATION_PARAM = "Attack";
-    private const string ANIMATION_PARAM_ALT = "Attack_Alt";
-
-    public override void Enter()
+    public override void Enter(bool isHeavy)
     {
-        //body.isKinematic = true;
-        ((EnemyFSM)owner).animator.applyRootMotion = true;
+        owner.animator.applyRootMotion = true;
 
-        ((EnemyFSM)owner).animator.SetTrigger(UnityEngine.Random.Range(0, 2) == 0 ? ANIMATION_PARAM : ANIMATION_PARAM_ALT);
+        base.Enter(isHeavy);
     }
 
     public override void Exit()
     {
-        //body.isKinematic = false;
-        ((EnemyFSM)owner).animator.applyRootMotion = false;
+        owner.animator.applyRootMotion = false;
     }
 }

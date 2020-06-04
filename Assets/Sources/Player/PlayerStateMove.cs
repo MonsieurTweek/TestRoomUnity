@@ -46,8 +46,8 @@ public class PlayerStateMove : CharacterFSM.State
     {
         if (((PlayerFSM)owner).isGrounded == true)
         {
-            ((PlayerFSM)owner).animator.SetFloat(ANIMATION_PARAM_VELOCTIY_X, _input.x);
-            ((PlayerFSM)owner).animator.SetFloat(ANIMATION_PARAM_VELOCTIY_Y, _input.z);
+            owner.animator.SetFloat(ANIMATION_PARAM_VELOCTIY_X, _input.x);
+            owner.animator.SetFloat(ANIMATION_PARAM_VELOCTIY_Y, _input.z);
         }
     }
 
@@ -78,7 +78,7 @@ public class PlayerStateMove : CharacterFSM.State
             {
                 _isJumping = false;
                 _canJump = true;
-                ((PlayerFSM)owner).animator.SetBool(ANIMATION_PARAM_JUMP, false);
+                owner.animator.SetBool(ANIMATION_PARAM_JUMP, false);
             }
 
             // We are grounded, so recalculate
@@ -90,7 +90,7 @@ public class PlayerStateMove : CharacterFSM.State
                 _isJumping = true;
                 _canJump = false;
 
-                ((PlayerFSM)owner).animator.SetBool(ANIMATION_PARAM_JUMP, true);
+                owner.animator.SetBool(ANIMATION_PARAM_JUMP, true);
             }
         }
 
