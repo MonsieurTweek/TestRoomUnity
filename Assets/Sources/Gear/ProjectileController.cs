@@ -4,6 +4,7 @@ public class ProjectileController : WeaponController
 {
     public float speed = 0f;
     public GameObject impactFx = null;
+    public bool destroyAtImpact = true;
     private Vector3 _direction = Vector3.zero;
 
     private void FixedUpdate()
@@ -20,7 +21,10 @@ public class ProjectileController : WeaponController
             Instantiate<GameObject>(impactFx, transform.position, transform.rotation);
         }
 
-        GameObject.Destroy(gameObject);
+        if (destroyAtImpact == true)
+        {
+            Destroy();
+        }
     }
 
     public override void Attach(CharacterFSM character)
@@ -39,5 +43,10 @@ public class ProjectileController : WeaponController
                 _direction.Normalize();
             }
         }
+    }
+
+    public void Destroy()
+    {
+        GameObject.Destroy(gameObject);
     }
 }

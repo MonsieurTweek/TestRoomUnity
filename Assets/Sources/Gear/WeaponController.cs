@@ -1,16 +1,25 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 public class WeaponController : GearController
 {
     public int damage = 0;
-    public int modifier = 1;
+    public int heavyModifier = 1;
+
+    protected BoxCollider _collider = null;
+    private int _currentModifier = 0;
+
+    private void Awake()
+    {
+        _collider = GetComponent<BoxCollider>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (CanHit(other) == true)
         {
-            modifier = ((CharacterStateAttack)owner.currentState).isHeavy == true ? 2 : 1;
-
+            _currentModifier = ((CharacterStateAttack)owner.currentState).isHeavy == true ? heavyModifier : 1;
+            Debug.Log(gameObject.name);
             Hit(other.GetComponent<ICharacter>());
         }
     }
@@ -19,11 +28,11 @@ public class WeaponController : GearController
     {
         if (character != null)
         {
-            character.Hit(damage * modifier);
+            character.Hit(damage * _currentModifier);
         }
     }
 
-    private bool CanHit(Collider other)
+    protected virtual bool CanHit(Collider other)
     {
         return owner.currentState.flag == StateEnum.ATTACK && 
             other.tag != owner.tag && 
