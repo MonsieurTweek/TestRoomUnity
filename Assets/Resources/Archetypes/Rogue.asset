@@ -18,4 +18,5 @@ MonoBehaviour:
   animationController: {fileID: 22100000, guid: 34099da021a07a54e8db1b277aa22b8f,
     type: 2}
   gearLeft: {fileID: 0}
-  gearRight: {fileID: 0}
+  gearRight: {fileID: 3608531897749054270, guid: affbd45586754284aa53e7291a9c4b80,
+    type: 3}
