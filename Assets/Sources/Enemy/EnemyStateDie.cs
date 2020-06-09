@@ -18,6 +18,8 @@ public class EnemyStateDie : CharacterFSM.State
 
     public override void Exit()
     {
+        CharacterGameEvent.instance.DieRaised(owner.data);
+
         if (fx != null)
         {
             GameObject.Instantiate(fx, owner.transform.position, owner.transform.rotation);

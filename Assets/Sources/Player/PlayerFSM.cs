@@ -11,6 +11,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public PlayerCameraController cameraController = null;
 
     [Header("States")]
+    public PlayerStateIdle stateIdle= new PlayerStateIdle();
     public PlayerStateMove stateMove = new PlayerStateMove();
     public PlayerStateAttack stateAttack = new PlayerStateAttack();
     public PlayerStateHit stateHit = new PlayerStateHit();
@@ -22,6 +23,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     private Vector2 _playerRotation = Vector2.zero;
 
     // Transitions to states
+    public void TransitionToIdle() { ChangeState(stateIdle); }
     public void TransitionToMove() { ChangeState(stateMove); }
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
@@ -35,6 +37,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
         data = new PlayerData();
         data.Populate();
 
+        stateIdle.flag = StateEnum.IDLE;
         stateMove.flag = StateEnum.MOVE;
         stateAttack.flag = StateEnum.ATTACK;
         stateHit.flag = StateEnum.HIT;
@@ -42,6 +45,9 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
         // Save current player rotation to start with
         _playerRotation = transform.eulerAngles;
+
+        // Bind player to pause
+        CharacterGameEvent.instance.onPause += OnPause;
     }
 
     private void Start()
@@ -53,15 +59,18 @@ public class PlayerFSM : CharacterFSM, ICharacter
     {
         base.Update();
 
-        // Light Attack
-        if (Input.GetMouseButtonUp(0) == true)
+        if (((uint)currentState.flag & FLAG_CAN_ATTACK) != 0)
         {
-            TransitionToAttack(false);
-        }
-        // Heavy Attack
-        else if (Input.GetMouseButtonUp(1) == true)
-        {
-            TransitionToAttack(true);
+            // Light Attack
+            if (Input.GetMouseButtonUp(0) == true)
+            {
+                TransitionToAttack(false);
+            }
+            // Heavy Attack
+            else if (Input.GetMouseButtonUp(1) == true)
+            {
+                TransitionToAttack(true);
+            }
         }
 
         // Toggle target mode
@@ -211,6 +220,18 @@ public class PlayerFSM : CharacterFSM, ICharacter
         }
     }
 
+    public void OnPause(bool isPauseEnabled)
+    {
+        if (isPauseEnabled == true)
+        {
+            TransitionToIdle();
+        }
+        else
+        {
+            TransitionToMove();
+        }
+    }
+
     /// <summary>
     /// Animation triggers a FX
     /// Called from animation event
@@ -244,6 +265,18 @@ public class PlayerFSM : CharacterFSM, ICharacter
         if (data.isAlive == true)
         {
             TransitionToMove();
+        }
+        else
+        {
+            currentState.Exit();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (CharacterGameEvent.instance != null)
+        {
+            CharacterGameEvent.instance.onPause -= OnPause;
         }
     }
 }

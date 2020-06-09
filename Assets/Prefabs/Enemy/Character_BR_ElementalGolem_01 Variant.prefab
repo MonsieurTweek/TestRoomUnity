@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff8b6a3a33548b4ebcdc3d9cf548a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   animator: {fileID: 27478753182446184}
+  target: {fileID: 0}
   stateIdle:
     owner: {fileID: 0}
     flag: 0
@@ -68,6 +68,7 @@ MonoBehaviour:
   stateDie:
     owner: {fileID: 0}
     flag: 0
+    fx: {fileID: 4589617513473318289, guid: 6be2189e7110e4b4b8f1428e8a88ebf7, type: 3}
 --- !u!114 &8554535455077345077
 MonoBehaviour:
   m_ObjectHideFlags: 0

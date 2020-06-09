@@ -18,6 +18,7 @@ public class PlayerArchetypeController : MonoBehaviour
     {
         if (loadFromPrefs == true)
         {
+            LoadArchetypeFromPreset(Archetype.Load(Archetype.SAVE_PATH));
         }
         else if (archetype != null)
         {

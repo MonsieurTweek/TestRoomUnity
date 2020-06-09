@@ -12,4 +12,9 @@ public class PlayerStateDie : CharacterFSM.State
     {
         owner.animator.SetTrigger(ANIMATION_PARAM);
     }
+
+    public override void Exit()
+    {
+        CharacterGameEvent.instance.DieRaised(owner.data);
+    }
 }

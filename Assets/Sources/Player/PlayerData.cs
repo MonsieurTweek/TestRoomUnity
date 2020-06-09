@@ -5,8 +5,12 @@ public class PlayerData : AbstractCharacterData
 {
     public static readonly string TAG = "Player";
 
-    public PlayerData() : base()
+    /// <summary>
+    /// Populate model with data
+    /// </summary>
+    public override void Populate()
     {
-
+        // TODO : Use a scriptable object here
+        health = 1;
     }
 }

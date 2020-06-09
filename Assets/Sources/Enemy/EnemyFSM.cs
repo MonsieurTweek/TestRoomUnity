@@ -104,6 +104,8 @@ public class EnemyFSM : CharacterFSM, ICharacter
         }
         else
         {
+            currentState.Exit();
+
             GameObject.Destroy(gameObject);
         }
     }

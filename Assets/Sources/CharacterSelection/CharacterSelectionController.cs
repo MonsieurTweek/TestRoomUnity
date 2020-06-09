@@ -26,6 +26,7 @@ public class CharacterSelectionController : MonoBehaviour
 
     private void Update()
     {
+        // Move to next character
         if (Input.GetKeyUp(KeyCode.RightArrow) == true)
         {
             characters[_currentIndex].Deselect();
@@ -35,6 +36,7 @@ public class CharacterSelectionController : MonoBehaviour
             SelectCharacter(_currentIndex);
         }
 
+        // Move to previous character
         if (Input.GetKeyUp(KeyCode.LeftArrow) == true)
         {
             characters[_currentIndex].Deselect();
@@ -44,15 +46,17 @@ public class CharacterSelectionController : MonoBehaviour
             SelectCharacter(_currentIndex);
         }
 
+        // Switch character customization
+        if (Input.GetKeyUp(KeyCode.UpArrow) == true)
+        {
+            characters[_currentIndex].ChangeCustomization();
+        }
+
+        // Validate character
         if (Input.GetKeyUp(KeyCode.Return) == true)
         {
             characters[_currentIndex].Validate();
             SceneManager.LoadScene(nextSceneIndex);
-        }
-
-        if (Input.GetKeyUp(KeyCode.UpArrow) == true)
-        {
-            characters[_currentIndex].ChangeCustomization();
         }
     }
 

@@ -1,19 +1,11 @@
 ﻿/// <summary>
 /// Defines generic rules for character
 /// </summary>
-public class AbstractCharacterData
+public class AbstractCharacterData : AbstractUniqueData
 {
-    private static uint ID = 0;
-
-    public uint uniqueId { private set; get; }
     public int health { protected set; get; }
     public bool isAlive { get { return health > 0; } }
-
-    public AbstractCharacterData()
-    {
-        uniqueId = ID++;
-    }
-
+    
     /// <summary>
     /// Populate model with data
     /// </summary>

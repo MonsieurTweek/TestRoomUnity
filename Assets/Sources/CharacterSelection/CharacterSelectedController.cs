@@ -44,6 +44,7 @@ public class CharacterSelectedController : MonoBehaviour
     public void Validate()
     {
         _character.SaveCustomization();
+        _archetype.Save(Archetype.SAVE_PATH);
     }
 
     public void ChangeCustomization()
