@@ -29,15 +29,20 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
     private void Awake()
     {
-        data = new EnemyData();
-        data.Populate();
-
         stateIdle.flag = StateEnum.IDLE;
         stateMove.flag = StateEnum.MOVE;
         stateAttack.flag = StateEnum.ATTACK;
         stateHit.flag = StateEnum.HIT;
         stateDie.flag = StateEnum.DIE;
-}
+    }
+
+    public void Initialize(PlayerFSM player)
+    {
+        data = new EnemyData();
+        data.Populate();
+
+        target = player.transform;
+    }
 
     private void Start()
     {

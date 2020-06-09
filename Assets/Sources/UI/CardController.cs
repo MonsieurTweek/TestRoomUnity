@@ -22,6 +22,9 @@ public class CardController : MonoBehaviour
         data = new CardData();
         data.Populate(perk);
 
+        // Save current position as destination
+        _destination = transform.localPosition;
+
         Prepare();
     }
 
@@ -31,11 +34,13 @@ public class CardController : MonoBehaviour
         descriptionText.text = data.description;
         icon.sprite = data.icon;
 
-        // Start at destination
-        _destination = transform.localPosition;
+        // Position is reset to be out of screen
+        transform.localPosition = Vector3.left * Screen.width;
 
-        // And position is reset to be out of screen
-        transform.position = Vector3.left * Screen.width;
+        // Scale is reset as well
+        transform.localScale = Vector3.one;
+        back.transform.localScale = Vector3.one;
+        front.transform.localScale = Vector3.one;
 
         back.SetActive(true);
         front.SetActive(false);
@@ -43,6 +48,8 @@ public class CardController : MonoBehaviour
 
     public void AnimateIntro()
     {
+        Prepare();
+
         LeanTween.moveLocal(gameObject, _destination, 0.5f).setOnComplete(AnimateSwitch);
     }
 

@@ -1,15 +1,29 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ArenaManager : MonoBehaviour
 {
     public PlayerFSM player = null;
     public List<EnemyFSM> enemies = new List<EnemyFSM>();
 
+    private int _currentEnemyIndex = 0;
+    private Dictionary<uint, EnemyFSM> _currentEnemies = new Dictionary<uint, EnemyFSM>();
+
     private void Start()
     {
         CharacterGameEvent.instance.onDie += OnDie;
+        PerkGameEvent.instance.onPerkSelected += OnPerkSelected;
+
+        SpawnNextEnemy();
+    }
+
+    private void SpawnNextEnemy()
+    {
+        EnemyFSM enemy = Instantiate<EnemyFSM>(enemies[_currentEnemyIndex], Vector3.zero, Quaternion.identity);
+
+        enemy.Initialize(player);
+
+        _currentEnemies.Add(enemy.data.uniqueId, enemy);
     }
 
     private void OnDie(uint id)
@@ -17,27 +31,27 @@ public class ArenaManager : MonoBehaviour
         if (player.data.uniqueId == id)
         {
             //TODO : Game Over
-            SceneManager.LoadScene(0);
+            Debug.Log("Game Over");
         }
         else
         {
-            EnemyFSM enemyToRemove = null;
+            uint idToRemove = 0;
 
-            for(int i = 0; i < enemies.Count; ++i)
+            foreach(uint uniqueId in _currentEnemies.Keys)
             {
-                if (enemies[i].data.uniqueId == id)
+                if (uniqueId == id)
                 {
-                    enemyToRemove = enemies[i];
+                    idToRemove = uniqueId;
                     break;
                 }
             }
 
-            if (enemyToRemove != null)
+            if (idToRemove != 0)
             {
-                enemies.Remove(enemyToRemove);
+                _currentEnemies.Remove(idToRemove);
             }
 
-            if (enemies.Count == 0)
+            if (_currentEnemies.Count == 0)
             {
                 // Pause characters
                 CharacterGameEvent.instance.PauseRaised(true);
@@ -45,6 +59,29 @@ public class ArenaManager : MonoBehaviour
                 // Show perks
                 PerkGameEvent.instance.DisplayRaised();
             }
+        }
+    }
+
+    private void OnPerkSelected(uint perkId)
+    {
+        _currentEnemyIndex++;
+
+        if (_currentEnemyIndex < enemies.Count)
+        {
+            SpawnNextEnemy();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (CharacterGameEvent.instance != null)
+        {
+            CharacterGameEvent.instance.onDie -= OnDie;
+        }
+
+        if (PerkGameEvent.instance != null)
+        {
+            PerkGameEvent.instance.onPerkSelected -= OnPerkSelected;
         }
     }
 }
