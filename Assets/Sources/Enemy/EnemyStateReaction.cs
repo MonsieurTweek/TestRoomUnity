@@ -4,7 +4,7 @@
 /// Trigger a reaction when the target enters a range
 /// </summary>
 [Serializable]
-public class EnemyStateReaction : CharacterFSM.State1Param<Action>
+public class EnemyStateReaction : CharacterFSM.CharacterState1Param<Action>
 {
     public float reactionRange = 1f;
 
@@ -17,9 +17,9 @@ public class EnemyStateReaction : CharacterFSM.State1Param<Action>
 
     public override void Update()
     {
-        ((EnemyFSM)owner).LookAtTarget();
+        ((EnemyFSM)character).LookAtTarget();
 
-        if (((EnemyFSM)owner).direction.sqrMagnitude < reactionRange * reactionRange)
+        if (((EnemyFSM)character).direction.sqrMagnitude < reactionRange * reactionRange)
         {
             reaction();
         }

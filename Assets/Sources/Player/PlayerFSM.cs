@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class PlayerFSM : CharacterFSM, ICharacter
 {
-    private const uint FLAG_CAN_ATTACK = (uint)StateEnum.MOVE;
-    private const uint FLAG_CAN_HIT = (uint)(StateEnum.MOVE | StateEnum.ATTACK);
+    private const uint FLAG_CAN_ATTACK = (uint)CharacterStateEnum.MOVE;
+    private const uint FLAG_CAN_HIT = (uint)(CharacterStateEnum.MOVE | CharacterStateEnum.ATTACK);
 
     [Header("References")]
     public Transform model = null;
@@ -37,11 +37,11 @@ public class PlayerFSM : CharacterFSM, ICharacter
         data = new PlayerData();
         data.Populate();
 
-        stateIdle.flag = StateEnum.IDLE;
-        stateMove.flag = StateEnum.MOVE;
-        stateAttack.flag = StateEnum.ATTACK;
-        stateHit.flag = StateEnum.HIT;
-        stateDie.flag = StateEnum.DIE;
+        stateIdle.flag = (uint)CharacterStateEnum.IDLE;
+        stateMove.flag = (uint)CharacterStateEnum.MOVE;
+        stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
+        stateHit.flag = (uint)CharacterStateEnum.HIT;
+        stateDie.flag = (uint)CharacterStateEnum.DIE;
 
         // Save current player rotation to start with
         _playerRotation = transform.eulerAngles;
@@ -238,7 +238,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     /// </summary>
     public void OnAnimationPlayFx(AnimationEvent animationEvent)
     {
-        if (currentState.flag == StateEnum.ATTACK)
+        if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
         {
             ((PlayerStateAttack)currentState).OnAttackPlayFx(animationEvent.objectReferenceParameter, animationEvent.intParameter == 1);
         }
@@ -250,7 +250,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     /// </summary>
     public void OnAnimationSendProjectile(AnimationEvent animationEvent)
     {
-        if (currentState.flag == StateEnum.ATTACK)
+        if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
         {
             ((PlayerStateAttack)currentState).OnAttackSendProjectile(animationEvent.objectReferenceParameter, animationEvent.intParameter == 1);
         }

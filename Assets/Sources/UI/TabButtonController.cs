@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,9 +10,17 @@ public class TabButtonController : MonoBehaviour, IPointerEnterHandler, IPointer
     public TabGroupController tabGroup = null;
 
     public Image background = null;
+    public TextMeshProUGUI title = null;
 
     public UnityEvent onTabSelected;
     public UnityEvent onTabDeselected;
+
+    private Color _defaultTitleColor = Color.white;
+
+    private void Awake()
+    {
+        _defaultTitleColor = title.color;
+    }
 
     private void Start()
     {
@@ -44,6 +53,8 @@ public class TabButtonController : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void Deselect()
     {
+        title.color = _defaultTitleColor;
+
         if (onTabDeselected != null)
         {
             onTabDeselected.Invoke();

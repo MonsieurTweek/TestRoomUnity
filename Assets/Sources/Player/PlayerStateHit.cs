@@ -4,12 +4,12 @@
 /// Defines what to do when player is hit
 /// </summary>
 [Serializable]
-public class PlayerStateHit : CharacterFSM.State
+public class PlayerStateHit : CharacterFSM.CharacterState
 {
     private const string ANIMATION_PARAM = "Hit";
 
     public override void Enter()
     {
-        owner.animator.SetTrigger(ANIMATION_PARAM);
+        character.animator.SetTrigger(ANIMATION_PARAM);
     }
 }

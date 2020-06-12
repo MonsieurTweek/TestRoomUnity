@@ -5,7 +5,7 @@
 /// </summary>
 public class EnemyFSM : CharacterFSM, ICharacter
 {
-    private const uint FLAG_CAN_HIT = (uint)(StateEnum.IDLE | StateEnum.MOVE | StateEnum.ATTACK);
+    private const uint FLAG_CAN_HIT = (uint)(CharacterStateEnum.IDLE | CharacterStateEnum.MOVE | CharacterStateEnum.ATTACK);
 
     [Header("References")]
     public Transform target = null;
@@ -29,11 +29,11 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
     private void Awake()
     {
-        stateIdle.flag = StateEnum.IDLE;
-        stateMove.flag = StateEnum.MOVE;
-        stateAttack.flag = StateEnum.ATTACK;
-        stateHit.flag = StateEnum.HIT;
-        stateDie.flag = StateEnum.DIE;
+        stateIdle.flag = (uint)CharacterStateEnum.IDLE;
+        stateMove.flag = (uint)CharacterStateEnum.MOVE;
+        stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
+        stateHit.flag = (uint)CharacterStateEnum.HIT;
+        stateDie.flag = (uint)CharacterStateEnum.DIE;
     }
 
     public void Initialize(PlayerFSM player)

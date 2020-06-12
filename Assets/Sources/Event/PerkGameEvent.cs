@@ -20,12 +20,12 @@ public class PerkGameEvent : MonoBehaviour
         }
     }
 
-    public event Action<uint> onPerkSelected;
-    public void PerkSelectedRaised(CardData data)
+    public event Action<uint> onUnlock;
+    public void UnlockRaised(CardData data)
     {
-        if (onPerkSelected != null)
+        if (onUnlock != null)
         {
-            onPerkSelected(data.uniqueId);
+            onUnlock(data.uniqueId);
         }
     }
 }

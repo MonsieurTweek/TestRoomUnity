@@ -1,7 +1,7 @@
 ﻿using System;
 
 [Serializable]
-public class CharacterStateAttack : CharacterFSM.State1Param<bool>
+public class CharacterStateAttack : CharacterFSM.CharacterState1Param<bool>
 {
     private const string ANIMATION_PARAM_ATTACK_LIGHT = "AttackLight";
     private const string ANIMATION_PARAM_ATTACK_HEAVY = "AttackHeavy";
@@ -12,6 +12,6 @@ public class CharacterStateAttack : CharacterFSM.State1Param<bool>
     {
         this.isHeavy = isHeavy;
 
-        owner.animator.SetTrigger(isHeavy == true ? ANIMATION_PARAM_ATTACK_HEAVY : ANIMATION_PARAM_ATTACK_LIGHT);
+        character.animator.SetTrigger(isHeavy == true ? ANIMATION_PARAM_ATTACK_HEAVY : ANIMATION_PARAM_ATTACK_LIGHT);
     }
 }

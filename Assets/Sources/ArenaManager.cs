@@ -12,14 +12,14 @@ public class ArenaManager : MonoBehaviour
     private void Start()
     {
         CharacterGameEvent.instance.onDie += OnDie;
-        PerkGameEvent.instance.onPerkSelected += OnPerkSelected;
+        PerkGameEvent.instance.onUnlock += OnPerkSelected;
 
         SpawnNextEnemy();
     }
 
     private void SpawnNextEnemy()
     {
-        EnemyFSM enemy = Instantiate<EnemyFSM>(enemies[_currentEnemyIndex], Vector3.zero, Quaternion.identity);
+        EnemyFSM enemy = Instantiate<EnemyFSM>(enemies[_currentEnemyIndex], transform);
 
         enemy.Initialize(player);
 
@@ -30,8 +30,8 @@ public class ArenaManager : MonoBehaviour
     {
         if (player.data.uniqueId == id)
         {
-            //TODO : Game Over
-            Debug.Log("Game Over");
+            // You lose !
+            GameEvent.instance.GameOverRaised(false);
         }
         else
         {
@@ -53,23 +53,28 @@ public class ArenaManager : MonoBehaviour
 
             if (_currentEnemies.Count == 0)
             {
+                _currentEnemyIndex++;
+
                 // Pause characters
                 CharacterGameEvent.instance.PauseRaised(true);
 
-                // Show perks
-                PerkGameEvent.instance.DisplayRaised();
+                if (_currentEnemyIndex < enemies.Count)
+                {
+                    // Show perks
+                    PerkGameEvent.instance.DisplayRaised();
+                }
+                else
+                {
+                    // You win !
+                    GameEvent.instance.GameOverRaised(true);
+                }
             }
         }
     }
 
     private void OnPerkSelected(uint perkId)
     {
-        _currentEnemyIndex++;
-
-        if (_currentEnemyIndex < enemies.Count)
-        {
-            SpawnNextEnemy();
-        }
+        SpawnNextEnemy();
     }
 
     private void OnDestroy()
@@ -81,7 +86,7 @@ public class ArenaManager : MonoBehaviour
 
         if (PerkGameEvent.instance != null)
         {
-            PerkGameEvent.instance.onPerkSelected -= OnPerkSelected;
+            PerkGameEvent.instance.onUnlock -= OnPerkSelected;
         }
     }
 }

@@ -4,6 +4,6 @@
 /// Pause player actions in an idle state
 /// </summary>
 [Serializable]
-public class PlayerStateIdle : CharacterFSM.State
+public class PlayerStateIdle : CharacterFSM.CharacterState
 {
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public class PlayerStateMove : CharacterFSM.State
+public class PlayerStateMove : CharacterFSM.CharacterState
 {
     private const string ANIMATION_PARAM_VELOCTIY_X = "VelocityX";
     private const string ANIMATION_PARAM_VELOCTIY_Y = "VelocityY";
@@ -19,7 +19,7 @@ public class PlayerStateMove : CharacterFSM.State
 
     public override void Update()
     {
-        ((PlayerFSM)owner).Rotate();
+        ((PlayerFSM)character).Rotate();
 
         ComputeDirection();
 
@@ -34,7 +34,7 @@ public class PlayerStateMove : CharacterFSM.State
         // Get input amplitude
         _input.z = Input.GetAxis("Vertical") * modifier;
         // Apply velocity to straf direction only when targetting
-        _input.x = ((PlayerFSM)owner).target != null ? Input.GetAxis("Horizontal") * modifier : 0f;
+        _input.x = ((PlayerFSM)character).target != null ? Input.GetAxis("Horizontal") * modifier : 0f;
 
         // Apply input amplitude to forward velocity
         _velocity.z = _input.z * movementSpeed;
@@ -44,10 +44,10 @@ public class PlayerStateMove : CharacterFSM.State
 
     private void Animate()
     {
-        if (((PlayerFSM)owner).isGrounded == true)
+        if (((PlayerFSM)character).isGrounded == true)
         {
-            owner.animator.SetFloat(ANIMATION_PARAM_VELOCTIY_X, _input.x);
-            owner.animator.SetFloat(ANIMATION_PARAM_VELOCTIY_Y, _input.z);
+            character.animator.SetFloat(ANIMATION_PARAM_VELOCTIY_X, _input.x);
+            character.animator.SetFloat(ANIMATION_PARAM_VELOCTIY_Y, _input.z);
         }
     }
 
@@ -60,17 +60,17 @@ public class PlayerStateMove : CharacterFSM.State
 
     private void Move()
     {
-        Vector3 targetPosition = owner.transform.position + _velocity;
+        Vector3 targetPosition = character.transform.position + _velocity;
 
         targetPosition.y = 0f;
 
         // Move to the new position
-        owner.transform.Translate((targetPosition - owner.transform.position) * Time.deltaTime);
+        character.transform.Translate((targetPosition - character.transform.position) * Time.deltaTime);
     }
 
     private void Jump()
     {
-        if (((PlayerFSM)owner).isGrounded == true)
+        if (((PlayerFSM)character).isGrounded == true)
         {
             _velocity.y = 0f;
 
@@ -78,7 +78,7 @@ public class PlayerStateMove : CharacterFSM.State
             {
                 _isJumping = false;
                 _canJump = true;
-                owner.animator.SetBool(ANIMATION_PARAM_JUMP, false);
+                character.animator.SetBool(ANIMATION_PARAM_JUMP, false);
             }
 
             // We are grounded, so recalculate
@@ -90,11 +90,11 @@ public class PlayerStateMove : CharacterFSM.State
                 _isJumping = true;
                 _canJump = false;
 
-                owner.animator.SetBool(ANIMATION_PARAM_JUMP, true);
+                character.animator.SetBool(ANIMATION_PARAM_JUMP, true);
             }
         }
 
-        if (((PlayerFSM)owner).isGrounded == false || _isJumping == true)
+        if (((PlayerFSM)character).isGrounded == false || _isJumping == true)
         {
             // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
             // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
@@ -103,7 +103,7 @@ public class PlayerStateMove : CharacterFSM.State
         }
 
         // Move the controller
-        ((PlayerFSM)owner).model.localPosition += owner.transform.up * _velocity.y * Time.deltaTime;
+        ((PlayerFSM)character).model.localPosition += character.transform.up * _velocity.y * Time.deltaTime;
     }
 
     public override void Exit()
@@ -118,8 +118,8 @@ public class PlayerStateMove : CharacterFSM.State
 #if UNITY_EDITOR
     public override void OnDrawGizmos()
     {
-        UnityEditor.Handles.Label(owner.transform.position + Vector3.up * 0.5f, "Velocity : " + _velocity);
-        UnityEditor.Handles.Label(owner.transform.position, "Is grounded : " + ((PlayerFSM)owner).isGrounded);
+        UnityEditor.Handles.Label(character.transform.position + Vector3.up * 0.5f, "Velocity : " + _velocity);
+        UnityEditor.Handles.Label(character.transform.position, "Is grounded : " + ((PlayerFSM)character).isGrounded);
     }
 #endif
 }

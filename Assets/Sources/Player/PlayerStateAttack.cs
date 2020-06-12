@@ -18,7 +18,7 @@ public class PlayerStateAttack : CharacterStateAttack
 
         GearController currentProjectile = gameObject.GetComponent<GearController>();
 
-        currentProjectile.Attach(owner);
+        currentProjectile.Attach(character);
     }
 
     public void OnAttackPlayFx(UnityEngine.Object fx, bool isRooted)
@@ -41,8 +41,8 @@ public class PlayerStateAttack : CharacterStateAttack
     {
         GameObject gameObject = GameObject.Instantiate<GameObject>((GameObject)prefab);
         
-        gameObject.transform.position = isRooted == true ? owner.transform.position : anchor.position;
-        gameObject.transform.rotation = owner.transform.rotation;
+        gameObject.transform.position = isRooted == true ? character.transform.position : anchor.position;
+        gameObject.transform.rotation = character.transform.rotation;
 
         return gameObject;
         

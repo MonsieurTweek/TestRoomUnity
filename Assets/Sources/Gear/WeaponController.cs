@@ -34,7 +34,7 @@ public class WeaponController : GearController
 
     protected virtual bool CanHit(Collider other)
     {
-        return owner.currentState.flag == StateEnum.ATTACK && 
+        return owner.currentState.flag == (uint)CharacterStateEnum.ATTACK && 
             other.tag != owner.tag && 
             (other.tag == EnemyData.TAG || other.tag == PlayerData.TAG);
     }

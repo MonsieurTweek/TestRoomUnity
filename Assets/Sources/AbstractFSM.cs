@@ -3,26 +3,18 @@
 /// <summary>
 /// Define a simple Final State Machine to manage states
 /// </summary>
-public class CharacterFSM : MonoBehaviour
+public abstract class AbstractFSM : MonoBehaviour
 {
-    // Common references across FSMs
-    public Animator animator = null;
-
     //Base class for all states, only the required methods need to be overriden 
     public class StateBase
     {
-        [HideInInspector] public CharacterFSM owner = null;
-        [HideInInspector] public StateEnum flag = StateEnum.NONE;
+        [HideInInspector] public AbstractFSM owner = null;
+        [HideInInspector] public uint flag = (uint)CharacterStateEnum.NONE;
 
         public virtual void Update() { }
         public virtual void FixedUpdate() { }
         public virtual void Exit() { }
         public virtual void OnDrawGizmos() { }
-
-        public override string ToString()
-        {
-            return base.ToString() + " with flag " + flag;
-        }
     };
 
     public class State : StateBase { public virtual void Enter() { } }
@@ -33,9 +25,7 @@ public class CharacterFSM : MonoBehaviour
     //Current state being handled in this FSM
     public StateBase currentState { private set; get; }
 
-    public AbstractCharacterData data { protected set; get; }
-
-    private bool ChangeStateBase(StateBase newState)
+    protected bool ChangeStateBase(StateBase newState)
     {
         //Exit the current state
         if (currentState != null)
@@ -48,7 +38,8 @@ public class CharacterFSM : MonoBehaviour
 
         if (newState != null)
         {
-            newState.owner = this;
+            AttachOwner();
+
             return true;
         }
 
@@ -87,6 +78,11 @@ public class CharacterFSM : MonoBehaviour
         }
     }
 
+    public virtual void AttachOwner()
+    {
+        currentState.owner = this;
+    }
+
     public virtual void Update()
     {
         //Update the currentState
@@ -104,24 +100,4 @@ public class CharacterFSM : MonoBehaviour
             currentState.FixedUpdate();
         }
     }
-
-    private void OnDestroy()
-    {
-        if (currentState != null)
-        {
-            currentState.Exit();
-        }
-    }
-
-#if UNITY_EDITOR
-    public virtual void OnDrawGizmos()
-    {
-        if (currentState != null)
-        {
-            UnityEditor.Handles.Label(transform.position + Vector3.up, "State : " + currentState);
-
-            currentState.OnDrawGizmos();
-        }
-    }
-#endif
 }

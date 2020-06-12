@@ -5,7 +5,7 @@ using UnityEngine;
 /// Define what to do when enemy dies
 /// </summary>
 [Serializable]
-public class EnemyStateDie : CharacterFSM.State
+public class EnemyStateDie : CharacterFSM.CharacterState
 {
     public GameObject fx = null;
 
@@ -13,16 +13,16 @@ public class EnemyStateDie : CharacterFSM.State
 
     public override void Enter()
     {
-        owner.animator.SetTrigger(ANIMATION_PARAM);
+        character.animator.SetTrigger(ANIMATION_PARAM);
     }
 
     public override void Exit()
     {
-        CharacterGameEvent.instance.DieRaised(owner.data);
+        CharacterGameEvent.instance.DieRaised(character.data);
 
         if (fx != null)
         {
-            GameObject.Instantiate(fx, owner.transform.position, owner.transform.rotation);
+            GameObject.Instantiate(fx, character.transform.position, character.transform.rotation);
         }
     }
 }

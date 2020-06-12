@@ -1,4 +1,4 @@
-﻿public enum StateEnum : uint
+﻿public enum CharacterStateEnum : uint
 {
     NONE = 0,
 

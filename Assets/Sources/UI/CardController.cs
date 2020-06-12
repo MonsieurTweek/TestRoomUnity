@@ -71,7 +71,7 @@ public class CardController : MonoBehaviour
 
     public void OnSelect()
     {
-        PerkGameEvent.instance.PerkSelectedRaised(data);
+        PerkGameEvent.instance.UnlockRaised(data);
     }
 
     private void ShowFront()

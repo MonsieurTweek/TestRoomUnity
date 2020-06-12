@@ -3,16 +3,24 @@ using UnityEngine;
 
 public class CardCanvasController : MonoBehaviour
 {
+    public GameObject root = null;
     public List<CardController> cards = new List<CardController>();
+
+    private void Awake()
+    {
+        root.SetActive(false);
+    }
 
     private void Start()
     {
         PerkGameEvent.instance.onDisplay += OnPerkDisplayed;
-        PerkGameEvent.instance.onPerkSelected += OnPerkSelected;
+        PerkGameEvent.instance.onUnlock += OnPerkSelected;
     }
 
     private void OnPerkDisplayed()
     {
+        root.SetActive(true);
+
         for (int i = 0; i < cards.Count; ++i)
         {
             cards[i].AnimateIntro();
@@ -32,6 +40,8 @@ public class CardCanvasController : MonoBehaviour
                 cards[i].AnimateHide();
             }
         }
+
+        root.SetActive(false);
     }
 
     private void OnSelectionEnded(object id)
@@ -52,7 +62,7 @@ public class CardCanvasController : MonoBehaviour
         if (PerkGameEvent.instance != null)
         {
             PerkGameEvent.instance.onDisplay -= OnPerkDisplayed;
-            PerkGameEvent.instance.onPerkSelected -= OnPerkSelected;
+            PerkGameEvent.instance.onUnlock -= OnPerkSelected;
         }
     }
 }

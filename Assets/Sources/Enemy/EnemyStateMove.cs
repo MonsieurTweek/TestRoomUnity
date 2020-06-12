@@ -12,20 +12,20 @@ public class EnemyStateMove : EnemyStateReaction
     {
         base.Enter(reaction);
 
-        owner.animator.applyRootMotion = true;
+        character.animator.applyRootMotion = true;
 
-        owner.animator.SetBool(ANIMATION_PARAM, true);
+        character.animator.SetBool(ANIMATION_PARAM, true);
     }
 
     public override void Exit()
     {
-        owner.animator.SetBool(ANIMATION_PARAM, false);
+        character.animator.SetBool(ANIMATION_PARAM, false);
     }
 
     public override void FixedUpdate()
     {
-        Vector3 targetPosition = owner.transform.position + Vector3.forward * movementSpeed;
+        Vector3 targetPosition = character.transform.position + Vector3.forward * movementSpeed;
 
-        owner.transform.Translate((targetPosition - owner.transform.position) * Time.deltaTime);
+        character.transform.Translate((targetPosition - character.transform.position) * Time.deltaTime);
     }
 }

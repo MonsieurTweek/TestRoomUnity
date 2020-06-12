@@ -4,17 +4,17 @@
 /// Define what to do when player dies
 /// </summary>
 [Serializable]
-public class PlayerStateDie : CharacterFSM.State
+public class PlayerStateDie : CharacterFSM.CharacterState
 {
     private const string ANIMATION_PARAM = "Die";
 
     public override void Enter()
     {
-        owner.animator.SetTrigger(ANIMATION_PARAM);
+        character.animator.SetTrigger(ANIMATION_PARAM);
     }
 
     public override void Exit()
     {
-        CharacterGameEvent.instance.DieRaised(owner.data);
+        CharacterGameEvent.instance.DieRaised(character.data);
     }
 }
