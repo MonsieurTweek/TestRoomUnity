@@ -2773,6 +2773,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: HomeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2604840422578388225, guid: 47b76f6b3b91d7841b8dd13ef0361124,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604840422578388225, guid: 47b76f6b3b91d7841b8dd13ef0361124,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1930972646891838759, guid: 961b6b86d307fa348bc1c606d17fd6c5,
+        type: 3}
+    - target: {fileID: 2604840422578388225, guid: 47b76f6b3b91d7841b8dd13ef0361124,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HomeButtonPressed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604840422578388225, guid: 47b76f6b3b91d7841b8dd13ef0361124,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604840422578388225, guid: 47b76f6b3b91d7841b8dd13ef0361124,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2604840422578388225, guid: 47b76f6b3b91d7841b8dd13ef0361124,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6745158900298352024, guid: 47b76f6b3b91d7841b8dd13ef0361124,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2878,7 +2909,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4218879798806606697, guid: 47b76f6b3b91d7841b8dd13ef0361124, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 47b76f6b3b91d7841b8dd13ef0361124, type: 3}
 --- !u!224 &8439086753343242835 stripped
 RectTransform:

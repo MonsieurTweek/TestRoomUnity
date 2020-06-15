@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6454351221919535403}
   - component: {fileID: 160588963344711906}
   - component: {fileID: 2604840422578388225}
-  - component: {fileID: 4218879798806606697}
   m_Layer: 5
   m_Name: HomeButton
   m_TagString: Untagged
@@ -36,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -30, y: -30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &6454351221919535403
@@ -118,16 +117,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 160588963344711906}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &4218879798806606697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150906038511277311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b903763045607c49b9e9beb11a0b633, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+      m_Calls:
+      - m_Target: {fileID: 1930972646891838759, guid: 961b6b86d307fa348bc1c606d17fd6c5,
+          type: 3}
+        m_MethodName: HomeButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

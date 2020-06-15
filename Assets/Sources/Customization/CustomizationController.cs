@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 public class CustomizationController : MonoBehaviour
 {
-    private static CustomizationController _instance = null;
-    public static CustomizationController instance { get { return _instance; } set { _instance = value; } }
+    public static CustomizationController instance { private set; get; }
 
     [SerializeField]
     private PlayerCustomizationController _playerCustomizationController = null;

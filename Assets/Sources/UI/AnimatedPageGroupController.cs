@@ -4,6 +4,7 @@ public class AnimatedPageGroupController : TabGroupController
 {
     public float timeToShow = 0.5f;
     public float timeToHide = 0.5f;
+    public float delay = 0.1f;
 
     public List<AnimatedPageController> pages = null;
 
@@ -13,9 +14,11 @@ public class AnimatedPageGroupController : TabGroupController
 
         for (int i = 0; i < pages.Count; i++)
         {
-            pages[i].Show(timeToShow);
-
-            if (i != index)
+            if (i == index)
+            {
+                pages[i].Show(timeToShow, delay);
+            }
+            else
             {
                 pages[i].Hide(timeToHide);
             }

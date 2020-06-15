@@ -5,7 +5,7 @@ public class AnimatedPageController : MonoBehaviour
     private int _animationCounter = 0;
     private bool _isAnimationPlaying = false;
 
-    public void Show(float time)
+    public void Show(float time, float delay)
     {
         _isAnimationPlaying = true;
 
@@ -13,7 +13,7 @@ public class AnimatedPageController : MonoBehaviour
         {
             transform.GetChild(i).localScale = Vector3.zero;
 
-            LeanTween.scale(transform.GetChild(i).gameObject, Vector3.one, time).setOnComplete(OnShowProgress);
+            LeanTween.scale(transform.GetChild(i).gameObject, Vector3.one, Random.Range(0f, time)).setDelay(Random.Range(0f, delay)).setOnComplete(OnShowProgress);
         }
 
         gameObject.SetActive(true);
@@ -42,7 +42,7 @@ public class AnimatedPageController : MonoBehaviour
 
             for (int i = 0; i < transform.childCount; i++)
             {
-                LeanTween.scale(transform.GetChild(i).gameObject, Vector3.zero, time).setOnComplete(OnHideComplete);
+                LeanTween.scale(transform.GetChild(i).gameObject, Vector3.zero, time).setOnComplete(OnHideProgress);
             }
         }
         else

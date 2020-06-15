@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameOverCanvasController : MonoBehaviour
 {
+    public CanvasGroup root = null;
     public TextMeshProUGUI title = null;
 
     public Color victoryColor = Color.black;
@@ -13,20 +14,16 @@ public class GameOverCanvasController : MonoBehaviour
 
     private void Start()
     {
-        GameEvent.instance.onGameOver += OnGameOver;
-    }
+        GameStateGameOver state = (GameStateGameOver)GameManager.instance.GetCurrentState();
 
-    private void OnGameOver(bool hasWon)
-    {
-        title.text = hasWon ? victoryText : defeatText;
-        title.color = hasWon ? victoryColor : defeatColor;
-    }
-
-    private void OnDestroy()
-    {
-        if (GameEvent.instance != null)
+        if (state != null)
         {
-            GameEvent.instance.onGameOver -= OnGameOver;
+            title.text = state.hasWon ? victoryText : defeatText;
+            title.color = state.hasWon ? victoryColor : defeatColor;
         }
+
+        root.alpha = 0f;
+
+        LeanTween.alphaCanvas(root, 1f, 1f);
     }
 }

@@ -1,7 +1,10 @@
 ﻿public enum GameSceneIndexes
 {
-    MENU = 0,
-    SELECTION = 1,
-    ARENA = 2,
-    GAME_OVER = 3
+    PERSISTENT = 0,
+
+    HOME = 1,
+    STORE = 2,
+    SELECTION = 3,
+    ARENA = 4,
+    GAME_OVER = 5,
 }

@@ -1,59 +1,73 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameEvent : MonoBehaviour
 {
-    private static GameEvent _instance = null;
-    public static GameEvent instance { get { return _instance; } set { _instance = value; } }
+    public static GameEvent instance { private set; get; }
 
     private void Awake()
     {
-        _instance = this;
+        // First destroy any existing instance of it
+        if (instance != null)
+        {
+            Destroy(instance);
+        }
+
+        // Then reassign a proper one
+        instance = this;
     }
 
     public event Action onPlayButtonPressed;
     public void PlayButtonPressed()
     {
-        if (onPlayButtonPressed != null)
+        if (instance.onPlayButtonPressed != null)
         {
-            onPlayButtonPressed();
+            instance.onPlayButtonPressed();
         }
     }
 
     public event Action onStoreButtonPressed;
     public void StoreButtonPressed()
     {
-        if (onStoreButtonPressed != null)
+        if (instance.onStoreButtonPressed != null)
         {
-            onStoreButtonPressed();
+            instance.onStoreButtonPressed();
         }
     }
 
     public event Action onHomeButtonPressed;
     public void HomeButtonPressed()
     {
-        if (onHomeButtonPressed != null)
+        if (instance.onHomeButtonPressed != null)
         {
-            onHomeButtonPressed();
+            instance.onHomeButtonPressed();
         }
     }
 
     public event Action onCharacterSelected;
     public void CharacterSelected()
     {
-        if (onCharacterSelected != null)
+        if (instance.onCharacterSelected != null)
         {
-            onCharacterSelected();
+            instance.onCharacterSelected();
         }
     }
 
     public event Action<bool> onGameOver;
     public void GameOverRaised(bool hasWon)
     {
-        if (onGameOver != null)
+        if (instance.onGameOver != null)
         {
-            onGameOver(hasWon);
+            instance.onGameOver(hasWon);
+        }
+    }
+
+    public event Action onLoadingEnded;
+    public void LoadingEnded()
+    {
+        if (instance.onLoadingEnded != null)
+        {
+            instance.onLoadingEnded();
         }
     }
 }

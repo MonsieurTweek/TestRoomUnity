@@ -1,22 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [Serializable]
 public class GameStateWithScene : AbstractFSM.State
 {
-    public GameSceneIndexes gameScene = GameSceneIndexes.MENU;
+    public GameSceneIndexes gameScene = GameSceneIndexes.HOME;
+
+    private List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
     public override void Enter()
     {
-        UnityEngine.Debug.Log("Load scene " + gameScene);
-
-        SceneManager.LoadSceneAsync((int)gameScene, LoadSceneMode.Additive);
+        ((GameFSM)owner).RegisterLoadingOperation(SceneManager.LoadSceneAsync((int)gameScene, LoadSceneMode.Additive));
     }
 
     public override void Exit()
     {
-        UnityEngine.Debug.Log("Unload scene " + gameScene);
-
-        SceneManager.UnloadSceneAsync((int)gameScene);
+        ((GameFSM)owner).RegisterLoadingOperation(SceneManager.UnloadSceneAsync((int)gameScene));
     }
 }

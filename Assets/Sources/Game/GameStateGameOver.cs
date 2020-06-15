@@ -1,18 +1,25 @@
 ﻿using System;
-using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class GameStateGameOver : AbstractFSM.State1Param<bool>
 {
-    public GameObject root = null;
+    private GameSceneIndexes gameScene = GameSceneIndexes.GAME_OVER;
+    public bool hasWon { private set; get; }
 
     public override void Enter(bool hasWon)
     {
-        root.SetActive(true);
+        this.hasWon = hasWon;
+
+        UnityEngine.Debug.Log("Load scene " + gameScene);
+
+        SceneManager.LoadSceneAsync((int)gameScene, LoadSceneMode.Additive);
     }
 
     public override void Exit()
     {
-        root.SetActive(false);
+        UnityEngine.Debug.Log("Unload scene " + gameScene);
+
+        SceneManager.UnloadSceneAsync((int)gameScene);
     }
 }
