@@ -61,13 +61,4 @@ public class GameEvent : MonoBehaviour
             instance.onGameOver(hasWon);
         }
     }
-
-    public event Action onLoadingEnded;
-    public void LoadingEnded()
-    {
-        if (instance.onLoadingEnded != null)
-        {
-            instance.onLoadingEnded();
-        }
-    }
 }

@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5594270086289841445}
   - component: {fileID: 8420641575498477156}
-  - component: {fileID: 1930972646891838759}
   - component: {fileID: 4931250911300824765}
+  - component: {fileID: 1930972646891838759}
+  - component: {fileID: 8528038019923676922}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -46,18 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fsm: {fileID: 4931250911300824765}
---- !u!114 &1930972646891838759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5594270086289841447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f02823932f2e0546bb234fc43b1b0c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4931250911300824765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,8 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6883ebda04e9f0a4088da78523a6dcd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 0}
-  loadingBar: {fileID: 0}
   stateHome:
     owner: {fileID: 0}
     flag: 0
@@ -91,4 +78,27 @@ MonoBehaviour:
   stateGameOver:
     owner: {fileID: 0}
     flag: 0
-  loadingDelay: 0.5
+--- !u!114 &1930972646891838759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594270086289841447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f02823932f2e0546bb234fc43b1b0c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8528038019923676922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594270086289841447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0548ee1974452694ebf08358deed1c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

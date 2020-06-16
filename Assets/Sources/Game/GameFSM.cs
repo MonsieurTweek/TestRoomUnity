@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class GameFSM : AbstractFSM
 {
-    [Header("References")]
-    public GameObject loadingScreen = null;
-    public ProgressBarController loadingBar = null;
-
     [Header("States")]
     public GameStateWithScene stateHome = new GameStateWithScene();
     public GameStateWithScene stateStore = new GameStateWithScene();
@@ -16,9 +12,6 @@ public class GameFSM : AbstractFSM
     public GameStateWithScene stateArena = new GameStateWithScene();
     public GameStateGameOver stateGameOver = new GameStateGameOver();
 
-    [Header("Properties")]
-    public float loadingDelay = 0.5f;
-
     // Transitions to states
     public void TransitionToHome() { LoadState(stateHome); }
     public void TransitionToStore() { LoadState(stateStore); }
@@ -26,8 +19,8 @@ public class GameFSM : AbstractFSM
     public void TransitionToArena() { LoadState(stateArena); }
     public void TransitionToGameOver(bool hasWon) { ChangeState(stateGameOver, hasWon); }
 
-    private List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
-    private float totalSceneProgress = 0f;
+    private List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
+    private float _totalSceneProgress = 0f;
 
     private void Start()
     {
@@ -46,52 +39,66 @@ public class GameFSM : AbstractFSM
     /// <param name="newState">The new state to change to</param>
     private void LoadState(State newState)
     {
-        loadingScreen.SetActive(true);
-
-        ChangeState(newState);
-
-        StartCoroutine(MonitorLoadingProgress());
+        StartCoroutine(PrepareLoading(newState));
     }
 
+    /// <summary>
+    /// Prepare loading screen before changing state
+    /// </summary>
+    /// <param name="newState">The new state to change to</param>
+    /// <returns></returns>
+    private IEnumerator PrepareLoading(State newState)
+    {
+        // Clear scenes already loaded
+        _scenesLoading.Clear();
+
+        LoadingGameEvent.instance.LoadingPrepared();
+
+        yield return new WaitForSeconds(0.1f);
+
+        ChangeState(newState);
+    }
+
+    /// <summary>
+    /// Register an async operation to process (eg. loading a scene)
+    /// </summary>
+    /// <param name="operation">The operation to register</param>
     public void RegisterLoadingOperation(AsyncOperation operation)
     {
-        scenesLoading.Add(operation);
+        _scenesLoading.Add(operation);
+    }
+
+    /// <summary>
+    /// Start the loading for real
+    /// </summary>
+    public void StartLoading()
+    {
+        LoadingGameEvent.instance.LoadingStarted(_scenesLoading.Count);
+
+        StartCoroutine(MonitorLoadingSceneProgress());
     }
 
     /// <summary>
     /// Keep track of current loading operations
     /// </summary>
-    /// <returns></returns>
-    public IEnumerator MonitorLoadingProgress()
+    private IEnumerator MonitorLoadingSceneProgress()
     {
-        loadingBar.current = 0;
-
-        for (int i = 0; i < scenesLoading.Count; i++)
+        for (int i = 0; i < _scenesLoading.Count; i++)
         {
-            while (scenesLoading[i].isDone == false)
+            while (_scenesLoading[i].isDone == false)
             {
-                totalSceneProgress = 0f;
+                _totalSceneProgress = 0f;
 
-                foreach(AsyncOperation operation in scenesLoading)
+                foreach (AsyncOperation operation in _scenesLoading)
                 {
-                    totalSceneProgress += operation.progress;
+                    _totalSceneProgress += operation.progress;
                 }
 
-                // Get percentage of progress
-                totalSceneProgress = (totalSceneProgress / scenesLoading.Count) * 100f;
-
-                loadingBar.current = Mathf.RoundToInt(totalSceneProgress);
+                LoadingGameEvent.instance.LoadingProgress(_totalSceneProgress);
 
                 yield return null;
             }
         }
-
-        // Always wait for half second to avoid blink on loading screen
-        yield return new WaitForSeconds(loadingDelay);
-
-        GameEvent.instance.LoadingEnded();
-
-        loadingScreen.SetActive(false);
     }
 
     private void OnDestroy()

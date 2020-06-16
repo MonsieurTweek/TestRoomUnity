@@ -13,6 +13,8 @@ public class GameStateWithScene : AbstractFSM.State
     public override void Enter()
     {
         ((GameFSM)owner).RegisterLoadingOperation(SceneManager.LoadSceneAsync((int)gameScene, LoadSceneMode.Additive));
+
+        ((GameFSM)owner).StartLoading();
     }
 
     public override void Exit()
