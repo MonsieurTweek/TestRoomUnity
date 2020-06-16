@@ -17,12 +17,12 @@ public class LoadingGameEvent : MonoBehaviour
         instance = this;
     }
 
-    public event Action onLoadingPrepared;
-    public void LoadingPrepared()
+    public event Action<Action> onPrepare;
+    public void Prepare(Action callback)
     {
-        if (instance.onLoadingPrepared != null)
+        if (instance.onPrepare != null)
         {
-            instance.onLoadingPrepared();
+            instance.onPrepare(callback);
         }
     }
 

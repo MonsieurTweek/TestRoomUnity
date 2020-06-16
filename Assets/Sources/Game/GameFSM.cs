@@ -13,14 +13,15 @@ public class GameFSM : AbstractFSM
     public GameStateGameOver stateGameOver = new GameStateGameOver();
 
     // Transitions to states
-    public void TransitionToHome() { LoadState(stateHome); }
-    public void TransitionToStore() { LoadState(stateStore); }
-    public void TransitionToCharacterSelection() { LoadState(stateCharacterSelection); }
-    public void TransitionToArena() { LoadState(stateArena); }
+    public void TransitionToHome() { PrepareToLoadState(stateHome); }
+    public void TransitionToStore() { PrepareToLoadState(stateStore); }
+    public void TransitionToCharacterSelection() { PrepareToLoadState(stateCharacterSelection); }
+    public void TransitionToArena() { PrepareToLoadState(stateArena); }
     public void TransitionToGameOver(bool hasWon) { ChangeState(stateGameOver, hasWon); }
 
     private List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
     private float _totalSceneProgress = 0f;
+    private State _stateToLoad = null;
 
     private void Start()
     {
@@ -37,26 +38,19 @@ public class GameFSM : AbstractFSM
     /// Change to a new state with a loading screen as transition
     /// </summary>
     /// <param name="newState">The new state to change to</param>
-    private void LoadState(State newState)
+    private void PrepareToLoadState(State newState)
     {
-        StartCoroutine(PrepareLoading(newState));
-    }
+        _stateToLoad = newState;
 
-    /// <summary>
-    /// Prepare loading screen before changing state
-    /// </summary>
-    /// <param name="newState">The new state to change to</param>
-    /// <returns></returns>
-    private IEnumerator PrepareLoading(State newState)
-    {
         // Clear scenes already loaded
         _scenesLoading.Clear();
 
-        LoadingGameEvent.instance.LoadingPrepared();
+        LoadingGameEvent.instance.Prepare(LoadState);
+    }
 
-        yield return new WaitForSeconds(0.1f);
-
-        ChangeState(newState);
+    private void LoadState()
+    {
+        ChangeState(_stateToLoad);
     }
 
     /// <summary>

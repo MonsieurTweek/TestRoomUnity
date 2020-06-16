@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class LoadingScreenController : MonoBehaviour
@@ -8,12 +9,16 @@ public class LoadingScreenController : MonoBehaviour
     public ProgressBarController loadingBar = null;
 
     [Header("Properties")]
-    public float loadingDelay = 0.5f;
+    public float loadingDelay = 0.3f;
+    public float loadingMinDuration = 1f;
 
-    private bool _isLoading = false;
-    private float _startTime = 0f;
+    private Action _onLoadingPrepared = null;
+
     private int _loadingObjectCount = 0;
     private float _loadingProgress = 0;
+    private float _startTime = 0f;
+
+    private bool _isLoading = false;
 
     private void Awake()
     {
@@ -22,7 +27,7 @@ public class LoadingScreenController : MonoBehaviour
 
     private void Start()
     {
-        LoadingGameEvent.instance.onLoadingPrepared += OnLoadingPrepared;
+        LoadingGameEvent.instance.onPrepare += OnPrepareLoading;
         LoadingGameEvent.instance.onLoadingStarted += OnLoadingStarted;
         LoadingGameEvent.instance.onLoadingProgress += OnLoadingProgress;
         LoadingGameEvent.instance.onLoadingEnded += OnLoadingEnded;
@@ -31,15 +36,37 @@ public class LoadingScreenController : MonoBehaviour
     /// <summary>
     /// Prepare the loading display (eg. show the curtain before loading starts)
     /// </summary>
-    private void OnLoadingPrepared()
+    private void OnPrepareLoading(Action callback)
     {
+        _onLoadingPrepared = callback;
+
+        // Reset loadingBar fill
+        loadingBar.current = 0;
+
+        // Start the loading (for fake display)
+        _startTime = Time.time;
+
         // Force progress to zero
         _loadingObjectCount = 1;
         _loadingProgress = 0f;
-
-        loadingBar.current = 0;
+        _isLoading = true;
 
         root.SetActive(true);
+
+        StartCoroutine(PrepareLoading());
+    }
+
+    /// <summary>
+    /// Prepare loading screen before changing state
+    /// </summary>
+    private IEnumerator PrepareLoading()
+    {
+        yield return new WaitForSeconds(loadingDelay);
+
+        if (_onLoadingPrepared != null)
+        {
+            _onLoadingPrepared();
+        }
     }
 
     /// <summary>
@@ -48,7 +75,6 @@ public class LoadingScreenController : MonoBehaviour
     /// <param name="objectCountToLoad">The amount of object to load</param>
     private void OnLoadingStarted(int objectCountToLoad)
     {
-        _isLoading = true;
         _loadingObjectCount = objectCountToLoad;
 
         StartCoroutine(MonitorLoadingTime());
@@ -78,10 +104,8 @@ public class LoadingScreenController : MonoBehaviour
     /// </summary>
     private IEnumerator MonitorLoadingTime()
     {
-        _startTime = Time.time;
-
         // Always wait for a delay to avoid blink on loading screen
-        while (Time.time - _startTime < loadingDelay)
+        while (Time.time - _startTime < loadingMinDuration)
         {
             yield return null;
         }
@@ -95,7 +119,7 @@ public class LoadingScreenController : MonoBehaviour
     {
         if (_isLoading == true)
         {
-            loadingBar.current = Mathf.RoundToInt(((Time.time - _startTime) / loadingDelay) * 70f) // 70% of the bar is fake loading to show a progress
+            loadingBar.current = Mathf.RoundToInt(((Time.time - _startTime) / loadingMinDuration) * 70f) // 70% of the bar is fake loading to show a progress
                 + Mathf.RoundToInt((_loadingProgress / _loadingObjectCount) * 30f); // 30% of the bar is real loading to finish progress
         }
     }
@@ -104,7 +128,7 @@ public class LoadingScreenController : MonoBehaviour
     {
         if (GameEvent.instance != null)
         {
-            LoadingGameEvent.instance.onLoadingPrepared -= OnLoadingPrepared;
+            LoadingGameEvent.instance.onPrepare -= OnPrepareLoading;
             LoadingGameEvent.instance.onLoadingStarted -= OnLoadingStarted;
             LoadingGameEvent.instance.onLoadingProgress -= OnLoadingProgress;
             LoadingGameEvent.instance.onLoadingEnded -= OnLoadingEnded;
