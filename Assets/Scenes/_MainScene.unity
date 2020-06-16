@@ -406,5 +406,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoadingCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4184615359989481374, guid: 1e27c9767b2da0045942f65c13448b94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717453960589875033, guid: 1e27c9767b2da0045942f65c13448b94,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717453960589875033, guid: 1e27c9767b2da0045942f65c13448b94,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717453960589875033, guid: 1e27c9767b2da0045942f65c13448b94,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5717453960589875033, guid: 1e27c9767b2da0045942f65c13448b94,
+        type: 3}
+      propertyPath: m_padding
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e27c9767b2da0045942f65c13448b94, type: 3}
