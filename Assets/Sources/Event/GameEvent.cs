@@ -61,4 +61,13 @@ public class GameEvent : MonoBehaviour
             instance.onGameOver(hasWon);
         }
     }
+
+    public event Action onDataSaved;
+    public void DataSaved()
+    {
+        if (instance.onDataSaved != null)
+        {
+            instance.onDataSaved();
+        }
+    }
 }

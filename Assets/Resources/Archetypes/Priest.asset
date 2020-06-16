@@ -15,6 +15,7 @@ MonoBehaviour:
   title: Priest
   description: 
   icon: {fileID: 21300000, guid: 0b8b38220679f7e47957ea359213522e, type: 3}
+  character: 16
   animationController: {fileID: 22100000, guid: 21231ad18645d0840827ae686696a76d,
     type: 2}
   gearLeft: {fileID: 0}

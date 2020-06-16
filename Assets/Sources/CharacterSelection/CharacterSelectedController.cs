@@ -8,6 +8,7 @@ public class CharacterSelectedController : MonoBehaviour
 {
     public string title { get { return _archetype.title; } }
     public Sprite icon { get { return _archetype.icon; } }
+    public bool isUnlock { get { return (SaveData.current.playerProfile.characters & (uint)_archetype.character) != 0; } }
 
     [SerializeField]
     private Archetype _archetype = null;
@@ -37,14 +38,25 @@ public class CharacterSelectedController : MonoBehaviour
     public void Select()
     {
         _camera.Priority = 100;
-        _light.enabled = true;
-        _lightIntensityAnimation = _lightIntensity;
+
+        if (isUnlock == true)
+        {
+            _light.enabled = true;
+            _lightIntensityAnimation = _lightIntensity;
+        }
     }
 
-    public void Validate()
+    public bool Validate()
     {
-        _character.SaveCustomization();
-        _archetype.Save(Archetype.SAVE_PATH);
+        if (isUnlock == true)
+        {
+            _character.SaveCustomization();
+            _archetype.Save(Archetype.SAVE_PATH);
+
+            return true;
+        }
+
+        return false;
     }
 
     public void ChangeCustomization()

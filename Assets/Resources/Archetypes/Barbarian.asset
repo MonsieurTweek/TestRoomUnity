@@ -15,8 +15,8 @@ MonoBehaviour:
   title: Barbarian
   description: 
   icon: {fileID: 21300000, guid: 565933ea2f5abea40ba0347d18ca9fb5, type: 3}
+  character: 2
   animationController: {fileID: 22100000, guid: 34099da021a07a54e8db1b277aa22b8f,
     type: 2}
   gearLeft: {fileID: 0}
-  gearRight: {fileID: 4148109390711969136, guid: 9afa3c094fdb6fe41a3f3d8ab6979b34,
-    type: 3}
+  gearRight: {fileID: 0}

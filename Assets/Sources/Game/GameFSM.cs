@@ -51,6 +51,8 @@ public class GameFSM : AbstractFSM
     private void LoadState()
     {
         ChangeState(_stateToLoad);
+
+        SerializationManager.Save(SaveData.SAVE_NAME, SaveData.current);
     }
 
     /// <summary>

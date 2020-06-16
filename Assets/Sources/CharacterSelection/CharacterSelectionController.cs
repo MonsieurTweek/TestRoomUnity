@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Manage character selection through the scene
@@ -55,9 +54,10 @@ public class CharacterSelectionController : MonoBehaviour
         // Validate character
         if (Input.GetKeyUp(KeyCode.Return) == true)
         {
-            characters[_currentIndex].Validate();
-
-            GameEvent.instance.CharacterSelected();
+            if (characters[_currentIndex].Validate() == true)
+            {
+                GameEvent.instance.CharacterSelected();
+            }
         }
     }
 

@@ -7,6 +7,8 @@ public class Archetype : DescriptiveObject
 {
     public static readonly string SAVE_PATH = "PLAYER_ARCHETYPE";
 
+    public CharacterEnum character = CharacterEnum.NONE;
+
     public AnimatorOverrideController animationController = null;
 
     public GearController gearLeft = null;

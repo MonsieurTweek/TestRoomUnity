@@ -6,4 +6,10 @@ using UnityEngine;
 public class StoreOffer : DescriptiveObject
 {
     public int price = 1000;
+    public int amount = 1;
+
+    public virtual void Buy()
+    {
+        SaveData.current.playerProfile.currency -= price;
+    }
 }

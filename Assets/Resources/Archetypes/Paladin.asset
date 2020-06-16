@@ -15,9 +15,8 @@ MonoBehaviour:
   title: Paladin
   description: 
   icon: {fileID: 21300000, guid: a58bcfd9ca02afa40b525bd6ba284048, type: 3}
+  character: 8
   animationController: {fileID: 22100000, guid: 3c21dc42a3bbf274891a33e21d97f460,
     type: 2}
-  gearLeft: {fileID: 5186731043227539899, guid: fd4df4869ce3c1045ace968111482896,
-    type: 3}
-  gearRight: {fileID: 9184516794499092124, guid: 0b4358b7c1dfde742af8a5488fdd674c,
-    type: 3}
+  gearLeft: {fileID: 0}
+  gearRight: {fileID: 0}

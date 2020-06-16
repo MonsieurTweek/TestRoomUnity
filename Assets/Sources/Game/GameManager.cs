@@ -17,6 +17,21 @@ public class GameManager : MonoBehaviour
 
         // Then reassign a proper one
         instance = this;
+
+        Load();
+    }
+
+    public void Load()
+    {
+        SaveData save = (SaveData)SerializationManager.Load(SaveData.SAVE_NAME);
+        SaveData.current = save != null ? save : new SaveData();
+    }
+
+    public void Save()
+    {
+        SerializationManager.Save(SaveData.SAVE_NAME, SaveData.current);
+
+        GameEvent.instance.DataSaved();
     }
 
     public AbstractFSM.StateBase GetCurrentState()

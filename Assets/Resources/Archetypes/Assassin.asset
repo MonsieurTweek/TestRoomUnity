@@ -15,6 +15,7 @@ MonoBehaviour:
   title: Assassin
   description: 
   icon: {fileID: 21300000, guid: a0939375850c51645ade4e41ce7142db, type: 3}
+  character: 1
   animationController: {fileID: 22100000, guid: 34099da021a07a54e8db1b277aa22b8f,
     type: 2}
   gearLeft: {fileID: 0}
