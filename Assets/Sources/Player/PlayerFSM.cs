@@ -20,7 +20,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     [Header("Properties")]
     public float rotationSpeed = 1f;
     public float rangeForTarget = 15f;
-    private Vector2 _playerRotation = Vector2.zero;
+    
 
     // Transitions to states
     public void TransitionToIdle() { ChangeState(stateIdle); }
@@ -31,6 +31,9 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
     public CharacterFSM target { private set; get; }
     public bool isGrounded { private set; get; }
+
+    private Vector2 _playerRotation = Vector2.zero;
+    private List<Perk> _perks = new List<Perk>();
 
     private void Awake()
     {
@@ -48,6 +51,8 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
         // Bind player to pause
         CharacterGameEvent.instance.onPause += OnPause;
+
+        PerkGameEvent.instance.onUnlock += OnPerkUnlocked;
     }
 
     private void Start()
@@ -84,6 +89,12 @@ public class PlayerFSM : CharacterFSM, ICharacter
             {
                 ReleaseTarget();
             }
+        }
+
+        // Evaluate all perks in case it has something to update
+        for (int i = 0; i < _perks.Count; i++)
+        {
+            _perks[i].Evaluate(this);
         }
     }
 
@@ -232,6 +243,16 @@ public class PlayerFSM : CharacterFSM, ICharacter
         }
     }
 
+    private void OnPerkUnlocked(uint uniqueId, Perk perk)
+    {
+        perk.Unlock(this);
+
+        if (perk.type == Perk.PerkType.PERMANENT)
+        {
+            _perks.Add(perk);
+        }
+    }
+
     /// <summary>
     /// Animation triggers a FX
     /// Called from animation event
@@ -277,6 +298,11 @@ public class PlayerFSM : CharacterFSM, ICharacter
         if (CharacterGameEvent.instance != null)
         {
             CharacterGameEvent.instance.onPause -= OnPause;
+        }
+
+        if (PerkGameEvent.instance != null)
+        {
+            PerkGameEvent.instance.onUnlock -= OnPerkUnlocked;
         }
     }
 }

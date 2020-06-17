@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerUIController : MonoBehaviour
 {
     [Header("References")]
     public PlayerFSM player = null;
-    public Image gaugeHealth = null;
-    public Image gaugeHealthTarget = null;
+    public ProgressBarController gaugeHealth = null;
+    public ProgressBarController gaugeHealthTarget = null;
 
     private void Awake()
     {
-        gaugeHealthTarget.enabled = false;
+        gaugeHealthTarget.gameObject.SetActive(false);
     }
 
     private void Start()
@@ -18,36 +17,55 @@ public class PlayerUIController : MonoBehaviour
         CharacterGameEvent.instance.onHit += OnCharacterHit;
         CharacterGameEvent.instance.onTargetSelected += OnTargetSelected;
         CharacterGameEvent.instance.onTargetDeselected += OnTargetDeselected;
+
+        player.data.onBuffValues += RefreshPlayerData;
+
+        RefreshPlayerData();
+    }
+
+    private void RefreshPlayerData()
+    {
+        gaugeHealth.current = player.data.health;
+        gaugeHealth.maximum = player.data.healthMax;
     }
 
     private void OnCharacterHit(uint id, int health, int damage)
     {
         if (player.data.uniqueId == id)
         {
-            gaugeHealth.fillAmount = health / 10f;
+            gaugeHealth.current = health;
         }
         else if (player.target != null && player.target.data.uniqueId == id)
         {
-            gaugeHealthTarget.fillAmount = health / 10f;
+            gaugeHealthTarget.current = health;
         }
     }
 
-    private void OnTargetSelected(uint id, int health)
+    private void OnTargetSelected(uint id, int health, int healthMax)
     {
-        gaugeHealthTarget.enabled = true;
+        gaugeHealthTarget.gameObject.SetActive(true);
 
-        gaugeHealthTarget.fillAmount = health / 10f;
+        gaugeHealthTarget.current = health;
+        gaugeHealthTarget.maximum = healthMax;
     }
 
     private void OnTargetDeselected(uint id)
     {
-        gaugeHealthTarget.enabled = false;
+        gaugeHealthTarget.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        CharacterGameEvent.instance.onHit -= OnCharacterHit;
-        CharacterGameEvent.instance.onTargetSelected -= OnTargetSelected;
-        CharacterGameEvent.instance.onTargetDeselected -= OnTargetDeselected;
+        if (CharacterGameEvent.instance != null)
+        {
+            CharacterGameEvent.instance.onHit -= OnCharacterHit;
+            CharacterGameEvent.instance.onTargetSelected -= OnTargetSelected;
+            CharacterGameEvent.instance.onTargetDeselected -= OnTargetDeselected;
+        }
+
+        if (player != null && player.data != null)
+        {
+            player.data.onBuffValues -= RefreshPlayerData;
+        }
     }
 }

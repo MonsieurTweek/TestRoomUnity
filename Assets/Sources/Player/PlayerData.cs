@@ -10,6 +10,8 @@ public class PlayerData : AbstractCharacterData
     /// </summary>
     public override void Populate()
     {
+        base.Populate();
+
         // TODO : Use a scriptable object here
         health = 1;
     }

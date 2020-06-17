@@ -2,14 +2,14 @@
 
 public class CardData : AbstractUniqueData
 {
-    public string title = string.Empty;
-    public string description = string.Empty;
-    public Sprite icon = null;
+    public string title { get { return descriptiveObject.title; } }
+    public string description { get { return descriptiveObject.description; } }
+    public Sprite icon { get { return descriptiveObject.icon; } }
+
+    public DescriptiveObject descriptiveObject { private set; get; }
 
     public void Populate(DescriptiveObject descriptiveObject)
     {
-        title = descriptiveObject.title;
-        description = descriptiveObject.description;
-        icon = descriptiveObject.icon;
+        this.descriptiveObject = descriptiveObject;
     }
 }

@@ -14,7 +14,7 @@ public class CardCanvasController : MonoBehaviour
     private void Start()
     {
         PerkGameEvent.instance.onDisplay += OnPerkDisplayed;
-        PerkGameEvent.instance.onUnlock += OnPerkSelected;
+        PerkGameEvent.instance.onUnlock += OnPerkUnlocked;
     }
 
     private void OnPerkDisplayed()
@@ -27,7 +27,7 @@ public class CardCanvasController : MonoBehaviour
         }
     }
 
-    private void OnPerkSelected(uint id)
+    private void OnPerkUnlocked(uint id, Perk perk)
     {
         for (int i = 0; i < cards.Count; ++i)
         {
@@ -62,7 +62,7 @@ public class CardCanvasController : MonoBehaviour
         if (PerkGameEvent.instance != null)
         {
             PerkGameEvent.instance.onDisplay -= OnPerkDisplayed;
-            PerkGameEvent.instance.onUnlock -= OnPerkSelected;
+            PerkGameEvent.instance.onUnlock -= OnPerkUnlocked;
         }
     }
 }
