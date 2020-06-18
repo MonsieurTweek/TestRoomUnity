@@ -48,6 +48,8 @@ public class CharacterFSM : AbstractFSM
 
     public void ChangeState(CharacterState newState)
     {
+        Debug.Log("Change state from " + currentState + " to " + newState + " on " + this.name);
+
         if (ChangeStateBase(newState))
         {
             newState.Enter();

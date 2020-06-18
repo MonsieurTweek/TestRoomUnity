@@ -23,7 +23,7 @@ public class CharacterStatusController : MonoBehaviour
 
     private void OnStunned(uint uniqueId, float duration)
     {
-        if (_character.data.uniqueId == uniqueId)
+        if (_character.data.uniqueId == uniqueId && _character.data.isAlive == true)
         {
             // Create a new stun status
             if (_statusByType.ContainsKey(CharacterStatusEnum.STUN) == false)

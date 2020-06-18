@@ -12,12 +12,18 @@ public class GameFSM : AbstractFSM
     public GameStateWithScene stateArena = new GameStateWithScene();
     public GameStateGameOver stateGameOver = new GameStateGameOver();
 
+    [Header("Properties")]
+    public float fadeOutTime = 0.5f;
+
     // Transitions to states
     public void TransitionToHome() { PrepareToLoadState(stateHome); }
     public void TransitionToStore() { PrepareToLoadState(stateStore); }
     public void TransitionToCharacterSelection() { PrepareToLoadState(stateCharacterSelection); }
     public void TransitionToArena() { PrepareToLoadState(stateArena); }
-    public void TransitionToGameOver(bool hasWon) { ChangeState(stateGameOver, hasWon); }
+    public void TransitionToGameOver(bool hasWon)
+    {
+        StartCoroutine("PrepareGameOver", hasWon);
+    }
 
     private List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
     private float _totalSceneProgress = 0f;
@@ -46,6 +52,13 @@ public class GameFSM : AbstractFSM
         _scenesLoading.Clear();
 
         LoadingGameEvent.instance.Prepare(LoadState);
+    }
+
+    private IEnumerator PrepareGameOver(bool hasWon)
+    {
+        yield return new WaitForSeconds(fadeOutTime);
+
+        ChangeState(stateGameOver, hasWon);
     }
 
     private void LoadState()
