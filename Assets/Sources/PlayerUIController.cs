@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerUIController : MonoBehaviour
 {
@@ -6,6 +7,10 @@ public class PlayerUIController : MonoBehaviour
     public PlayerFSM player = null;
     public ProgressBarController gaugeHealth = null;
     public ProgressBarController gaugeHealthTarget = null;
+    public FlexibleGridLayout perkLayout = null;
+
+    [Header("Properties")]
+    public Image perkAsBattleIcon = null;
 
     private void Awake()
     {
@@ -17,6 +22,8 @@ public class PlayerUIController : MonoBehaviour
         CharacterGameEvent.instance.onHit += OnCharacterHit;
         CharacterGameEvent.instance.onTargetSelected += OnTargetSelected;
         CharacterGameEvent.instance.onTargetDeselected += OnTargetDeselected;
+
+        PerkGameEvent.instance.onUnlock += OnPerkUnlocked;
 
         player.data.onBuffValues += RefreshPlayerData;
 
@@ -54,6 +61,13 @@ public class PlayerUIController : MonoBehaviour
         gaugeHealthTarget.gameObject.SetActive(false);
     }
 
+    private void OnPerkUnlocked(uint uniqueId, Perk perk)
+    {
+        Image newPerk = Instantiate<Image>(perkAsBattleIcon, perkLayout.transform);
+
+        newPerk.sprite = perk.icon;
+    }
+
     private void OnDestroy()
     {
         if (CharacterGameEvent.instance != null)
@@ -61,6 +75,11 @@ public class PlayerUIController : MonoBehaviour
             CharacterGameEvent.instance.onHit -= OnCharacterHit;
             CharacterGameEvent.instance.onTargetSelected -= OnTargetSelected;
             CharacterGameEvent.instance.onTargetDeselected -= OnTargetDeselected;
+        }
+
+        if (PerkGameEvent.instance != null)
+        {
+            PerkGameEvent.instance.onUnlock -= OnPerkUnlocked;
         }
 
         if (player != null && player.data != null)
