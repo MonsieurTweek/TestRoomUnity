@@ -23,7 +23,7 @@ public class PlayerUIController : MonoBehaviour
         CharacterGameEvent.instance.onTargetSelected += OnTargetSelected;
         CharacterGameEvent.instance.onTargetDeselected += OnTargetDeselected;
 
-        PerkGameEvent.instance.onUnlock += OnPerkUnlocked;
+        PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
 
         player.data.onBuffValues += RefreshPlayerData;
 
@@ -79,7 +79,7 @@ public class PlayerUIController : MonoBehaviour
 
         if (PerkGameEvent.instance != null)
         {
-            PerkGameEvent.instance.onUnlock -= OnPerkUnlocked;
+            PerkGameEvent.instance.onUnlocked -= OnPerkUnlocked;
         }
 
         if (player != null && player.data != null)

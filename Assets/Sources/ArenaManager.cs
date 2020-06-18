@@ -12,7 +12,7 @@ public class ArenaManager : MonoBehaviour
     private void Start()
     {
         CharacterGameEvent.instance.onDie += OnDie;
-        PerkGameEvent.instance.onUnlock += OnPerkUnlocked;
+        PerkGameEvent.instance.onSelected += OnPerkSelected;
 
         SpawnNextEnemy();
     }
@@ -56,12 +56,12 @@ public class ArenaManager : MonoBehaviour
                 _currentEnemyIndex++;
 
                 // Pause characters
-                CharacterGameEvent.instance.PauseRaised(true);
+                CharacterGameEvent.instance.Pause(true);
 
                 if (_currentEnemyIndex < enemies.Count)
                 {
                     // Show perks
-                    PerkGameEvent.instance.DisplayRaised();
+                    PerkGameEvent.instance.Display();
                 }
                 else
                 {
@@ -72,7 +72,7 @@ public class ArenaManager : MonoBehaviour
         }
     }
 
-    private void OnPerkUnlocked(uint perkId, Perk perk)
+    private void OnPerkSelected(uint perkId)
     {
         SpawnNextEnemy();
     }
@@ -86,7 +86,7 @@ public class ArenaManager : MonoBehaviour
 
         if (PerkGameEvent.instance != null)
         {
-            PerkGameEvent.instance.onUnlock -= OnPerkUnlocked;
+            PerkGameEvent.instance.onSelected -= OnPerkSelected;
         }
     }
 }

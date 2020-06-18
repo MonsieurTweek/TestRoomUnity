@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /// <summary>
 /// Define a simple Final State Machine to manage character states
@@ -23,8 +24,20 @@ public class CharacterFSM : AbstractFSM
     public abstract class CharacterState1Param<T> : CharacterStateBase { public abstract void Enter(T p); }
     public abstract class CharacterState2Params<T0, T1> : CharacterStateBase { public abstract void Enter(T0 p0, T1 p1); }
     public abstract class CharacterStateState3Params<T0, T1, T2> : CharacterStateBase { public abstract void Enter(T0 p0, T1 p1, T2 p2); }
-    
+
     public AbstractCharacterData data { protected set; get; }
+
+    // Common states for characters
+    public CharacterStateStun stateStun = new CharacterStateStun();
+
+    // Transitions to states
+    public virtual void TransitionToIdle() { }
+    public void TransitionToStun(float duration) { ChangeState(stateStun, duration, TransitionToIdle); }
+
+    protected virtual void Awake()
+    {
+        stateStun.flag = (uint)CharacterStateEnum.STUN;
+    }
 
     public override void AttachOwner()
     {

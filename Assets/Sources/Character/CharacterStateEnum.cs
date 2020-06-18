@@ -6,5 +6,6 @@
     MOVE    = 1 << 1,
     ATTACK  = 1 << 2,
     HIT     = 1 << 3,
-    DIE     = 1 << 4
+    DIE     = 1 << 4,
+    STUN    = 1 << 5
 }

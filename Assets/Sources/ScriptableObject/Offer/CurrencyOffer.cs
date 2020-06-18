@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Offer", menuName = "ScriptableObjects/Store Offer - Currency", order = 4)]
+[CreateAssetMenu(fileName = "Offer", menuName = "ScriptableObjects/Store/Currency Offer", order = 2)]
 [Serializable]
 public class CurrencyOffer : StoreOffer
 {

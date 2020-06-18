@@ -5,7 +5,7 @@
 /// </summary>
 public class EnemyFSM : CharacterFSM, ICharacter
 {
-    private const uint FLAG_CAN_HIT = (uint)(CharacterStateEnum.IDLE | CharacterStateEnum.MOVE | CharacterStateEnum.ATTACK);
+    private const uint FLAG_CAN_HIT = (uint)(CharacterStateEnum.IDLE | CharacterStateEnum.MOVE | CharacterStateEnum.ATTACK | CharacterStateEnum.STUN);
 
     [Header("References")]
     public Transform target = null;
@@ -20,15 +20,17 @@ public class EnemyFSM : CharacterFSM, ICharacter
     public Vector3 direction { private set; get; }
 
     // Transitions to states
-    public void TransitionToIdle() { ChangeState(stateIdle, TransitionToMove); }
+    public override void TransitionToIdle() { ChangeState(stateIdle, TransitionToMove); }
     public void TransitionToMove() { ChangeState(stateMove, TransitionToAttack); }
     public void TransitionToAttack() { ChangeState(stateAttack, Random.Range(0, 2) == 1); } // Randomize ligh/heavy attack
 
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         stateIdle.flag = (uint)CharacterStateEnum.IDLE;
         stateMove.flag = (uint)CharacterStateEnum.MOVE;
         stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
@@ -78,14 +80,14 @@ public class EnemyFSM : CharacterFSM, ICharacter
     /// Apply damage to the enemy
     /// </summary>
     /// <param name="damage">Amount of damage. Reduction will be applied in this method.</param>
-    public void Hit(int damage)
+    public bool Hit(int damage)
     {
         // Ensure player is in a state where he can take a hit
         if (((uint)currentState.flag & FLAG_CAN_HIT) != 0)
         {
             data.ApplyDamage(damage);
 
-            CharacterGameEvent.instance.HitRaised(data, damage);
+            CharacterGameEvent.instance.Hit(data, damage);
 
             if (data.isAlive == true)
             {
@@ -95,7 +97,11 @@ public class EnemyFSM : CharacterFSM, ICharacter
             {
                 TransitionToDie();
             }
+
+            return true;
         }
+
+        return false;
     }
 
     /// <summary>
@@ -105,7 +111,11 @@ public class EnemyFSM : CharacterFSM, ICharacter
     {
         if (data.isAlive == true)
         {
-            TransitionToIdle();
+            // Can't transition to something else while stun
+            if (currentState.flag != (uint)CharacterStateEnum.STUN)
+            {
+                TransitionToIdle();
+            }
         }
         else
         {

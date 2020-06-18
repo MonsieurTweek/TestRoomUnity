@@ -14,10 +14,12 @@ public abstract class Perk : DescriptiveObject
     public int amount = 0;
     public PerkType type = PerkType.INSTANT;
 
-    public virtual void Unlock(PlayerFSM player)
+    protected CharacterFSM _owner = null;
+
+    public virtual void Unlock(CharacterFSM character)
     {
-        GameObject.Instantiate(fx, player.transform);
+        _owner = character;
     }
 
-    public virtual void Evaluate(PlayerFSM player) { }
+    public virtual void Evaluate(CharacterFSM character) { }
 }

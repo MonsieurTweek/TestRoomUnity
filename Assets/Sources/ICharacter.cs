@@ -1,4 +1,4 @@
 ﻿public interface ICharacter
 {
-    void Hit(int damage);
+    bool Hit(int damage);
 }

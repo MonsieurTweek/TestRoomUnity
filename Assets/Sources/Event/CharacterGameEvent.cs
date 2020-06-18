@@ -12,7 +12,7 @@ public class CharacterGameEvent : MonoBehaviour
     }
 
     public event Action<bool> onPause;
-    public void PauseRaised(bool isPauseEnabled)
+    public void Pause(bool isPauseEnabled)
     {
         if (onPause != null)
         {
@@ -20,26 +20,50 @@ public class CharacterGameEvent : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// When a character is hit BY somebody else
+    /// </summary>
     public event Action<uint, int, int> onHit;
-    public void HitRaised(AbstractCharacterData data, int damage)
+    public void Hit(AbstractCharacterData target, int damage)
     {
         if (onHit != null)
         {
-            onHit(data.uniqueId, data.health, damage);
+            onHit(target.uniqueId, target.health, damage);
+        }
+    }
+
+    /// <summary>
+    /// When a character is hitting somebody else
+    /// </summary>
+    public event Action<uint, uint> onHitting;
+    public void Hitting(AbstractCharacterData origin, AbstractCharacterData target)
+    {
+        if (onHitting != null)
+        {
+            onHitting(origin.uniqueId, target.uniqueId);
         }
     }
 
     public event Action<uint> onDie;
-    public void DieRaised(AbstractCharacterData data)
+    public void Die(AbstractCharacterData target)
     {
         if (onDie != null)
         {
-            onDie(data.uniqueId);
+            onDie(target.uniqueId);
+        }
+    }
+
+    public event Action<uint, float> onStunned;
+    public void Stun(uint targetuniqueId, float duration)
+    {
+        if (onStunned != null)
+        {
+            onStunned(targetuniqueId, duration);
         }
     }
 
     public event Action<uint, int, int> onTargetSelected;
-    public void TargetSelectedRaised(AbstractCharacterData data)
+    public void SelectTarget(AbstractCharacterData data)
     {
         if (onTargetSelected != null)
         {
@@ -48,7 +72,7 @@ public class CharacterGameEvent : MonoBehaviour
     }
 
     public event Action<uint> onTargetDeselected;
-    public void TargetDeselectedRaised(AbstractCharacterData data)
+    public void DeselectTarget(AbstractCharacterData data)
     {
         if (onTargetDeselected != null)
         {

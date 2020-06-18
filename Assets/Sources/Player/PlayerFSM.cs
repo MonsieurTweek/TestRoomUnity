@@ -11,7 +11,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public PlayerCameraController cameraController = null;
 
     [Header("States")]
-    public PlayerStateIdle stateIdle= new PlayerStateIdle();
+    public PlayerStateIdle stateIdle = new PlayerStateIdle();
     public PlayerStateMove stateMove = new PlayerStateMove();
     public PlayerStateAttack stateAttack = new PlayerStateAttack();
     public PlayerStateHit stateHit = new PlayerStateHit();
@@ -20,10 +20,10 @@ public class PlayerFSM : CharacterFSM, ICharacter
     [Header("Properties")]
     public float rotationSpeed = 1f;
     public float rangeForTarget = 15f;
-    
+    public GameObject fxPerkUnlock = null;
 
     // Transitions to states
-    public void TransitionToIdle() { ChangeState(stateIdle); }
+    public override void TransitionToIdle() { ChangeState(stateIdle); }
     public void TransitionToMove() { ChangeState(stateMove); }
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
@@ -35,8 +35,10 @@ public class PlayerFSM : CharacterFSM, ICharacter
     private Vector2 _playerRotation = Vector2.zero;
     private List<Perk> _perks = new List<Perk>();
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         data = new PlayerData();
         data.Populate();
 
@@ -52,7 +54,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
         // Bind player to pause
         CharacterGameEvent.instance.onPause += OnPause;
 
-        PerkGameEvent.instance.onUnlock += OnPerkUnlocked;
+        PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
     }
 
     private void Start()
@@ -167,7 +169,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
         if(bestTarget != null)
         {
             cameraController.FollowTarget(bestTarget.transform);
-            CharacterGameEvent.instance.TargetSelectedRaised(bestTarget.data);
+            CharacterGameEvent.instance.SelectTarget(bestTarget.data);
             target = bestTarget;
         }
     }
@@ -180,7 +182,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
         if (target != null)
         {
             cameraController.ReleaseTarget(target.transform);
-            CharacterGameEvent.instance.TargetDeselectedRaised(target.data);
+            CharacterGameEvent.instance.DeselectTarget(target.data);
             target = null;
         }
     }
@@ -211,14 +213,14 @@ public class PlayerFSM : CharacterFSM, ICharacter
     /// Apply damage to the enemy
     /// </summary>
     /// <param name="damage">Amount of damage. Reduction will be applied in this method.</param>
-    public void Hit(int damage)
+    public bool Hit(int damage)
     {
         // Ensure player is in a state where he can take a hit
         if (((uint)currentState.flag & FLAG_CAN_HIT) != 0)
         {
             data.ApplyDamage(damage);
 
-            CharacterGameEvent.instance.HitRaised(data, damage);
+            CharacterGameEvent.instance.Hit(data, damage);
 
             if (data.isAlive == true)
             {
@@ -228,7 +230,11 @@ public class PlayerFSM : CharacterFSM, ICharacter
             {
                 TransitionToDie();
             }
+
+            return true;
         }
+
+        return false;
     }
 
     public void OnPause(bool isPauseEnabled)
@@ -251,6 +257,8 @@ public class PlayerFSM : CharacterFSM, ICharacter
         {
             _perks.Add(perk);
         }
+
+        Instantiate<GameObject>(fxPerkUnlock, transform);
     }
 
     /// <summary>
@@ -302,7 +310,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
         if (PerkGameEvent.instance != null)
         {
-            PerkGameEvent.instance.onUnlock -= OnPerkUnlocked;
+            PerkGameEvent.instance.onUnlocked -= OnPerkUnlocked;
         }
     }
 }

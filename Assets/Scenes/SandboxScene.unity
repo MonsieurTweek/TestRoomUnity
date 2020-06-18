@@ -431,12 +431,12 @@ PrefabInstance:
     - target: {fileID: 846744357375800842, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000005366372
+      value: -0.000000019492434
       objectReference: {fileID: 0}
     - target: {fileID: 846744357375800842, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000003091707
+      value: 0.0000003051011
       objectReference: {fileID: 0}
     - target: {fileID: 846744357375800842, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
@@ -476,12 +476,12 @@ PrefabInstance:
     - target: {fileID: 3152832689838835806, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000019505583
+      value: -0.000000053671833
       objectReference: {fileID: 0}
     - target: {fileID: 3152832689838835806, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000030516978
+      value: 0.0000003092388
       objectReference: {fileID: 0}
     - target: {fileID: 3152832689838835806, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
@@ -537,6 +537,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845421606918289224, guid: dd1c1ff89830c3041b83d7491abd700a,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3845421606918289225, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
@@ -618,6 +623,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7423371940412270138, guid: dd1c1ff89830c3041b83d7491abd700a,
+        type: 3}
+      propertyPath: archetype
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c11e528831f9044e8833ead04a11d46,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd1c1ff89830c3041b83d7491abd700a, type: 3}
 --- !u!1 &517537694
@@ -1257,6 +1268,7 @@ GameObject:
   - component: {fileID: 1255598665}
   - component: {fileID: 1255598662}
   - component: {fileID: 1255598664}
+  - component: {fileID: 1255598666}
   m_Layer: 0
   m_Name: SandboxManager
   m_TagString: Untagged
@@ -1318,6 +1330,21 @@ MonoBehaviour:
   enemies:
   - {fileID: 942790708}
   - {fileID: 1977243536}
+--- !u!114 &1255598666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255598661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2585e3f0bf3915a41853fce582190e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2062241802}
+  perks:
+  - {fileID: 11400000, guid: cfb22c304675eae4d997999daa324966, type: 2}
 --- !u!1001 &1276934595
 PrefabInstance:
   m_ObjectHideFlags: 0

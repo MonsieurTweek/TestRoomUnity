@@ -1,14 +1,14 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "HealthPerk", menuName = "ScriptableObjects/Perks/Health", order = 2)]
+[CreateAssetMenu(fileName = "HealthPerk", menuName = "ScriptableObjects/Perks/Health")]
 [Serializable]
 public class HealthPerk : Perk
 {
-    public override void Unlock(PlayerFSM player)
+    public override void Unlock(CharacterFSM character)
     {
-        base.Unlock(player);
+        base.Unlock(character);
 
-        player.data.BuffHealth(amount, true);
+        character.data.BuffHealth(amount, true);
     }
 }

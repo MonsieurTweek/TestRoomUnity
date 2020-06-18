@@ -445,7 +445,7 @@ PrefabInstance:
         type: 3}
       propertyPath: perk
       value: 
-      objectReference: {fileID: 11400000, guid: 73d3932566415974bbd362c7d45c0051,
+      objectReference: {fileID: 11400000, guid: cfb22c304675eae4d997999daa324966,
         type: 2}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}

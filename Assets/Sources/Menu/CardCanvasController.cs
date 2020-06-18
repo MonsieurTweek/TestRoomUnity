@@ -13,8 +13,8 @@ public class CardCanvasController : MonoBehaviour
 
     private void Start()
     {
-        PerkGameEvent.instance.onDisplay += OnPerkDisplayed;
-        PerkGameEvent.instance.onUnlock += OnPerkUnlocked;
+        PerkGameEvent.instance.onDisplayed += OnPerkDisplayed;
+        PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
     }
 
     private void OnPerkDisplayed()
@@ -54,15 +54,15 @@ public class CardCanvasController : MonoBehaviour
             }
         }
 
-        CharacterGameEvent.instance.PauseRaised(false);
+        CharacterGameEvent.instance.Pause(false);
     }
 
     private void OnDestroy()
     {
         if (PerkGameEvent.instance != null)
         {
-            PerkGameEvent.instance.onDisplay -= OnPerkDisplayed;
-            PerkGameEvent.instance.onUnlock -= OnPerkUnlocked;
+            PerkGameEvent.instance.onDisplayed -= OnPerkDisplayed;
+            PerkGameEvent.instance.onUnlocked -= OnPerkUnlocked;
         }
     }
 }

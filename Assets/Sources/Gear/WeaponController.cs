@@ -19,16 +19,18 @@ public class WeaponController : GearController
         if (CanHit(other) == true)
         {
             _currentModifier = ((CharacterStateAttack)owner.currentState).isHeavy == true ? heavyModifier : 1;
-            Debug.Log(gameObject.name);
+
             Hit(other.GetComponent<ICharacter>());
         }
     }
 
     public virtual void Hit(ICharacter character)
     {
-        if (character != null)
+        if (character != null && character.Hit(damage * _currentModifier) == true)
         {
-            character.Hit(damage * _currentModifier);
+            CharacterFSM target = (CharacterFSM)character;
+
+            CharacterGameEvent.instance.Hitting(owner.data, target.data);
         }
     }
 

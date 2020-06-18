@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Offer", menuName = "ScriptableObjects/Store Offer - Character", order = 5)]
+[CreateAssetMenu(fileName = "Offer", menuName = "ScriptableObjects/Store/Character Offer", order = 3)]
 [Serializable]
 public class CharacterOffer : StoreOffer
 {

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0101e286200c468428110f4d5fb6624a, type: 3}
+  m_Name: StunPerk
+  m_EditorClassIdentifier: 
+  title: Stun
+  description: Give 25% to stun target on hit
+  icon: {fileID: 21300000, guid: 0bfc33a995ae44042b29f5953a677177, type: 3}
+  fx: {fileID: 6888186251094526472, guid: fdcc235fcbb6de44b84d10a8b8b6a146, type: 3}
+  amount: 3
+  type: 0

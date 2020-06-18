@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 /// <summary>
 /// Defines generic rules for character
 /// </summary>
@@ -7,6 +8,8 @@ public class AbstractCharacterData : AbstractUniqueData
     public int health { protected set; get; }
     public int healthMax { protected set; get; }
     public bool isAlive { get { return health > 0; } }
+
+    public uint status { protected set; get; }
 
     public Action onBuffValues = null;
     
@@ -42,5 +45,15 @@ public class AbstractCharacterData : AbstractUniqueData
         {
             onBuffValues();
         }
+    }
+
+    public void SetStatus(CharacterStatusEnum type)
+    {
+        status |= (uint)type;
+    }
+
+    public void RemoveStatus(CharacterStatusEnum type)
+    {
+        status &= ~(uint)type;
     }
 }

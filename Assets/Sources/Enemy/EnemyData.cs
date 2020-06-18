@@ -13,6 +13,6 @@ public class EnemyData : AbstractCharacterData
         base.Populate();
 
         // TODO : Use a scriptable object here
-        health = 2;
+        health = 3;
     }
 }

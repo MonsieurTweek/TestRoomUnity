@@ -11,21 +11,30 @@ public class PerkGameEvent : MonoBehaviour
         _instance = this;
     }
 
-    public event Action onDisplay;
-    public void DisplayRaised()
+    public event Action onDisplayed;
+    public void Display()
     {
-        if (onDisplay != null)
+        if (onDisplayed != null)
         {
-            onDisplay();
+            onDisplayed();
         }
     }
 
-    public event Action<uint, Perk> onUnlock;
-    public void UnlockRaised(CardData data)
+    public event Action<uint> onSelected;
+    public void Select(CardData data)
     {
-        if (onUnlock != null)
+        if (onSelected != null)
         {
-            onUnlock(data.uniqueId, (Perk)data.descriptiveObject);
+            onSelected(data.uniqueId);
+        }
+    }
+
+    public event Action<uint, Perk> onUnlocked;
+    public void Unlock(CardData data)
+    {
+        if (onUnlocked != null)
+        {
+            onUnlocked(data.uniqueId, (Perk)data.descriptiveObject);
         }
     }
 }

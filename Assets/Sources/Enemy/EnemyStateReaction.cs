@@ -8,11 +8,11 @@ public class EnemyStateReaction : CharacterFSM.CharacterState1Param<Action>
 {
     public float reactionRange = 1f;
 
-    internal Action reaction = null;
+    protected Action _reaction = null;
 
     public override void Enter(Action reaction)
     {
-        this.reaction = reaction;
+        _reaction = reaction;
     }
 
     public override void Update()
@@ -21,7 +21,7 @@ public class EnemyStateReaction : CharacterFSM.CharacterState1Param<Action>
 
         if (((EnemyFSM)character).direction.sqrMagnitude < reactionRange * reactionRange)
         {
-            reaction();
+            _reaction();
         }
     }
 }

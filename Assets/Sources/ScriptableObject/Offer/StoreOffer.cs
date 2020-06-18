@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Offer", menuName = "ScriptableObjects/Store Offer", order = 3)]
+[CreateAssetMenu(fileName = "Offer", menuName = "ScriptableObjects/Store/General Offer", order = 1)]
 [Serializable]
 public class StoreOffer : DescriptiveObject
 {
