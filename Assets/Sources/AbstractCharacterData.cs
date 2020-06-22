@@ -5,6 +5,7 @@ using System.Collections.Generic;
 /// </summary>
 public class AbstractCharacterData : AbstractUniqueData
 {
+    public int power { protected set; get; }
     public int health { protected set; get; }
     public int healthMax { protected set; get; }
     public bool isAlive { get { return health > 0; } }
@@ -55,5 +56,10 @@ public class AbstractCharacterData : AbstractUniqueData
     public void RemoveStatus(CharacterStatusEnum type)
     {
         status &= ~(uint)type;
+    }
+
+    public virtual int GetReward()
+    {
+        return power * 5;
     }
 }

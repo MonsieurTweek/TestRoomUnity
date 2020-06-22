@@ -14,5 +14,6 @@ public class EnemyData : AbstractCharacterData
 
         // TODO : Use a scriptable object here
         health = 3;
+        power = 12;
     }
 }

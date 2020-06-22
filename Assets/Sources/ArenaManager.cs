@@ -6,6 +6,7 @@ public class ArenaManager : MonoBehaviour
     public PlayerFSM player = null;
     public List<EnemyFSM> enemies = new List<EnemyFSM>();
 
+    private int _currentReward = 0;
     private int _currentEnemyIndex = 0;
     private Dictionary<uint, EnemyFSM> _currentEnemies = new Dictionary<uint, EnemyFSM>();
 
@@ -26,12 +27,12 @@ public class ArenaManager : MonoBehaviour
         _currentEnemies.Add(enemy.data.uniqueId, enemy);
     }
 
-    private void OnDie(uint id)
+    private void OnDie(uint id, int reward)
     {
         if (player.data.uniqueId == id)
         {
             // You lose !
-            GameEvent.instance.GameOverRaised(false);
+            GameEvent.instance.GameOver(false, _currentReward);
         }
         else
         {
@@ -41,6 +42,7 @@ public class ArenaManager : MonoBehaviour
             {
                 if (uniqueId == id)
                 {
+                    _currentReward += reward;
                     idToRemove = uniqueId;
                     break;
                 }
@@ -66,7 +68,7 @@ public class ArenaManager : MonoBehaviour
                 else
                 {
                     // You win !
-                    GameEvent.instance.GameOverRaised(true);
+                    GameEvent.instance.GameOver(true, _currentReward);
                 }
             }
         }
@@ -89,4 +91,22 @@ public class ArenaManager : MonoBehaviour
             PerkGameEvent.instance.onSelected -= OnPerkSelected;
         }
     }
+
+#if UNITY_EDITOR
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.K) == true)
+        {
+            foreach(EnemyFSM enemy in _currentEnemies.Values)
+            {
+                enemy.Hit(10000);
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.L) == true)
+        {
+            player.Hit(10000);
+        }
+    }
+#endif
 }

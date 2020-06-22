@@ -53,12 +53,12 @@ public class GameEvent : MonoBehaviour
         }
     }
 
-    public event Action<bool> onGameOver;
-    public void GameOverRaised(bool hasWon)
+    public event Action<bool, int> onGameOver;
+    public void GameOver(bool hasWon, int reward)
     {
         if (instance.onGameOver != null)
         {
-            instance.onGameOver(hasWon);
+            instance.onGameOver(hasWon, reward);
         }
     }
 

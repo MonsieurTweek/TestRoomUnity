@@ -20,8 +20,10 @@ public class GameFSM : AbstractFSM
     public void TransitionToStore() { PrepareToLoadState(stateStore); }
     public void TransitionToCharacterSelection() { PrepareToLoadState(stateCharacterSelection); }
     public void TransitionToArena() { PrepareToLoadState(stateArena); }
-    public void TransitionToGameOver(bool hasWon)
+    public void TransitionToGameOver(bool hasWon, int reward)
     {
+        SaveData.current.playerProfile.currency += reward;
+
         StartCoroutine("PrepareGameOver", hasWon);
     }
 
