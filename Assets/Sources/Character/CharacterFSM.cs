@@ -28,6 +28,7 @@ public class CharacterFSM : AbstractFSM
     public AbstractCharacterData data { protected set; get; }
 
     // Common states for characters
+    [HideInInspector]
     public CharacterStateStun stateStun = new CharacterStateStun();
 
     // Transitions to states

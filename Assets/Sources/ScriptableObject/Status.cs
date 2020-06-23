@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Status", menuName = "ScriptableObjects/Status", order = 3)]
+[CreateAssetMenu(fileName = "Status", menuName = "ScriptableObjects/Status")]
 [Serializable]
 public class Status : ScriptableObject
 {

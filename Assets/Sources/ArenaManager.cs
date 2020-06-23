@@ -3,24 +3,59 @@ using UnityEngine;
 
 public class ArenaManager : MonoBehaviour
 {
+    [Header("Properties")]
     public PlayerFSM player = null;
     public List<EnemyFSM> enemies = new List<EnemyFSM>();
+    public int enemyPerTiers = 3;
 
     private int _currentReward = 0;
     private int _currentEnemyIndex = 0;
     private Dictionary<uint, EnemyFSM> _currentEnemies = new Dictionary<uint, EnemyFSM>();
+    private List<EnemyFSM> _enemiesToSpawn = new List<EnemyFSM>();
 
     private void Start()
     {
         CharacterGameEvent.instance.onDie += OnDie;
         PerkGameEvent.instance.onSelected += OnPerkSelected;
 
+        PrepareEnemies();
+
         SpawnNextEnemy();
+    }
+
+    private void PrepareEnemies()
+    {
+        List<EnemyFSM> tierList = new List<EnemyFSM>();
+
+        for (uint i = 1; i <= Enemy.TIERS_MAX; i++)
+        {
+            tierList.Clear();
+
+            foreach (EnemyFSM enemy in enemies)
+            {
+                Enemy configuration = (Enemy)enemy.configuration;
+
+                if (configuration.tiers == i)
+                {
+                    tierList.Add(enemy);
+                }
+            }
+
+            while(tierList.Count > 0 && _enemiesToSpawn.Count < enemyPerTiers * i)
+            {
+                int index = Random.Range(0, tierList.Count);
+
+                EnemyFSM enemyToAdd = tierList[index];
+
+                _enemiesToSpawn.Add(enemyToAdd);
+                tierList.Remove(enemyToAdd);
+            }
+        }
     }
 
     private void SpawnNextEnemy()
     {
-        EnemyFSM enemy = Instantiate<EnemyFSM>(enemies[_currentEnemyIndex], transform);
+        EnemyFSM enemy = Instantiate<EnemyFSM>(_enemiesToSpawn[_currentEnemyIndex], transform);
 
         enemy.Initialize(player);
 
@@ -60,7 +95,7 @@ public class ArenaManager : MonoBehaviour
                 // Pause characters
                 CharacterGameEvent.instance.Pause(true);
 
-                if (_currentEnemyIndex < enemies.Count)
+                if (_currentEnemyIndex < _enemiesToSpawn.Count)
                 {
                     // Show perks
                     PerkGameEvent.instance.Display();

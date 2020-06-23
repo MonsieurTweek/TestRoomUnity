@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 81557670342521550, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.62
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 81557670342521550, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 81557670342521550, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.06
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 81557670342521550, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
@@ -70,12 +70,24 @@ PrefabInstance:
     - target: {fileID: 86961308576054558, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: m_Name
-      value: Character_BR_FortGolem_01 Variant
+      value: Character_BR_FortGolem_01
       objectReference: {fileID: 0}
     - target: {fileID: 87292773354597408, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: configuration
+      value: 
+      objectReference: {fileID: 11400000, guid: f528d01f59399d447997cadff1ca056a,
+        type: 2}
+    - target: {fileID: 8554535455077345077, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: gearRight
+      value: 
+      objectReference: {fileID: -449824600308275294, guid: b34195dab665b134a9ef325287bf3d3b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4f8d352dab5174b97522bba0b018dc, type: 3}

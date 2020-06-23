@@ -17,10 +17,10 @@ public class AbstractCharacterData : AbstractUniqueData
     /// <summary>
     /// Populate model with data
     /// </summary>
-    public virtual void Populate()
+    public virtual void Populate(Character configuration)
     {
-        // TODO : Use a scriptable object here
-        healthMax = 10;
+        power = configuration.power;
+        healthMax = configuration.health;
         health = healthMax;
     }
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Archetype", menuName = "ScriptableObjects/Archetype", order = 1)]
+[CreateAssetMenu(fileName = "Archetype", menuName = "ScriptableObjects/Archetype")]
 [Serializable]
 public class Archetype : DescriptiveObject
 {

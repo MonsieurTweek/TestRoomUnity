@@ -8,11 +8,8 @@ public class PlayerData : AbstractCharacterData
     /// <summary>
     /// Populate model with data
     /// </summary>
-    public override void Populate()
+    public override void Populate(Character configuration)
     {
-        base.Populate();
-
-        // TODO : Use a scriptable object here
-        health = 1;
+        base.Populate(configuration);
     }
 }

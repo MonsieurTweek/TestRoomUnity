@@ -5,15 +5,17 @@ public class EnemyData : AbstractCharacterData
 {
     public static readonly string TAG = "Enemy";
 
+    public uint tiers = 1;
+
     /// <summary>
     /// Populate model with data
     /// </summary>
-    public override void Populate()
+    public override void Populate(Character configuration)
     {
-        base.Populate();
+        base.Populate(configuration);
 
-        // TODO : Use a scriptable object here
-        health = 3;
-        power = 12;
+        Enemy enemy = (Enemy)configuration;
+
+        tiers = enemy.tiers;
     }
 }

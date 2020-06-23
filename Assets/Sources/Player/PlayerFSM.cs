@@ -18,6 +18,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public PlayerStateDie stateDie = new PlayerStateDie();
 
     [Header("Properties")]
+    public Character configuration = null;
     public float rotationSpeed = 1f;
     public float rangeForTarget = 15f;
     public GameObject fxPerkUnlock = null;
@@ -39,22 +40,32 @@ public class PlayerFSM : CharacterFSM, ICharacter
     {
         base.Awake();
 
-        data = new PlayerData();
-        data.Populate();
-
         stateIdle.flag = (uint)CharacterStateEnum.IDLE;
         stateMove.flag = (uint)CharacterStateEnum.MOVE;
         stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
         stateHit.flag = (uint)CharacterStateEnum.HIT;
         stateDie.flag = (uint)CharacterStateEnum.DIE;
 
-        // Save current player rotation to start with
-        _playerRotation = transform.eulerAngles;
+        data = new PlayerData();
 
-        // Bind player to pause
-        CharacterGameEvent.instance.onPause += OnPause;
+        if (configuration != null)
+        {
+            data.Populate(configuration);
 
-        PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
+            // Save current player rotation to start with
+            _playerRotation = transform.eulerAngles;
+
+            // Bind player to pause
+            CharacterGameEvent.instance.onPause += OnPause;
+
+            PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
+        }
+        else
+        {
+            Debug.LogError("Missing character configuration file for player " + name + " initialization");
+
+            TransitionToDie();
+        }
     }
 
     private void Start()

@@ -17,6 +17,9 @@ public class EnemyFSM : CharacterFSM, ICharacter
     public EnemyStateHit stateHit = new EnemyStateHit();
     public EnemyStateDie stateDie = new EnemyStateDie();
 
+    [Header("Properties")]
+    public Character configuration = null;
+
     public Vector3 direction { private set; get; }
 
     // Transitions to states
@@ -36,14 +39,23 @@ public class EnemyFSM : CharacterFSM, ICharacter
         stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
         stateHit.flag = (uint)CharacterStateEnum.HIT;
         stateDie.flag = (uint)CharacterStateEnum.DIE;
+
+        data = new EnemyData();
     }
 
     public void Initialize(PlayerFSM player)
     {
-        data = new EnemyData();
-        data.Populate();
+        if (configuration != null)
+        {
+            data.Populate(configuration);
+            target = player.transform;
+        }
+        else
+        {
+            Debug.LogError("Missing character configuration file for enemy " + name + " initialization");
 
-        target = player.transform;
+            TransitionToDie();
+        }
     }
 
     private void Start()
@@ -53,7 +65,10 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
     public override void Update()
     {
-        GetDirection();
+        if (target != null)
+        {
+            GetDirection();
+        }
 
         base.Update();
     }

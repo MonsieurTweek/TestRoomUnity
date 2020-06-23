@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2614858125159756053
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1698097752931092010, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1698097752931092010, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: configuration
+      value: 
+      objectReference: {fileID: 11400000, guid: af1d46d78fcd6b24a8f30a09e7b8162e,
+        type: 2}
+    - target: {fileID: 4575063310103134871, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: gearRight
+      value: 
+      objectReference: {fileID: 1021917750616266165, guid: f6e3a057bf3c5f74cb7bd2c118879777,
+        type: 3}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5254560846272075628, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259854318074370236, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_MechanicalGolem_Chainsaw_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5308526512990787530, guid: d403c3c92208a1e40ad71b785248d218,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 70613d381762bd44eae91499b96232cd,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d403c3c92208a1e40ad71b785248d218, type: 3}

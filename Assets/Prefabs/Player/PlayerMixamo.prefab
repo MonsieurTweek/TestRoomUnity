@@ -21926,6 +21926,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 16
     character: {fileID: 0}
+  configuration: {fileID: 11400000, guid: 04abb757a63a34443be9a96e1cc79cef, type: 2}
   rotationSpeed: 5
   rangeForTarget: 15
   fxPerkUnlock: {fileID: 57563689875066311, guid: d3630b2d4100c6a4f9624dc47de7bb11,

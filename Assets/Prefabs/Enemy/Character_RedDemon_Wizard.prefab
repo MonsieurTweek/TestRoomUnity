@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3254141759721142085
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282945513627675145, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285991789788718553, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_Name
+      value: Character_RedDemon_Wizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286265447546071889, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1286283898259465609, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671960416475200335, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: configuration
+      value: 
+      objectReference: {fileID: 11400000, guid: 8cbab21ed28687d42accb814ebc83722,
+        type: 2}
+    - target: {fileID: 7375735987949977586, guid: 615265776c833f042855bc162a871502,
+        type: 3}
+      propertyPath: gearRight
+      value: 
+      objectReference: {fileID: 2666620946078867811, guid: 5341de948030a924fa73dd6235331bb1,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 615265776c833f042855bc162a871502, type: 3}
