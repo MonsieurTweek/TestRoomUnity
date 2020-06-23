@@ -71,6 +71,15 @@ public class CharacterGameEvent : MonoBehaviour
         }
     }
 
+    public event Action<uint, float> onPoisonned;
+    public void Poison(uint targetuniqueId, float duration)
+    {
+        if (onPoisonned != null)
+        {
+            onPoisonned(targetuniqueId, duration);
+        }
+    }
+
     public event Action<uint, int, int> onTargetSelected;
     public void SelectTarget(AbstractCharacterData data)
     {

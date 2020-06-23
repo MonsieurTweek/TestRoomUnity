@@ -49,7 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anchor: {fileID: 1046245199974942049}
-  stunFx: {fileID: 6888186251094526472, guid: fdcc235fcbb6de44b84d10a8b8b6a146, type: 3}
+  stunStatus: {fileID: 11400000, guid: aea28df97c860eb429f42568aab76bc5, type: 2}
+  poisonStatus: {fileID: 11400000, guid: 68d9de9b386a35342a419ed46c4bfb54, type: 2}
 --- !u!114 &6799003408672531336
 MonoBehaviour:
   m_ObjectHideFlags: 0

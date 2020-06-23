@@ -10,7 +10,6 @@ public abstract class Perk : DescriptiveObject
         PERMANENT = 1
     }
 
-    public GameObject fx = null;
     public int amount = 0;
     public PerkType type = PerkType.INSTANT;
 

@@ -435,12 +435,12 @@ PrefabInstance:
     - target: {fileID: 846744357375800842, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000019492434
+      value: -0.00000005366372
       objectReference: {fileID: 0}
     - target: {fileID: 846744357375800842, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000003051011
+      value: 0.0000003091707
       objectReference: {fileID: 0}
     - target: {fileID: 846744357375800842, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
@@ -480,12 +480,12 @@ PrefabInstance:
     - target: {fileID: 3152832689838835806, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000053671833
+      value: -0.000000019500549
       objectReference: {fileID: 0}
     - target: {fileID: 3152832689838835806, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000003092388
+      value: 0.0000003051692
       objectReference: {fileID: 0}
     - target: {fileID: 3152832689838835806, guid: dd1c1ff89830c3041b83d7491abd700a,
         type: 3}
@@ -1328,7 +1328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 2062241802}
   perks:
-  - {fileID: 11400000, guid: cfb22c304675eae4d997999daa324966, type: 2}
+  - {fileID: 11400000, guid: ed057fca85fbafc49a3921d7eb087262, type: 2}
 --- !u!1001 &1276934595
 PrefabInstance:
   m_ObjectHideFlags: 0

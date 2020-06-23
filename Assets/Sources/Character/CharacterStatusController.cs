@@ -5,7 +5,9 @@ using UnityEngine;
 public class CharacterStatusController : MonoBehaviour
 {
     public Transform anchor = null;
-    public GameObject stunFx = null;
+
+    public Status poisonStatus = null;
+    public Status stunStatus = null;
 
     private CharacterFSM _character = null;
 
@@ -19,6 +21,7 @@ public class CharacterStatusController : MonoBehaviour
     private void Start()
     {
         CharacterGameEvent.instance.onStunned += OnStunned;
+        CharacterGameEvent.instance.onPoisonned += OnPoisonned;
     }
 
     private void OnStunned(uint uniqueId, float duration)
@@ -28,12 +31,11 @@ public class CharacterStatusController : MonoBehaviour
             // Create a new stun status
             if (_statusByType.ContainsKey(CharacterStatusEnum.STUN) == false)
             {
-                Status stun = ScriptableObject.CreateInstance<Status>();
-                GameObject fx = Instantiate<GameObject>(stunFx, anchor.position, anchor.rotation);
+                Status stun = Instantiate(stunStatus);
+                GameObject fx = Instantiate<GameObject>(stun.fx, anchor.position, anchor.rotation);
 
                 fx.transform.parent = transform;
 
-                stun.type = CharacterStatusEnum.STUN;
                 stun.currentFx = fx;
 
                 // Keep track of status logic
@@ -49,21 +51,57 @@ public class CharacterStatusController : MonoBehaviour
         }
     }
 
+    private void OnPoisonned(uint uniqueId, float duration)
+    {
+        if (_character.data.uniqueId == uniqueId && _character.data.isAlive == true)
+        {
+            // Create a new poison status
+            if (_statusByType.ContainsKey(CharacterStatusEnum.POISON) == false)
+            {
+                Status poison = Instantiate(poisonStatus);
+                GameObject fx = Instantiate<GameObject>(poison.fx, anchor.position, anchor.rotation);
+
+                fx.transform.parent = transform;
+
+                poison.currentFx = fx;
+
+                // Keep track of status logic
+                _statusByType.Add(CharacterStatusEnum.POISON, poison);
+            }
+
+            _statusByType[CharacterStatusEnum.POISON].Enable(duration);
+
+            // Add status to status mask
+            _character.data.SetStatus(CharacterStatusEnum.POISON);
+        }
+    }
+
     private void Update()
     {
         if (_character.data.isAlive == true)
         {
             foreach(Status status in _statusByType.Values)
             {
-                if (status.isActive == true && Time.time - status.startTime >= status.duration)
+                if (status.isActive == true)
                 {
-                    status.Disable();
-
-                    _character.data.RemoveStatus(status.type);
-
-                    if (status.type == CharacterStatusEnum.STUN)
+                    // Status has ticked
+                    if (Time.time - status.tickTime >= status.frequency)
                     {
-                        _character.TransitionToIdle();
+                        status.tickTime = Time.time;
+                        status.Evaluate(_character);
+                    }
+
+                    // Status has ended
+                    if (Time.time - status.startTime >= status.duration)
+                    {
+                        status.Disable();
+
+                        _character.data.RemoveStatus(status.type);
+
+                        if (status.type == CharacterStatusEnum.STUN)
+                        {
+                            _character.TransitionToIdle();
+                        }
                     }
                 }
             }
@@ -75,6 +113,7 @@ public class CharacterStatusController : MonoBehaviour
         if (CharacterGameEvent.instance != null)
         {
             CharacterGameEvent.instance.onStunned -= OnStunned;
+            CharacterGameEvent.instance.onPoisonned -= OnPoisonned;
         }
     }
 }
