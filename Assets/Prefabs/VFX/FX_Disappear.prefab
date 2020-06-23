@@ -4571,6 +4571,7 @@ GameObject:
   - component: {fileID: 4585874696222424039}
   - component: {fileID: 4428685016054085915}
   - component: {fileID: 4427496635493322219}
+  - component: {fileID: -7364779508657836218}
   m_Layer: 0
   m_Name: FX_Disappear
   m_TagString: Untagged
@@ -9122,6 +9123,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-7364779508657836218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4589617513473318289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b088867a9b3b9f341aabb18f9f00932a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 4428685016054085915}
 --- !u!1 &4590139894703468289
 GameObject:
   m_ObjectHideFlags: 0

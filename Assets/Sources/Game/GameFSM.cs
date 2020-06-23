@@ -58,9 +58,15 @@ public class GameFSM : AbstractFSM
 
     private IEnumerator PrepareGameOver(bool hasWon)
     {
-        yield return new WaitForSeconds(fadeOutTime);
+        LoadingGameEvent.instance.Prepare(null);
 
         ChangeState(stateGameOver, hasWon);
+
+        LoadingGameEvent.instance.LoadingProgress(100f);
+
+        yield return new WaitForSeconds(fadeOutTime);
+
+        LoadingGameEvent.instance.LoadingEnded();
     }
 
     private void LoadState()
