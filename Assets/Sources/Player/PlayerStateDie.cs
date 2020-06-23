@@ -15,6 +15,6 @@ public class PlayerStateDie : CharacterFSM.CharacterState
 
     public override void Exit()
     {
-        CharacterGameEvent.instance.Die(character.data);
+        CharacterGameEvent.instance.Died(character.data);
     }
 }

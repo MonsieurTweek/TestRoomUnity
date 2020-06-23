@@ -44,12 +44,21 @@ public class CharacterGameEvent : MonoBehaviour
         }
     }
 
-    public event Action<uint, int> onDie;
+    public event Action<uint> onDying;
     public void Die(AbstractCharacterData target)
     {
-        if (onDie != null)
+        if (onDying != null)
         {
-            onDie(target.uniqueId, target.GetReward());
+            onDying(target.uniqueId);
+        }
+    }
+
+    public event Action<uint, int> onDied;
+    public void Died(AbstractCharacterData target)
+    {
+        if (onDied != null)
+        {
+            onDied(target.uniqueId, target.GetReward());
         }
     }
 

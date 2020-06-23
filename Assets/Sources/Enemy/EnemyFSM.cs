@@ -110,6 +110,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
             }
             else
             {
+                CharacterGameEvent.instance.Die(data);
                 TransitionToDie();
             }
 

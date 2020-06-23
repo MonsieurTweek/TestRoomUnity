@@ -15,7 +15,7 @@ public class ArenaManager : MonoBehaviour
 
     private void Start()
     {
-        CharacterGameEvent.instance.onDie += OnDie;
+        CharacterGameEvent.instance.onDied += OnDie;
         PerkGameEvent.instance.onSelected += OnPerkSelected;
 
         PrepareEnemies();
@@ -118,7 +118,7 @@ public class ArenaManager : MonoBehaviour
     {
         if (CharacterGameEvent.instance != null)
         {
-            CharacterGameEvent.instance.onDie -= OnDie;
+            CharacterGameEvent.instance.onDied -= OnDie;
         }
 
         if (PerkGameEvent.instance != null)

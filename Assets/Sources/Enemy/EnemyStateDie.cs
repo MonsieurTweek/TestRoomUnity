@@ -18,7 +18,7 @@ public class EnemyStateDie : CharacterFSM.CharacterState
 
     public override void Exit()
     {
-        CharacterGameEvent.instance.Die(character.data);
+        CharacterGameEvent.instance.Died(character.data);
 
         if (fx != null)
         {

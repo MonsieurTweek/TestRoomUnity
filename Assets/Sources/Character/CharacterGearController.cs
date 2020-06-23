@@ -12,20 +12,28 @@ public class CharacterGearController : MonoBehaviour
     public GearController gearLeft = null;
     public GearController gearRight = null;
 
+    private GearController _gearLeftAttached = null;
+    private GearController _gearRightAttached = null;
+
     private void Awake()
     {
         if (gearLeft != null)
         {
-            InstantiateGear(gearLeft, anchorLeft);
+            _gearLeftAttached = InstantiateGear(gearLeft, anchorLeft);
         }
 
         if (gearRight != null)
         {
-            InstantiateGear(gearRight, anchorRight);
+            _gearRightAttached = InstantiateGear(gearRight, anchorRight);
         }
     }
 
-    public void InstantiateGear(GearController prefab, Transform anchor)
+    private void Start()
+    {
+        CharacterGameEvent.instance.onDying += OnDying;
+    }
+
+    public GearController InstantiateGear(GearController prefab, Transform anchor)
     {
         UnityEngine.Assertions.Assert.IsTrue(anchor != null, "Missing anchor to attach " + prefab.name);
 
@@ -34,5 +42,31 @@ public class CharacterGearController : MonoBehaviour
 
         gear.transform.localScale = gear.transform.localScale * scaleModifier;
         gear.Attach(owner);
+
+        return gear;
+    }
+
+    private void OnDying(uint uniqueId)
+    {
+        if (owner.data.uniqueId == uniqueId)
+        {
+            if (_gearLeftAttached != null)
+            {
+                Destroy(_gearLeftAttached.gameObject);
+            }
+
+            if (_gearRightAttached != null)
+            {
+                Destroy(_gearRightAttached.gameObject);
+            }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (CharacterGameEvent.instance != null)
+        {
+            CharacterGameEvent.instance.onDying -= OnDying;
+        }
     }
 }
