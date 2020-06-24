@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+
 /// <summary>
 /// Defines generic rules for character
 /// </summary>
@@ -56,6 +56,11 @@ public class AbstractCharacterData : AbstractUniqueData
     public void RemoveStatus(CharacterStatusEnum type)
     {
         status &= ~(uint)type;
+    }
+
+    public bool HasStatus(CharacterStatusEnum type)
+    {
+        return (status & (uint)type) != 0;
     }
 
     public virtual int GetReward()

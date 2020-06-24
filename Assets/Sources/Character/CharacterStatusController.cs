@@ -7,6 +7,7 @@ public class CharacterStatusController : MonoBehaviour
     public Transform anchor = null;
 
     public Status poisonStatus = null;
+    public Status freezeStatus = null;
     public Status stunStatus = null;
 
     private CharacterFSM _character = null;
@@ -22,6 +23,7 @@ public class CharacterStatusController : MonoBehaviour
     {
         CharacterGameEvent.instance.onStunned += OnStunned;
         CharacterGameEvent.instance.onPoisonned += OnPoisonned;
+        CharacterGameEvent.instance.onFrozen += OnFrozen;
     }
 
     private void OnStunned(uint uniqueId, float duration)
@@ -76,6 +78,31 @@ public class CharacterStatusController : MonoBehaviour
         }
     }
 
+    private void OnFrozen(uint uniqueId, float duration)
+    {
+        if (_character.data.uniqueId == uniqueId && _character.data.isAlive == true)
+        {
+            // Create a new freeze status
+            if (_statusByType.ContainsKey(CharacterStatusEnum.FREEZE) == false)
+            {
+                Status freeze = Instantiate(freezeStatus);
+                GameObject fx = Instantiate<GameObject>(freeze.fx, transform.position, transform.rotation);
+
+                fx.transform.parent = transform;
+
+                freeze.currentFx = fx;
+
+                // Keep track of status logic
+                _statusByType.Add(CharacterStatusEnum.FREEZE, freeze);
+            }
+
+            _statusByType[CharacterStatusEnum.FREEZE].Enable(duration);
+
+            // Add status to status mask
+            _character.data.SetStatus(CharacterStatusEnum.FREEZE);
+        }
+    }
+
     private void Update()
     {
         if (_character.data.isAlive == true)
@@ -114,6 +141,7 @@ public class CharacterStatusController : MonoBehaviour
         {
             CharacterGameEvent.instance.onStunned -= OnStunned;
             CharacterGameEvent.instance.onPoisonned -= OnPoisonned;
+            CharacterGameEvent.instance.onFrozen -= OnFrozen;
         }
     }
 }

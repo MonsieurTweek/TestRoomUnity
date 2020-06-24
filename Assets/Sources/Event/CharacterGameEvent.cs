@@ -71,6 +71,15 @@ public class CharacterGameEvent : MonoBehaviour
         }
     }
 
+    public event Action<uint, float> onFrozen;
+    public void Freeze(uint targetuniqueId, float duration)
+    {
+        if (onFrozen != null)
+        {
+            onFrozen(targetuniqueId, duration);
+        }
+    }
+
     public event Action<uint, float> onPoisonned;
     public void Poison(uint targetuniqueId, float duration)
     {

@@ -24,7 +24,9 @@ public class EnemyStateMove : EnemyStateReaction
 
     public override void FixedUpdate()
     {
-        Vector3 targetPosition = character.transform.position + Vector3.forward * movementSpeed;
+        float speed = character.data.HasStatus(CharacterStatusEnum.FREEZE) ? movementSpeed * 0.5f : movementSpeed;
+
+        Vector3 targetPosition = character.transform.position + Vector3.forward * speed;
 
         character.transform.Translate((targetPosition - character.transform.position) * Time.deltaTime);
     }

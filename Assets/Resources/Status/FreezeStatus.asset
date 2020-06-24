@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e825379392ca640ac32a731a6be0aa, type: 3}
+  m_Name: FreezeStatus
+  m_EditorClassIdentifier: 
+  type: 4
+  fx: {fileID: 2925012270654446816, guid: f35d459daa4c42645bf6e678118f4a32, type: 3}
+  duration: 5
+  frequency: 0
+  isTicking: 0
+  startTime: 0
+  tickTime: 0
+  isActive: 0
+  currentFx: {fileID: 0}
