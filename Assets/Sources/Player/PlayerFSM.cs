@@ -77,7 +77,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     {
         base.Update();
 
-        if (((uint)currentState.flag & FLAG_CAN_ATTACK) != 0)
+        if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0)
         {
             // Light Attack
             if (Input.GetMouseButtonUp(0) == true)
