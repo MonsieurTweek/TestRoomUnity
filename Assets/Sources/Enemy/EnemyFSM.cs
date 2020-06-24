@@ -11,6 +11,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
     public Transform target = null;
 
     [Header("States")]
+    public EnemyStateIntro stateIntro = new EnemyStateIntro();
     public EnemyStateReaction stateIdle = new EnemyStateReaction();
     public EnemyStateMove stateMove = new EnemyStateMove();
     public EnemyStateAttack stateAttack = new EnemyStateAttack();
@@ -24,6 +25,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
     // Transitions to states
     public override void TransitionToIdle() { ChangeState(stateIdle, TransitionToMove); }
+    public void TransitionToIntro() { ChangeState(stateIntro); }
     public void TransitionToMove() { ChangeState(stateMove, TransitionToAttack); }
     public void TransitionToAttack() { ChangeState(stateAttack, Random.Range(0, 2) == 1); } // Randomize ligh/heavy attack
 
@@ -34,6 +36,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
     {
         base.Awake();
 
+        stateIntro.flag = (uint)CharacterStateEnum.IDLE;
         stateIdle.flag = (uint)CharacterStateEnum.IDLE;
         stateMove.flag = (uint)CharacterStateEnum.MOVE;
         stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
@@ -60,7 +63,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
     private void Start()
     {
-        TransitionToIdle();
+        TransitionToIntro();
     }
 
     public override void Update()

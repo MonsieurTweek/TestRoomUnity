@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bc7f9e583fcecb84e93c6672aa7b9f1f
+guid: d8974b4250a0fa241aad28c57e2ec38c
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -8,7 +8,7 @@ ModelImporter:
     second: Take 001
   - first:
       74: -203655887218126122
-    second: Orc_Walk
+    second: Enemy_Idle
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -49,11 +49,11 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -67,11 +67,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Orc_Walk
+      name: Enemy_Idle
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 72
+      lastFrame: 319
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
