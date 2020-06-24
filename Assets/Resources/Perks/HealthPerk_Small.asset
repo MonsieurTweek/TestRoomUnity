@@ -15,6 +15,6 @@ MonoBehaviour:
   title: Small Health Bonus
   description: +2 Maximum hit points
   icon: {fileID: 21300000, guid: f5688a7946ff2444a9afc667ded7332c, type: 3}
-  fx: {fileID: 0}
   amount: 2
   type: 0
+  isCumulative: 1

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using System.Collections;
+using UnityEngine;
 
 /// <summary>
 /// Manage character selection through the scene
@@ -14,13 +16,23 @@ public class CharacterSelectionController : MonoBehaviour
     public int initialIndex = 0;
     private int _currentIndex = 0;
 
+    public CinemachineVirtualCamera introCamera = null;
     public CharacterSelectedController[] characters = null;
 
     private void Awake()
     {
         _currentIndex = initialIndex;
 
+        StartCoroutine(WaitForIntro());
+    }
+
+    private IEnumerator WaitForIntro()
+    {
+        yield return new WaitForSeconds(0.1f);
+
         SelectCharacter(_currentIndex);
+
+        introCamera.m_Priority = 0; 
     }
 
     private void Update()
