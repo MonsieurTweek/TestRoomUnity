@@ -6,6 +6,10 @@ public class CardCanvasController : MonoBehaviour
     public GameObject root = null;
     public List<CardController> cards = new List<CardController>();
 
+    public List<Perk> perks = new List<Perk>();
+
+    private HashSet<int> perksToDisplay = new HashSet<int>();
+
     private void Awake()
     {
         root.SetActive(false);
@@ -21,8 +25,21 @@ public class CardCanvasController : MonoBehaviour
     {
         root.SetActive(true);
 
+        perksToDisplay.Clear();
+
+        int index = 0;
+
         for (int i = 0; i < cards.Count; ++i)
         {
+            do
+            {
+                index = Random.Range(0, perks.Count);
+            }
+            while (perksToDisplay.Contains(index) && perks.Count > 1);
+
+            perksToDisplay.Add(index);
+
+            cards[i].Initialize(perks[index]);
             cards[i].AnimateIntro();
         }
     }
@@ -34,6 +51,11 @@ public class CardCanvasController : MonoBehaviour
             if (cards[i].data.uniqueId == id)
             {
                 cards[i].AnimateSelection(OnSelectionEnded);
+
+                if (perk.isCumulative == false)
+                {
+                    perks.Remove(perk);
+                }
             }
             else
             {

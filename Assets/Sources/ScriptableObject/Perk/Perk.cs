@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 
 [Serializable]
 public abstract class Perk : DescriptiveObject
@@ -12,6 +11,7 @@ public abstract class Perk : DescriptiveObject
 
     public int amount = 0;
     public PerkType type = PerkType.INSTANT;
+    public bool isCumulative = false;
 
     protected CharacterFSM _owner = null;
 

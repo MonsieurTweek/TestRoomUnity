@@ -409,6 +409,11 @@ MonoBehaviour:
   cards:
   - {fileID: 2681653816639681791}
   - {fileID: 8813558239263596279}
+  perks:
+  - {fileID: 11400000, guid: 779c96900fe3ad14d9f46b8fa6225735, type: 2}
+  - {fileID: 11400000, guid: 73d3932566415974bbd362c7d45c0051, type: 2}
+  - {fileID: 11400000, guid: ed057fca85fbafc49a3921d7eb087262, type: 2}
+  - {fileID: 11400000, guid: cfb22c304675eae4d997999daa324966, type: 2}
 --- !u!1001 &2681653816220364107
 PrefabInstance:
   m_ObjectHideFlags: 0

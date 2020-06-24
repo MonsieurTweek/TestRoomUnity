@@ -11,8 +11,6 @@ public class CardController : MonoBehaviour
     public TextMeshProUGUI descriptionText = null;
     public Image icon = null;
 
-    public DescriptiveObject perk = null;
-
     private Vector3 _destination = Vector3.zero;
 
     public CardData data { private set; get; }
@@ -20,7 +18,6 @@ public class CardController : MonoBehaviour
     private void Awake()
     {
         data = new CardData();
-        data.Populate(perk);
 
         // Save current position as destination
         _destination = transform.localPosition;
@@ -28,12 +25,17 @@ public class CardController : MonoBehaviour
         Prepare();
     }
 
-    private void Prepare()
+    public void Initialize(DescriptiveObject perk)
     {
+        data.Populate(perk);
+
         titleText.text = data.title;
         descriptionText.text = data.description;
         icon.sprite = data.icon;
+    }
 
+    private void Prepare()
+    {
         // Position is reset to be out of screen
         transform.localPosition = Vector3.left * Screen.width;
 
