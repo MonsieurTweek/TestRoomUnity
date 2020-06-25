@@ -21,9 +21,27 @@ public class CharacterStatusController : MonoBehaviour
 
     private void Start()
     {
+        CharacterGameEvent.instance.onDying += OnDying;
+
         CharacterGameEvent.instance.onStunned += OnStunned;
         CharacterGameEvent.instance.onPoisonned += OnPoisonned;
         CharacterGameEvent.instance.onFrozen += OnFrozen;
+    }
+
+    private void OnDying(uint uniqueId)
+    {
+        if (_character.data.uniqueId == uniqueId)
+        {
+            foreach (Status status in _statusByType.Values)
+            {
+                if (status.isActive == true)
+                {
+                    status.Disable();
+
+                    _character.data.RemoveStatus(status.type);
+                }
+            }
+        }
     }
 
     private void OnStunned(uint uniqueId, float duration)
@@ -139,6 +157,8 @@ public class CharacterStatusController : MonoBehaviour
     {
         if (CharacterGameEvent.instance != null)
         {
+            CharacterGameEvent.instance.onDying -= OnDying;
+
             CharacterGameEvent.instance.onStunned -= OnStunned;
             CharacterGameEvent.instance.onPoisonned -= OnPoisonned;
             CharacterGameEvent.instance.onFrozen -= OnFrozen;
