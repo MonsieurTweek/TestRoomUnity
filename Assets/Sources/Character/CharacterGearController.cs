@@ -38,9 +38,15 @@ public class CharacterGearController : MonoBehaviour
         UnityEngine.Assertions.Assert.IsTrue(anchor != null, "Missing anchor to attach " + prefab.name);
 
         GearController gear = Instantiate(prefab, anchor);
-        float scaleModifier = gear.transform.localScale.x / gear.transform.lossyScale.x;
 
-        gear.transform.localScale = gear.transform.localScale * scaleModifier;
+        // Scale the gear to the character
+        if (gear.preserveScale == false)
+        {
+            float scaleModifier = gear.transform.localScale.x / gear.transform.lossyScale.x;
+
+            gear.transform.localScale = gear.transform.localScale * scaleModifier;
+        }
+
         gear.Attach(owner);
 
         return gear;

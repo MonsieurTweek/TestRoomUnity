@@ -8,9 +8,9 @@ public class EnemyStateMove : EnemyStateReaction
 
     public float movementSpeed = 3f;
 
-    public override void Enter(Action reaction)
+    public override void Enter()
     {
-        base.Enter(reaction);
+        base.Enter();
 
         character.animator.applyRootMotion = true;
 

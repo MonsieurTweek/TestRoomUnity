@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad10f683a3888134a86a5ee56c7ad48a
+guid: 2fcef5221e30d3b4d8b5d8b56671b1c3
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -8,7 +8,7 @@ ModelImporter:
     second: Take 001
   - first:
       74: -203655887218126122
-    second: Enemy_Flexing_Muscles
+    second: Enemy_Mutant_Punch
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -67,11 +67,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Enemy_Flexing_Muscles
+      name: Enemy_Mutant_Punch
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 280
+      lastFrame: 66
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

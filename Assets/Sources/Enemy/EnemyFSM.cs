@@ -24,10 +24,12 @@ public class EnemyFSM : CharacterFSM, ICharacter
     public Vector3 direction { private set; get; }
 
     // Transitions to states
-    public override void TransitionToIdle() { ChangeState(stateIdle, TransitionToMove); }
+    public override void TransitionToIdle() { ChangeState(stateIdle); }
     public void TransitionToIntro() { ChangeState(stateIntro); }
-    public void TransitionToMove() { ChangeState(stateMove, TransitionToAttack); }
+    public void TransitionToMove() { ChangeState(stateMove); }
     public void TransitionToAttack() { ChangeState(stateAttack, Random.Range(0, 2) == 1); } // Randomize ligh/heavy attack
+    public void TransitionToAttackLight() { ChangeState(stateAttack, false); } // Forced light attack
+    public void TransitionToAttackHeavy() { ChangeState(stateAttack, true); } // Forced heavy attack
 
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }

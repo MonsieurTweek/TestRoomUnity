@@ -70,16 +70,78 @@ MonoBehaviour:
     flag: 0
     character: {fileID: 0}
   target: {fileID: 0}
+  stateIntro:
+    owner: {fileID: 0}
+    flag: 0
+    character: {fileID: 0}
   stateIdle:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
-    reactionRange: 5
+    closeRange: 1
+    farRange: 10
+    onCloseRange:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6799003408672531336}
+          m_MethodName: TransitionToMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onFarRange:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6799003408672531336}
+          m_MethodName: TransitionToMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   stateMove:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
-    reactionRange: 1
+    closeRange: 1
+    farRange: 1
+    onCloseRange:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6799003408672531336}
+          m_MethodName: TransitionToAttack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onFarRange:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6799003408672531336}
+          m_MethodName: TransitionToAttack
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     movementSpeed: 2
   stateAttack:
     owner: {fileID: 0}
