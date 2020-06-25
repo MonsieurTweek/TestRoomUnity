@@ -14,7 +14,10 @@ public class StunPerk : Perk
 
     public void OnHitting(uint originId, uint targetId)
     {
-        CharacterGameEvent.instance.Stun(targetId, amount);
+        if (originId == _owner.data.uniqueId)
+        {
+            CharacterGameEvent.instance.Stun(targetId, amount);
+        }
     }
 
     private void OnDestroy()

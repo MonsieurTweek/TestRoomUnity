@@ -106,4 +106,22 @@ public class CharacterGameEvent : MonoBehaviour
             onTargetDeselected(data.uniqueId);
         }
     }
+
+    public event Action<Transform, AbstractCharacterData> onIntroStarted;
+    public void IntroStart(Transform target, AbstractCharacterData data)
+    {
+        if (onIntroStarted != null)
+        {
+            onIntroStarted(target, data);
+        }
+    }
+
+    public event Action onIntroEnded;
+    public void IntroEnd()
+    {
+        if (onIntroEnded != null)
+        {
+            onIntroEnded();
+        }
+    }
 }

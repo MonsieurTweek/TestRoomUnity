@@ -38,7 +38,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
     {
         base.Awake();
 
-        stateIntro.flag = (uint)CharacterStateEnum.IDLE;
+        stateIntro.flag = (uint)CharacterStateEnum.INTRO;
         stateIdle.flag = (uint)CharacterStateEnum.IDLE;
         stateMove.flag = (uint)CharacterStateEnum.MOVE;
         stateAttack.flag = (uint)CharacterStateEnum.ATTACK;

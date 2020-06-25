@@ -14,7 +14,10 @@ public class FreezePerk : Perk
 
     public void OnHitting(uint originId, uint targetId)
     {
-        CharacterGameEvent.instance.Freeze(targetId, amount);
+        if (originId == _owner.data.uniqueId)
+        {
+            CharacterGameEvent.instance.Freeze(targetId, amount);
+        }
     }
 
     private void OnDestroy()

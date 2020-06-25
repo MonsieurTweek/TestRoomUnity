@@ -6,5 +6,13 @@
 [Serializable]
 public class EnemyStateIntro : CharacterFSM.CharacterState
 {
-    // Nothing for now
+    public override void Enter()
+    {
+        CharacterGameEvent.instance.IntroStart(owner.transform, character.data);
+    }
+
+    public override void Exit()
+    {
+        CharacterGameEvent.instance.IntroEnd();
+    }
 }

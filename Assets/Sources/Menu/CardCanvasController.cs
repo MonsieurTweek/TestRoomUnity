@@ -73,10 +73,10 @@ public class CardCanvasController : MonoBehaviour
             if (cards[i].data.uniqueId == (uint)id)
             {
                 cards[i].Hide();
+
+                PerkGameEvent.instance.Select(cards[i].data);
             }
         }
-
-        CharacterGameEvent.instance.Pause(false);
     }
 
     private void OnDestroy()

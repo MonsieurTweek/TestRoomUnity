@@ -7,5 +7,6 @@
     ATTACK  = 1 << 2,
     HIT     = 1 << 3,
     DIE     = 1 << 4,
-    STUN    = 1 << 5
+    STUN    = 1 << 5,
+    INTRO   = 1 << 6
 }

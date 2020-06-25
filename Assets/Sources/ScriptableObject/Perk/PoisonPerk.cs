@@ -14,7 +14,10 @@ public class PoisonPerk : Perk
 
     public void OnHitting(uint originId, uint targetId)
     {
-        CharacterGameEvent.instance.Poison(targetId, amount);
+        if (originId == _owner.data.uniqueId)
+        {
+            CharacterGameEvent.instance.Poison(targetId, amount);
+        }
     }
 
     private void OnDestroy()

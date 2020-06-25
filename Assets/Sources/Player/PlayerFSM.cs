@@ -57,6 +57,8 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
             // Bind player to pause
             CharacterGameEvent.instance.onPause += OnPause;
+            CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
+            CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
 
             PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
         }
@@ -261,6 +263,16 @@ public class PlayerFSM : CharacterFSM, ICharacter
         }
     }
 
+    private void OnIntroStarted(Transform _, AbstractCharacterData __)
+    {
+        OnPause(true);
+    }
+
+    private void OnIntroEnded()
+    {
+        OnPause(false);
+    }
+
     private void OnPerkUnlocked(uint uniqueId, Perk perk)
     {
         perk.Unlock(this);
@@ -318,6 +330,8 @@ public class PlayerFSM : CharacterFSM, ICharacter
         if (CharacterGameEvent.instance != null)
         {
             CharacterGameEvent.instance.onPause -= OnPause;
+            CharacterGameEvent.instance.onIntroStarted -= OnIntroStarted;
+            CharacterGameEvent.instance.onIntroEnded -= OnIntroEnded;
         }
 
         if (PerkGameEvent.instance != null)
