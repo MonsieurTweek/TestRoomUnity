@@ -224,7 +224,8 @@ public class PlayerFSM : CharacterFSM, ICharacter
     /// Apply damage to the enemy
     /// </summary>
     /// <param name="damage">Amount of damage. Reduction will be applied in this method.</param>
-    public bool Hit(int damage)
+    /// <param name="isBlocking">Whether it should stop enemy (play animation) or not.</param>
+    public bool Hit(int damage, bool isBlocking = true)
     {
         // Ensure player is in a state where he can take a hit
         if (((uint)currentState.flag & FLAG_CAN_HIT) != 0)

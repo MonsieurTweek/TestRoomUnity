@@ -13,7 +13,7 @@ public class PoisonStatus : Status
 
         if (enemy != null)
         {
-            enemy.Hit(damage);
+            enemy.Hit(damage, false);
         }
     }
 }
