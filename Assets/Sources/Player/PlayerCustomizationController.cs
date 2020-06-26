@@ -56,6 +56,8 @@ public class PlayerCustomizationController : MonoBehaviour
     public Customization[] customizations = null;
     public Customization customization { get { return _currentCustomizationIndex < customizations.Length ? customizations[_currentCustomizationIndex] : null; } }
 
+    public Material outlineMaterial = null;
+
     [HideInInspector]
     public List<CustomizationPartOnPlayer> customizableParts = new List<CustomizationPartOnPlayer>();
 
@@ -104,7 +106,10 @@ public class PlayerCustomizationController : MonoBehaviour
     {
         isMale = preset.isMale;
 
+        // Create new instance of this material to avoid concurrency with other players
+        Material outlineMaterialToApply = new Material(outlineMaterial);
         Material materialToApply = null;
+        HashSet<string> skinApplied = new HashSet<string>();
 
         foreach (CustomizationPartOnPlayer part in customizableParts)
         {
@@ -112,7 +117,7 @@ public class PlayerCustomizationController : MonoBehaviour
 
             foreach (Skin skin in preset.skins.list)
             {
-                if (skin.name == part.uniqueName)
+                if (skin.name == part.uniqueName && skinApplied.Contains(skin.name) == false)
                 {
                     materialToApply = skin.material != null ? skin.material : preset.material;
 
@@ -122,6 +127,13 @@ public class PlayerCustomizationController : MonoBehaviour
                     {
                         part.SetMaterial(materialToApply, false);
                     }
+
+                    if (outlineMaterial != null)
+                    {
+                        part.SetAdditionalMaterial(outlineMaterialToApply);
+                    }
+
+                    skinApplied.Add(skin.name);
 
                     break;
                 }

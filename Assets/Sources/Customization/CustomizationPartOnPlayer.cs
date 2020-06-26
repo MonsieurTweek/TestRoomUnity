@@ -111,13 +111,30 @@ public class CustomizationPartOnPlayer : MonoBehaviour
 
     public void SetMaterial(Material material, bool refreshGrid = true)
     {
+        Material mat = new Material(material);
+
         foreach (GameObject skin in elements)
         {
-            skin.GetComponent<SkinnedMeshRenderer>().material = material;
+            skin.GetComponent<SkinnedMeshRenderer>().material = mat;
         }
 
         // Save material for preset export
         _skin.material = material;
+    }
+
+    public void SetAdditionalMaterial(Material material)
+    {
+        SkinnedMeshRenderer mesh = elements[_currentPartIndex].GetComponent<SkinnedMeshRenderer>();
+
+        Material[] matArray = new Material[mesh.materials.Length + 1];
+
+        for (int i = 0; i < mesh.materials.Length; i++)
+        {
+            matArray[i] = mesh.materials[i];
+        }
+
+        matArray[mesh.materials.Length] = material;
+        mesh.materials = matArray;
     }
 
     public void GetSkinsByGender()

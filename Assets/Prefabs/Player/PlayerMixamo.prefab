@@ -21902,6 +21902,7 @@ MonoBehaviour:
     character: {fileID: 0}
   model: {fileID: 3052589585065933870}
   cameraController: {fileID: 7423371940358635323}
+  customizationController: {fileID: 2377859278771270915}
   stateIdle:
     owner: {fileID: 0}
     flag: 0
@@ -22015,32 +22016,8 @@ MonoBehaviour:
   loadFromPrefs: 0
   customizations:
   - {fileID: 11400000, guid: 6bfb3c6fbfca2b94ea2ca4a2ac188f44, type: 2}
-  customizableParts:
-  - {fileID: 3728681473911237726}
-  - {fileID: 1468846015610390070}
-  - {fileID: 7566561952859972993}
-  - {fileID: 8075711412977423118}
-  - {fileID: 6320185001783063360}
-  - {fileID: 51510606463861825}
-  - {fileID: 7410668549793103424}
-  - {fileID: 2758458192631862597}
-  - {fileID: 3239041742328886031}
-  - {fileID: 6623778707683263396}
-  - {fileID: 141276586215099894}
-  - {fileID: 6776544968261265781}
-  - {fileID: 825415448824320296}
-  - {fileID: 5213984998415776055}
-  - {fileID: 5769349088690424446}
-  - {fileID: 3634662827499400318}
-  - {fileID: 6013936332788603477}
-  - {fileID: 4473860226640539842}
-  - {fileID: 6732463603325415085}
-  - {fileID: 6625988787205686906}
-  - {fileID: 4184437375850907460}
-  - {fileID: 9066611130886762146}
-  - {fileID: 4593550088986761802}
-  - {fileID: 7899879710735877776}
-  - {fileID: 1118187988325155892}
+  outlineMaterial: {fileID: 0}
+  customizableParts: []
 --- !u!114 &1255294566434488690
 MonoBehaviour:
   m_ObjectHideFlags: 0

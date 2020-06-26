@@ -65,7 +65,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
     private void Start()
     {
-        TransitionToIntro();
+        TransitionToIdle();
     }
 
     public override void Update()
