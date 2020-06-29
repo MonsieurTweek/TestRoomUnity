@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d8974b4250a0fa241aad28c57e2ec38c
+guid: ed3acee57d8a7704191b504a1ed21951
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -8,7 +8,10 @@ ModelImporter:
     second: Take 001
   - first:
       74: -203655887218126122
-    second: Enemy_Idle
+    second: mixamo.com
+  - first:
+      74: -5868556963226038083
+    second: Enemy_Base_Attack_Light
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -54,7 +57,7 @@ ModelImporter:
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
@@ -67,30 +70,37 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Enemy_Idle
+      name: Enemy_Base_Attack_Light
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 319
+      lastFrame: 218
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
-      keepOriginalOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: OnSingleAnimationEnded
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
