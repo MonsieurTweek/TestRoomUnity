@@ -6,8 +6,17 @@
 [Serializable]
 public class EnemyStateIntro : CharacterFSM.CharacterState
 {
+    private const string ANIMATION_PARAM = "Unsheathe";
+
+    public bool hasUnsheatheTrigger = false;
+
     public override void Enter()
     {
+        if (hasUnsheatheTrigger == true)
+        {
+            character.animator.SetTrigger(ANIMATION_PARAM);
+        }
+
         CharacterGameEvent.instance.IntroStart(owner.transform, character.data);
     }
 

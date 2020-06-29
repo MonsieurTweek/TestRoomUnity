@@ -7,6 +7,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 27478753182446184, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: b647996a1dac7004a99f0eae111607bf,
+        type: 2}
     - target: {fileID: 81557670342521550, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -98,11 +104,42 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b6aa3d2b411faaa4eb7968c084a4c587,
         type: 2}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateHit.meshRenderer
+      value: 
+      objectReference: {fileID: 4581954725840095293}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateIntro.hasUnsheatheTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateMove.farRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateMove.onCloseRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TransitionToAttackLight
+      objectReference: {fileID: 0}
     - target: {fileID: 8554535455077345077, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: gearRight
       value: 
       objectReference: {fileID: 4744716383016546922, guid: 993b68958322c164699bfb9706c5851c,
         type: 3}
+    - target: {fileID: 8554535455077345077, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: enableOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4f8d352dab5174b97522bba0b018dc, type: 3}
+--- !u!137 &4581954725840095293 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 61042642174888122, guid: 8a4f8d352dab5174b97522bba0b018dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4561726931600621703}
+  m_PrefabAsset: {fileID: 0}

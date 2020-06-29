@@ -98,11 +98,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f82cf9df57027924c9997cf338869e77,
         type: 2}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateHit.meshRenderer
+      value: 
+      objectReference: {fileID: 635823788237820830}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateIntro.hasUnsheatheTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8554535455077345077, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: gearRight
       value: 
       objectReference: {fileID: 2174882396157859497, guid: 9390a4399f4a6f14bbd5a19d7de5acd5,
         type: 3}
+    - target: {fileID: 8554535455077345077, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: enableOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4f8d352dab5174b97522bba0b018dc, type: 3}
+--- !u!137 &635823788237820830 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 60607606143282824, guid: 8a4f8d352dab5174b97522bba0b018dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 578066134565387542}
+  m_PrefabAsset: {fileID: 0}

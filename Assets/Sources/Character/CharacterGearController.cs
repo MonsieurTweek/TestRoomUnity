@@ -4,6 +4,8 @@ public class CharacterGearController : MonoBehaviour
 {
     public CharacterFSM owner = null;
 
+    public bool enableOnAwake = true;
+
     [Header("Anchor")]
     public Transform anchorLeft = null;
     public Transform anchorRight = null;
@@ -15,6 +17,8 @@ public class CharacterGearController : MonoBehaviour
     private GearController _gearLeftAttached = null;
     private GearController _gearRightAttached = null;
 
+    private bool _isGearActive = true;
+
     private void Awake()
     {
         if (gearLeft != null)
@@ -25,6 +29,11 @@ public class CharacterGearController : MonoBehaviour
         if (gearRight != null)
         {
             _gearRightAttached = InstantiateGear(gearRight, anchorRight);
+        }
+
+        if (enableOnAwake == false)
+        {
+            WeaponSwitch();
         }
     }
 
@@ -50,6 +59,22 @@ public class CharacterGearController : MonoBehaviour
         gear.Attach(owner);
 
         return gear;
+    }
+
+    public void WeaponSwitch()
+    {
+        // Sheath or unsheath gearrs
+        _isGearActive = !_isGearActive;
+
+        if (gearLeft != null)
+        {
+            _gearLeftAttached.gameObject.SetActive(_isGearActive);
+        }
+
+        if (gearRight != null)
+        {
+            _gearRightAttached.gameObject.SetActive(_isGearActive);
+        }
     }
 
     private void OnDying(uint uniqueId)

@@ -249,7 +249,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 100}
+  m_SizeDelta: {x: 100, y: 200}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &158397567606849133
 MonoBehaviour:
@@ -272,7 +272,7 @@ MonoBehaviour:
   fitType: 4
   rows: 0
   columns: 2
-  cellSize: {x: 25, y: 25}
+  cellSize: {x: 50, y: 25}
   spacing: {x: 0, y: 0}
   fitX: 1
   fitY: 0
@@ -349,8 +349,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281452027
-  m_fontColor: {r: 0.9843137, g: 0.77254903, b: 0.19215687, a: 1}
+    rgba: 4279779816
+  m_fontColor: {r: 0.9098039, g: 0.25490198, b: 0.09411765, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -867,31 +867,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerHealthBar
       objectReference: {fileID: 0}
-    - target: {fileID: 3472844002874509024, guid: 652f4883abd528444beda1c978b77292,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3472844002874509024, guid: 652f4883abd528444beda1c978b77292,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3472844002874509024, guid: 652f4883abd528444beda1c978b77292,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3472844002874509024, guid: 652f4883abd528444beda1c978b77292,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3472844002874509024, guid: 652f4883abd528444beda1c978b77292,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3472844002874509025, guid: 652f4883abd528444beda1c978b77292,
         type: 3}
       propertyPath: m_Color.r
@@ -910,7 +885,7 @@ PrefabInstance:
     - target: {fileID: 5043985156825673248, guid: 652f4883abd528444beda1c978b77292,
         type: 3}
       propertyPath: m_fontSize
-      value: 48.95
+      value: 42.85
       objectReference: {fileID: 0}
     - target: {fileID: 5043985156825673248, guid: 652f4883abd528444beda1c978b77292,
         type: 3}
@@ -1144,26 +1119,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyHealthBar
       objectReference: {fileID: 0}
-    - target: {fileID: 3472844002874509024, guid: 652f4883abd528444beda1c978b77292,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3472844002874509024, guid: 652f4883abd528444beda1c978b77292,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3472844002874509024, guid: 652f4883abd528444beda1c978b77292,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3472844002874509024, guid: 652f4883abd528444beda1c978b77292,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -20
-      objectReference: {fileID: 0}
     - target: {fileID: 3472844002874509025, guid: 652f4883abd528444beda1c978b77292,
         type: 3}
       propertyPath: m_Color.r
@@ -1182,7 +1137,7 @@ PrefabInstance:
     - target: {fileID: 5043985156825673248, guid: 652f4883abd528444beda1c978b77292,
         type: 3}
       propertyPath: m_fontSize
-      value: 48.95
+      value: 42.85
       objectReference: {fileID: 0}
     - target: {fileID: 5043985156825673248, guid: 652f4883abd528444beda1c978b77292,
         type: 3}

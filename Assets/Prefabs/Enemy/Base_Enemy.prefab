@@ -74,6 +74,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
+    hasUnsheatheTrigger: 0
   stateIdle:
     owner: {fileID: 0}
     flag: 0
@@ -147,12 +148,11 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
+    anchor: {fileID: 89634217089833806}
   stateHit:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
-    hitMaterial: {fileID: 0}
-    currentMaterial: {fileID: 0}
     meshRenderer: {fileID: 0}
   stateDie:
     owner: {fileID: 0}
@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 6799003408672531336}
+  enableOnAwake: 1
   anchorLeft: {fileID: 89982473927037980}
   anchorRight: {fileID: 89634217089833806}
   gearLeft: {fileID: 0}

@@ -65,7 +65,18 @@ PrefabInstance:
     - target: {fileID: 86961308576054558, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: m_Name
-      value: Base_Enemy
+      value: Character_BR_ElementalGolem_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateHit.meshRenderer
+      value: 
+      objectReference: {fileID: 1724368386659132220}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4f8d352dab5174b97522bba0b018dc, type: 3}
+--- !u!137 &1724368386659132220 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 60503137733170086, guid: 8a4f8d352dab5174b97522bba0b018dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1673329849321320602}
+  m_PrefabAsset: {fileID: 0}
