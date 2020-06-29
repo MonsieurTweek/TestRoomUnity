@@ -58,7 +58,7 @@ public class PlayerCustomizationController : MonoBehaviour
 
     public Material outlineMaterial = null;
 
-    [HideInInspector]
+    //[HideInInspector]
     public List<CustomizationPartOnPlayer> customizableParts = new List<CustomizationPartOnPlayer>();
 
     private void Start()
@@ -107,7 +107,8 @@ public class PlayerCustomizationController : MonoBehaviour
         isMale = preset.isMale;
 
         // Create new instance of this material to avoid concurrency with other players
-        Material outlineMaterialToApply = new Material(outlineMaterial);
+        Material outlineMaterialToApply = outlineMaterial != null ? new Material(outlineMaterial) : null;
+
         Material materialToApply = null;
         HashSet<string> skinApplied = new HashSet<string>();
 
@@ -128,7 +129,7 @@ public class PlayerCustomizationController : MonoBehaviour
                         part.SetMaterial(materialToApply, false);
                     }
 
-                    if (outlineMaterial != null)
+                    if (outlineMaterialToApply != null)
                     {
                         part.SetAdditionalMaterial(outlineMaterialToApply);
                     }

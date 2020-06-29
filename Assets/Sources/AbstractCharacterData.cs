@@ -5,6 +5,8 @@
 /// </summary>
 public class AbstractCharacterData : AbstractUniqueData
 {
+    public string name { protected set; get; }
+
     public int power { protected set; get; }
     public int health { protected set; get; }
     public int healthMax { protected set; get; }
@@ -19,6 +21,7 @@ public class AbstractCharacterData : AbstractUniqueData
     /// </summary>
     public virtual void Populate(Character configuration)
     {
+        name = configuration.title;
         power = configuration.power;
         healthMax = configuration.health;
         health = healthMax;

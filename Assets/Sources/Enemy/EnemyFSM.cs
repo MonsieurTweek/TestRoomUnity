@@ -54,6 +54,8 @@ public class EnemyFSM : CharacterFSM, ICharacter
         {
             data.Populate(configuration);
             target = player.transform;
+
+            TransitionToIntro();
         }
         else
         {
@@ -61,11 +63,6 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
             TransitionToDie();
         }
-    }
-
-    private void Start()
-    {
-        TransitionToIdle();
     }
 
     public override void Update()

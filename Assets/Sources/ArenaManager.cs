@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ArenaManager : MonoBehaviour
@@ -17,6 +18,14 @@ public class ArenaManager : MonoBehaviour
     {
         CharacterGameEvent.instance.onDied += OnDie;
         PerkGameEvent.instance.onSelected += OnPerkSelected;
+
+        StartCoroutine(WaitForIntro());
+    }
+
+    // Replace with binding on player intro done
+    private IEnumerator WaitForIntro()
+    {
+        yield return new WaitForSeconds(0.25f);
 
         PrepareEnemies();
 

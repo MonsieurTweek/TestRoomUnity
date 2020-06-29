@@ -4360,6 +4360,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: d2049ac6f551a464e8b07fd393858d5f, type: 2}
     - target: {fileID: 5813687418545304631, guid: cce89ec5d9ba0e84bb8e36396d25a416,
         type: 3}
+      propertyPath: customizableParts.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813687418545304631, guid: cce89ec5d9ba0e84bb8e36396d25a416,
+        type: 3}
       propertyPath: customization
       value: 
       objectReference: {fileID: 0}

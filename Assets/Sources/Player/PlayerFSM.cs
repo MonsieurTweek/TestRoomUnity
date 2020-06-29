@@ -267,6 +267,8 @@ public class PlayerFSM : CharacterFSM, ICharacter
     private void OnIntroStarted(Transform _, AbstractCharacterData __)
     {
         OnPause(true);
+
+        ReleaseTarget();
     }
 
     private void OnIntroEnded()
