@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Slayer
   power: 1
-  health: 5
+  health: 15
   tiers: 3

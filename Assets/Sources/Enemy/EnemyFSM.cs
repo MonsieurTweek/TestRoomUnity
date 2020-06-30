@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 /// <summary>
 /// Handle enemy behavior
@@ -13,23 +15,29 @@ public class EnemyFSM : CharacterFSM, ICharacter
     [Header("States")]
     public EnemyStateIntro stateIntro = new EnemyStateIntro();
     public EnemyStateReaction stateIdle = new EnemyStateReaction();
-    public EnemyStateMove stateMove = new EnemyStateMove();
-    public EnemyStateAttack stateAttack = new EnemyStateAttack();
     public EnemyStateHit stateHit = new EnemyStateHit();
     public EnemyStateDie stateDie = new EnemyStateDie();
+
+    [Header("States by Phases")]
+    public List<EnemyPhase> phases = new List<EnemyPhase>();
 
     [Header("Properties")]
     public Character configuration = null;
 
+    public int currentPhaseIndex { private set; get; }
     public Vector3 direction { private set; get; }
+
+    // Phase action modifier
+    public Action firstPhaseAttack = null;
+    public Action secondPhaseAttack = null;
 
     // Transitions to states
     public override void TransitionToIdle() { ChangeState(stateIdle); }
     public void TransitionToIntro() { ChangeState(stateIntro); }
-    public void TransitionToMove() { ChangeState(stateMove); }
-    public void TransitionToAttack() { ChangeState(stateAttack, Random.Range(0, 2) == 1); } // Randomize ligh/heavy attack
-    public void TransitionToAttackLight() { ChangeState(stateAttack, false); } // Forced light attack
-    public void TransitionToAttackHeavy() { ChangeState(stateAttack, true); } // Forced heavy attack
+    public void TransitionToMove() { ChangeState(GetPhaseMove()); }
+    public void TransitionToAttack() { ChangeState(GetPhaseAttack(), UnityEngine.Random.Range(0, 2) == 1); } // Randomize ligh/heavy attack
+    public void TransitionToAttackLight() { ChangeState(GetPhaseAttack(), false); } // Forced light attack
+    public void TransitionToAttackHeavy() { ChangeState(GetPhaseAttack(), true); } // Forced heavy attack
 
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
@@ -40,10 +48,14 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
         stateIntro.flag = (uint)CharacterStateEnum.INTRO;
         stateIdle.flag = (uint)CharacterStateEnum.IDLE;
-        stateMove.flag = (uint)CharacterStateEnum.MOVE;
-        stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
         stateHit.flag = (uint)CharacterStateEnum.HIT;
         stateDie.flag = (uint)CharacterStateEnum.DIE;
+
+        foreach(EnemyPhase phase in phases)
+        {
+            phase.stateMove.flag = (uint)CharacterStateEnum.MOVE;
+            phase.stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
+        }
 
         data = new EnemyData();
     }
@@ -73,6 +85,16 @@ public class EnemyFSM : CharacterFSM, ICharacter
         }
 
         base.Update();
+    }
+
+    private EnemyStateMove GetPhaseMove()
+    {
+        return phases[currentPhaseIndex].stateMove;
+    }
+
+    private EnemyStateAttack GetPhaseAttack()
+    {
+        return phases[currentPhaseIndex].stateAttack;
     }
 
     /// <summary>
@@ -105,6 +127,8 @@ public class EnemyFSM : CharacterFSM, ICharacter
         {
             data.ApplyDamage(damage);
 
+            UpdatePhase();
+
             CharacterGameEvent.instance.Hit(data, damage);
 
             if (data.isAlive == true)
@@ -124,6 +148,15 @@ public class EnemyFSM : CharacterFSM, ICharacter
         }
 
         return false;
+    }
+
+    private void UpdatePhase()
+    {
+        // Check if damages taken so far are hitting the phase treshold
+        if (data.healthMax - data.health >= phases[currentPhaseIndex].treshold)
+        {
+            currentPhaseIndex++;
+        }
     }
 
     /// <summary>

@@ -7,11 +7,12 @@ using UnityEngine.Events;
 [Serializable]
 public class EnemyStateReaction : CharacterFSM.CharacterState
 {
-    public float closeRange = 1f;
-    public float farRange = 1f;
+    public float range = 1f;
 
-    public UnityEvent onCloseRange = null;
-    public UnityEvent onFarRange = null;
+    public UnityEvent onEnterRange = null;
+    public UnityEvent onExitRange = null;
+
+    protected bool _isInRange = false;
 
     public override void Update()
     {
@@ -19,13 +20,15 @@ public class EnemyStateReaction : CharacterFSM.CharacterState
 
         float sqrDistance = ((EnemyFSM)character).direction.sqrMagnitude;
 
-        if (sqrDistance < closeRange * closeRange)
+        // Enter range
+        if (_isInRange == false && sqrDistance < range * range)
         {
-            onCloseRange.Invoke();
+            onEnterRange.Invoke();
         }
-        else if (sqrDistance < farRange * farRange)
+        // Leave range
+        else if (_isInRange == true && sqrDistance > range * range)
         {
-            onFarRange.Invoke();
+            onExitRange.Invoke();
         }
     }
 
@@ -35,10 +38,7 @@ public class EnemyStateReaction : CharacterFSM.CharacterState
         base.OnDrawGizmos();
 
         UnityEditor.Handles.color = UnityEngine.Color.green;
-        UnityEditor.Handles.DrawWireDisc(owner.transform.position, UnityEngine.Vector3.up, closeRange * closeRange);
-
-        UnityEditor.Handles.color = UnityEngine.Color.red;
-        UnityEditor.Handles.DrawWireDisc(owner.transform.position, UnityEngine.Vector3.up, farRange * farRange);
+        UnityEditor.Handles.DrawWireDisc(owner.transform.position, UnityEngine.Vector3.up, range * range);
     }
 #endif
 }

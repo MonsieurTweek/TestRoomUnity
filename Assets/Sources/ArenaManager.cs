@@ -143,13 +143,13 @@ public class ArenaManager : MonoBehaviour
         {
             foreach(EnemyFSM enemy in _currentEnemies.Values)
             {
-                enemy.Hit(10000);
+                enemy.Hit(Mathf.RoundToInt(enemy.data.healthMax * 0.5f));
             }
         }
 
         if (Input.GetKeyUp(KeyCode.L) == true)
         {
-            player.Hit(10000);
+            player.Hit(Mathf.RoundToInt(player.data.healthMax));
         }
     }
 #endif

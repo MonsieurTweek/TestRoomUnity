@@ -79,9 +79,8 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
-    closeRange: 1
-    farRange: 10
-    onCloseRange:
+    range: 15
+    onEnterRange:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6799003408672531336}
@@ -95,60 +94,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-    onFarRange:
+    onExitRange:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6799003408672531336}
-          m_MethodName: TransitionToMove
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  stateMove:
-    owner: {fileID: 0}
-    flag: 0
-    character: {fileID: 0}
-    closeRange: 1
-    farRange: 1
-    onCloseRange:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6799003408672531336}
-          m_MethodName: TransitionToAttack
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    onFarRange:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6799003408672531336}
-          m_MethodName: TransitionToAttack
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    movementSpeed: 2
-  stateAttack:
-    owner: {fileID: 0}
-    flag: 0
-    character: {fileID: 0}
-    anchor: {fileID: 89634217089833806}
+        m_Calls: []
   stateHit:
     owner: {fileID: 0}
     flag: 0
@@ -159,6 +107,37 @@ MonoBehaviour:
     flag: 0
     character: {fileID: 0}
     fx: {fileID: 4589617513473318289, guid: 6be2189e7110e4b4b8f1428e8a88ebf7, type: 3}
+  phases:
+  - treshold: 1000
+    stateMove:
+      owner: {fileID: 0}
+      flag: 0
+      character: {fileID: 0}
+      range: 2
+      onEnterRange:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6799003408672531336}
+            m_MethodName: TransitionToAttack
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      onExitRange:
+        m_PersistentCalls:
+          m_Calls: []
+      walkSpeed: 3
+      runSpeed: 5
+    stateAttack:
+      owner: {fileID: 0}
+      flag: 0
+      character: {fileID: 0}
+      anchor: {fileID: 89634217089833806}
   configuration: {fileID: 11400000, guid: 0fda5e0ccb97c9b4cb91f5d9af6d9d01, type: 2}
 --- !u!114 &8554535455077345077
 MonoBehaviour:

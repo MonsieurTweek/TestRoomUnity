@@ -4,9 +4,11 @@ using UnityEngine;
 [Serializable]
 public class EnemyStateMove : EnemyStateReaction
 {
-    private const string ANIMATION_PARAM = "Move";
+    private const string ANIMATION_PARAM_MOVE = "Move";
+    private const string ANIMATION_PARAM_SPEED = "Speed";
 
-    public float movementSpeed = 3f;
+    public float speed = 3f;
+    public bool isRunning = false;
 
     public override void Enter()
     {
@@ -14,19 +16,28 @@ public class EnemyStateMove : EnemyStateReaction
 
         character.animator.applyRootMotion = true;
 
-        character.animator.SetBool(ANIMATION_PARAM, true);
+        character.animator.SetBool(ANIMATION_PARAM_MOVE, true);
+    }
+
+    public override void Update()
+    {
+        base.Update();
+
+        float speedTreshold = isRunning == true ? 1f : 0f;
+
+        character.animator.SetFloat(ANIMATION_PARAM_SPEED, speedTreshold);
     }
 
     public override void Exit()
     {
-        character.animator.SetBool(ANIMATION_PARAM, false);
+        character.animator.SetBool(ANIMATION_PARAM_MOVE, false);
     }
 
     public override void FixedUpdate()
     {
-        float speed = character.data.HasStatus(CharacterStatusEnum.FREEZE) ? movementSpeed * 0.5f : movementSpeed;
+        float speedToApply = character.data.HasStatus(CharacterStatusEnum.FREEZE) ? speed * 0.5f : speed;
 
-        Vector3 targetPosition = character.transform.position + Vector3.forward * speed;
+        Vector3 targetPosition = character.transform.position + Vector3.forward * speedToApply;
 
         character.transform.Translate((targetPosition - character.transform.position) * Time.deltaTime);
     }
