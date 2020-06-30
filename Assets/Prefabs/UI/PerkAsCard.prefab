@@ -578,7 +578,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6874508941592933310}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de25adf4ca64dba48a80d0aae1c3e59d, type: 3}
+  m_Script: {fileID: 11500000, guid: 65f0b961567d18d4284a552e9ee3efb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   back: {fileID: 6874508940979533483}
@@ -586,7 +586,6 @@ MonoBehaviour:
   titleText: {fileID: 8722677370860306983}
   descriptionText: {fileID: 4116216610682018000}
   icon: {fileID: 874605402865013705}
-  perk: {fileID: 0}
 --- !u!1 &6874508941716254573
 GameObject:
   m_ObjectHideFlags: 0

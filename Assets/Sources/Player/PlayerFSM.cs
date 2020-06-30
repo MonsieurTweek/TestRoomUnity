@@ -58,6 +58,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
             // Bind player to pause
             CharacterGameEvent.instance.onPause += OnPause;
+            CharacterGameEvent.instance.onDied += OnDied;
             CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
             CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
 
@@ -261,6 +262,14 @@ public class PlayerFSM : CharacterFSM, ICharacter
         else
         {
             TransitionToMove();
+        }
+    }
+
+    private void OnDied(uint uniqueId, int _)
+    {
+        if (target != null && target.data.uniqueId == uniqueId)
+        {
+            ReleaseTarget();
         }
     }
 
