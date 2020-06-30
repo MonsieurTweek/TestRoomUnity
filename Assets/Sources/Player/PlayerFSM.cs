@@ -9,7 +9,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
     [Header("References")]
     public Transform model = null;
     public PlayerCameraController cameraController = null;
-    public PlayerCustomizationController customizationController = null;
 
     [Header("States")]
     public PlayerStateIdle stateIdle = new PlayerStateIdle();

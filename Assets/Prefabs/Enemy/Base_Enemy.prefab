@@ -69,6 +69,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
+    outline: {fileID: 7778028239907775811}
   target: {fileID: 0}
   stateIntro:
     owner: {fileID: 0}
@@ -101,7 +102,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
-    meshRenderer: {fileID: 0}
+    outline: {fileID: 7778028239907775811}
   stateDie:
     owner: {fileID: 0}
     flag: 0
@@ -131,14 +132,29 @@ MonoBehaviour:
       onExitRange:
         m_PersistentCalls:
           m_Calls: []
-      walkSpeed: 3
-      runSpeed: 5
+      speed: 3
+      isRunning: 0
     stateAttack:
       owner: {fileID: 0}
       flag: 0
       character: {fileID: 0}
       anchor: {fileID: 89634217089833806}
   configuration: {fileID: 11400000, guid: 0fda5e0ccb97c9b4cb91f5d9af6d9d01, type: 2}
+--- !u!114 &7778028239907775811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86961308576054558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2f7119d4d4b3ca4db0cf154d754412c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 0.03
+  _meshRenderers:
+  - {fileID: 60503137733170086}
 --- !u!114 &8554535455077345077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +375,12 @@ GameObject:
 --- !u!95 &27478753182446184 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 95089309120233660, guid: 93c0dd75ddc1c9f4dabe9f061ef19748,
+    type: 3}
+  m_PrefabInstance: {fileID: 85653050051785428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &60503137733170086 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 137007628262973810, guid: 93c0dd75ddc1c9f4dabe9f061ef19748,
     type: 3}
   m_PrefabInstance: {fileID: 85653050051785428}
   m_PrefabAsset: {fileID: 0}

@@ -108,6 +108,11 @@ PrefabInstance:
       propertyPath: stateIntro.hasUnsheatheTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7778028239907775811, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: _meshRenderers.Array.data[0]
+      value: 
+      objectReference: {fileID: 635823788237820830}
     - target: {fileID: 8554535455077345077, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: gearRight

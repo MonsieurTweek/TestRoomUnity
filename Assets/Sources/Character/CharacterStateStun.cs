@@ -9,6 +9,8 @@ public class CharacterStateStun : CharacterFSM.CharacterState2Params<float, Acti
 {
     private const string ANIMATION_PARAM = "Stun";
 
+    public CharacterOutlineController outline = null;
+
     private float _time = 0f;
     private float _duration = 0f;
     private Action _callback = null;
@@ -20,10 +22,14 @@ public class CharacterStateStun : CharacterFSM.CharacterState2Params<float, Acti
         _callback = callback;
         
         character.animator.SetBool(ANIMATION_PARAM, true);
+
+        outline.Show();
     }
 
     public override void Exit()
     {
         character.animator.SetBool(ANIMATION_PARAM, false);
+
+        outline.Hide();
     }
 }
