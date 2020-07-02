@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Cinemachine;
+using System;
+using System.Collections;
 using UnityEngine;
 
 [Serializable]
@@ -7,19 +9,39 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     private const string ANIMATION_PARAM_VELOCTIY_X = "VelocityX";
     private const string ANIMATION_PARAM_VELOCTIY_Y = "VelocityY";
     private const string ANIMATION_PARAM_JUMP = "Jumping";
+    private const string ANIMATION_PARAM_DASH = "Dashing";
 
     private Vector3 _input = Vector3.zero;
     private Vector3 _velocity = Vector3.zero;
+
+    // Jump propertiers
     private bool _isJumping = false;
     private bool _canJump = true;
 
+    // Dash properties
+    private bool _isDashing = false;
+    private bool _canDash = true;
+
+    [Header("Speed")]
     public float movementSpeed = 3f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
 
+    [Header("Dash")]
+    public float dashDistance = 8.0f;
+    public float dashDelayIn = 0.25f;
+    public float dashDelayOut = 0.25f;
+    public ParticleSystem dashFx = null;
+    public CinemachineVirtualCamera dashCamera = null;
+
+    private ParticleSystem _currentDashFx = null;
+
     public override void Update()
     {
-        ((PlayerFSM)character).Rotate();
+        if (_isDashing == false)
+        {
+            ((PlayerFSM)character).Rotate();
+        }
 
         ComputeDirection();
 
@@ -53,9 +75,14 @@ public class PlayerStateMove : CharacterFSM.CharacterState
 
     public override void FixedUpdate()
     {
-        Move();
+        if (_isDashing == false)
+        {
+            Move();
 
-        Jump();
+            Jump();
+        }
+
+        Dash();
     }
 
     private void Move()
@@ -104,6 +131,75 @@ public class PlayerStateMove : CharacterFSM.CharacterState
 
         // Move the controller
         ((PlayerFSM)character).model.localPosition += character.transform.up * _velocity.y * Time.deltaTime;
+    }
+
+    private void Dash()
+    {
+        // Execute dash
+        if (_canDash == true && Input.GetKeyDown(KeyCode.E) == true)
+        {
+            _isDashing = true;
+            _canDash = false;
+
+            character.StartCoroutine(OnDash());
+
+        }
+    }
+
+    private IEnumerator OnDash()
+    {
+        // Switch to new camera and animation
+        dashCamera.m_Priority = 200;
+        character.animator.SetBool(ANIMATION_PARAM_DASH, true);
+
+        yield return new WaitForSeconds(dashDelayIn);
+
+        Vector3 destination = character.transform.position;
+
+        // Give priority to lateral dash
+        if (((PlayerFSM)character).target != null && Mathf.Approximately(_input.x, 0f) == false)
+        {
+            destination += _input.x > 0f ? character.transform.right * dashDistance : character.transform.right * (-dashDistance);
+        }
+        // Otherwise use forward direction (no input leads to dash backward)
+        else
+        {
+            destination += _input.z > 0f ? character.transform.forward * dashDistance : character.transform.forward * (-dashDistance);
+        }
+
+        Vector3 direction = destination - character.transform.position;
+        direction.y = 0.0f;
+
+        if (_currentDashFx == null)
+        {
+            _currentDashFx = GameObject.Instantiate<ParticleSystem>(dashFx);
+        }
+
+        _currentDashFx.transform.position = character.transform.position;
+        _currentDashFx.transform.rotation = Quaternion.LookRotation(direction);
+
+        // Compute fx lifetime based on the dash distance
+        ParticleSystem.MainModule main = _currentDashFx.main;
+        main.startLifetime = direction.magnitude / _currentDashFx.main.startSpeed.constant;
+
+        _currentDashFx.Play();
+
+        // Move to the new position
+        character.transform.position = destination;
+
+        character.StartCoroutine(OnDashComplete());
+    }
+
+    private IEnumerator OnDashComplete()
+    {
+        yield return new WaitForSeconds(dashDelayOut);
+
+        // Disable dash camera and animation
+        dashCamera.m_Priority = 0;
+        character.animator.SetBool(ANIMATION_PARAM_DASH, false);
+
+        _isDashing = false;
+        _canDash = true;
     }
 
     public override void Exit()

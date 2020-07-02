@@ -6,6 +6,7 @@ public class EnemyUIController : MonoBehaviour
     [Header("References")]
     public Transform introLayout = null;
     public TextMeshProUGUI introTitle = null;
+    public TextMeshProUGUI gaugeTitle = null;
 
     [Header("Properties")]
     public LeanTweenType introAnimation = LeanTweenType.linear;
@@ -25,6 +26,7 @@ public class EnemyUIController : MonoBehaviour
 
     private void OnIntroStarted(Transform target, AbstractCharacterData data)
     {
+        gaugeTitle.text = data.name;
         introTitle.text = data.name;
 
         // Position is reset to be out of screen

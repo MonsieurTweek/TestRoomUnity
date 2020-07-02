@@ -95,7 +95,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
         }
 
         // Toggle target mode
-        if (Input.GetKeyUp(KeyCode.LeftControl) == true)
+        if (Input.GetKeyUp(KeyCode.Tab) == true)
         {
             if (target == null)
             {
