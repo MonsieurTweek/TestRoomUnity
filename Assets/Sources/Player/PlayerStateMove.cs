@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [Serializable]
 public class PlayerStateMove : CharacterFSM.CharacterState
@@ -11,11 +12,12 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     private const string ANIMATION_PARAM_JUMP = "Jumping";
     private const string ANIMATION_PARAM_DASH = "Dashing";
 
-    private Vector3 _input = Vector3.zero;
+    private Vector2 _input = Vector2.zero;
     private Vector3 _velocity = Vector3.zero;
 
     // Jump propertiers
     private bool _isJumping = false;
+    private bool _isJumpPerformed = false;
     private bool _canJump = true;
 
     // Dash properties
@@ -36,6 +38,13 @@ public class PlayerStateMove : CharacterFSM.CharacterState
 
     private ParticleSystem _currentDashFx = null;
 
+    public override void Enter()
+    {
+        // Bind controls to actions
+        ((PlayerFSM)character).input.Gameplay.Jump.performed += ctx => Jump();
+        ((PlayerFSM)character).input.Gameplay.Dash.performed += ctx => Dash();
+    }
+
     public override void Update()
     {
         if (_isDashing == false)
@@ -50,16 +59,14 @@ public class PlayerStateMove : CharacterFSM.CharacterState
 
     private void ComputeDirection()
     {
-        // Switch on/off walk modifier
-        float modifier = Input.GetKey(KeyCode.LeftShift) == true ? 0.5f : 1f;
-
         // Get input amplitude
-        _input.z = Input.GetAxis("Vertical") * modifier;
+        _input.y = ((PlayerFSM)character).input.Gameplay.Move.ReadValue<float>();
+        
         // Apply velocity to straf direction only when targetting
-        _input.x = ((PlayerFSM)character).target != null ? Input.GetAxis("Horizontal") * modifier : 0f;
+        _input.x = ((PlayerFSM)character).target != null ? ((PlayerFSM)character).input.Gameplay.Strafe.ReadValue<float>() : 0f;
 
         // Apply input amplitude to forward velocity
-        _velocity.z = _input.z * movementSpeed;
+        _velocity.z = _input.y * movementSpeed;
         // Apply input amplitude to left velocity
         _velocity.x = _input.x * movementSpeed;
     }
@@ -69,7 +76,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         if (((PlayerFSM)character).isGrounded == true)
         {
             character.animator.SetFloat(ANIMATION_PARAM_VELOCTIY_X, _input.x);
-            character.animator.SetFloat(ANIMATION_PARAM_VELOCTIY_Y, _input.z);
+            character.animator.SetFloat(ANIMATION_PARAM_VELOCTIY_Y, _input.y);
         }
     }
 
@@ -77,15 +84,13 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     {
         if (_isDashing == false)
         {
-            Move();
+            EvaluateMove();
 
-            Jump();
+            EvaluateJump();
         }
-
-        Dash();
     }
 
-    private void Move()
+    private void EvaluateMove()
     {
         Vector3 targetPosition = character.transform.position + _velocity;
 
@@ -96,6 +101,14 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     }
 
     private void Jump()
+    {
+        if (_canJump == true)
+        {
+            _isJumpPerformed = true;
+        }
+    }
+
+    private void EvaluateJump()
     {
         if (((PlayerFSM)character).isGrounded == true)
         {
@@ -108,13 +121,11 @@ public class PlayerStateMove : CharacterFSM.CharacterState
                 character.animator.SetBool(ANIMATION_PARAM_JUMP, false);
             }
 
-            // We are grounded, so recalculate
-            // move direction directly from axes
-
-            if (Input.GetButton("Jump") == true && _canJump == true)
+            if (_isJumpPerformed == true)
             {
                 _velocity.y = jumpSpeed;
                 _isJumping = true;
+                _isJumpPerformed = false;
                 _canJump = false;
 
                 character.animator.SetBool(ANIMATION_PARAM_JUMP, true);
@@ -136,17 +147,16 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     private void Dash()
     {
         // Execute dash
-        if (_canDash == true && Input.GetKeyDown(KeyCode.E) == true)
+        if (_canDash == true)
         {
             _isDashing = true;
             _canDash = false;
 
-            character.StartCoroutine(OnDash());
-
+            character.StartCoroutine(EvaluateDash());
         }
     }
 
-    private IEnumerator OnDash()
+    private IEnumerator EvaluateDash()
     {
         // Switch to new camera and animation
         dashCamera.m_Priority = 200;
@@ -157,14 +167,14 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         Vector3 destination = character.transform.position;
 
         // Give priority to lateral dash
-        if (((PlayerFSM)character).target != null && Mathf.Approximately(_input.x, 0f) == false)
+        if (((PlayerFSM)character).target != null && Mathf.Abs(_input.x) >= 0.2f)
         {
             destination += _input.x > 0f ? character.transform.right * dashDistance : character.transform.right * (-dashDistance);
         }
         // Otherwise use forward direction (no input leads to dash backward)
         else
         {
-            destination += _input.z > 0f ? character.transform.forward * dashDistance : character.transform.forward * (-dashDistance);
+            destination += _input.y > 0f ? character.transform.forward * dashDistance : character.transform.forward * (-dashDistance);
         }
 
         Vector3 direction = destination - character.transform.position;
@@ -205,7 +215,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     public override void Exit()
     {
         // Reset _input and _velocity before exiting move state
-        _input = Vector3.zero;
+        _input = Vector2.zero;
         _velocity = Vector3.zero;
 
         Animate();

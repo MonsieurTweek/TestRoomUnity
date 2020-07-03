@@ -28,8 +28,10 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public void TransitionToMove() { ChangeState(stateMove); }
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
-    public void TransitionToAttack(bool isHeavy) { ChangeState(stateAttack, isHeavy); }
+    public void TransitionToAttackLight() { if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0) ChangeState(stateAttack, false); }
+    public void TransitionToAttackHeavy() { if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0) ChangeState(stateAttack, true); }
 
+    public PlayerControls input { private set; get; }
     public CharacterFSM target { private set; get; }
     public bool isGrounded { private set; get; }
 
@@ -52,16 +54,26 @@ public class PlayerFSM : CharacterFSM, ICharacter
         {
             data.Populate(configuration);
 
+            // Assign player controls
+            input = new PlayerControls();
+
             // Save current player rotation to start with
             _playerRotation = transform.eulerAngles;
 
-            // Bind player to pause
+            // Bind player to events
             CharacterGameEvent.instance.onPause += OnPause;
             CharacterGameEvent.instance.onDied += OnDied;
             CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
             CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
 
             PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
+
+            // Bind player common inputs
+            input.Gameplay.Target.started += ctx => AcquireTarget();
+            input.Gameplay.Target.canceled += ctx => ReleaseTarget();
+
+            input.Gameplay.AttackLight.canceled += ctx => TransitionToAttackLight();
+            input.Gameplay.AttackHeavy.canceled += ctx => TransitionToAttackHeavy();
         }
         else
         {
@@ -69,6 +81,16 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
             TransitionToDie();
         }
+    }
+
+    private void OnEnable()
+    {
+        input.Enable();
+    }
+
+    private void OnDisable()
+    {
+        input.Disable();
     }
 
     private void Start()
@@ -79,33 +101,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public override void Update()
     {
         base.Update();
-
-        if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0)
-        {
-            // Light Attack
-            if (Input.GetMouseButtonUp(0) == true)
-            {
-                TransitionToAttack(false);
-            }
-            // Heavy Attack
-            else if (Input.GetMouseButtonUp(1) == true)
-            {
-                TransitionToAttack(true);
-            }
-        }
-
-        // Toggle target mode
-        if (Input.GetKeyUp(KeyCode.Tab) == true)
-        {
-            if (target == null)
-            {
-                AcquireTarget();
-            }
-            else
-            {
-                ReleaseTarget();
-            }
-        }
 
         // Evaluate all perks in case it has something to update
         for (int i = 0; i < _perks.Count; i++)
@@ -208,7 +203,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     {
         if (target == null)
         {
-            _playerRotation.y = Input.GetAxis("Horizontal");
+            _playerRotation.y = input.Gameplay.Rotate.ReadValue<float>();
 
             transform.Rotate(_playerRotation);
         }

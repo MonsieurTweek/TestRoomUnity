@@ -20,7 +20,7 @@ public class SandboxManager : MonoBehaviour
 #if UNITY_EDITOR
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.K) == true)
+        /*if (Input.GetKeyUp(KeyCode.K) == true)
         {
             foreach (EnemyFSM enemy in enemies)
             {
@@ -31,7 +31,7 @@ public class SandboxManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.L) == true)
         {
             player.Hit(Mathf.RoundToInt(player.data.healthMax));
-        }
+        }*/
     }
 #endif
 }
