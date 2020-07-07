@@ -1,6 +1,7 @@
 ﻿using Cinemachine;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// Manage character selection through the scene
@@ -26,29 +27,24 @@ public class CharacterSelectionController : MonoBehaviour
         StartCoroutine(WaitForIntro());
     }
 
-    private IEnumerator WaitForIntro()
+    private void OnEnable()
     {
-        yield return new WaitForSeconds(0.1f);
-
-        SelectCharacter(_currentIndex);
-
-        introCamera.m_Priority = 0; 
+        InputManager.instance.menu.Navigate.performed += OnNavigate;
+        InputManager.instance.menu.Confirm.started += OnConfirmStarted;
     }
 
-    private void Update()
+    private void OnDisable()
     {
+        InputManager.instance.menu.Navigate.performed -= OnNavigate;
+        InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
+    }
+
+    private void OnNavigate(InputAction.CallbackContext context)
+    {
+        Vector2 input = context.ReadValue<Vector2>();
+
         // Move to next character
-        if (Input.GetKeyUp(KeyCode.RightArrow) == true || Input.GetKeyUp(KeyCode.D) == true)
-        {
-            characters[_currentIndex].Deselect();
-
-            _currentIndex = _currentIndex < characters.Length - 1? _currentIndex + 1 : 0;
-
-            SelectCharacter(_currentIndex);
-        }
-
-        // Move to previous character
-        if (Input.GetKeyUp(KeyCode.LeftArrow) == true || Input.GetKeyUp(KeyCode.Q) == true)
+        if (input.x < 0f && Mathf.Abs(input.x) > Mathf.Abs(input.y))
         {
             characters[_currentIndex].Deselect();
 
@@ -56,21 +52,37 @@ public class CharacterSelectionController : MonoBehaviour
 
             SelectCharacter(_currentIndex);
         }
+        // Move to previous character
+        else if (input.x > 0f && Mathf.Abs(input.x) > Mathf.Abs(input.y))
+        {
+            characters[_currentIndex].Deselect();
 
+            _currentIndex = _currentIndex < characters.Length - 1 ? _currentIndex + 1 : 0;
+
+            SelectCharacter(_currentIndex);
+        }
         // Switch character customization
-        if (Input.GetKeyUp(KeyCode.UpArrow) == true)
+        else if (input.y > 0f)
         {
             characters[_currentIndex].ChangeCustomization();
         }
+    }
 
-        // Validate character
-        if (Input.GetKeyUp(KeyCode.Return) == true)
+    private void OnConfirmStarted(InputAction.CallbackContext context)
+    {
+        if (characters[_currentIndex].Validate() == true)
         {
-            if (characters[_currentIndex].Validate() == true)
-            {
-                GameEvent.instance.CharacterSelected();
-            }
+            GameEvent.instance.CharacterSelected();
         }
+    }
+
+    private IEnumerator WaitForIntro()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        SelectCharacter(_currentIndex);
+
+        introCamera.m_Priority = 0; 
     }
 
     private void SelectCharacter(int index)

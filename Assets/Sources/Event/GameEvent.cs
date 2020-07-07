@@ -70,4 +70,13 @@ public class GameEvent : MonoBehaviour
             instance.onDataSaved();
         }
     }
+
+    public event Action<bool> onControlSwitched;
+    public void ControlSwitched(bool isKeyboard)
+    {
+        if (instance.onControlSwitched != null)
+        {
+            instance.onControlSwitched(isKeyboard);
+        }
+    }
 }

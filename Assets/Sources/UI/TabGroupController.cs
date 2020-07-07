@@ -6,6 +6,10 @@ public class TabGroupController : MonoBehaviour
 {
     private List<TabButtonController> _tabButtons = null;
 
+    [Header("References")]
+    public TabButtonController selectedTab = null;
+
+    [Header("Properties")]
     public Sprite tabIdle = null;
     public Sprite tabHover = null;
     public Sprite tabActive = null;
@@ -14,11 +18,14 @@ public class TabGroupController : MonoBehaviour
     public Color colorHover = Color.white;
     public Color colorActive = Color.white;
 
-    public TabButtonController selectedTab = null;
+    private void Awake()
+    {
+        InputManager.instance.menu.Switch.performed += OnSwitchTab;
+    }
 
     private void Start()
     {
-        StartCoroutine("Initialize");
+        StartCoroutine(Initialize());
     }
 
     /// <summary>
@@ -26,7 +33,7 @@ public class TabGroupController : MonoBehaviour
     /// </summary>
     private IEnumerator Initialize()
     {
-        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.1f);
         
         if (selectedTab != null)
         {
@@ -133,28 +140,30 @@ public class TabGroupController : MonoBehaviour
         UnityEngine.Debug.LogWarning("Implement a custom swap content method");
     }
 
-    private void Update()
+    private void OnSwitchTab(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        // Select previous tab through keyboard
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.Q))
-        {
-            if (selectedTab.transform.GetSiblingIndex() > 0)
-            {
-                Transform sibling = transform.GetChild(selectedTab.transform.GetSiblingIndex() - 1);
+        float axis = context.ReadValue<float>();
 
-                OnTabSelected(sibling.GetComponent<TabButtonController>());
-            }
+        if (axis < 0 && selectedTab.transform.GetSiblingIndex() > 0)
+        {
+            Transform sibling = transform.GetChild(selectedTab.transform.GetSiblingIndex() - 1);
+
+            OnTabSelected(sibling.GetComponent<TabButtonController>());
         }
 
-        // Select next tab through keyboard
-        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+        if (axis > 0 && selectedTab.transform.GetSiblingIndex() < transform.childCount - 1)
         {
-            if (selectedTab.transform.GetSiblingIndex() < transform.childCount - 1)
-            {
-                Transform sibling = transform.GetChild(selectedTab.transform.GetSiblingIndex() + 1);
+            Transform sibling = transform.GetChild(selectedTab.transform.GetSiblingIndex() + 1);
 
-                OnTabSelected(sibling.GetComponent<TabButtonController>());
-            }
+            OnTabSelected(sibling.GetComponent<TabButtonController>());
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (InputManager.instance != null)
+        {
+            InputManager.instance.menu.Switch.performed -= OnSwitchTab;
         }
     }
 }

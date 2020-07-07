@@ -1,9 +1,95 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class AnimatedPageController : MonoBehaviour
 {
+    public Selectable firstElement = null;
+
+    private int _currentSelectedChild = 0;
+    private List<Selectable> _selectableChilds = new List<Selectable>();
+
     private int _animationCounter = 0;
     private bool _isAnimationPlaying = false;
+
+    private void Awake()
+    {
+        GetSelectableChilds();
+    }
+
+    private void GetSelectableChilds()
+    {
+        _selectableChilds.Clear();
+        _selectableChilds.AddRange(GetComponentsInChildren<Selectable>());
+
+        _currentSelectedChild = _selectableChilds.IndexOf(firstElement);
+
+        if (_selectableChilds.Count > _currentSelectedChild)
+        {
+            _selectableChilds[_currentSelectedChild].OnSelect(null);
+        }
+    }
+
+    private void OnEnable()
+    {
+        InputManager.instance.menu.Navigate.performed += OnNavigate;
+        InputManager.instance.menu.Confirm.started += OnConfirmStarted;
+        InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
+    }
+
+    private void OnDisable()
+    {
+        InputManager.instance.menu.Navigate.performed -= OnNavigate;
+        InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
+    }
+
+    private void OnNavigate(InputAction.CallbackContext context)
+    {
+        Vector2 input = context.ReadValue<Vector2>();
+        Selectable tileToSelect = null;
+
+        if (input.x < 0f && Mathf.Abs(input.x) > Mathf.Abs(input.y))
+        {
+            tileToSelect = _selectableChilds[_currentSelectedChild].navigation.selectOnLeft;
+        }
+        else if (input.x > 0f && Mathf.Abs(input.x) > Mathf.Abs(input.y))
+        {
+            tileToSelect = _selectableChilds[_currentSelectedChild].navigation.selectOnRight;
+        }
+        else if (input.y > 0f)
+        {
+            tileToSelect = _selectableChilds[_currentSelectedChild].navigation.selectOnUp;
+        }
+        else if (input.y < 0f)
+        {
+            tileToSelect = _selectableChilds[_currentSelectedChild].navigation.selectOnDown;
+        }
+
+        if (tileToSelect != null)
+        {
+            Select(_selectableChilds.IndexOf(tileToSelect));
+        }
+    }
+
+    private void OnConfirmStarted(InputAction.CallbackContext context)
+    {
+        ((TileController)_selectableChilds[_currentSelectedChild]).ConfirmSelection();
+    }
+
+    private void OnConfirmCanceled(InputAction.CallbackContext context)
+    {
+        ((TileController)_selectableChilds[_currentSelectedChild]).CancelSelection();
+    }
+
+    private void Select(int index)
+    {
+        _selectableChilds[_currentSelectedChild].OnDeselect(null);
+
+        _currentSelectedChild = index;
+
+        _selectableChilds[_currentSelectedChild].OnSelect(null);
+    }
 
     public void Show(float time, float delay)
     {
@@ -11,9 +97,11 @@ public class AnimatedPageController : MonoBehaviour
 
         for (int i = 0; i < transform.childCount; i++)
         {
-            transform.GetChild(i).localScale = Vector3.zero;
+            Transform child = transform.GetChild(i);
 
-            LeanTween.scale(transform.GetChild(i).gameObject, Vector3.one, Random.Range(0f, time)).setDelay(Random.Range(0f, delay)).setOnComplete(OnShowProgress);
+            child.localScale = Vector3.zero;
+
+            LeanTween.scale(child.gameObject, Vector3.one, Random.Range(0f, time)).setDelay(Random.Range(0f, delay)).setOnComplete(OnShowProgress);
         }
 
         gameObject.SetActive(true);

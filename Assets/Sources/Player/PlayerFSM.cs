@@ -31,7 +31,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public void TransitionToAttackLight() { if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0) ChangeState(stateAttack, false); }
     public void TransitionToAttackHeavy() { if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0) ChangeState(stateAttack, true); }
 
-    public PlayerControls input { private set; get; }
     public CharacterFSM target { private set; get; }
     public bool isGrounded { private set; get; }
 
@@ -54,8 +53,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
         {
             data.Populate(configuration);
 
-            // Assign player controls
-            input = new PlayerControls();
 
             // Save current player rotation to start with
             _playerRotation = transform.eulerAngles;
@@ -69,11 +66,11 @@ public class PlayerFSM : CharacterFSM, ICharacter
             PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
 
             // Bind player common inputs
-            input.Gameplay.Target.started += ctx => AcquireTarget();
-            input.Gameplay.Target.canceled += ctx => ReleaseTarget();
+            InputManager.instance.gameplay.Target.started += ctx => AcquireTarget();
+            InputManager.instance.gameplay.Target.canceled += ctx => ReleaseTarget();
 
-            input.Gameplay.AttackLight.canceled += ctx => TransitionToAttackLight();
-            input.Gameplay.AttackHeavy.canceled += ctx => TransitionToAttackHeavy();
+            InputManager.instance.gameplay.AttackLight.canceled += ctx => TransitionToAttackLight();
+            InputManager.instance.gameplay.AttackHeavy.canceled += ctx => TransitionToAttackHeavy();
         }
         else
         {
@@ -81,16 +78,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
             TransitionToDie();
         }
-    }
-
-    private void OnEnable()
-    {
-        input.Enable();
-    }
-
-    private void OnDisable()
-    {
-        input.Disable();
     }
 
     private void Start()
@@ -203,7 +190,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     {
         if (target == null)
         {
-            _playerRotation.y = input.Gameplay.Rotate.ReadValue<float>();
+            _playerRotation.y = InputManager.instance.gameplay.Rotate.ReadValue<float>();
 
             transform.Rotate(_playerRotation);
         }

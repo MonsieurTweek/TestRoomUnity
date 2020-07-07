@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class CardController : MonoBehaviour
 {
+    public Image icon = null;
     public GameObject back = null;
     public GameObject front = null;
     public TextMeshProUGUI titleText = null;
     public TextMeshProUGUI descriptionText = null;
-    public Image icon = null;
-
-    private Vector3 _destination = Vector3.zero;
 
     public CardData data { private set; get; }
+
+    private Vector3 _destination = Vector3.zero;
+    private Action _onFullIntroCompleted = null;
+    private Canvas _canvas = null;
 
     private void Awake()
     {
@@ -21,6 +23,8 @@ public class CardController : MonoBehaviour
 
         // Save current position as destination
         _destination = transform.localPosition;
+
+        _canvas = GetComponent<Canvas>();
 
         Prepare();
     }
@@ -48,8 +52,22 @@ public class CardController : MonoBehaviour
         front.SetActive(false);
     }
 
-    public void AnimateIntro()
+    public void Select()
     {
+        _canvas.sortingOrder = 10;
+        LeanTween.scale(gameObject, Vector3.one * 1.2f, 0.25f);
+    }
+
+    public void Deselect()
+    {
+        _canvas.sortingOrder = 1;
+        LeanTween.scale(gameObject, Vector3.one, 0.25f);
+    }
+
+    public void AnimateIntro(Action onComplete)
+    {
+        _onFullIntroCompleted = onComplete;
+
         Prepare();
 
         LeanTween.moveLocal(gameObject, _destination, 0.5f).setOnComplete(AnimateSwitch);
@@ -71,7 +89,7 @@ public class CardController : MonoBehaviour
         LeanTween.scale(gameObject, Vector3.zero, 0.5f).setOnComplete(Hide);
     }
 
-    public void OnSelect()
+    public void ConfirmSelection()
     {
         PerkGameEvent.instance.Unlock(data);
     }
@@ -80,6 +98,8 @@ public class CardController : MonoBehaviour
     {
         back.SetActive(false);
         front.SetActive(true);
+
+        _onFullIntroCompleted.Invoke();
     }
 
     public void Hide()

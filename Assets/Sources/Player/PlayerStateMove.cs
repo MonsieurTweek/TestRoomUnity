@@ -41,8 +41,8 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     public override void Enter()
     {
         // Bind controls to actions
-        ((PlayerFSM)character).input.Gameplay.Jump.performed += ctx => Jump();
-        ((PlayerFSM)character).input.Gameplay.Dash.performed += ctx => Dash();
+        InputManager.instance.gameplay.Jump.performed += Jump;
+        InputManager.instance.gameplay.Dash.performed += Dash;
     }
 
     public override void Update()
@@ -60,10 +60,10 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     private void ComputeDirection()
     {
         // Get input amplitude
-        _input.y = ((PlayerFSM)character).input.Gameplay.Move.ReadValue<float>();
+        _input.y = InputManager.instance.gameplay.Move.ReadValue<float>();
         
         // Apply velocity to straf direction only when targetting
-        _input.x = ((PlayerFSM)character).target != null ? ((PlayerFSM)character).input.Gameplay.Strafe.ReadValue<float>() : 0f;
+        _input.x = ((PlayerFSM)character).target != null ? InputManager.instance.gameplay.Strafe.ReadValue<float>() : 0f;
 
         // Apply input amplitude to forward velocity
         _velocity.z = _input.y * movementSpeed;
@@ -100,7 +100,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         character.transform.Translate((targetPosition - character.transform.position) * Time.deltaTime);
     }
 
-    private void Jump()
+    private void Jump(InputAction.CallbackContext context)
     {
         if (_canJump == true)
         {
@@ -144,7 +144,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         ((PlayerFSM)character).model.localPosition += character.transform.up * _velocity.y * Time.deltaTime;
     }
 
-    private void Dash()
+    private void Dash(InputAction.CallbackContext context)
     {
         // Execute dash
         if (_canDash == true)
@@ -217,6 +217,13 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         // Reset _input and _velocity before exiting move state
         _input = Vector2.zero;
         _velocity = Vector3.zero;
+
+        // Unbind controls
+        if (InputManager.instance != null)
+        {
+            InputManager.instance.gameplay.Jump.performed -= Jump;
+            InputManager.instance.gameplay.Dash.performed -= Dash;
+        }
 
         Animate();
     }

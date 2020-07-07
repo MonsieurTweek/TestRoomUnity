@@ -31,8 +31,8 @@ RectTransform:
   m_Children:
   - {fileID: 2681653816785243040}
   - {fileID: 2681653816177909907}
-  - {fileID: 2681653816639681790}
   - {fileID: 8813558239263596278}
+  - {fileID: 2681653816639681790}
   m_Father: {fileID: 2681653817909991566}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -369,7 +369,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1024, y: 768}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -407,8 +407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   root: {fileID: 820718667900768248}
   cards:
-  - {fileID: 2681653816639681791}
   - {fileID: 8813558239263596279}
+  - {fileID: 2681653816639681791}
   perks:
   - {fileID: 11400000, guid: 779c96900fe3ad14d9f46b8fa6225735, type: 2}
   - {fileID: 11400000, guid: 73d3932566415974bbd362c7d45c0051, type: 2}
@@ -421,6 +421,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3606148469331131156}
     m_Modifications:
+    - target: {fileID: 896899675300191413, guid: a7a74032ec312074baba360a2ff06650,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 896899675300191413, guid: a7a74032ec312074baba360a2ff06650,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4116216610682018000, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -490,7 +500,7 @@ PrefabInstance:
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
@@ -510,22 +520,22 @@ PrefabInstance:
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -122
+      value: -222.00005
       objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
@@ -560,7 +570,12 @@ PrefabInstance:
     - target: {fileID: 6874508941592933310, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_Name
-      value: Card (2)
+      value: Card
+      objectReference: {fileID: 0}
+    - target: {fileID: 7998576758218542060, guid: a7a74032ec312074baba360a2ff06650,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8722677370860306983, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
@@ -587,6 +602,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9126525685382376074, guid: a7a74032ec312074baba360a2ff06650,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126525685382376074, guid: a7a74032ec312074baba360a2ff06650,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7a74032ec312074baba360a2ff06650, type: 3}
 --- !u!224 &8813558239263596278 stripped
@@ -604,7 +629,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de25adf4ca64dba48a80d0aae1c3e59d, type: 3}
+  m_Script: {fileID: 11500000, guid: 65f0b961567d18d4284a552e9ee3efb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8813558238340728643
@@ -614,6 +639,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3606148469331131156}
     m_Modifications:
+    - target: {fileID: 896899675300191413, guid: a7a74032ec312074baba360a2ff06650,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933308, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: perk
@@ -658,7 +688,7 @@ PrefabInstance:
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
@@ -678,22 +708,22 @@ PrefabInstance:
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 95
+      value: 219
       objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 12
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 6874508941592933309, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
@@ -728,7 +758,17 @@ PrefabInstance:
     - target: {fileID: 6874508941592933310, guid: a7a74032ec312074baba360a2ff06650,
         type: 3}
       propertyPath: m_Name
-      value: Card
+      value: Card (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126525685382376074, guid: a7a74032ec312074baba360a2ff06650,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126525685382376074, guid: a7a74032ec312074baba360a2ff06650,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7a74032ec312074baba360a2ff06650, type: 3}
@@ -747,6 +787,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de25adf4ca64dba48a80d0aae1c3e59d, type: 3}
+  m_Script: {fileID: 11500000, guid: 65f0b961567d18d4284a552e9ee3efb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

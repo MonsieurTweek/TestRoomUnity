@@ -16,22 +16,16 @@ public class SandboxManager : MonoBehaviour
         }
     }
 
-
-#if UNITY_EDITOR
-    private void Update()
+    public void KillEnemy()
     {
-        /*if (Input.GetKeyUp(KeyCode.K) == true)
+        foreach (EnemyFSM enemy in enemies)
         {
-            foreach (EnemyFSM enemy in enemies)
-            {
-                enemy.Hit(Mathf.RoundToInt(enemy.data.healthMax * 0.5f));
-            }
+            enemy.Hit(Mathf.RoundToInt(enemy.data.healthMax * 0.5f));
         }
-
-        if (Input.GetKeyUp(KeyCode.L) == true)
-        {
-            player.Hit(Mathf.RoundToInt(player.data.healthMax));
-        }*/
     }
-#endif
+
+    public void KillPlayer()
+    {
+        player.Hit(Mathf.RoundToInt(player.data.healthMax * 0.5f));
+    }
 }

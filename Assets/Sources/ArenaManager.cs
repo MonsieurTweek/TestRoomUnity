@@ -136,21 +136,16 @@ public class ArenaManager : MonoBehaviour
         }
     }
 
-#if UNITY_EDITOR
-    private void Update()
+    public void KillEnemy()
     {
-        if (Input.GetKeyUp(KeyCode.K) == true)
+        foreach (EnemyFSM enemy in _currentEnemies.Values)
         {
-            foreach(EnemyFSM enemy in _currentEnemies.Values)
-            {
-                enemy.Hit(Mathf.RoundToInt(enemy.data.healthMax * 0.5f));
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.L) == true)
-        {
-            player.Hit(Mathf.RoundToInt(player.data.healthMax));
+            enemy.Hit(Mathf.RoundToInt(enemy.data.healthMax * 0.5f));
         }
     }
-#endif
+
+    public void KillPlayer()
+    {
+        player.Hit(Mathf.RoundToInt(player.data.healthMax * 0.5f));
+    }
 }
