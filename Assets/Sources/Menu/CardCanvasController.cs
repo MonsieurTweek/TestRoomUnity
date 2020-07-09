@@ -53,6 +53,9 @@ public class CardCanvasController : MonoBehaviour
     private void OnConfirmStarted(InputAction.CallbackContext context)
     {
         cards[_currentCardIndex].ConfirmSelection();
+
+        InputManager.instance.menu.Navigate.performed -= OnNavigatePerformed;
+        InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
     }
 
     private void OnPerkDisplayed()
@@ -75,21 +78,22 @@ public class CardCanvasController : MonoBehaviour
             _perksToDisplay.Add(index);
 
             cards[i].Initialize(perks[index]);
-            cards[i].AnimateIntro(OnFullIntroCompleted);
+            cards[i].AnimateIntro(OnIntroCompleted);
         }
     }
 
-    private void OnFullIntroCompleted()
+    private void OnIntroCompleted()
     {
         _currentIntroCounter++;
 
+        // Check if all intro have been done
         if (_currentIntroCounter >= cards.Count)
         {
             cards[_currentCardIndex].Select();
-        }
 
-        InputManager.instance.menu.Navigate.performed += OnNavigatePerformed;
-        InputManager.instance.menu.Confirm.started += OnConfirmStarted;
+            InputManager.instance.menu.Navigate.performed += OnNavigatePerformed;
+            InputManager.instance.menu.Confirm.started += OnConfirmStarted;
+        }
     }
 
     private void OnPerkUnlocked(uint id, Perk perk)
@@ -125,9 +129,6 @@ public class CardCanvasController : MonoBehaviour
                 PerkGameEvent.instance.Select(cards[i].data);
             }
         }
-
-        InputManager.instance.menu.Navigate.performed -= OnNavigatePerformed;
-        InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
     }
 
     private void OnDestroy()
