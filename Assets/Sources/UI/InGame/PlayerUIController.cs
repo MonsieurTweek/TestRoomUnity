@@ -6,8 +6,9 @@ public class PlayerUIController : MonoBehaviour
     [Header("References")]
     public PlayerFSM player = null;
     public GameObject layout = null;
-    public HealthGaugeController gaugePlayer = null;
-    public HealthGaugeController gaugeTarget = null;
+    public ResourceGaugeController playerDash = null;
+    public ResourceGaugeController playerHealth = null;
+    public ResourceGaugeController targetHealth = null;
     public PerkController[] perks = null;
 
     private void Awake()
@@ -21,6 +22,7 @@ public class PlayerUIController : MonoBehaviour
     private void Start()
     {
         CharacterGameEvent.instance.onHit += OnCharacterHit;
+        CharacterGameEvent.instance.onDashCompleted += OnCharacterDash;
         CharacterGameEvent.instance.onTargetSelected += OnTargetSelected;
         CharacterGameEvent.instance.onTargetDeselected += OnTargetDeselected;
 
@@ -30,6 +32,8 @@ public class PlayerUIController : MonoBehaviour
         player.data.onBuffValues += RefreshPlayerData;
 
         RefreshPlayerData();
+
+        playerDash.Refresh(100, 100);
     }
 
     private void OnIntroStarted(Transform target, AbstractCharacterData data)
@@ -44,31 +48,46 @@ public class PlayerUIController : MonoBehaviour
 
     private void RefreshPlayerData()
     {
-        gaugePlayer.Refresh(player.data.health, player.data.healthMax);
+        playerHealth.Refresh(player.data.health, player.data.healthMax);
+    }
+
+    private void OnCharacterDash(uint characterUniqueId, float cooldown)
+    {
+        if (player.data.uniqueId == characterUniqueId)
+        {
+            playerDash.Refresh(0, 100);
+
+            LeanTween.value(0f, 100f, cooldown).setOnUpdate(DashCooldownProgress);
+        }
+    }
+
+    private void DashCooldownProgress(float progress)
+    {
+        playerDash.Refresh(Mathf.RoundToInt(progress), 100);
     }
 
     private void OnCharacterHit(uint id, int health, int damage)
     {
         if (player.data.uniqueId == id)
         {
-            gaugePlayer.Refresh(health, player.data.healthMax);
+            playerHealth.Refresh(health, player.data.healthMax);
         }
         else if (player.target != null && player.target.data.uniqueId == id)
         {
-            gaugeTarget.Refresh(health, player.target.data.healthMax);
+            targetHealth.Refresh(health, player.target.data.healthMax);
         }
     }
 
     private void OnTargetSelected(uint id, int health, int healthMax)
     {
-        gaugeTarget.Toggle(true);
+        targetHealth.Toggle(true);
 
-        gaugeTarget.Refresh(health, healthMax);
+        targetHealth.Refresh(health, healthMax);
     }
 
     private void OnTargetDeselected(uint id)
     {
-        gaugeTarget.Toggle(false);
+        targetHealth.Toggle(false);
     }
 
     private void OnDestroy()

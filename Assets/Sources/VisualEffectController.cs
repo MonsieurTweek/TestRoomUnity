@@ -2,7 +2,18 @@
 
 public class VisualEffectController : MonoBehaviour
 {
+    public bool isPersistent = true;
     public ParticleSystem effect = null;
+
+    public uint stateId { private set; get; }
+
+    public void Reset(uint stateId)
+    {
+        this.stateId = stateId;
+
+        gameObject.SetActive(true);
+        effect.Play();
+    }
 
     private void Start()
     {
@@ -10,11 +21,18 @@ public class VisualEffectController : MonoBehaviour
     }
 
     /// <summary>
-    /// Disable effect on loading new state
+    /// Disable effect on loading new menu state
     /// </summary>
     private void OnLoadingEnded()
     {
+        Stop();
+    }
+
+    public void Stop()
+    {
         effect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+
+        gameObject.SetActive(false);
     }
 
     private void OnDestroy()

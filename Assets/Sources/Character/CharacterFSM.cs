@@ -15,6 +15,7 @@ public class CharacterFSM : AbstractFSM
 
     // Common references across FSMs
     public Animator animator = null;
+    public CharacterFxController fxController = null;
 
     //Base class for all states, only the required methods need to be overriden 
     public class CharacterStateBase : StateBase
@@ -104,6 +105,15 @@ public class CharacterFSM : AbstractFSM
         {
             ((CharacterStateAttack)currentState).OnToggleAttack();
         }
+    }
+
+    /// <summary>
+    /// Animation triggers a FX
+    /// Called from animation event
+    /// </summary>
+    public void OnAnimationPlayFx(AnimationEvent animationEvent)
+    {
+        fxController.PlayFx(animationEvent.objectReferenceParameter, animationEvent.intParameter == 1, currentState.flag);
     }
 
 #if UNITY_EDITOR

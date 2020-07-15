@@ -9,7 +9,7 @@ public abstract class AbstractFSM : MonoBehaviour
     public class StateBase
     {
         [HideInInspector] public AbstractFSM owner = null;
-        [HideInInspector] public uint flag = (uint)CharacterStateEnum.NONE;
+        [HideInInspector] public uint flag = (uint)GameStateEnum.NONE;
 
         public virtual void Update() { }
         public virtual void FixedUpdate() { }

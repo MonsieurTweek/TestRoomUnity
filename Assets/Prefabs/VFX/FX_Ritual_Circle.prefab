@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5996153665865740601}
+  - component: {fileID: 1857136864536122112}
   m_Layer: 0
   m_Name: FX_Ritual_Circle
   m_TagString: Untagged
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1857136864536122112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325439018897186343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b088867a9b3b9f341aabb18f9f00932a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPersistent: 1
+  effect: {fileID: 6792677303453439820}
 --- !u!1001 &6666683607986871900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -91,6 +106,12 @@ PrefabInstance:
 --- !u!4 &6668171400467217478 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4164831158362650, guid: 41cbce41e6100bd4795fcf7202869c8e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6666683607986871900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6792677303453439820 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198335885103155472, guid: 41cbce41e6100bd4795fcf7202869c8e,
     type: 3}
   m_PrefabInstance: {fileID: 6666683607986871900}
   m_PrefabAsset: {fileID: 0}

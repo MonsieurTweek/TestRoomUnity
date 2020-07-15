@@ -20,6 +20,15 @@ public class CharacterGameEvent : MonoBehaviour
         }
     }
 
+    public event Action<uint, float> onDashCompleted;
+    public void CompleteDash(uint characterUniqueId, float cooldown)
+    {
+        if (onDashCompleted != null)
+        {
+            onDashCompleted(characterUniqueId, cooldown);
+        }
+    }
+
     /// <summary>
     /// When a character is hit BY somebody else
     /// </summary>
@@ -63,29 +72,29 @@ public class CharacterGameEvent : MonoBehaviour
     }
 
     public event Action<uint, float> onStunned;
-    public void Stun(uint targetuniqueId, float duration)
+    public void Stun(uint targetUniqueId, float duration)
     {
         if (onStunned != null)
         {
-            onStunned(targetuniqueId, duration);
+            onStunned(targetUniqueId, duration);
         }
     }
 
     public event Action<uint, float> onFrozen;
-    public void Freeze(uint targetuniqueId, float duration)
+    public void Freeze(uint targetUniqueId, float duration)
     {
         if (onFrozen != null)
         {
-            onFrozen(targetuniqueId, duration);
+            onFrozen(targetUniqueId, duration);
         }
     }
 
     public event Action<uint, float> onPoisonned;
-    public void Poison(uint targetuniqueId, float duration)
+    public void Poison(uint targetUniqueId, float duration)
     {
         if (onPoisonned != null)
         {
-            onPoisonned(targetuniqueId, duration);
+            onPoisonned(targetUniqueId, duration);
         }
     }
 

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 608707035134824465}
+  - component: {fileID: 8010766039349707306}
   m_Layer: 0
   m_Name: FX_Fire_Cirle
   m_TagString: Untagged
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8010766039349707306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4962193528027548667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b088867a9b3b9f341aabb18f9f00932a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPersistent: 1
+  effect: {fileID: 88432840872378689}
 --- !u!1001 &1315437072601949086
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -103,6 +118,12 @@ PrefabInstance:
 --- !u!4 &282458943621883477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1272867116057839051, guid: 2ec94db36d2e5c5429a09ece240b960c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1315437072601949086}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &88432840872378689 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1403841324007613151, guid: 2ec94db36d2e5c5429a09ece240b960c,
     type: 3}
   m_PrefabInstance: {fileID: 1315437072601949086}
   m_PrefabAsset: {fileID: 0}

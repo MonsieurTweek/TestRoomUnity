@@ -166,18 +166,6 @@ public class EnemyFSM : CharacterFSM, ICharacter
     /// Animation triggers a FX
     /// Called from animation event
     /// </summary>
-    public void OnAnimationPlayFx(AnimationEvent animationEvent)
-    {
-        if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
-        {
-            ((EnemyStateAttack)currentState).OnAttackPlayFx(animationEvent.objectReferenceParameter, animationEvent.intParameter == 1);
-        }
-    }
-
-    /// <summary>
-    /// Animation triggers a FX
-    /// Called from animation event
-    /// </summary>
     public void OnAnimationSendProjectile(AnimationEvent animationEvent)
     {
         if (currentState.flag == (uint)CharacterStateEnum.ATTACK)

@@ -11,6 +11,7 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<bool>
 
     public override void Enter(bool isHeavy)
     {
+        isEnabled = false;
         this.isHeavy = isHeavy;
 
         character.animator.SetTrigger(isHeavy == true ? ANIMATION_PARAM_ATTACK_HEAVY : ANIMATION_PARAM_ATTACK_LIGHT);

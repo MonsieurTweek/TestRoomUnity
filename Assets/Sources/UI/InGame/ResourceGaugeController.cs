@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HealthGaugeController : MonoBehaviour
+public class ResourceGaugeController : MonoBehaviour
 {
     [Header("References")]
     public ProgressBarController gauge = null;

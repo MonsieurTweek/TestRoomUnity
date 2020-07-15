@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 27478753182446184}
+  fxController: {fileID: 7432849620215738496}
   stateStun:
     owner: {fileID: 0}
     flag: 0
@@ -140,13 +141,26 @@ MonoBehaviour:
       isRunning: 0
       speed: 3
       timeBeforeDash: 2
-      minimumDashDistance: 20
+      minimumDashDistance: 7.5
     stateAttack:
       owner: {fileID: 0}
       flag: 0
       character: {fileID: 0}
       anchor: {fileID: 89634217089833806}
   configuration: {fileID: 11400000, guid: 0fda5e0ccb97c9b4cb91f5d9af6d9d01, type: 2}
+--- !u!114 &7432849620215738496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86961308576054558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fab6e13df6edd4b87dbe752be07d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchor: {fileID: 89634217089833806}
 --- !u!114 &7778028239907775811
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     private Vector2 _input = Vector2.zero;
     private Vector3 _velocity = Vector3.zero;
 
-    // Jump propertiers
+    // Jump properties
     private bool _isJumping = false;
     private bool _isJumpPerformed = false;
     private bool _canJump = true;
@@ -23,6 +23,8 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     // Dash properties
     private bool _isDashing = false;
     private bool _canDash = true;
+    private float _dashTime = float.MaxValue;
+    private float _dashCooldown = 0f;
 
     [Header("Speed")]
     public float movementSpeed = 3f;
@@ -43,6 +45,8 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         // Bind controls to actions
         InputManager.instance.gameplay.Jump.performed += Jump;
         InputManager.instance.gameplay.Dash.performed += Dash;
+
+        _dashCooldown = ((PlayerData)character.data).dashCooldown;
     }
 
     public override void Update()
@@ -50,6 +54,11 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         if (_isDashing == false)
         {
             ((PlayerFSM)character).Rotate();
+
+            if (Time.time - _dashTime >= _dashCooldown)
+            {
+                _canDash = true;
+            }
         }
 
         ComputeDirection();
@@ -182,7 +191,9 @@ public class PlayerStateMove : CharacterFSM.CharacterState
 
         if (_currentDashFx == null)
         {
-            _currentDashFx = GameObject.Instantiate<ParticleSystem>(dashFx);
+            GameObject fx = GamePoolManager.instance.UseFromPool(dashFx.gameObject.name);
+
+            _currentDashFx = fx.GetComponent<ParticleSystem>();
         }
 
         _currentDashFx.transform.position = character.transform.position;
@@ -192,6 +203,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         ParticleSystem.MainModule main = _currentDashFx.main;
         main.startLifetime = direction.magnitude / _currentDashFx.main.startSpeed.constant;
 
+        _currentDashFx.gameObject.SetActive(true);
         _currentDashFx.Play();
 
         // Move to the new position
@@ -209,7 +221,9 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         character.animator.SetBool(ANIMATION_PARAM_DASH, false);
 
         _isDashing = false;
-        _canDash = true;
+        _dashTime = Time.time;
+
+        CharacterGameEvent.instance.CompleteDash(character.data.uniqueId, _dashCooldown);
     }
 
     public override void Exit()

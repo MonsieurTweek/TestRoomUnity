@@ -130,11 +130,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
-      propertyPath: phases.Array.data[0].stateMove.minimumDashDistance
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
-        type: 3}
       propertyPath: phases.Array.data[1].treshold
       value: 1000
       objectReference: {fileID: 0}

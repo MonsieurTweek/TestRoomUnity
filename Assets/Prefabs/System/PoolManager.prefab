@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8852651272191559430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4385770859982814352}
+  - component: {fileID: 1334434979609502634}
+  m_Layer: 0
+  m_Name: PoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4385770859982814352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852651272191559430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1334434979609502634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852651272191559430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9853720f96787994ebc9fbde8c7df2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: FX_Dash
+    gameObject: {fileID: 3847653076681778244, guid: f319b20d13871b74b8770a66f3ecdde9,
+      type: 3}
+    size: 3
+  - tag: FX_Disappear
+    gameObject: {fileID: 4589617513473318289, guid: 6be2189e7110e4b4b8f1428e8a88ebf7,
+      type: 3}
+    size: 3
+  - tag: FX_Fire_Circle
+    gameObject: {fileID: 4962193528027548667, guid: e184c44ec1b1f144c9c493c898b02196,
+      type: 3}
+    size: 3
+  - tag: FX_Fire_Explosion
+    gameObject: {fileID: 2057997815331100801, guid: d86de4a626ca5964f86e18634014367b,
+      type: 3}
+    size: 3
+  - tag: FX_Freeze
+    gameObject: {fileID: 2925012270654446816, guid: f35d459daa4c42645bf6e678118f4a32,
+      type: 3}
+    size: 3
+  - tag: FX_GroundCrack
+    gameObject: {fileID: 4351087967616598281, guid: 8fdf4b15c20a7ef42bdb706dc72f9f26,
+      type: 3}
+    size: 3
+  - tag: FX_Perk
+    gameObject: {fileID: 57563689875066311, guid: d3630b2d4100c6a4f9624dc47de7bb11,
+      type: 3}
+    size: 3
+  - tag: FX_Poison
+    gameObject: {fileID: 2780112131916711338, guid: 872868e623ebb7a4190bf7bcc4f9feec,
+      type: 3}
+    size: 3
+  - tag: FX_Ritual_Circle
+    gameObject: {fileID: 6325439018897186343, guid: 6d3c078be426b2c44b7f3af93713a758,
+      type: 3}
+    size: 3
+  - tag: FX_Stunned
+    gameObject: {fileID: 6888186251094526472, guid: fdcc235fcbb6de44b84d10a8b8b6a146,
+      type: 3}
+    size: 3
+  - tag: FX_SwordSlash_01_Left2Right
+    gameObject: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
+      type: 3}
+    size: 3
+  - tag: FX_SwordSlash_01_Right2Left
+    gameObject: {fileID: 2936668415341988137, guid: 54604a05646779e4d81ae21474160219,
+      type: 3}
+    size: 3
+  - tag: FX_SwordStab
+    gameObject: {fileID: 346693300015389495, guid: 966198382eee6564195760c67d4bf754,
+      type: 3}
+    size: 3
+  - tag: WP_Arrow
+    gameObject: {fileID: 8267455484926079190, guid: 23a95b9970591484bad63e6164c8a3bb,
+      type: 3}
+    size: 3
+  - tag: WP_Fireball
+    gameObject: {fileID: 385740892927425757, guid: e4265732c06fa0b438460e5c71409110,
+      type: 3}
+    size: 3
+  - tag: WP_ShardIce_Line
+    gameObject: {fileID: 8677309504492095597, guid: 057babeeeef04704aa0b5cd03981b6b0,
+      type: 3}
+    size: 3
+  - tag: WP_ShardMagic_Line
+    gameObject: {fileID: 4923976261314013770, guid: ab59eb22314e2f84aab3949363da015d,
+      type: 3}
+    size: 3

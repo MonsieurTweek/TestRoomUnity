@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9075913920413357372}
+  - component: {fileID: 6571438572441096056}
   m_Layer: 0
-  m_Name: Fx_Stunned
+  m_Name: FX_Stunned
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6571438572441096056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6888186251094526472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b088867a9b3b9f341aabb18f9f00932a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPersistent: 1
+  effect: {fileID: 8362903160123358235}
 --- !u!1001 &8561080837768994901
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,6 +123,12 @@ PrefabInstance:
 --- !u!4 &8565583218592981607 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4504870314295858, guid: e35f4911d07c78949bd6fcee2e707765,
+    type: 3}
+  m_PrefabInstance: {fileID: 8561080837768994901}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8362903160123358235 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198177849515646030, guid: e35f4911d07c78949bd6fcee2e707765,
     type: 3}
   m_PrefabInstance: {fileID: 8561080837768994901}
   m_PrefabAsset: {fileID: 0}
