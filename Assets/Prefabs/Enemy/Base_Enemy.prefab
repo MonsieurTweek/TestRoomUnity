@@ -102,9 +102,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
-    animation: {fileID: 0}
-    offset: 0
-    tween: 1
+    offset: 5
   stateHit:
     owner: {fileID: 0}
     flag: 0

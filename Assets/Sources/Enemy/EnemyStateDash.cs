@@ -12,7 +12,7 @@ public class EnemyStateDash : CharacterFSM.CharacterState
 
     public float offset = 0f;
 
-    public AnimationClip _animation = null;
+    private AnimationClip _animation = null;
     private float _delay = 0.2f;
     private float _duration = 1f;
     private Vector3 _destination = Vector3.zero;
