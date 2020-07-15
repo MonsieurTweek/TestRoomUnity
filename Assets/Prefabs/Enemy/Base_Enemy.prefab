@@ -98,6 +98,13 @@ MonoBehaviour:
     onExitRange:
       m_PersistentCalls:
         m_Calls: []
+  stateDash:
+    owner: {fileID: 0}
+    flag: 0
+    character: {fileID: 0}
+    animation: {fileID: 0}
+    offset: 0
+    tween: 1
   stateHit:
     owner: {fileID: 0}
     flag: 0
@@ -132,8 +139,10 @@ MonoBehaviour:
       onExitRange:
         m_PersistentCalls:
           m_Calls: []
-      speed: 3
       isRunning: 0
+      speed: 3
+      timeBeforeDash: 2
+      minimumDashDistance: 20
     stateAttack:
       owner: {fileID: 0}
       flag: 0

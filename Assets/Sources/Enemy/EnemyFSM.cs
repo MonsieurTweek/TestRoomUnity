@@ -15,6 +15,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
     [Header("States")]
     public EnemyStateIntro stateIntro = new EnemyStateIntro();
     public EnemyStateReaction stateIdle = new EnemyStateReaction();
+    public EnemyStateDash stateDash = new EnemyStateDash();
     public EnemyStateHit stateHit = new EnemyStateHit();
     public EnemyStateDie stateDie = new EnemyStateDie();
 
@@ -38,6 +39,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
     public void TransitionToAttack() { ChangeState(GetPhaseAttack(), UnityEngine.Random.Range(0, 2) == 1); } // Randomize ligh/heavy attack
     public void TransitionToAttackLight() { ChangeState(GetPhaseAttack(), false); } // Forced light attack
     public void TransitionToAttackHeavy() { ChangeState(GetPhaseAttack(), true); } // Forced heavy attack
+    public void TransitionToDash() { ChangeState(stateDash); }
 
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
@@ -50,8 +52,9 @@ public class EnemyFSM : CharacterFSM, ICharacter
         stateIdle.flag = (uint)CharacterStateEnum.IDLE;
         stateHit.flag = (uint)CharacterStateEnum.HIT;
         stateDie.flag = (uint)CharacterStateEnum.DIE;
+        stateDash.flag = (uint)CharacterStateEnum.MOVE;
 
-        foreach(EnemyPhase phase in phases)
+        foreach (EnemyPhase phase in phases)
         {
             phase.stateMove.flag = (uint)CharacterStateEnum.MOVE;
             phase.stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
@@ -183,6 +186,14 @@ public class EnemyFSM : CharacterFSM, ICharacter
         }
     }
 
+    public void OnUpdateAttackSpeed(AnimationEvent animationEvent)
+    {
+        if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
+        {
+            ((EnemyStateAttack)currentState).OnUpdateAttackSpeed(animationEvent.floatParameter);
+        }
+    }
+
     /// <summary>
     /// Called from animation event
     /// </summary>
@@ -190,11 +201,9 @@ public class EnemyFSM : CharacterFSM, ICharacter
     {
         if (data.isAlive == true)
         {
-            // Can't transition to something else while stun
-            if (currentState.flag != (uint)CharacterStateEnum.STUN)
-            {
-                TransitionToIdle();
-            }
+            CharacterStateBase state = (CharacterStateBase)currentState;
+
+            state.OnSingleAnimationEnded();
         }
         else
         {

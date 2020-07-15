@@ -24,4 +24,16 @@ public class EnemyStateIntro : CharacterFSM.CharacterState
     {
         CharacterGameEvent.instance.IntroEnd();
     }
+
+    public override void OnSingleAnimationEnded()
+    {
+        // If no unsheathe animation go directly to idle
+        if (hasUnsheatheTrigger == false)
+        {
+            character.TransitionToIdle();
+        }
+
+        // Otherwise wait for next call to transition
+        hasUnsheatheTrigger = false;
+    }
 }

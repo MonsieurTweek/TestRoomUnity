@@ -14,4 +14,9 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<bool>
 
         character.animator.SetTrigger(isHeavy == true ? ANIMATION_PARAM_ATTACK_HEAVY : ANIMATION_PARAM_ATTACK_LIGHT);
     }
+
+    public virtual void OnUpdateAttackSpeed(float speed)
+    {
+        character.animator.speed = speed;
+    }
 }

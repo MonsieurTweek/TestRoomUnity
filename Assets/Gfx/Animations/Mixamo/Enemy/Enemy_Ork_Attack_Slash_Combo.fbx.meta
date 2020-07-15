@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 72dc43f9a2498214aaf753b7fe1bd11d
+guid: e15734f46e4dd3547916acde698b6cdf
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -8,7 +8,7 @@ ModelImporter:
     second: Take 001
   - first:
       74: -203655887218126122
-    second: Standing_2H_Weapon_Unsheathe
+    second: Enemy_Ork_Attack_Slash_Combo
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -67,11 +67,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Standing_2H_Weapon_Unsheathe
+      name: Enemy_Ork_Attack_Slash_Combo
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 47
+      lastFrame: 211
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -80,10 +80,10 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 1
-      loopBlendPositionXZ: 1
-      keepOriginalOrientation: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
@@ -91,11 +91,60 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.21671826
-        functionName: WeaponSwitch
+      - time: 0.17330328
+        functionName: OnUpdateAttackSpeed
         data: 
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 0.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.20433436
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.29411763
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3736785
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.42105263
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6091153
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.75
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.67182666
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.82043344
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
         intParameter: 0
         messageOptions: 0
       - time: 1

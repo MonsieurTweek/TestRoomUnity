@@ -61,5 +61,6 @@ public class EnemyStateAttack : CharacterStateAttack
     public override void Exit()
     {
         character.animator.applyRootMotion = false;
+        character.animator.speed = 1f;
     }
 }

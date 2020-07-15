@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: Big Ork
   power: 1
-  health: 3
+  health: 10
   tiers: 1

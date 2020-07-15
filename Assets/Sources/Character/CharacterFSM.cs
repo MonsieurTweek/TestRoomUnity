@@ -1,11 +1,17 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 /// <summary>
 /// Define a simple Final State Machine to manage character states
 /// </summary>
 public class CharacterFSM : AbstractFSM
 {
+    /// List of events used in animation clips
+    public static string ANIM_EVENT_MANUAL          = "OnManualAnimationEvent";
+    public static string ANIM_EVENT_ENDED           = "OnSingleAnimationEnded";
+    public static string ANIM_EVENT_PLAY_FX         = "OnAnimationPlayFx";
+    public static string ANIM_EVENT_SEND_PROJECTILE = "OnAnimationPlayFx";
+    public static string ANIM_EVENT_UPDATE_SPEED    = "OnUpdateAttackSpeed";
+
     // Common references across FSMs
     public Animator animator = null;
 
@@ -13,6 +19,11 @@ public class CharacterFSM : AbstractFSM
     public class CharacterStateBase : StateBase
     {
         [HideInInspector] public CharacterFSM character = null;
+
+        public virtual void OnSingleAnimationEnded()
+        {
+            character.TransitionToIdle();
+        }
 
         public override string ToString()
         {
@@ -77,6 +88,11 @@ public class CharacterFSM : AbstractFSM
             newState.Enter(p0, p1, p2);
         }
     }
+
+    /// <summary>
+    /// Empty function receiver for animation event handle manually
+    /// </summary>
+    public void OnManualAnimationEvent() {}
 
 #if UNITY_EDITOR
     public virtual void OnDrawGizmos()

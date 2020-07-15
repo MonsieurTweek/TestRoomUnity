@@ -94,6 +94,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
+      propertyPath: phases.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.onEnterRange.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
       propertyPath: configuration
       value: 
       objectReference: {fileID: 11400000, guid: aa5c328e4a1b8984ca4734777178c028,
@@ -103,6 +113,86 @@ PrefabInstance:
       propertyPath: stateHit.meshRenderer
       value: 
       objectReference: {fileID: 2861898203368841621}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateIntro.hasUnsheatheTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[0].treshold
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[0].stateMove.onEnterRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TransitionToAttackLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[0].stateMove.minimumDashDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].treshold
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.range
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.onEnterRange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8735795099524422305}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.onEnterRange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TransitionToAttackHeavy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.onEnterRange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.onEnterRange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.onEnterRange.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.isRunning
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.speed
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.timeBeforeDash
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateMove.minimumDashDistance
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].stateAttack.anchor
+      value: 
+      objectReference: {fileID: 2765033220499366503}
     - target: {fileID: 7778028239907775811, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: _meshRenderers.Array.data[0]
@@ -114,11 +204,34 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2177425642529812417, guid: a41d0781fcfe9224092e4594b383801c,
         type: 3}
+    - target: {fileID: 8554535455077345077, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: enableOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4f8d352dab5174b97522bba0b018dc, type: 3}
+--- !u!114 &8735795099524422305 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2837600676771068201}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff8b6a3a33548b4ebcdc3d9cf548a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!137 &2861898203368841621 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 60428646929143996, guid: 8a4f8d352dab5174b97522bba0b018dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2837600676771068201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2765033220499366503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 89634217089833806, guid: 8a4f8d352dab5174b97522bba0b018dc,
     type: 3}
   m_PrefabInstance: {fileID: 2837600676771068201}
   m_PrefabAsset: {fileID: 0}

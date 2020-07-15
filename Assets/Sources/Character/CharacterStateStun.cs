@@ -32,4 +32,9 @@ public class CharacterStateStun : CharacterFSM.CharacterState2Params<float, Acti
 
         outline.Hide();
     }
+
+    public override void OnSingleAnimationEnded()
+    {
+        // Do nothing as we can't transition to something else while stun
+    }
 }

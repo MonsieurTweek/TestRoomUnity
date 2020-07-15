@@ -13,23 +13,44 @@ public class EnemyStateReaction : CharacterFSM.CharacterState
     public UnityEvent onExitRange = null;
 
     protected bool _isInRange = false;
+    protected float _sqrDistanceToTarget = 0f;
 
     public override void Update()
     {
         ((EnemyFSM)character).LookAtTarget();
 
-        float sqrDistance = ((EnemyFSM)character).direction.sqrMagnitude;
+        _sqrDistanceToTarget = ((EnemyFSM)character).direction.sqrMagnitude;
 
         // Enter range
-        if (_isInRange == false && sqrDistance < range * range)
+        if (_isInRange == false && _sqrDistanceToTarget < range * range)
         {
-            onEnterRange.Invoke();
+            EnterRange();
         }
         // Leave range
-        else if (_isInRange == true && sqrDistance > range * range)
+        else if (_isInRange == true && _sqrDistanceToTarget > range * range)
         {
-            onExitRange.Invoke();
+            ExitRange();
         }
+    }
+
+    public virtual void EnterRange()
+    {
+        _isInRange = true;
+
+        onEnterRange.Invoke();
+    }
+
+    public virtual void ExitRange()
+    {
+        _isInRange = false;
+
+        onExitRange.Invoke();
+    }
+
+    public override void Exit()
+    {
+        // Clean range value to be sure we don't have artifact when entering the state later
+        _isInRange = false;
     }
 
 #if UNITY_EDITOR
@@ -37,7 +58,7 @@ public class EnemyStateReaction : CharacterFSM.CharacterState
     {
         base.OnDrawGizmos();
 
-        UnityEditor.Handles.color = UnityEngine.Color.green;
+        UnityEditor.Handles.color = _isInRange == true ? UnityEngine.Color.green : UnityEngine.Color.red;
         UnityEditor.Handles.DrawWireDisc(owner.transform.position, UnityEngine.Vector3.up, range * range);
     }
 #endif
