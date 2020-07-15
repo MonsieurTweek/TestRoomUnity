@@ -11,6 +11,7 @@ public class CharacterFSM : AbstractFSM
     public static string ANIM_EVENT_PLAY_FX         = "OnAnimationPlayFx";
     public static string ANIM_EVENT_SEND_PROJECTILE = "OnAnimationPlayFx";
     public static string ANIM_EVENT_UPDATE_SPEED    = "OnUpdateAttackSpeed";
+    public static string ANIM_EVENT_TOGGLE_ATTACK   = "OnToggleAttack";
 
     // Common references across FSMs
     public Animator animator = null;
@@ -93,6 +94,17 @@ public class CharacterFSM : AbstractFSM
     /// Empty function receiver for animation event handle manually
     /// </summary>
     public void OnManualAnimationEvent() {}
+
+    /// <summary>
+    /// Animation enable/disable attack on correct moment
+    /// </summary>
+    public void OnToggleAttack()
+    {
+        if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
+        {
+            ((CharacterStateAttack)currentState).OnToggleAttack();
+        }
+    }
 
 #if UNITY_EDITOR
     public virtual void OnDrawGizmos()

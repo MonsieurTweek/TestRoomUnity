@@ -7,6 +7,7 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<bool>
     private const string ANIMATION_PARAM_ATTACK_HEAVY = "AttackHeavy";
 
     public bool isHeavy { private set; get; }
+    public bool isEnabled { private set; get; }
 
     public override void Enter(bool isHeavy)
     {
@@ -18,5 +19,10 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<bool>
     public virtual void OnUpdateAttackSpeed(float speed)
     {
         character.animator.speed = speed;
+    }
+
+    public virtual void OnToggleAttack()
+    {
+        isEnabled = !isEnabled;
     }
 }

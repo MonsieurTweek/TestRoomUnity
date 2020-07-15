@@ -106,6 +106,22 @@ ModelImporter:
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
+      - time: 0.45730028
+        functionName: OnToggleAttack
+        data: 
+        objectReferenceParameter: {fileID: 4923976261314013770, guid: ab59eb22314e2f84aab3949363da015d,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.58126724
+        functionName: OnToggleAttack
+        data: 
+        objectReferenceParameter: {fileID: 4923976261314013770, guid: ab59eb22314e2f84aab3949363da015d,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

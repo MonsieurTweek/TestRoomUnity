@@ -12,6 +12,11 @@ public class ProjectileController : WeaponController
         transform.position += _direction * speed * Time.deltaTime;
     }
 
+    protected override bool CanHit(Collider other)
+    {
+        return other.tag != owner.tag && (other.tag == EnemyData.TAG || other.tag == PlayerData.TAG);
+    }
+
     public override void Hit(ICharacter character)
     {
         base.Hit(character);

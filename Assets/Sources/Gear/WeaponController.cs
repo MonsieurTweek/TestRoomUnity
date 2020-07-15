@@ -24,6 +24,14 @@ public class WeaponController : GearController
         }
     }
 
+    protected virtual bool CanHit(Collider other)
+    {
+        return owner.currentState.flag == (uint)CharacterStateEnum.ATTACK &&
+            ((CharacterStateAttack)owner.currentState).isEnabled == true &&
+            other.tag != owner.tag && 
+            (other.tag == EnemyData.TAG || other.tag == PlayerData.TAG);
+    }
+
     public virtual void Hit(ICharacter character)
     {
         if (character != null && character.Hit(damage * _currentModifier) == true)
@@ -32,12 +40,5 @@ public class WeaponController : GearController
 
             CharacterGameEvent.instance.Hitting(owner.data, target.data);
         }
-    }
-
-    protected virtual bool CanHit(Collider other)
-    {
-        return owner.currentState.flag == (uint)CharacterStateEnum.ATTACK && 
-            other.tag != owner.tag && 
-            (other.tag == EnemyData.TAG || other.tag == PlayerData.TAG);
     }
 }

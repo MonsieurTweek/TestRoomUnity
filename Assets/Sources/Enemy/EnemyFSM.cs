@@ -186,6 +186,9 @@ public class EnemyFSM : CharacterFSM, ICharacter
         }
     }
 
+    /// <summary>
+    /// Animation event triggers a change of animation speed
+    /// </summary>
     public void OnUpdateAttackSpeed(AnimationEvent animationEvent)
     {
         if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
