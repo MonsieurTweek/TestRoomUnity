@@ -15,6 +15,11 @@ public class EnemyStateReaction : CharacterFSM.CharacterState
     protected bool _isInRange = false;
     protected float _sqrDistanceToTarget = 0f;
 
+    public override void Enter()
+    {
+        _isInRange = false;
+    }
+
     public override void Update()
     {
         ((EnemyFSM)character).LookAtTarget();
