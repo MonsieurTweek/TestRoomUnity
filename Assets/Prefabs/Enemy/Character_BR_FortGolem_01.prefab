@@ -103,6 +103,11 @@ PrefabInstance:
       propertyPath: stateHit.meshRenderer
       value: 
       objectReference: {fileID: 6409634164579178485}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateIntro.hasUnsheatheTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7778028239907775811, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: _meshRenderers.Array.data[0]
@@ -114,6 +119,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -449824600308275294, guid: b34195dab665b134a9ef325287bf3d3b,
         type: 3}
+    - target: {fileID: 8554535455077345077, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: enableOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a4f8d352dab5174b97522bba0b018dc, type: 3}
 --- !u!137 &6409634164579178485 stripped
