@@ -102,9 +102,18 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
         RaycastHit hit;
         float rayLength = 10.0f; //use any value.
-                                    //shoot a debug ray down to show you the ray it's casting--have to turn gizmos on in gameView window
+                                 //shoot a debug ray down to show you the ray it's casting--have to turn gizmos on in gameView window
 
+#if UNITY_EDITOR
         Debug.DrawRay(model.position, new Vector3(0f, -rayLength, 0f), Color.yellow);
+
+        if (target != null)
+        {
+            Vector3 direction = ((EnemyFSM)target).stateHit.anchor.position - stateAttack.anchor.position;
+
+            Debug.DrawRay(stateAttack.anchor.position, direction, Color.red);
+        }
+#endif
 
         //cast the actual ray for ground detection
         if (Physics.Raycast(model.position, model.TransformDirection(Vector3.down), out hit, rayLength) == true)

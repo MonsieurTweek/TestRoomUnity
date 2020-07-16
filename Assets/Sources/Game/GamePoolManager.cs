@@ -54,6 +54,9 @@ public class GamePoolManager : MonoBehaviour
 
         _poolByName[name].Enqueue(gameObject);
 
+        // Disable object to be sure to reset it
+        gameObject.SetActive(false);
+
         return gameObject;
     }
 }

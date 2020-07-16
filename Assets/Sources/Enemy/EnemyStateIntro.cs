@@ -8,6 +8,7 @@ public class EnemyStateIntro : CharacterFSM.CharacterState
 {
     private const string ANIMATION_PARAM = "Unsheathe";
 
+    public bool hasCinematic = true;
     public bool hasUnsheatheTrigger = false;
 
     public override void Enter()
@@ -17,12 +18,18 @@ public class EnemyStateIntro : CharacterFSM.CharacterState
             character.animator.SetTrigger(ANIMATION_PARAM);
         }
 
-        CharacterGameEvent.instance.IntroStart(owner.transform, character.data);
+        if (hasCinematic == true)
+        {
+            CharacterGameEvent.instance.IntroStart(owner.transform, character.data);
+        }
     }
 
     public override void Exit()
     {
-        CharacterGameEvent.instance.IntroEnd();
+        if (hasCinematic == true)
+        {
+            CharacterGameEvent.instance.IntroEnd();
+        }
     }
 
     public override void OnSingleAnimationEnded()

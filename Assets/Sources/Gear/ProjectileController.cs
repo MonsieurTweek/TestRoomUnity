@@ -17,13 +17,18 @@ public class ProjectileController : WeaponController
         return other.tag != owner.tag && (other.tag == EnemyData.TAG || other.tag == PlayerData.TAG);
     }
 
-    public override void Hit(ICharacter character)
+    public override void Hit(ICharacter character, bool isMelee = true)
     {
-        base.Hit(character);
+        base.Hit(character, false);
 
         if (impactFx != null)
         {
-            Instantiate<GameObject>(impactFx, transform.position, transform.rotation);
+            GameObject impact = GamePoolManager.instance.UseFromPool(impactFx.name);
+
+            impact.transform.position = transform.position;
+            impact.transform.rotation = transform.rotation;
+
+            impact.SetActive(true);
         }
 
         if (destroyAtImpact == true)
@@ -44,7 +49,9 @@ public class ProjectileController : WeaponController
 
             if (player.target != null)
             {
-                _direction = player.target.transform.position - player.transform.position + Vector3.up;
+                EnemyFSM enemy = (EnemyFSM)player.target;
+
+                _direction = enemy.stateHit.anchor.position - player.stateAttack.anchor.position;
                 _direction.Normalize();
             }
         }
@@ -52,6 +59,6 @@ public class ProjectileController : WeaponController
 
     public void Destroy()
     {
-        GameObject.Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

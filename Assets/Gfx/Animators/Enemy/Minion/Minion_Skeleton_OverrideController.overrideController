@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Minion_Skeleton_OverrideController
+  m_Controller: {fileID: 9100000, guid: 6aac94c509210974e85310d1c3133b60, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 7a463b98060cd924f83efaa4703dc833,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 2af76732ea79876469fc664db5382875,
+      type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 35a240621521cf8438fee075ada8af69,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: f2f891782390fe541a8af5cc2362e9d5,
+      type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 85eda477e999e0740932e8ca07cfeecb,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 8ad42c016969c3c4eb54b553f3c3779e,
+      type: 3}
+  - m_OriginalClip: {fileID: -5868556963226038083, guid: ed3acee57d8a7704191b504a1ed21951,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 89de24651aae35e4890b2e11f9c5f5ec,
+      type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 9cf8ce7c3d16a054a8d5e1237f3c9e69,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: 55820f5b39ac3de4bafb93c3a18d5e26,
+      type: 3}
+  - m_OriginalClip: {fileID: -203655887218126122, guid: 1e9d7ee8243ee9f4ea87450bfabcb854,
+      type: 3}
+    m_OverrideClip: {fileID: -203655887218126122, guid: ab06b4024651c08448c942d3eb40b3c9,
+      type: 3}

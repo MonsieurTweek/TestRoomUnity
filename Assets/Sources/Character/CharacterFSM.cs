@@ -9,7 +9,8 @@ public class CharacterFSM : AbstractFSM
     public static string ANIM_EVENT_MANUAL          = "OnManualAnimationEvent";
     public static string ANIM_EVENT_ENDED           = "OnSingleAnimationEnded";
     public static string ANIM_EVENT_PLAY_FX         = "OnAnimationPlayFx";
-    public static string ANIM_EVENT_SEND_PROJECTILE = "OnAnimationPlayFx";
+    public static string ANIM_EVENT_SEND_PROJECTILE = "OnAnimationSendProjectile";
+    public static string ANIM_EVENT_SPAWN_MINION    = "OnAnimationSpawnMinion";
     public static string ANIM_EVENT_UPDATE_SPEED    = "OnUpdateAttackSpeed";
     public static string ANIM_EVENT_TOGGLE_ATTACK   = "OnToggleAttack";
 

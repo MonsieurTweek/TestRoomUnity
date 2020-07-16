@@ -112,3 +112,11 @@ MonoBehaviour:
     gameObject: {fileID: 4923976261314013770, guid: ab59eb22314e2f84aab3949363da015d,
       type: 3}
     size: 3
+  - tag: MN_Skeleton
+    gameObject: {fileID: 529335525553158787, guid: 35f27f983e0cc8f4398774f643b63663,
+      type: 3}
+    size: 10
+  - tag: FX_Spawn_Necro
+    gameObject: {fileID: 2552170713262563815, guid: aee9dd0bbc844954ea9adcd2b72dab88,
+      type: 3}
+    size: 3

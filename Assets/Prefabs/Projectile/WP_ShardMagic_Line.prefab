@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1962036621131840671}
   - component: {fileID: -5042388932917117365}
   m_Layer: 0
-  m_Name: ShardMagic_Line
+  m_Name: WP_ShardMagic_Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4968,8 +4968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebde526ca4a3daa4f8f4c12e31ea20dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  system: {fileID: 7209772486771503402}
-  projectile: {fileID: 5487912822514957015}
+  root: {fileID: 4923976261314013770}
 --- !u!65 &4368630592785653345
 BoxCollider:
   m_ObjectHideFlags: 0

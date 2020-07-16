@@ -163,7 +163,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
     }
 
     /// <summary>
-    /// Animation triggers a FX
+    /// Animation triggers the spawn of a projectile
     /// Called from animation event
     /// </summary>
     public void OnAnimationSendProjectile(AnimationEvent animationEvent)
@@ -171,6 +171,18 @@ public class EnemyFSM : CharacterFSM, ICharacter
         if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
         {
             ((EnemyStateAttack)currentState).OnAttackSendProjectile(animationEvent.objectReferenceParameter, animationEvent.intParameter == 1);
+        }
+    }
+
+    /// <summary>
+    /// Animation triggers the spawn of a minion
+    /// Called from animation event
+    /// </summary>
+    public void OnAnimationSpawnMinion(AnimationEvent animationEvent)
+    {
+        if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
+        {
+            ((EnemyStateAttack)currentState).OnAttackSpawnMinion(animationEvent.objectReferenceParameter, animationEvent.floatParameter);
         }
     }
 

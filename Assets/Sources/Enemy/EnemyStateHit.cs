@@ -9,6 +9,7 @@ public class EnemyStateHit : CharacterFSM.CharacterState
 {
     private const string ANIMATION_PARAM = "Hit";
 
+    public Transform anchor = null;
     public CharacterOutlineController outline = null;
 
     public override void Enter()

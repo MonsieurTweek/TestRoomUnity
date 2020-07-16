@@ -7,7 +7,7 @@ public class WeaponController : GearController
     public int heavyModifier = 1;
 
     protected BoxCollider _collider = null;
-    private int _currentModifier = 0;
+    private int _currentModifier = 1;
 
     private void Awake()
     {
@@ -30,9 +30,12 @@ public class WeaponController : GearController
             (other.tag == EnemyData.TAG || other.tag == PlayerData.TAG);
     }
 
-    public virtual void Hit(ICharacter character)
+    public virtual void Hit(ICharacter character, bool isMelee = true)
     {
-        _currentModifier = ((CharacterStateAttack)owner.currentState).isHeavy == true ? heavyModifier : 1;
+        if (isMelee == true)
+        {
+            _currentModifier = ((CharacterStateAttack)owner.currentState).isHeavy == true ? heavyModifier : 1;
+        }
 
         if (character != null && character.Hit(damage * _currentModifier) == true)
         {

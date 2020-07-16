@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7596982551354836315}
   - component: {fileID: 7981767655412374556}
+  - component: {fileID: 4754294767305020351}
   - component: {fileID: 331338396928362225}
   - component: {fileID: 7573381549049934287}
   m_Layer: 0
-  m_Name: ShardIce_Line
+  m_Name: WP_ShardIce_Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,11 +48,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d5bbb79a9125fc42a3f14e74f5a45fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  preserveScale: 0
   damage: 1
   heavyModifier: 1
   speed: 0
   impactFx: {fileID: 0}
   destroyAtImpact: 0
+--- !u!114 &4754294767305020351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677309504492095597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebde526ca4a3daa4f8f4c12e31ea20dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 0}
 --- !u!65 &331338396928362225
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,7 +108,7 @@ GameObject:
   - component: {fileID: 1884857333169715346}
   - component: {fileID: 161884510882719034}
   - component: {fileID: 388368442238804316}
-  - component: {fileID: 2969923821265347236}
+  - component: {fileID: 1739560405362552893}
   - component: {fileID: 3004609779675853488}
   m_Layer: 0
   m_Name: TriggerController
@@ -4955,7 +4970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   system: {fileID: 161884510882719034}
   projectile: {fileID: 7981767655412374556}
---- !u!114 &2969923821265347236
+--- !u!114 &1739560405362552893
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4967,8 +4982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebde526ca4a3daa4f8f4c12e31ea20dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  system: {fileID: 161884510882719034}
-  projectile: {fileID: 7981767655412374556}
+  root: {fileID: 8677309504492095597}
 --- !u!65 &3004609779675853488
 BoxCollider:
   m_ObjectHideFlags: 0

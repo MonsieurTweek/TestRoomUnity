@@ -73,7 +73,7 @@ ModelImporter:
       firstFrame: 0
       lastFrame: 136
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -20
       level: 0
       cycleOffset: 0
       loop: 0
@@ -130,6 +130,14 @@ ModelImporter:
         functionName: OnSingleAnimationEnded
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3734568
+        functionName: OnAnimationPlayFx
+        data: 
+        objectReferenceParameter: {fileID: 2936668415341988137, guid: 54604a05646779e4d81ae21474160219,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

@@ -76,12 +76,15 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
+    hasCinematic: 1
     hasUnsheatheTrigger: 0
   stateIdle:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
     range: 15
+    rangedActionDelay: 2
+    rangedActionDistance: 10
     onEnterRange:
       m_PersistentCalls:
         m_Calls:
@@ -99,6 +102,9 @@ MonoBehaviour:
     onExitRange:
       m_PersistentCalls:
         m_Calls: []
+    onStayOutOfRange:
+      m_PersistentCalls:
+        m_Calls: []
   stateDash:
     owner: {fileID: 0}
     flag: 0
@@ -108,6 +114,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
+    anchor: {fileID: 81622878346891820}
     outline: {fileID: 7778028239907775811}
   stateDie:
     owner: {fileID: 0}
@@ -121,6 +128,8 @@ MonoBehaviour:
       flag: 0
       character: {fileID: 0}
       range: 2
+      rangedActionDelay: 2
+      rangedActionDistance: 10
       onEnterRange:
         m_PersistentCalls:
           m_Calls:
@@ -138,10 +147,11 @@ MonoBehaviour:
       onExitRange:
         m_PersistentCalls:
           m_Calls: []
+      onStayOutOfRange:
+        m_PersistentCalls:
+          m_Calls: []
       isRunning: 0
       speed: 3
-      timeBeforeDash: 2
-      minimumDashDistance: 7.5
     stateAttack:
       owner: {fileID: 0}
       flag: 0
@@ -402,6 +412,12 @@ Animator:
 --- !u!137 &60503137733170086 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 137007628262973810, guid: 93c0dd75ddc1c9f4dabe9f061ef19748,
+    type: 3}
+  m_PrefabInstance: {fileID: 85653050051785428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &81622878346891820 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4986755718226168, guid: 93c0dd75ddc1c9f4dabe9f061ef19748,
     type: 3}
   m_PrefabInstance: {fileID: 85653050051785428}
   m_PrefabAsset: {fileID: 0}

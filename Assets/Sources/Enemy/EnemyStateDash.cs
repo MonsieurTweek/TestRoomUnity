@@ -7,7 +7,7 @@ using UnityEngine;
 [Serializable]
 public class EnemyStateDash : CharacterFSM.CharacterState
 {
-    private const string ANIMATION_NAME_SUFFIX = "_Dash_";
+    private const string ANIMATION_NAME_SUFFIX = "_Dash";
     private const string ANIMATION_PARAM_DASH = "Dash";
 
     public float offset = 0f;

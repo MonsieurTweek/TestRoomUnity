@@ -2,10 +2,10 @@
 
 public class ParticleSyncDeathController : MonoBehaviour
 {
-    public ParticleSystem system = null;
+    public GameObject root = null;
 
     private void OnParticleSystemStopped()
     {
-        gameObject.SetActive(false);
+        root.SetActive(false);
     }
 }
