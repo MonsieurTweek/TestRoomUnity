@@ -9,8 +9,10 @@ public class WeaponController : GearController
     protected BoxCollider _collider = null;
     private int _currentModifier = 1;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         _collider = GetComponent<BoxCollider>();
     }
 

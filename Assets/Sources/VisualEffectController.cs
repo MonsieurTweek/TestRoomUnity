@@ -11,8 +11,7 @@ public class VisualEffectController : MonoBehaviour
     {
         this.stateId = stateId;
 
-        gameObject.SetActive(true);
-        effect.Play();
+        Play();
     }
 
     private void Start()
@@ -26,6 +25,13 @@ public class VisualEffectController : MonoBehaviour
     private void OnLoadingEnded()
     {
         Stop();
+    }
+
+    public void Play()
+    {
+        gameObject.SetActive(true);
+
+        effect.Play();
     }
 
     public void Stop()

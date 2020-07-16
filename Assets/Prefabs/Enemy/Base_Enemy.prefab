@@ -66,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 27478753182446184}
   fxController: {fileID: 7432849620215738496}
+  gearController: {fileID: 8554535455077345077}
   stateStun:
     owner: {fileID: 0}
     flag: 0

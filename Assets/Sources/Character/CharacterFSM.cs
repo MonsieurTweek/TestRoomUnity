@@ -17,6 +17,7 @@ public class CharacterFSM : AbstractFSM
     // Common references across FSMs
     public Animator animator = null;
     public CharacterFxController fxController = null;
+    public CharacterGearController gearController = null;
 
     //Base class for all states, only the required methods need to be overriden 
     public class CharacterStateBase : StateBase
@@ -115,6 +116,15 @@ public class CharacterFSM : AbstractFSM
     public void OnAnimationPlayFx(AnimationEvent animationEvent)
     {
         fxController.PlayFx(animationEvent.objectReferenceParameter, animationEvent.intParameter == 1, currentState.flag);
+    }
+
+    /// <summary>
+    /// Animation triggers the gear visual effect
+    /// </summary>
+    /// <param name="animationEvent">intParameter : 0:right, 1:left, 2:both</param>
+    public void OnPlayGearFx(AnimationEvent animationEvent)
+    {
+        gearController.PlayFx(animationEvent.intParameter);
     }
 
 #if UNITY_EDITOR

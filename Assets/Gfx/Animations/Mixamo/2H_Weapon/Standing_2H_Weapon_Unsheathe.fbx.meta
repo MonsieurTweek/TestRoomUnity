@@ -92,7 +92,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.21671826
-        functionName: WeaponSwitch
+        functionName: ToggleGear
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

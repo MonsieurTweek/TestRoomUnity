@@ -33,7 +33,7 @@ public class CharacterGearController : MonoBehaviour
 
         if (enableOnAwake == false)
         {
-            WeaponSwitch();
+            ToggleGear();
         }
     }
 
@@ -61,9 +61,9 @@ public class CharacterGearController : MonoBehaviour
         return gear;
     }
 
-    public void WeaponSwitch()
+    public void ToggleGear()
     {
-        // Sheath or unsheath gearrs
+        // Sheath or unsheath gears
         _isGearActive = !_isGearActive;
 
         if (gearLeft != null)
@@ -74,6 +74,27 @@ public class CharacterGearController : MonoBehaviour
         if (gearRight != null)
         {
             _gearRightAttached.gameObject.SetActive(_isGearActive);
+        }
+    }
+
+    public void PlayFx(int gearIndex)
+    {
+        switch(gearIndex)
+        {
+            case 0:
+                if (_gearRightAttached != null)
+                    _gearRightAttached.PlayFx();
+            break;
+            case 1:
+                if (_gearLeftAttached != null)
+                    _gearLeftAttached.PlayFx();
+            break;
+            case 2:
+                if (_gearRightAttached != null)
+                    _gearRightAttached.PlayFx();
+                if (_gearLeftAttached != null)
+                    _gearLeftAttached.PlayFx();
+            break;
         }
     }
 
