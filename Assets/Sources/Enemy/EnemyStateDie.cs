@@ -22,7 +22,12 @@ public class EnemyStateDie : CharacterFSM.CharacterState
 
         if (fx != null)
         {
-            GameObject.Instantiate(fx, character.transform.position, character.transform.rotation);
+            GameObject currentFx = GamePoolManager.instance.UseFromPool(fx.name);
+
+            currentFx.transform.position = character.transform.position;
+            currentFx.transform.rotation = character.transform.rotation;
+
+            currentFx.SetActive(true);
         }
     }
 }

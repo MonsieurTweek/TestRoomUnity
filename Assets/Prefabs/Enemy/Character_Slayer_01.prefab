@@ -262,7 +262,7 @@ PrefabInstance:
     - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: phases.Array.data[0].stateMove.rangedActionDistance
-      value: 7.5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
