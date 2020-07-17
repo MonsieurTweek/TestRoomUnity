@@ -34,11 +34,16 @@ public class EnemyStateMove : EnemyStateReaction
 
         Vector3 targetPosition = character.transform.position + Vector3.forward * speedToApply;
 
-        character.transform.Translate((targetPosition - character.transform.position) * Time.deltaTime);
+        character.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = speedToApply;
+        character.GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(((EnemyFSM)character).target.transform.position);
+
+        //character.transform.Translate((targetPosition - character.transform.position) * Time.deltaTime);
     }
 
     public override void Exit()
     {
         character.animator.SetBool(ANIMATION_PARAM_MOVE, false);
+
+        character.GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
     }
 }

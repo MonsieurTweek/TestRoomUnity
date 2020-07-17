@@ -149,8 +149,18 @@ public class PlayerStateMove : CharacterFSM.CharacterState
             _velocity.y -= gravity * Time.deltaTime;
         }
 
+        // Compute new position
+        Vector3 newLocalPosition = ((PlayerFSM)character).model.localPosition + (character.transform.up * _velocity.y * Time.deltaTime);
+
+        // Clamp model position as it can't be 
+        newLocalPosition.y = ((PlayerFSM)character).isGrounded == false
+            //below character position while not grounded
+            ? Mathf.Max(0f, newLocalPosition.y) 
+            //above 0f while grounded
+            : Mathf.Min(0f, newLocalPosition.y);
+
         // Move the controller
-        ((PlayerFSM)character).model.localPosition += character.transform.up * _velocity.y * Time.deltaTime;
+        ((PlayerFSM)character).model.localPosition = newLocalPosition;
     }
 
     private void Dash(InputAction.CallbackContext context)
