@@ -91,12 +91,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: OnSingleAnimationEnded
+      - time: 0
+        functionName: OnAnimationPlayFx
         data: 
-        objectReferenceParameter: {instanceID: 0}
+        objectReferenceParameter: {fileID: 6325439018897186343, guid: 6d3c078be426b2c44b7f3af93713a758,
+          type: 3}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: 0.38271603
         functionName: OnAnimationSpawnMinion
@@ -104,6 +105,13 @@ ModelImporter:
         objectReferenceParameter: {fileID: 529335525553158787, guid: 35f27f983e0cc8f4398774f643b63663,
           type: 3}
         floatParameter: 7
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: OnSingleAnimationEnded
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
         intParameter: 0
         messageOptions: 0
       transformMask: []
