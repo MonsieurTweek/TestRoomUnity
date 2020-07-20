@@ -44,6 +44,8 @@ public class EnemyFSM : CharacterFSM, ICharacter
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
 
+    private List<int> _availablePhases = new List<int>();
+
     protected override void Awake()
     {
         base.Awake();
@@ -54,12 +56,6 @@ public class EnemyFSM : CharacterFSM, ICharacter
         stateDie.flag = (uint)CharacterStateEnum.DIE;
         stateDash.flag = (uint)CharacterStateEnum.MOVE;
 
-        foreach (EnemyPhase phase in phases)
-        {
-            phase.stateMove.flag = (uint)CharacterStateEnum.MOVE;
-            phase.stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
-        }
-
         data = new EnemyData();
     }
 
@@ -69,6 +65,20 @@ public class EnemyFSM : CharacterFSM, ICharacter
         {
             data.Populate(configuration);
             target = player.transform;
+
+            _availablePhases.Clear();
+
+            for (int i = 0; i < phases.Count; i++)
+            {
+                phases[i].stateMove.flag = (uint)CharacterStateEnum.MOVE;
+                phases[i].stateAttack.flag = (uint)CharacterStateEnum.ATTACK;
+
+                if (phases[i].IsAvailable(data) == true)
+                {
+                    _availablePhases.Add(i);
+                }
+
+            }
 
             TransitionToIntro();
         }
@@ -130,7 +140,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
         {
             data.ApplyDamage(damage);
 
-            UpdatePhase();
+            UpdatePhases();
 
             CharacterGameEvent.instance.Hit(data, damage);
 
@@ -153,13 +163,51 @@ public class EnemyFSM : CharacterFSM, ICharacter
         return false;
     }
 
-    private void UpdatePhase()
+    public void EvaluateNextPhase()
     {
-        // Check if damages taken so far are hitting the phase treshold
-        if (data.healthMax - data.health >= phases[currentPhaseIndex].treshold)
+        int index = UnityEngine.Random.Range(0, _availablePhases.Count);
+
+        if (phases.Count > index)
         {
-            currentPhaseIndex++;
+            currentPhaseIndex = index;
         }
+
+        Debug.Log("Use phase " + currentPhaseIndex + " out of " + _availablePhases.Count + " available phases");
+    }
+
+    private void UpdatePhases()
+    {
+        List<int> toAdd = new List<int>();
+        List<int> toRemove = new List<int>(); 
+
+        // Check if damages taken so far are hitting the phase treshold
+        for (int i = 0; i < phases.Count; i++)
+        {
+            bool isAvailable = phases[i].IsAvailable(data);
+            bool isAlreadyAvailable = _availablePhases.Contains(i);
+
+            // Add the phase only if we need to
+            if (isAvailable == true && isAlreadyAvailable == false)
+            {
+                toAdd.Add(i);
+            }
+            // Remove it if was available but not anymore
+            else if (isAvailable == false && isAlreadyAvailable == true)
+            {
+                toRemove.Add(i);
+            }
+        }
+
+        // Remove all phases which don't fit anymore
+        for (int i = 0; i < toRemove.Count; i++)
+        {
+            _availablePhases.Remove(toRemove[i]);
+        }
+
+        // Add new phases availables
+        _availablePhases.AddRange(toAdd);
+
+        EvaluateNextPhase();
     }
 
     /// <summary>

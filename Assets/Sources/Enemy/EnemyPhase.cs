@@ -3,7 +3,16 @@
 [Serializable]
 public class EnemyPhase
 {
-    public int treshold = 0;
+    public float tresholdMin = 0f;
+    public float tresholdMax = 100f;
+
     public EnemyStateMove stateMove = new EnemyStateMove();
     public EnemyStateAttack stateAttack = new EnemyStateAttack();
+
+    public bool IsAvailable(AbstractCharacterData data)
+    {
+        float percentage = data.health * 100f / data.healthMax;
+
+        return percentage >= tresholdMin && percentage <= tresholdMax;
+    }
 }

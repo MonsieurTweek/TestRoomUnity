@@ -36,5 +36,8 @@ public class EnemyStateAttack : CharacterStateAttack
     {
         character.animator.applyRootMotion = false;
         character.animator.speed = 1f;
+
+        // After each attack evaluate a new phase
+        ((EnemyFSM)character).EvaluateNextPhase();
     }
 }
