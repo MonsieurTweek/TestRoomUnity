@@ -7,11 +7,11 @@ using UnityEngine;
 [Serializable]
 public class EnemyStateAttack : CharacterStateAttack
 {
-    public override void Enter(bool isHeavy)
+    public override void Enter(int type)
     {
         character.animator.applyRootMotion = true;
 
-        base.Enter(isHeavy);
+        base.Enter(type);
     }
 
     public GameObject OnAttackSpawnMinion(UnityEngine.Object prefab, float offset)

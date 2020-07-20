@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ed3acee57d8a7704191b504a1ed21951
+guid: 85eda477e999e0740932e8ca07cfeecb
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -8,10 +8,7 @@ ModelImporter:
     second: Take 001
   - first:
       74: -203655887218126122
-    second: mixamo.com
-  - first:
-      74: -5868556963226038083
-    second: Enemy_Base_Attack_Light
+    second: Enemy_Base_Attack_Alt_2
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -70,11 +67,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Enemy_Base_Attack_Light
+      name: Enemy_Base_Attack_Alt_2
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 218
+      lastFrame: 325
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -84,7 +81,7 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
@@ -101,56 +98,28 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.12345678
+      - time: 0.24382716
         functionName: OnToggleAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.23765433
+      - time: 0.3333333
         functionName: OnToggleAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.33024693
+      - time: 0.49074075
         functionName: OnToggleAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.3796296
-        functionName: OnToggleAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.5648148
-        functionName: OnToggleAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.6358025
-        functionName: OnToggleAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.74382716
-        functionName: OnToggleAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.86419755
+      - time: 0.7592593
         functionName: OnToggleAttack
         data: 
         objectReferenceParameter: {instanceID: 0}

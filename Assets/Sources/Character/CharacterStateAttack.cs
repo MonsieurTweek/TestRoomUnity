@@ -2,22 +2,24 @@
 using UnityEngine;
 
 [Serializable]
-public class CharacterStateAttack : CharacterFSM.CharacterState1Param<bool>
+public class CharacterStateAttack : CharacterFSM.CharacterState1Param<int>
 {
+    private const string ANIMATION_PARAM_ATTACK = "Attack";
+    private const string ANIMATION_PARAM_ATTACK_TYPE = "AttackType";
+
     private const string ANIMATION_PARAM_ATTACK_LIGHT = "AttackLight";
     private const string ANIMATION_PARAM_ATTACK_HEAVY = "AttackHeavy";
 
     public Transform anchor = null;
 
-    public bool isHeavy { private set; get; }
     public bool isEnabled { private set; get; }
 
-    public override void Enter(bool isHeavy)
+    public override void Enter(int type)
     {
         isEnabled = false;
-        this.isHeavy = isHeavy;
 
-        character.animator.SetTrigger(isHeavy == true ? ANIMATION_PARAM_ATTACK_HEAVY : ANIMATION_PARAM_ATTACK_LIGHT);
+        character.animator.SetTrigger(ANIMATION_PARAM_ATTACK);
+        character.animator.SetInteger(ANIMATION_PARAM_ATTACK_TYPE, type);
     }
 
     public void OnAttackSendProjectile(UnityEngine.Object prefab, bool isRooted)

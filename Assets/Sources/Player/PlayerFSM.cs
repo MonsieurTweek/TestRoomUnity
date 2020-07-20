@@ -28,8 +28,8 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public void TransitionToMove() { ChangeState(stateMove); }
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
-    public void TransitionToAttackLight() { if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0) ChangeState(stateAttack, false); }
-    public void TransitionToAttackHeavy() { if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0) ChangeState(stateAttack, true); }
+    public void TransitionToAttackLight() { if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0) ChangeState(stateAttack, 1); }
+    public void TransitionToAttackHeavy() { if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0) ChangeState(stateAttack, 2); }
 
     public CharacterFSM target { private set; get; }
     public bool isGrounded { private set; get; }

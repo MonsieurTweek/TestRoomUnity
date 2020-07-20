@@ -36,9 +36,9 @@ public class EnemyFSM : CharacterFSM, ICharacter
     public override void TransitionToIdle() { ChangeState(stateIdle); }
     public void TransitionToIntro() { ChangeState(stateIntro); }
     public void TransitionToMove() { ChangeState(GetPhaseMove()); }
-    public void TransitionToAttack() { ChangeState(GetPhaseAttack(), UnityEngine.Random.Range(0, 2) == 1); } // Randomize ligh/heavy attack
-    public void TransitionToAttackLight() { ChangeState(GetPhaseAttack(), false); } // Forced light attack
-    public void TransitionToAttackHeavy() { ChangeState(GetPhaseAttack(), true); } // Forced heavy attack
+    public void TransitionToAttack() { ChangeState(GetPhaseAttack(), UnityEngine.Random.Range(0, 2)); } // Randomize ligh/heavy attack
+    public void TransitionToAttackLight() { ChangeState(GetPhaseAttack(), 1); } // Forced light attack
+    public void TransitionToAttackHeavy() { ChangeState(GetPhaseAttack(), 2); } // Forced heavy attack
     public void TransitionToDash() { ChangeState(stateDash); }
 
     public void TransitionToHit() { ChangeState(stateHit); }

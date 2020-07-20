@@ -4,10 +4,8 @@
 public class WeaponController : GearController
 {
     public int damage = 0;
-    public int heavyModifier = 1;
 
     protected BoxCollider _collider = null;
-    private int _currentModifier = 1;
 
     protected override void Awake()
     {
@@ -34,12 +32,7 @@ public class WeaponController : GearController
 
     public virtual void Hit(ICharacter character, bool isMelee = true)
     {
-        if (isMelee == true)
-        {
-            _currentModifier = ((CharacterStateAttack)owner.currentState).isHeavy == true ? heavyModifier : 1;
-        }
-
-        if (character != null && character.Hit(damage * _currentModifier) == true)
+        if (character != null && character.Hit(damage) == true)
         {
             CharacterFSM target = (CharacterFSM)character;
 
