@@ -17,33 +17,16 @@ public class CharacterSelectedController : MonoBehaviour
     private PlayerCustomizationController _character = null;
 
     [SerializeField]
-    private Light _light = null;
-    private float _lightIntensity = 0f;
-    private float _lightIntensityAnimation = 0f;
-
-    [SerializeField]
     private CinemachineVirtualCamera _camera = null;
-
-    private void Awake()
-    {
-        _lightIntensity = _light.intensity;
-    }
 
     public void Deselect()
     {
         _camera.Priority = 10;
-        _lightIntensityAnimation = 0f;
     }
 
     public void Select()
     {
         _camera.Priority = 100;
-
-        if (isUnlock == true)
-        {
-            _light.enabled = true;
-            _lightIntensityAnimation = _lightIntensity;
-        }
     }
 
     public bool Validate()
@@ -63,10 +46,5 @@ public class CharacterSelectedController : MonoBehaviour
     {
         _character.currentCustomizationIndex++;
         _character.LoadCustomizationFromPreset(_character.customization);
-    }
-
-    private void Update()
-    {
-        _light.intensity = Mathf.Lerp(_light.intensity, _lightIntensityAnimation, 2f * Time.deltaTime);
     }
 }

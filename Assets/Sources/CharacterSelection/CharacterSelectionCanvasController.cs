@@ -4,15 +4,25 @@ using UnityEngine.UI;
 
 public class CharacterSelectionCanvasController : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI _text = null;
+    private const string LOCKED_TEXT = "Locked";
+    private const string UNLOCKED_TEXT = "Unlocked";
 
-    [SerializeField]
-    private Image _image = null;
+    [Header("References")]
+    public Image characterIcon = null;
+    public TextMeshProUGUI characterName = null;
+    public TextMeshProUGUI characterStatus = null;
+    public Image characterStatusBackground = null;
 
-    public void UpdateContent(string name, Sprite icon)
+    [Header("Properties")]
+    public Color colorLocked = Color.white;
+    public Color colorUnlocked = Color.white;
+
+    public void UpdateContent(string name, Sprite icon, bool isUnlock)
     {
-        _text.text = name;
-        _image.sprite = icon;
+        characterName.text = name;
+        characterIcon.sprite = icon;
+
+        characterStatus.text = isUnlock == true ? UNLOCKED_TEXT : LOCKED_TEXT;
+        characterStatusBackground.color = isUnlock == true ? colorUnlocked : colorLocked;
     }
 }
