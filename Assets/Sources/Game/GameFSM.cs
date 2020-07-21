@@ -36,10 +36,16 @@ public class GameFSM : AbstractFSM
         GameEvent.instance.onHomeButtonPressed += TransitionToHome;
         GameEvent.instance.onStoreButtonPressed += TransitionToStore;
         GameEvent.instance.onPlayButtonPressed += TransitionToCharacterSelection;
+        GameEvent.instance.onResetButtonPressed += ResetProgression;
         GameEvent.instance.onCharacterSelected += TransitionToArena;
         GameEvent.instance.onGameOver += TransitionToGameOver;
 
         TransitionToHome();
+    }
+
+    private void ResetProgression()
+    {
+        GameManager.instance.ResetProgression();
     }
 
     /// <summary>
@@ -125,6 +131,7 @@ public class GameFSM : AbstractFSM
             GameEvent.instance.onHomeButtonPressed -= TransitionToHome;
             GameEvent.instance.onStoreButtonPressed -= TransitionToStore;
             GameEvent.instance.onPlayButtonPressed -= TransitionToCharacterSelection;
+            GameEvent.instance.onResetButtonPressed -= ResetProgression;
             GameEvent.instance.onCharacterSelected -= TransitionToArena;
             GameEvent.instance.onGameOver -= TransitionToGameOver;
         }

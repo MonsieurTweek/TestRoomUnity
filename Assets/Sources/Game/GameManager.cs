@@ -34,6 +34,13 @@ public class GameManager : MonoBehaviour
         GameEvent.instance.DataSaved();
     }
 
+    public void ResetProgression()
+    {
+        SaveData.current = new SaveData();
+
+        Save();
+    }
+
     public AbstractFSM.StateBase GetCurrentState()
     {
         return fsm.currentState;

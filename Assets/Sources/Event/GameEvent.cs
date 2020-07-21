@@ -35,6 +35,15 @@ public class GameEvent : MonoBehaviour
         }
     }
 
+    public event Action onResetButtonPressed;
+    public void ResetButtonPressed()
+    {
+        if (instance.onResetButtonPressed != null)
+        {
+            instance.onResetButtonPressed();
+        }
+    }
+
     public event Action onHomeButtonPressed;
     public void HomeButtonPressed()
     {
