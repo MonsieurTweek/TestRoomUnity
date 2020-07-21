@@ -72,18 +72,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   enemies:
-  - {fileID: 5074589674266412074, guid: a81b9602025840744936b9d32a3d5ef6, type: 3}
   - {fileID: 8735795099524422305, guid: 82c9033ca59dac447bd5ac8b113aa2a0, type: 3}
-  - {fileID: 5287847401422476050, guid: d75176adbdc23354487c30334de1592c, type: 3}
-  - {fileID: 464026389434098221, guid: fbbcca906276cd14e80d71216f79d16d, type: 3}
-  - {fileID: 6223796040020745886, guid: d7e523632f2c1b94faf2335654d555df, type: 3}
-  - {fileID: 6492367884428457230, guid: 339101c4c7cbd554c84c057e4ad49655, type: 3}
-  - {fileID: 2385153513532756208, guid: 7acaf31697d1a6447b17f3fb08cb48d0, type: 3}
-  - {fileID: 2474824583618285140, guid: 25c6d5ae336cb754abea80d4e4ed30df, type: 3}
-  - {fileID: 1036818995993073553, guid: 0af95eea14ce118458ae13b912fa2444, type: 3}
-  - {fileID: 3690340708776761002, guid: dbd0cf023dae80a48b3b2b45a798235b, type: 3}
   - {fileID: 6995334775875298063, guid: f95e75d35257c0e4ba3f215133bbcb51, type: 3}
-  - {fileID: 7118412827818127734, guid: 2ff73b849d553ec4680969b77a2c05c6, type: 3}
   enemyPerTiers: 3
 --- !u!114 &8393282205351930032
 MonoBehaviour:

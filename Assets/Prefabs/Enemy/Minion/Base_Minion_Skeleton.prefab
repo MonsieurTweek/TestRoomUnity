@@ -28,6 +28,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1807084505148726058}
   fxController: {fileID: 331991225}
+  gearController: {fileID: 0}
   stateStun:
     owner: {fileID: 0}
     flag: 0
@@ -44,7 +45,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
-    range: 15
+    range: 50
     rangedActionDelay: 2
     rangedActionDistance: 10
     onEnterRange:
@@ -84,7 +85,10 @@ MonoBehaviour:
     character: {fileID: 0}
     fx: {fileID: 4589617513473318289, guid: 6be2189e7110e4b4b8f1428e8a88ebf7, type: 3}
   phases:
-  - treshold: 1000
+  - name: 
+    isActive: 1
+    tresholdMin: 0
+    tresholdMax: 100
     stateMove:
       owner: {fileID: 0}
       flag: 0
@@ -119,6 +123,8 @@ MonoBehaviour:
       flag: 0
       character: {fileID: 0}
       anchor: {fileID: 1807084505141610722}
+      type: 1
+      effects: []
   configuration: {fileID: 11400000, guid: 482fb0fdc465e6c45bd8a68cb868cf6f, type: 2}
 --- !u!114 &331991225
 MonoBehaviour:
@@ -199,7 +205,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 197842, guid: fe1cffe6ed7a7ff4798b18c00b0358e3, type: 3}
       propertyPath: m_Name
-      value: MN_Skeleton
+      value: Base_Minion_Skeleton
       objectReference: {fileID: 0}
     - target: {fileID: 197842, guid: fe1cffe6ed7a7ff4798b18c00b0358e3, type: 3}
       propertyPath: m_TagString
