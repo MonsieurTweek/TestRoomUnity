@@ -126,7 +126,7 @@ MonoBehaviour:
   - name: Light
     isActive: 1
     tresholdMin: 0
-    tresholdMax: 1000
+    tresholdMax: 100
     stateMove:
       owner: {fileID: 0}
       flag: 0
