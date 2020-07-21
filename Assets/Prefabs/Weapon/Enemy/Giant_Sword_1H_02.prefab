@@ -62,8 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preserveScale: 0
   fx: {fileID: 7832060459319091191}
-  damage: 0
-  heavyModifier: 1
+  damage: 3
 --- !u!54 &8571513833174881091
 Rigidbody:
   m_ObjectHideFlags: 0
