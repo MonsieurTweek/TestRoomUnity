@@ -123,15 +123,17 @@ MonoBehaviour:
     character: {fileID: 0}
     fx: {fileID: 4589617513473318289, guid: 6be2189e7110e4b4b8f1428e8a88ebf7, type: 3}
   phases:
-  - tresholdMin: 0
-    tresholdMax: 0
+  - name: Light
+    isActive: 1
+    tresholdMin: 0
+    tresholdMax: 1000
     stateMove:
       owner: {fileID: 0}
       flag: 0
       character: {fileID: 0}
       range: 2
       rangedActionDelay: 2
-      rangedActionDistance: 10
+      rangedActionDistance: 5
       onEnterRange:
         m_PersistentCalls:
           m_Calls:
@@ -153,12 +155,14 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
       isRunning: 0
-      speed: 3
+      speed: 4
     stateAttack:
       owner: {fileID: 0}
       flag: 0
       character: {fileID: 0}
       anchor: {fileID: 89634217089833806}
+      type: 1
+      effects: []
   configuration: {fileID: 11400000, guid: 0fda5e0ccb97c9b4cb91f5d9af6d9d01, type: 2}
 --- !u!114 &7432849620215738496
 MonoBehaviour:

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,6 +8,10 @@ using UnityEngine;
 [Serializable]
 public class EnemyStateAttack : CharacterStateAttack
 {
+    public List<VisualEffectController> effects = new List<VisualEffectController>();
+
+    private int _currentFxIndex = 0;
+
     public override void Enter(int type)
     {
         character.animator.applyRootMotion = true;
@@ -30,6 +35,21 @@ public class EnemyStateAttack : CharacterStateAttack
         enemy.Initialize(player);
 
         return minion;
+    }
+
+    public void OnAttackPlayFx()
+    {
+        if (_currentFxIndex < effects.Count)
+        {
+            effects[_currentFxIndex].Reset(flag);
+
+            _currentFxIndex++;
+        }
+
+        if (_currentFxIndex >= effects.Count)
+        {
+            _currentFxIndex = 0;
+        }
     }
 
     public override void Exit()

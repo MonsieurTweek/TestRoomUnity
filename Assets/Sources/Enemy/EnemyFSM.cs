@@ -36,10 +36,8 @@ public class EnemyFSM : CharacterFSM, ICharacter
     public override void TransitionToIdle() { ChangeState(stateIdle); }
     public void TransitionToIntro() { ChangeState(stateIntro); }
     public void TransitionToMove() { ChangeState(GetPhaseMove()); }
-    public void TransitionToAttack() { ChangeState(GetPhaseAttack(), UnityEngine.Random.Range(0, 2)); } // Randomize ligh/heavy attack
-    public void TransitionToAttackLight() { ChangeState(GetPhaseAttack(), 1); } // Forced light attack
-    public void TransitionToAttackHeavy() { ChangeState(GetPhaseAttack(), 2); } // Forced heavy attack
     public void TransitionToDash() { ChangeState(stateDash); }
+    public void TransitionToAttack() { ChangeState(GetPhaseAttack(), (int)GetPhaseAttack().type); }
 
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
@@ -140,12 +138,12 @@ public class EnemyFSM : CharacterFSM, ICharacter
         {
             data.ApplyDamage(damage);
 
-            UpdatePhases();
-
             CharacterGameEvent.instance.Hit(data, damage);
 
             if (data.isAlive == true)
             {
+                UpdatePhases();
+
                 if (isBlocking == true)
                 {
                     TransitionToHit();
@@ -167,12 +165,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
     {
         int index = UnityEngine.Random.Range(0, _availablePhases.Count);
 
-        if (phases.Count > index)
-        {
-            currentPhaseIndex = index;
-        }
-
-        Debug.Log("Use phase " + currentPhaseIndex + " out of " + _availablePhases.Count + " available phases");
+        currentPhaseIndex = _availablePhases[index];
     }
 
     private void UpdatePhases()
@@ -205,7 +198,10 @@ public class EnemyFSM : CharacterFSM, ICharacter
         }
 
         // Add new phases availables
-        _availablePhases.AddRange(toAdd);
+        for (int i = 0; i < toAdd.Count; i++)
+        {
+            _availablePhases.Add(toAdd[i]);
+        }
 
         EvaluateNextPhase();
     }
@@ -242,6 +238,17 @@ public class EnemyFSM : CharacterFSM, ICharacter
         if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
         {
             ((EnemyStateAttack)currentState).OnUpdateAttackSpeed(animationEvent.floatParameter);
+        }
+    }
+
+    /// <summary>
+    /// Animation event triggers a predifined FX to play based on the attack
+    /// </summary>
+    public void OnAttackPlayFx()
+    {
+        if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
+        {
+            ((EnemyStateAttack)currentState).OnAttackPlayFx();
         }
     }
 

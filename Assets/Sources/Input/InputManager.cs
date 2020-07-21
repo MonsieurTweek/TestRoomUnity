@@ -45,6 +45,11 @@ public class InputManager : MonoBehaviour
         GameEvent.instance.ControlSwitched(isKeyboard);
     }
 
+    public void SetVibration(float lowFrequency, float highFrequency)
+    {
+        Gamepad.current.SetMotorSpeeds(lowFrequency, highFrequency);
+    }
+
     private void OnEnable()
     {
         controls.Enable();
@@ -53,5 +58,8 @@ public class InputManager : MonoBehaviour
     private void OnDisable()
     {
         controls.Disable();
+
+        // Ensure we don't end up with vibration on when stop playing
+        SetVibration(0f, 0f);
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d342562bd456c84daa1a2b5492773b5
+guid: 898532e6086a4d64fae00ccacc9a4187
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -8,7 +8,7 @@ ModelImporter:
     second: Take 001
   - first:
       74: -203655887218126122
-    second: Enemy_Ork_Attack_Slash_Combo
+    second: Enemy_Ork_Attack_Jump
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -67,13 +67,13 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Enemy_Ork_Attack_Slash_Combo
+      name: Enemy_Ork_Attack_Jump
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 210
+      lastFrame: 108
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -10
       level: 0
       cycleOffset: 0
       loop: 0
@@ -87,89 +87,61 @@ ModelImporter:
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
-      mirror: 0
+      mirror: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.14455667
+      - time: 1
+        functionName: OnSingleAnimationEnded
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.3297003
         functionName: OnUpdateAttackSpeed
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0.5
         intParameter: 0
         messageOptions: 0
-      - time: 0.16893733
+      - time: 0.39509535
         functionName: OnUpdateAttackSpeed
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 2
         intParameter: 0
         messageOptions: 0
-      - time: 0.1880109
-        functionName: OnToggleAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.22615804
-        functionName: OnAttackPlayFx
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.3760218
-        functionName: OnAttackPlayFx
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.50204647
-        functionName: OnUpdateAttackSpeed
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0.5
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.53678477
-        functionName: OnUpdateAttackSpeed
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 2
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.61035424
-        functionName: OnAttackPlayFx
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.64305174
+      - time: 0.5776567
         functionName: OnUpdateAttackSpeed
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 1
         intParameter: 0
         messageOptions: 0
-      - time: 0.6621253
+      - time: 0.41961852
         functionName: OnToggleAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.6725343
-        functionName: OnAttackPlayFx
+      - time: 0.5640327
+        functionName: OnToggleAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 1
-        functionName: OnSingleAnimationEnded
+      - time: 0
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 2
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.49863762
+        functionName: OnAttackPlayFx
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

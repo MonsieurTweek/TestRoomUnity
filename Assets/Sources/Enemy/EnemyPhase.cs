@@ -3,6 +3,8 @@
 [Serializable]
 public class EnemyPhase
 {
+    public string name = string.Empty;
+
     public bool isActive = true;
     public float tresholdMin = 0f;
     public float tresholdMax = 100f;
@@ -15,5 +17,10 @@ public class EnemyPhase
         float percentage = data.health * 100f / data.healthMax;
 
         return isActive == true && (percentage >= tresholdMin && percentage <= tresholdMax);
+    }
+
+    public override string ToString()
+    {
+        return name;
     }
 }
