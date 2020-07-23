@@ -43,6 +43,7 @@ public class AnimatedPageController : MonoBehaviour
     {
         InputManager.instance.menu.Navigate.performed -= OnNavigate;
         InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
+        InputManager.instance.menu.Confirm.canceled -= OnConfirmCanceled;
     }
 
     private void OnNavigate(InputAction.CallbackContext context)
