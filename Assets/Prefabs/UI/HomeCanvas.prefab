@@ -2078,7 +2078,7 @@ PrefabInstance:
     - target: {fileID: 1503944559768270268, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 48
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 1503944559768270268, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
@@ -2103,7 +2103,7 @@ PrefabInstance:
     - target: {fileID: 1503944559768270268, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
       propertyPath: m_text
-      value: Defeat each boss in the Room and claim victory !
+      value: Defeat each boss in the Arena and claim victory !
       objectReference: {fileID: 0}
     - target: {fileID: 1503944559768270268, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
