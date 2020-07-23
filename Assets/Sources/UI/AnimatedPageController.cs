@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class AnimatedPageController : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class AnimatedPageController : MonoBehaviour
 
         _currentSelectedChild = _selectableChilds.IndexOf(firstElement);
 
-        if (_selectableChilds.Count > _currentSelectedChild)
+        if (_currentSelectedChild < _selectableChilds.Count)
         {
             _selectableChilds[_currentSelectedChild].OnSelect(null);
         }
