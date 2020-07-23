@@ -71,4 +71,12 @@ public class PlayerCameraShakeController : MonoBehaviour
             }
         }
     }
+
+    private void OnDestroy()
+    {
+        if (InputManager.instance != null)
+        {
+            InputManager.instance.SetVibration(0f, 0f);
+        }
+    }
 }
