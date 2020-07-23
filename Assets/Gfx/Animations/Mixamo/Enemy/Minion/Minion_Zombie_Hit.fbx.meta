@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ab06b4024651c08448c942d3eb40b3c9
+guid: eb2abe88cad8c874d9335925aa32a1bf
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
@@ -70,8 +70,8 @@ ModelImporter:
       name: Minion_Zombie_Hit
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
-      lastFrame: 120
+      firstFrame: 4
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -80,9 +80,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
