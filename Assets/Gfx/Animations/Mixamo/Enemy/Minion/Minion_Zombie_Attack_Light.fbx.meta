@@ -91,15 +91,29 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: OnSingleAnimationEnded
+      - time: 0.27155173
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.2824872
+        functionName: OnToggleAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.3148148
-        functionName: OnToggleAttack
+      - time: 0.2974138
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 2
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.311804
+        functionName: OnAttackPlayFx
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -107,6 +121,20 @@ ModelImporter:
         messageOptions: 0
       - time: 0.46604937
         functionName: OnToggleAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.48060346
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: OnSingleAnimationEnded
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

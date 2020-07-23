@@ -85,27 +85,27 @@ PrefabInstance:
     - target: {fileID: 3303635199581897779, guid: cc3f6d9e12d2b4f4c9bdba442c2c36b1,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.2383035
+      value: 0.276492
       objectReference: {fileID: 0}
     - target: {fileID: 3303635199581897779, guid: cc3f6d9e12d2b4f4c9bdba442c2c36b1,
         type: 3}
       propertyPath: m_Center.x
-      value: 0.1399981
+      value: 0.1609192
       objectReference: {fileID: 0}
     - target: {fileID: 3303635199581897779, guid: cc3f6d9e12d2b4f4c9bdba442c2c36b1,
         type: 3}
       propertyPath: m_Center.y
-      value: -0.01169458
+      value: -0.011694579
       objectReference: {fileID: 0}
     - target: {fileID: 3303635199581897779, guid: cc3f6d9e12d2b4f4c9bdba442c2c36b1,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.001201718
+      value: -0.0038102667
       objectReference: {fileID: 0}
     - target: {fileID: 3303635199581897779, guid: cc3f6d9e12d2b4f4c9bdba442c2c36b1,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.4006234
+      value: 0.44246566
       objectReference: {fileID: 0}
     - target: {fileID: 3303635199581897779, guid: cc3f6d9e12d2b4f4c9bdba442c2c36b1,
         type: 3}
@@ -115,7 +115,7 @@ PrefabInstance:
     - target: {fileID: 7053528457378043443, guid: cc3f6d9e12d2b4f4c9bdba442c2c36b1,
         type: 3}
       propertyPath: m_Name
-      value: NoWeapon_Skeleton_Fist
+      value: NoWeapon_Skeleton_Fist_R
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc3f6d9e12d2b4f4c9bdba442c2c36b1, type: 3}

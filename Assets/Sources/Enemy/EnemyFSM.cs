@@ -255,7 +255,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
     /// <summary>
     /// Called from animation event
     /// </summary>
-    public void OnSingleAnimationEnded()
+    public virtual void OnSingleAnimationEnded()
     {
         if (data.isAlive == true)
         {
