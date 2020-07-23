@@ -5,6 +5,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
 {
     private const uint FLAG_CAN_ATTACK = (uint)CharacterStateEnum.MOVE;
     private const uint FLAG_CAN_HIT = (uint)(CharacterStateEnum.MOVE | CharacterStateEnum.ATTACK);
+    private const uint FLAG_CAN_TARGET = (uint)~CharacterStateEnum.IDLE;
 
     [Header("References")]
     public Transform model = null;
@@ -129,6 +130,40 @@ public class PlayerFSM : CharacterFSM, ICharacter
         }
     }
 
+    /// <summary>
+    /// Sorter out targets to find the closest one
+    /// </summary>
+    private void AcquireTarget()
+    {
+        if (((uint)currentState.flag & FLAG_CAN_TARGET) != 0)
+        {
+            GameObject[] enemies = FindTargetInRange();
+            EnemyFSM bestTarget = null;
+            float closestDistance = Mathf.Infinity;
+            Vector3 currentPosition = transform.position;
+
+            foreach (GameObject enemy in enemies)
+            {
+                Vector3 directionToTarget = enemy.transform.position - currentPosition;
+                float magnitude = directionToTarget.magnitude; // Don't use sqrt as not necessary to compare distance
+
+                if (magnitude < closestDistance)
+                {
+                    closestDistance = magnitude;
+                    bestTarget = enemy.GetComponent<EnemyFSM>();
+                }
+            }
+
+            // Once found, assign and follow it
+            if(bestTarget != null)
+            {
+                cameraController.FollowTarget(bestTarget.transform);
+                CharacterGameEvent.instance.SelectTarget(bestTarget.data);
+                target = bestTarget;
+            }
+        }
+    }
+
     private GameObject[] FindTargetInRange()
     {
         List<GameObject> potentialTargets = new List<GameObject>();
@@ -146,37 +181,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
         }
 
         return potentialTargets.ToArray();
-    }
-
-    /// <summary>
-    /// Sorter out targets to find the closest one
-    /// </summary>
-    private void AcquireTarget()
-    {
-        GameObject[] enemies = FindTargetInRange();
-        EnemyFSM bestTarget = null;
-        float closestDistance = Mathf.Infinity;
-        Vector3 currentPosition = transform.position;
-
-        foreach (GameObject enemy in enemies)
-        {
-            Vector3 directionToTarget = enemy.transform.position - currentPosition;
-            float magnitude = directionToTarget.magnitude; // Don't use sqrt as not necessary to compare distance
-
-            if (magnitude < closestDistance)
-            {
-                closestDistance = magnitude;
-                bestTarget = enemy.GetComponent<EnemyFSM>();
-            }
-        }
-
-        // Once found, assign and follow it
-        if(bestTarget != null)
-        {
-            cameraController.FollowTarget(bestTarget.transform);
-            CharacterGameEvent.instance.SelectTarget(bestTarget.data);
-            target = bestTarget;
-        }
     }
 
     /// <summary>
