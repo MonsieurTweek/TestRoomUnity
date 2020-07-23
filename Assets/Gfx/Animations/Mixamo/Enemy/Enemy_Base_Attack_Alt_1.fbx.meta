@@ -94,11 +94,18 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: OnSingleAnimationEnded
+      - time: 0.093484424
+        functionName: OnUpdateAttackSpeed
         data: 
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
+        floatParameter: 0.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.11331444
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 2
         intParameter: 0
         messageOptions: 0
       - time: 0.12345678
@@ -108,6 +115,20 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.13517754
+        functionName: OnAttackPlayFx
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.17280453
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
       - time: 0.23765433
         functionName: OnToggleAttack
         data: 
@@ -115,8 +136,29 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.2917847
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.31728044
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 2
+        intParameter: 0
+        messageOptions: 0
       - time: 0.33024693
         functionName: OnToggleAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.34209853
+        functionName: OnAttackPlayFx
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -129,8 +171,36 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.39093485
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.52666795
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5517303
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 2
+        intParameter: 0
+        messageOptions: 0
       - time: 0.5648148
         functionName: OnToggleAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.57654834
+        functionName: OnAttackPlayFx
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -143,6 +213,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.64657
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
+        messageOptions: 0
       - time: 0.74382716
         functionName: OnToggleAttack
         data: 
@@ -152,6 +229,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.86419755
         functionName: OnToggleAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: OnSingleAnimationEnded
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
