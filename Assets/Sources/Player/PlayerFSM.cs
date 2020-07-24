@@ -29,11 +29,12 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public void TransitionToMove() { ChangeState(stateMove); }
     public void TransitionToHit() { ChangeState(stateHit); }
     public void TransitionToDie() { ChangeState(stateDie); }
-    public void TransitionToAttackLight() { if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0) ChangeState(stateAttack, (int)CharacterStateAttack.AttackType.ALT_1); }
-    public void TransitionToAttackHeavy() { if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0) ChangeState(stateAttack, (int)CharacterStateAttack.AttackType.ALT_2); }
+    public void TransitionToAttackLight() { if (CanAttack(CharacterStateAttack.AttackType.ALT_1)) ChangeState(stateAttack, (int)CharacterStateAttack.AttackType.ALT_1); }
+    public void TransitionToAttackHeavy() { if (CanAttack(CharacterStateAttack.AttackType.ALT_2)) ChangeState(stateAttack, (int)CharacterStateAttack.AttackType.ALT_2); }
 
     public CharacterFSM target { private set; get; }
     public bool isGrounded { private set; get; }
+    public bool isInCombo { private set; get; }
 
     private Vector2 _playerRotation = Vector2.zero;
     private List<Perk> _perks = new List<Perk>();
@@ -128,6 +129,29 @@ public class PlayerFSM : CharacterFSM, ICharacter
         {
             isGrounded = true;
         }
+    }
+
+    private bool CanAttack(CharacterStateAttack.AttackType type)
+    {
+        // Player can make an attack
+        if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0)
+        {
+            return true;
+        }
+        // Player is already doing an attack
+        else if (((uint)currentState.flag & (uint)CharacterStateEnum.ATTACK) != 0)
+        {
+            // Player try to perform a different attack
+            if (((CharacterStateAttack)currentState).type != type)
+            {
+                // Keep track of it to chain the next attack
+                isInCombo = true;
+
+                //TODO : Use it to trigger a new animation on a particular animation event
+            }
+        }
+
+        return false;
     }
 
     /// <summary>
