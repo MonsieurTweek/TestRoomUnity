@@ -45,5 +45,7 @@ public class PerkController : MonoBehaviour
         {
             PerkGameEvent.instance.onUnlocked -= OnPerkUnlocked;
         }
+
+        CURRENT_INDEX = 0;
     }
 }
