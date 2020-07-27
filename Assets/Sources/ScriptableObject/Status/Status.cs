@@ -24,9 +24,8 @@ public class Status : ScriptableObject
 
     public virtual void Initialize() { }
 
-    public void Enable(float duration)
+    public void Enable()
     {
-        this.duration = duration;
         startTime = Time.time;
         
         isActive = true;

@@ -34,7 +34,7 @@ public class CardController : MonoBehaviour
         data.Populate(perk);
 
         titleText.text = data.title;
-        descriptionText.text = data.description;
+        descriptionText.text = data.description.Replace(Perk.AMOUNT_STRING_KEY, ((Perk)perk).amount.ToString());
         icon.sprite = data.icon;
     }
 

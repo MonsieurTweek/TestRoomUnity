@@ -14,9 +14,11 @@ public class StunPerk : Perk
 
     public void OnHitting(uint originId, uint targetId)
     {
-        if (originId == _owner.data.uniqueId)
+        bool shouldApply = UnityEngine.Random.Range(0, 100) < amount;
+
+        if (originId == _owner.data.uniqueId && shouldApply == true)
         {
-            CharacterGameEvent.instance.Stun(targetId, amount);
+            CharacterGameEvent.instance.Stun(targetId);
         }
     }
 

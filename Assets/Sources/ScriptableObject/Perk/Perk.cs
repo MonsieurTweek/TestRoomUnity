@@ -3,6 +3,8 @@
 [Serializable]
 public abstract class Perk : DescriptiveObject
 {
+    public static readonly string AMOUNT_STRING_KEY = "{:amount}";
+
     public enum PerkType
     {
         INSTANT = 0,

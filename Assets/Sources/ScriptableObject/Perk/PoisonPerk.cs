@@ -14,9 +14,11 @@ public class PoisonPerk : Perk
 
     public void OnHitting(uint originId, uint targetId)
     {
-        if (originId == _owner.data.uniqueId)
+        bool shouldApply = UnityEngine.Random.Range(0f, 100f) < amount;
+
+        if (originId == _owner.data.uniqueId && shouldApply == true)
         {
-            CharacterGameEvent.instance.Poison(targetId, amount);
+            CharacterGameEvent.instance.Poison(targetId);
         }
     }
 

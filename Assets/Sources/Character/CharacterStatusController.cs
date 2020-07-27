@@ -44,7 +44,7 @@ public class CharacterStatusController : MonoBehaviour
         }
     }
 
-    private void OnStunned(uint uniqueId, float duration)
+    private void OnStunned(uint uniqueId)
     {
         if (_character.data.uniqueId == uniqueId && _character.data.isAlive == true)
         {
@@ -62,16 +62,16 @@ public class CharacterStatusController : MonoBehaviour
                 _statusByType.Add(CharacterStatusEnum.STUN, stun);
             }
 
-            _statusByType[CharacterStatusEnum.STUN].Enable(duration);
+            _statusByType[CharacterStatusEnum.STUN].Enable();
 
             // Add status to status mask
             _character.data.SetStatus(CharacterStatusEnum.STUN);
 
-            _character.TransitionToStun(duration);
+            _character.TransitionToStun(_statusByType[CharacterStatusEnum.STUN].duration);
         }
     }
 
-    private void OnPoisonned(uint uniqueId, float duration)
+    private void OnPoisonned(uint uniqueId)
     {
         if (_character.data.uniqueId == uniqueId && _character.data.isAlive == true)
         {
@@ -89,14 +89,14 @@ public class CharacterStatusController : MonoBehaviour
                 _statusByType.Add(CharacterStatusEnum.POISON, poison);
             }
 
-            _statusByType[CharacterStatusEnum.POISON].Enable(duration);
+            _statusByType[CharacterStatusEnum.POISON].Enable();
 
             // Add status to status mask
             _character.data.SetStatus(CharacterStatusEnum.POISON);
         }
     }
 
-    private void OnFrozen(uint uniqueId, float duration)
+    private void OnFrozen(uint uniqueId)
     {
         if (_character.data.uniqueId == uniqueId && _character.data.isAlive == true)
         {
@@ -114,7 +114,7 @@ public class CharacterStatusController : MonoBehaviour
                 _statusByType.Add(CharacterStatusEnum.FREEZE, freeze);
             }
 
-            _statusByType[CharacterStatusEnum.FREEZE].Enable(duration);
+            _statusByType[CharacterStatusEnum.FREEZE].Enable();
 
             // Add status to status mask
             _character.data.SetStatus(CharacterStatusEnum.FREEZE);

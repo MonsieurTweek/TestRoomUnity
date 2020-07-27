@@ -7,7 +7,12 @@ public class PlayerPerkSimulator : MonoBehaviour
     public List<Perk> perks = new List<Perk>();
 
 #if UNITY_EDITOR
-    private void Start()
+    private void Awake()
+    {
+        CharacterGameEvent.instance.onPlayerLoaded += OnPlayerLoaded;
+    }
+
+    private void OnPlayerLoaded()
     {
         for (int i = 0; i < perks.Count; i++)
         {
@@ -17,6 +22,14 @@ public class PlayerPerkSimulator : MonoBehaviour
             Debug.Log("Unlock perk " + data.title + " for simulation");
 
             PerkGameEvent.instance.Unlock(data);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (CharacterGameEvent.instance != null)
+        {
+            CharacterGameEvent.instance.onPlayerLoaded -= OnPlayerLoaded;
         }
     }
 #endif

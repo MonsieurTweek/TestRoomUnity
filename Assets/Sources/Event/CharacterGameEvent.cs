@@ -89,30 +89,30 @@ public class CharacterGameEvent : MonoBehaviour
         }
     }
 
-    public event Action<uint, float> onStunned;
-    public void Stun(uint targetUniqueId, float duration)
+    public event Action<uint> onStunned;
+    public void Stun(uint targetUniqueId)
     {
         if (onStunned != null)
         {
-            onStunned(targetUniqueId, duration);
+            onStunned(targetUniqueId);
         }
     }
 
-    public event Action<uint, float> onFrozen;
-    public void Freeze(uint targetUniqueId, float duration)
+    public event Action<uint> onFrozen;
+    public void Freeze(uint targetUniqueId)
     {
         if (onFrozen != null)
         {
-            onFrozen(targetUniqueId, duration);
+            onFrozen(targetUniqueId);
         }
     }
 
-    public event Action<uint, float> onPoisonned;
-    public void Poison(uint targetUniqueId, float duration)
+    public event Action<uint> onPoisonned;
+    public void Poison(uint targetUniqueId)
     {
         if (onPoisonned != null)
         {
-            onPoisonned(targetUniqueId, duration);
+            onPoisonned(targetUniqueId);
         }
     }
 
