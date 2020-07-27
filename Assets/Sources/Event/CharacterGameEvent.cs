@@ -11,6 +11,24 @@ public class CharacterGameEvent : MonoBehaviour
         _instance = this;
     }
 
+    public event Action<PlayerData> onPlayerLoading;
+    public void LoadingPlayer(PlayerData data)
+    {
+        if (onPlayerLoading != null)
+        {
+            onPlayerLoading(data);
+        }
+    }
+
+    public event Action onPlayerLoaded;
+    public void CompleteLoadingPlayer()
+    {
+        if (onPlayerLoaded != null)
+        {
+            onPlayerLoaded();
+        }
+    }
+
     public event Action<bool> onPause;
     public void Pause(bool isPauseEnabled)
     {
@@ -95,6 +113,24 @@ public class CharacterGameEvent : MonoBehaviour
         if (onPoisonned != null)
         {
             onPoisonned(targetUniqueId, duration);
+        }
+    }
+
+    public event Action<uint, float> onEnergyUpdated;
+    public void UpdateEnergy(uint targetUniqueId, float energy)
+    {
+        if (onEnergyUpdated != null)
+        {
+            onEnergyUpdated(targetUniqueId, energy);
+        }
+    }
+
+    public event Action<uint> onOutOfEnergy;
+    public void OutOfEnergy(uint targetUniqueId)
+    {
+        if (onOutOfEnergy != null)
+        {
+            onOutOfEnergy(targetUniqueId);
         }
     }
 

@@ -6,6 +6,8 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<int>
 {
     public enum AttackType
     {
+        NONE = 0,
+
         ALT_1 = 1,
         ALT_2 = 2,
         ALT_3 = 3

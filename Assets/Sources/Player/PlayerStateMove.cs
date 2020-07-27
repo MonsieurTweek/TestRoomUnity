@@ -24,7 +24,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     private bool _isDashing = false;
     private bool _canDash = true;
     private float _dashTime = float.MaxValue;
-    private float _dashCooldown = 0f;
+    private float _energyForDash = 0f;
 
     [Header("Speed")]
     public float movementSpeed = 3f;
@@ -46,7 +46,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         InputManager.instance.gameplay.Jump.performed += Jump;
         InputManager.instance.gameplay.Dash.performed += Dash;
 
-        _dashCooldown = ((PlayerData)character.data).dashCooldown;
+        _energyForDash = ((PlayerData)character.data).energyForDash;
     }
 
     public override void Update()
@@ -55,10 +55,10 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         {
             ((PlayerFSM)character).Rotate();
 
-            if (Time.time - _dashTime >= _dashCooldown)
+            /*if (Time.time - _dashTime >= _energyForDash)
             {
                 _canDash = true;
-            }
+            }*/
         }
 
         ComputeDirection();
@@ -166,7 +166,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     private void Dash(InputAction.CallbackContext context)
     {
         // Execute dash
-        if (_canDash == true)
+        if (((PlayerData)character.data).ConsumeEnergy(_energyForDash) == true)
         {
             _isDashing = true;
             _canDash = false;
@@ -233,7 +233,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         _isDashing = false;
         _dashTime = Time.time;
 
-        CharacterGameEvent.instance.CompleteDash(character.data.uniqueId, _dashCooldown);
+        CharacterGameEvent.instance.CompleteDash(character.data.uniqueId, _energyForDash);
     }
 
     public override void Exit()

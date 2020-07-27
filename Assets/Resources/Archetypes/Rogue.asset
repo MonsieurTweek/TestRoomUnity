@@ -16,6 +16,7 @@ MonoBehaviour:
   description: 
   icon: {fileID: 21300000, guid: 73dc97cd572eaf04d8d7624917de0e3a, type: 3}
   character: 32
+  configuration: {fileID: 11400000, guid: 24d6d2b49164d004a8e8ec106da5a75e, type: 2}
   animationController: {fileID: 22100000, guid: 34099da021a07a54e8db1b277aa22b8f,
     type: 2}
   gearLeft: {fileID: 0}

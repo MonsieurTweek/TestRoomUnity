@@ -9,6 +9,8 @@ public class Archetype : DescriptiveObject
 
     public CharacterEnum character = CharacterEnum.NONE;
 
+    public Player configuration = null;
+
     public AnimatorOverrideController animationController = null;
 
     public GearController gearLeft = null;

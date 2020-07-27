@@ -12,8 +12,8 @@ public class PlayerArchetypeController : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _gearController = GetComponent<CharacterGearController>();
-
     }
+
     private void Start()
     {
         if (loadFromPrefs == true)
@@ -38,6 +38,15 @@ public class PlayerArchetypeController : MonoBehaviour
         if (archetype.gearRight != null)
         {
             _gearController.InstantiateGear(archetype.gearRight, _gearController.anchorRight);
+        }
+
+        if (CharacterGameEvent.instance != null)
+        {
+            PlayerData data = new PlayerData();
+
+            data.Populate(archetype.configuration);
+
+            CharacterGameEvent.instance.LoadingPlayer(data);
         }
     }
 }

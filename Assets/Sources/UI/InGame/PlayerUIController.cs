@@ -1,12 +1,11 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerUIController : MonoBehaviour
 {
     [Header("References")]
     public PlayerFSM player = null;
     public GameObject layout = null;
-    public ResourceGaugeController playerDash = null;
+    public ResourceGaugeController playerEnergy = null;
     public ResourceGaugeController playerHealth = null;
     public ResourceGaugeController targetHealth = null;
     public PerkController[] perks = null;
@@ -17,12 +16,15 @@ public class PlayerUIController : MonoBehaviour
         {
             perks[i].Initialize(i);
         }
+
+        CharacterGameEvent.instance.onPlayerLoaded += OnPlayerLoaded;
     }
 
-    private void Start()
+    private void OnPlayerLoaded()
     {
         CharacterGameEvent.instance.onHit += OnCharacterHit;
-        CharacterGameEvent.instance.onDashCompleted += OnCharacterDash;
+        CharacterGameEvent.instance.onEnergyUpdated += OnEnergyUpdated;
+        CharacterGameEvent.instance.onOutOfEnergy += OnOutOfEnergy;
         CharacterGameEvent.instance.onTargetSelected += OnTargetSelected;
         CharacterGameEvent.instance.onTargetDeselected += OnTargetDeselected;
 
@@ -33,7 +35,7 @@ public class PlayerUIController : MonoBehaviour
 
         RefreshPlayerData();
 
-        playerDash.Refresh(100, 100);
+        playerEnergy.Refresh(100, 100);
     }
 
     private void OnIntroStarted(Transform target, AbstractCharacterData data)
@@ -51,19 +53,27 @@ public class PlayerUIController : MonoBehaviour
         playerHealth.Refresh(player.data.health, player.data.healthMax);
     }
 
-    private void OnCharacterDash(uint characterUniqueId, float cooldown)
+    private void OnEnergyUpdated(uint characterUniqueId, float energy)
     {
         if (player.data.uniqueId == characterUniqueId)
         {
-            playerDash.Refresh(0, 100);
+            int current = Mathf.RoundToInt(energy / ((PlayerData)player.data).energyMax * 100f);
 
-            LeanTween.value(0f, 100f, cooldown).setOnUpdate(DashCooldownProgress);
+            playerEnergy.Refresh(current, 100);
         }
     }
 
-    private void DashCooldownProgress(float progress)
+    private void OnOutOfEnergy(uint characterUniqueId)
     {
-        playerDash.Refresh(Mathf.RoundToInt(progress), 100);
+        if (player.data.uniqueId == characterUniqueId)
+        {
+            if (LeanTween.isTweening(playerEnergy.gameObject) == false)
+            {
+                LeanTween.scale(playerEnergy.gameObject, playerEnergy.transform.localScale * 1.2f, 0.25f)
+                    .setEase(LeanTweenType.easeShake)
+                    .setLoopPingPong(1);
+            }
+        }
     }
 
     private void OnCharacterHit(uint id, int health, int damage)
@@ -94,7 +104,11 @@ public class PlayerUIController : MonoBehaviour
     {
         if (CharacterGameEvent.instance != null)
         {
+            CharacterGameEvent.instance.onPlayerLoaded -= OnPlayerLoaded;
+
             CharacterGameEvent.instance.onHit -= OnCharacterHit;
+            CharacterGameEvent.instance.onEnergyUpdated -= OnEnergyUpdated;
+            CharacterGameEvent.instance.onOutOfEnergy -= OnOutOfEnergy;
             CharacterGameEvent.instance.onTargetSelected -= OnTargetSelected;
             CharacterGameEvent.instance.onTargetDeselected -= OnTargetDeselected;
 

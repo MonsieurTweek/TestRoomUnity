@@ -19,7 +19,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public PlayerStateDie stateDie = new PlayerStateDie();
 
     [Header("Properties")]
-    public Character configuration = null;
     public float rotationSpeed = 1f;
     public float rangeForTarget = 15f;
     public GameObject fxPerkUnlock = null;
@@ -49,41 +48,35 @@ public class PlayerFSM : CharacterFSM, ICharacter
         stateHit.flag = (uint)CharacterStateEnum.HIT;
         stateDie.flag = (uint)CharacterStateEnum.DIE;
 
-        data = new PlayerData();
-
-        if (configuration != null)
-        {
-            data.Populate(configuration);
-
-
-            // Save current player rotation to start with
-            _playerRotation = transform.eulerAngles;
-
-            // Bind player to events
-            CharacterGameEvent.instance.onPause += OnPause;
-            CharacterGameEvent.instance.onDied += OnDied;
-            CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
-            CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
-
-            PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
-
-            // Bind player common inputs
-            InputManager.instance.gameplay.Target.started += ctx => AcquireTarget();
-            InputManager.instance.gameplay.Target.canceled += ctx => ReleaseTarget();
-
-            InputManager.instance.gameplay.AttackLight.canceled += ctx => TransitionToAttackLight();
-            InputManager.instance.gameplay.AttackHeavy.canceled += ctx => TransitionToAttackHeavy();
-        }
-        else
-        {
-            Debug.LogError("Missing character configuration file for player " + name + " initialization");
-
-            TransitionToDie();
-        }
+        CharacterGameEvent.instance.onPlayerLoading += OnArchetypeLoaded;
     }
 
-    private void Start()
+    private void OnArchetypeLoaded(PlayerData data)
     {
+        this.data = data;
+
+        // Save current player rotation to start with
+        _playerRotation = transform.eulerAngles;
+
+        // Bind player to events
+        CharacterGameEvent.instance.onPause += OnPause;
+        CharacterGameEvent.instance.onDied += OnDied;
+        CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
+        CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
+
+        PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
+
+        // Bind player common inputs
+        InputManager.instance.gameplay.Target.started += ctx => AcquireTarget();
+        InputManager.instance.gameplay.Target.canceled += ctx => ReleaseTarget();
+
+        InputManager.instance.gameplay.AttackLight.canceled += ctx => TransitionToAttackLight();
+        InputManager.instance.gameplay.AttackHeavy.canceled += ctx => TransitionToAttackHeavy();
+        
+        // Unbind archetype loading and complete the loading
+        CharacterGameEvent.instance.onPlayerLoading -= OnArchetypeLoaded;
+        CharacterGameEvent.instance.CompleteLoadingPlayer();
+
         TransitionToMove();
     }
 
@@ -131,12 +124,20 @@ public class PlayerFSM : CharacterFSM, ICharacter
         }
     }
 
+    /// <summary>
+    /// Check if a certain type attack is possible
+    /// Otherwise catch that player tried to do it
+    /// </summary>
+    /// <param name="type">The type of attack to perform</param>
+    /// <returns>Whether or not it's possible to do it now</returns>
     private bool CanAttack(CharacterStateAttack.AttackType type)
     {
         // Player can make an attack
         if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0)
         {
-            return true;
+            float energyCost = type == CharacterStateAttack.AttackType.ALT_1 ? ((PlayerData)data).energyForLightAttack : ((PlayerData)data).energyForHeavyAttack;
+
+            return ((PlayerData)data).ConsumeEnergy(energyCost);
         }
         // Player is already doing an attack
         else if (((uint)currentState.flag & (uint)CharacterStateEnum.ATTACK) != 0)
@@ -350,6 +351,8 @@ public class PlayerFSM : CharacterFSM, ICharacter
             CharacterGameEvent.instance.onPause -= OnPause;
             CharacterGameEvent.instance.onIntroStarted -= OnIntroStarted;
             CharacterGameEvent.instance.onIntroEnded -= OnIntroEnded;
+
+            CharacterGameEvent.instance.onPlayerLoading -= OnArchetypeLoaded;
         }
 
         if (PerkGameEvent.instance != null)
