@@ -17,6 +17,19 @@ public class InputHintController : MonoBehaviour
     public Sprite gamepadIcon = null;
     public string gamepadText = string.Empty;
 
+    private void Awake()
+    {
+        if (text != null)
+        {
+            text.gameObject.SetActive(false);
+        }
+
+        if (image != null)
+        {
+            image.gameObject.SetActive(false);
+        }
+    }
+
     private void Start()
     {
         GameEvent.instance.onControlSwitched += OnControlSwitched;
@@ -29,11 +42,15 @@ public class InputHintController : MonoBehaviour
         if (text != null)
         {
             text.text = isKeyboard == true ? keyboardText : gamepadText;
+
+            text.gameObject.SetActive(true);
         }
 
         if (image != null)
         {
-            image.sprite = isKeyboard == true ? keyboardIcon: gamepadIcon;
+            image.sprite = isKeyboard == true ? keyboardIcon : gamepadIcon;
+
+            image.gameObject.SetActive(image.sprite != null);
         }
     }
 

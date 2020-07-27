@@ -10,6 +10,8 @@ public class PlayerUIController : MonoBehaviour
     public ResourceGaugeController targetHealth = null;
     public PerkController[] perks = null;
 
+    private int _nextPerkIndex = 0;
+
     private void Awake()
     {
         for (int i = 0; i < perks.Length; i++)
@@ -31,6 +33,9 @@ public class PlayerUIController : MonoBehaviour
         CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
         CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
 
+        PerkGameEvent.instance.onDisplayed += OnPerkDisplayed;
+        PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
+
         player.data.onBuffValues += RefreshPlayerData;
 
         RefreshPlayerData();
@@ -46,6 +51,20 @@ public class PlayerUIController : MonoBehaviour
     private void OnIntroEnded()
     {
         layout.SetActive(true);
+    }
+
+    private void OnPerkDisplayed()
+    {
+        layout.SetActive(false);
+    }
+
+    private void OnPerkUnlocked(uint uniqueId, Perk perk)
+    {
+        layout.SetActive(true);
+
+        perks[_nextPerkIndex].UpdateContent(perk);
+
+        _nextPerkIndex++;
     }
 
     private void RefreshPlayerData()
@@ -114,6 +133,12 @@ public class PlayerUIController : MonoBehaviour
 
             CharacterGameEvent.instance.onIntroStarted -= OnIntroStarted;
             CharacterGameEvent.instance.onIntroEnded -= OnIntroEnded;
+        }
+
+        if (PerkGameEvent.instance != null)
+        {
+            PerkGameEvent.instance.onDisplayed -= OnPerkDisplayed;
+            PerkGameEvent.instance.onUnlocked -= OnPerkUnlocked;
         }
 
         if (player != null && player.data != null)
