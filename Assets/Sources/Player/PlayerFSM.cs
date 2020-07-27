@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class PlayerFSM : CharacterFSM, ICharacter
 {
-    private const uint FLAG_CAN_ATTACK = (uint)CharacterStateEnum.MOVE;
-    private const uint FLAG_CAN_HIT = (uint)(CharacterStateEnum.MOVE | CharacterStateEnum.ATTACK);
-    private const uint FLAG_CAN_TARGET = (uint)~CharacterStateEnum.IDLE;
+    private const uint CAN_ATTACK_MASK = (uint)CharacterStateEnum.MOVE;
+    private const uint CAN_HIT_MASK = (uint)(CharacterStateEnum.MOVE | CharacterStateEnum.ATTACK);
+    private const uint CAN_TARGET_MASK = (uint)~CharacterStateEnum.IDLE;
 
     [Header("References")]
     public Transform model = null;
@@ -64,7 +64,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
         CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
         CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
 
-        PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
+        PerkGameEvent.instance.onUnlockStarted += OnPerkUnlockStarted;
 
         // Bind player common inputs
         InputManager.instance.gameplay.Target.started += ctx => AcquireTarget();
@@ -133,7 +133,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     private bool CanAttack(CharacterStateAttack.AttackType type)
     {
         // Player can make an attack
-        if (isGrounded == true && ((uint)currentState.flag & FLAG_CAN_ATTACK) != 0)
+        if (isGrounded == true && ((uint)currentState.flag & CAN_ATTACK_MASK) != 0)
         {
             float energyCost = type == CharacterStateAttack.AttackType.ALT_1 ? ((PlayerData)data).energyForLightAttack : ((PlayerData)data).energyForHeavyAttack;
 
@@ -160,7 +160,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     /// </summary>
     private void AcquireTarget()
     {
-        if (((uint)currentState.flag & FLAG_CAN_TARGET) != 0)
+        if (((uint)currentState.flag & CAN_TARGET_MASK) != 0)
         {
             GameObject[] enemies = FindTargetInRange();
             EnemyFSM bestTarget = null;
@@ -251,7 +251,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public bool Hit(int damage, bool isBlocking = true)
     {
         // Ensure player is in a state where he can take a hit
-        if (((uint)currentState.flag & FLAG_CAN_HIT) != 0)
+        if (((uint)currentState.flag & CAN_HIT_MASK) != 0)
         {
             data.ApplyDamage(damage);
 
@@ -304,7 +304,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
         OnPause(false);
     }
 
-    private void OnPerkUnlocked(uint uniqueId, Perk perk)
+    private void OnPerkUnlockStarted(uint uniqueId, Perk perk)
     {
         perk.Unlock(this);
 
@@ -357,7 +357,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
         if (PerkGameEvent.instance != null)
         {
-            PerkGameEvent.instance.onUnlocked -= OnPerkUnlocked;
+            PerkGameEvent.instance.onUnlockStarted -= OnPerkUnlockStarted;
         }
     }
 }

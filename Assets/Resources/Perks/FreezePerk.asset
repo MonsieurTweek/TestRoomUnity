@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: FreezePerk
   m_EditorClassIdentifier: 
   title: Let it go !
-  description: Give your enemy some chill.
-  icon: {fileID: 21300000, guid: a90ee2a8989a7fd409039aa95663382b, type: 3}
-  amount: 5
+  description: Give {:amount}% to freeze target on hit
+  icon: {fileID: 21300000, guid: bf462ec7b3198da44a0198617aefd942, type: 3}
+  background: {fileID: 21300000, guid: e082b9af00c3c564a8371530d96b899a, type: 3}
+  amount: 30
   type: 0
+  isCumulative: 0

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerPerkSimulator : MonoBehaviour
@@ -14,6 +15,13 @@ public class PlayerPerkSimulator : MonoBehaviour
 
     private void OnPlayerLoaded()
     {
+        StartCoroutine(UnlockPerk());
+    }
+
+    private IEnumerator UnlockPerk()
+    {
+        yield return new WaitForEndOfFrame();
+
         for (int i = 0; i < perks.Count; i++)
         {
             CardData data = new CardData();
@@ -21,7 +29,7 @@ public class PlayerPerkSimulator : MonoBehaviour
 
             Debug.Log("Unlock perk " + data.title + " for simulation");
 
-            PerkGameEvent.instance.Unlock(data);
+            PerkGameEvent.instance.StartUnlock(data);
         }
     }
 

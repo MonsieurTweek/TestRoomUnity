@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class CardController : MonoBehaviour
 {
+    [Header("Refrences")]
     public Image icon = null;
+    public Image iconBackground = null;
     public GameObject back = null;
     public GameObject front = null;
     public TextMeshProUGUI titleText = null;
@@ -14,8 +16,11 @@ public class CardController : MonoBehaviour
     public CardData data { private set; get; }
 
     private Vector3 _destination = Vector3.zero;
+    private Vector3 _rotation = Vector3.zero;
     private Action _onFullIntroCompleted = null;
     private Canvas _canvas = null;
+
+    private int _tweenId = -1;
 
     private void Awake()
     {
@@ -23,6 +28,7 @@ public class CardController : MonoBehaviour
 
         // Save current position as destination
         _destination = transform.localPosition;
+        _rotation = transform.rotation.eulerAngles;
 
         _canvas = GetComponent<Canvas>();
 
@@ -36,6 +42,7 @@ public class CardController : MonoBehaviour
         titleText.text = data.title;
         descriptionText.text = data.description.Replace(Perk.AMOUNT_STRING_KEY, ((Perk)perk).amount.ToString());
         icon.sprite = data.icon;
+        iconBackground.sprite = data.background;
     }
 
     private void Prepare()
@@ -55,13 +62,20 @@ public class CardController : MonoBehaviour
     public void Select()
     {
         _canvas.sortingOrder = 10;
-        LeanTween.scale(gameObject, Vector3.one * 1.2f, 0.25f);
+        LeanTween.scale(gameObject, Vector3.one * 1.1f, 0.25f);
+
+        // Start a select animation to show which one is selected
+        _tweenId = LeanTween.rotate(gameObject, gameObject.transform.rotation.eulerAngles + new Vector3(0f, 0f, 2f), 0.5f).setLoopPingPong(-1).id;
     }
 
     public void Deselect()
     {
         _canvas.sortingOrder = 1;
         LeanTween.scale(gameObject, Vector3.one, 0.25f);
+
+        // Reset select animation
+        LeanTween.cancel(_tweenId);
+        gameObject.transform.rotation = Quaternion.Euler(_rotation);
     }
 
     public void AnimateIntro(Action onComplete)
@@ -79,7 +93,7 @@ public class CardController : MonoBehaviour
         LeanTween.scaleX(front, 1f, 0.75f);
     }
 
-    public void AnimateSelection(Action<object> onComplete)
+    public void AnimateUnlock(Action<object> onComplete)
     {
         LeanTween.scale(gameObject, Vector3.one * 1.2f, 0.5f).setOnComplete(onComplete, data.uniqueId);
     }
@@ -91,7 +105,7 @@ public class CardController : MonoBehaviour
 
     public void ConfirmSelection()
     {
-        PerkGameEvent.instance.Unlock(data);
+        PerkGameEvent.instance.StartUnlock(data);
     }
 
     private void ShowFront()

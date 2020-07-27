@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-/// <summary>
+﻿/// <summary>
 /// Defines what a player is
 /// </summary>
 public class PlayerData : AbstractCharacterData
@@ -13,6 +12,8 @@ public class PlayerData : AbstractCharacterData
     public float energyForDash { private set; get; }
     public float energyForLightAttack { private set; get; }
     public float energyForHeavyAttack { private set; get; }
+
+    public uint playerAbilitiesMask { private set; get; }
 
     private int _tweenId = -1;
 
@@ -60,5 +61,10 @@ public class PlayerData : AbstractCharacterData
         this.energy = energy;
 
         CharacterGameEvent.instance.UpdateEnergy(uniqueId, energy);
+    }
+
+    public void UnlockAbility(PlayerAbilityEnum playerAbility)
+    {
+        playerAbilitiesMask |= (uint)playerAbility;
     }
 }

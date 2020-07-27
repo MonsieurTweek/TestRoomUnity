@@ -20,21 +20,21 @@ public class PerkGameEvent : MonoBehaviour
         }
     }
 
-    public event Action<uint> onSelected;
-    public void Select(CardData data)
+    public event Action<uint, Perk> onUnlockStarted;
+    public void StartUnlock(CardData data)
     {
-        if (onSelected != null)
+        if (onUnlockStarted != null)
         {
-            onSelected(data.uniqueId);
+            onUnlockStarted(data.uniqueId, (Perk)data.descriptiveObject);
         }
     }
 
-    public event Action<uint, Perk> onUnlocked;
-    public void Unlock(CardData data)
+    public event Action<uint, Perk> onUnlockEnded;
+    public void EndUnlock(CardData data)
     {
-        if (onUnlocked != null)
+        if (onUnlockEnded != null)
         {
-            onUnlocked(data.uniqueId, (Perk)data.descriptiveObject);
+            onUnlockEnded(data.uniqueId, (Perk)data.descriptiveObject);
         }
     }
 }

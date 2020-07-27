@@ -27,7 +27,7 @@ public class CardCanvasController : MonoBehaviour
     private void Start()
     {
         PerkGameEvent.instance.onDisplayed += OnPerkDisplayed;
-        PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
+        PerkGameEvent.instance.onUnlockStarted += OnPerkUnlockStarted;
     }
 
     private void OnNavigatePerformed(InputAction.CallbackContext context)
@@ -132,13 +132,13 @@ public class CardCanvasController : MonoBehaviour
         }
     }
 
-    private void OnPerkUnlocked(uint id, Perk perk)
+    private void OnPerkUnlockStarted(uint id, Perk perk)
     {
         for (int i = 0; i < cards.Count; ++i)
         {
             if (cards[i].data.uniqueId == id)
             {
-                cards[i].AnimateSelection(OnSelectionEnded);
+                cards[i].AnimateUnlock(OnUnlockEnded);
 
                 if (perk.isCumulative == false)
                 {
@@ -150,11 +150,9 @@ public class CardCanvasController : MonoBehaviour
                 cards[i].AnimateHide();
             }
         }
-
-        root.SetActive(false);
     }
 
-    private void OnSelectionEnded(object id)
+    private void OnUnlockEnded(object id)
     {
         for (int i = 0; i < cards.Count; ++i)
         {
@@ -162,9 +160,11 @@ public class CardCanvasController : MonoBehaviour
             {
                 cards[i].Hide();
 
-                PerkGameEvent.instance.Select(cards[i].data);
+                PerkGameEvent.instance.EndUnlock(cards[i].data);
             }
         }
+
+        root.SetActive(false);
     }
 
     private void OnDestroy()
@@ -176,7 +176,7 @@ public class CardCanvasController : MonoBehaviour
         if (PerkGameEvent.instance != null)
         {
             PerkGameEvent.instance.onDisplayed -= OnPerkDisplayed;
-            PerkGameEvent.instance.onUnlocked -= OnPerkUnlocked;
+            PerkGameEvent.instance.onUnlockStarted -= OnPerkUnlockStarted;
         }
     }
 }

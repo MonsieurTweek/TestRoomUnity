@@ -165,8 +165,9 @@ public class PlayerStateMove : CharacterFSM.CharacterState
 
     private void Dash(InputAction.CallbackContext context)
     {
-        // Execute dash
-        if (((PlayerData)character.data).ConsumeEnergy(_energyForDash) == true)
+        // Execute dash if player has the ability and energy
+        if ((((PlayerData)character.data).playerAbilitiesMask & (uint)PlayerAbilityEnum.DASH) != 0 
+            && ((PlayerData)character.data).ConsumeEnergy(_energyForDash) == true)
         {
             _isDashing = true;
             _canDash = false;

@@ -34,7 +34,7 @@ public class PlayerUIController : MonoBehaviour
         CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
 
         PerkGameEvent.instance.onDisplayed += OnPerkDisplayed;
-        PerkGameEvent.instance.onUnlocked += OnPerkUnlocked;
+        PerkGameEvent.instance.onUnlockStarted += OnPerkUnlockStarted;
 
         player.data.onBuffValues += RefreshPlayerData;
 
@@ -58,7 +58,7 @@ public class PlayerUIController : MonoBehaviour
         layout.SetActive(false);
     }
 
-    private void OnPerkUnlocked(uint uniqueId, Perk perk)
+    private void OnPerkUnlockStarted(uint uniqueId, Perk perk)
     {
         layout.SetActive(true);
 
@@ -138,7 +138,7 @@ public class PlayerUIController : MonoBehaviour
         if (PerkGameEvent.instance != null)
         {
             PerkGameEvent.instance.onDisplayed -= OnPerkDisplayed;
-            PerkGameEvent.instance.onUnlocked -= OnPerkUnlocked;
+            PerkGameEvent.instance.onUnlockStarted -= OnPerkUnlockStarted;
         }
 
         if (player != null && player.data != null)

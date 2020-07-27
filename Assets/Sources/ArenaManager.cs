@@ -17,7 +17,7 @@ public class ArenaManager : MonoBehaviour
     private void Start()
     {
         CharacterGameEvent.instance.onDied += OnDie;
-        PerkGameEvent.instance.onSelected += OnPerkSelected;
+        PerkGameEvent.instance.onUnlockEnded += OnPerkUnlockEnded;
 
         StartCoroutine(WaitForIntro());
     }
@@ -118,7 +118,7 @@ public class ArenaManager : MonoBehaviour
         }
     }
 
-    private void OnPerkSelected(uint perkId)
+    private void OnPerkUnlockEnded(uint perkId, Perk perk)
     {
         SpawnNextEnemy();
     }
@@ -132,7 +132,7 @@ public class ArenaManager : MonoBehaviour
 
         if (PerkGameEvent.instance != null)
         {
-            PerkGameEvent.instance.onSelected -= OnPerkSelected;
+            PerkGameEvent.instance.onUnlockEnded -= OnPerkUnlockEnded;
         }
     }
 

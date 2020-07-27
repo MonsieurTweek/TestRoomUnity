@@ -5,6 +5,7 @@ public class PerkController : MonoBehaviour
 {
     [Header("References")]
     public Image icon = null;
+    public Image background = null;
 
     private int _index = 0;
 
@@ -17,5 +18,8 @@ public class PerkController : MonoBehaviour
     {
         icon.sprite = perk.icon;
         icon.enabled = true;
+
+        background.sprite = perk.background;
+        background.enabled = true;
     }
 }
