@@ -34,6 +34,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     public CharacterFSM target { private set; get; }
     public bool isGrounded { private set; get; }
     public bool isInCombo { private set; get; }
+    public bool isPaused { private set; get; }
 
     private Vector2 _playerRotation = Vector2.zero;
     private List<Perk> _perks = new List<Perk>();
@@ -274,6 +275,8 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
     public void OnPause(bool isPauseEnabled)
     {
+        isPaused = isPauseEnabled;
+
         if (isPauseEnabled == true)
         {
             TransitionToIdle();
@@ -334,6 +337,11 @@ public class PlayerFSM : CharacterFSM, ICharacter
     /// </summary>
     public void OnSingleAnimationEnded()
     {
+        if (isPaused == true)
+        {
+            return;
+        }
+
         if (data.isAlive == true)
         {
             TransitionToMove();
