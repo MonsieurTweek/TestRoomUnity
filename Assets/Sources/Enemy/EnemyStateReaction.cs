@@ -33,8 +33,6 @@ public class EnemyStateReaction : CharacterFSM.CharacterState
 
     public override void Update()
     {
-        ((EnemyFSM)character).LookAtTarget();
-
         _sqrDistanceToTarget = ((EnemyFSM)character).direction.sqrMagnitude;
 
         // Enter range

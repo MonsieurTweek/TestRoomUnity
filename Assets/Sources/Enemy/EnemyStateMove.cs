@@ -6,43 +6,84 @@ public class EnemyStateMove : EnemyStateReaction
 {
     private const string ANIMATION_PARAM_MOVE = "Move";
     private const string ANIMATION_PARAM_SPEED = "Speed";
+    private const string ANIMATION_PARAM_TURN = "Turn";
+    private const string ANIMATION_PARAM_ANGLE = "Angle";
 
     public bool isRunning = false;
     public float speed = 3f;
+    public float rotationSpeed = 1f;
+
+    private bool _isMoving = false;
 
     public override void Enter()
     {
         base.Enter();
 
+        EvaluateMove();
+    }
+
+    /// <summary>
+    /// Check whether we turn or move based on angle amplitude to align with direction
+    /// </summary>
+    private void EvaluateMove()
+    {
+        float angle = Mathf.Atan2(((EnemyFSM)character).direction.x, ((EnemyFSM)character).direction.z) * Mathf.Rad2Deg;
+
         character.animator.applyRootMotion = true;
 
-        character.animator.SetBool(ANIMATION_PARAM_MOVE, true);
+        if (angle >= 90f || angle <= -90f)
+        {
+            _isMoving = false;
+
+            character.animator.SetFloat(ANIMATION_PARAM_ANGLE, angle > 0 ? 1f : 0f);
+        }
+        else
+        {
+            _isMoving = true;
+        }
+
+        character.animator.SetBool(ANIMATION_PARAM_MOVE, _isMoving);
+        character.animator.SetBool(ANIMATION_PARAM_TURN, !_isMoving);
+    }
+
+    public override void OnSingleAnimationEnded()
+    {
+        EvaluateMove();
     }
 
     public override void Update()
     {
         base.Update();
 
-        float speedTreshold = isRunning == true ? 1f : 0f;
+        ((EnemyFSM)character).LookAtTarget(rotationSpeed);
 
-        character.animator.SetFloat(ANIMATION_PARAM_SPEED, speedTreshold);
+        if (_isMoving == true)
+        {
+            float speedTreshold = isRunning == true ? 1f : 0f;
+
+            character.animator.SetFloat(ANIMATION_PARAM_SPEED, speedTreshold);
+        }
     }
 
     public override void FixedUpdate()
     {
-        float speedToApply = character.data.HasStatus(CharacterStatusEnum.FREEZE) ? speed * 0.5f : speed;
+        if (_isMoving == true)
+        {
+            float speedToApply = character.data.HasStatus(CharacterStatusEnum.FREEZE) ? speed * 0.5f : speed;
 
-        Vector3 targetPosition = character.transform.position + Vector3.forward * speedToApply;
+            Vector3 targetPosition = character.transform.position + Vector3.forward * speedToApply;
 
-        character.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = speedToApply;
-        character.GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(((EnemyFSM)character).target.transform.position);
-
-        //character.transform.Translate((targetPosition - character.transform.position) * Time.deltaTime);
+            character.GetComponent<UnityEngine.AI.NavMeshAgent>().speed = speedToApply;
+            character.GetComponent<UnityEngine.AI.NavMeshAgent>().SetDestination(((EnemyFSM)character).target.transform.position);
+        }
     }
 
     public override void Exit()
     {
+        _isMoving = false;
+
         character.animator.SetBool(ANIMATION_PARAM_MOVE, false);
+        character.animator.SetBool(ANIMATION_PARAM_TURN, false);
 
         character.GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
     }

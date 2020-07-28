@@ -119,11 +119,11 @@ public class EnemyFSM : CharacterFSM, ICharacter
     /// <summary>
     /// Rotate the gameobject to look at the target
     /// </summary>
-    public void LookAtTarget()
+    public void LookAtTarget(float speed)
     {
         float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
 
-        transform.Rotate(0, angle, 0);
+        transform.Rotate(new Vector3(0f, angle, 0f) * speed * Time.deltaTime);
     }
 
     /// <summary>
