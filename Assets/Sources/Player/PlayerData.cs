@@ -46,7 +46,7 @@ public class PlayerData : AbstractCharacterData
                 LeanTween.cancel(_tweenId);
             }
 
-            _tweenId = LeanTween.value(energy, energyMax, (energyMax - energy) * energyPerSecond).setOnUpdate(UpdateEnergy).id;
+            _tweenId = LeanTween.value(energy, energyMax, (energyMax - energy) / energyPerSecond).setOnUpdate(UpdateEnergy).id;
 
             return true;
         }
