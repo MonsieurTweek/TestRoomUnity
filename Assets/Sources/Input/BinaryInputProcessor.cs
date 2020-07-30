@@ -14,7 +14,7 @@ public class BinaryInputProcessor : InputProcessor<float>
     }
 #endif
 
-    [RuntimeInitializeOnLoadMethod]
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     static void Initialize()
     {
         InputSystem.RegisterProcessor<BinaryInputProcessor>();

@@ -64,7 +64,7 @@ public class PlayerCameraShakeController : MonoBehaviour
                 // If Camera Shake effect is over, reset variables
                 ApplyNoise(0f, 0f);
 
-                Gamepad.current.SetMotorSpeeds(0f, 0f);
+                InputManager.instance.SetVibration(0f, 0f);
 
                 _elapsedTime = 0f;
                 _isShaking = false;

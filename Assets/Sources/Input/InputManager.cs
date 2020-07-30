@@ -23,7 +23,14 @@ public class InputManager : MonoBehaviour
         // Then reassign a proper one
         instance = this;
 
+        if( controls == null)
+        {
+            InitializeControls();
+        }
+    }
 
+    private void InitializeControls()
+    {
         // Assign player controls
         controls = new PlayerControls();
 
@@ -47,11 +54,19 @@ public class InputManager : MonoBehaviour
 
     public void SetVibration(float lowFrequency, float highFrequency)
     {
-        Gamepad.current.SetMotorSpeeds(lowFrequency, highFrequency);
+        if (isKeyboard == false && Gamepad.current != null)
+        {
+            Gamepad.current.SetMotorSpeeds(lowFrequency, highFrequency);
+        }
     }
 
     private void OnEnable()
     {
+        if (controls == null)
+        {
+            InitializeControls();
+        }
+
         controls.Enable();
     }
 

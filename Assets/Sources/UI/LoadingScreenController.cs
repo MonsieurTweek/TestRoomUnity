@@ -23,10 +23,7 @@ public class LoadingScreenController : MonoBehaviour
     private void Awake()
     {
         root.SetActive(false);
-    }
 
-    private void Start()
-    {
         LoadingGameEvent.instance.onPrepare += OnPrepareLoading;
         LoadingGameEvent.instance.onLoadingStarted += OnLoadingStarted;
         LoadingGameEvent.instance.onLoadingProgress += OnLoadingProgress;
