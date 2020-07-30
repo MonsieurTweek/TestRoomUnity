@@ -52,6 +52,10 @@ public class CustomizationPartOnPlayer : MonoBehaviour
 
     public void ResetPart()
     {
+        _skin.Reset();
+
+        _currentPartIndex = 0;
+
         // For each skin
         for (int i = 0; i < _maleSkins.Length; i++)
         {
@@ -63,9 +67,7 @@ public class CustomizationPartOnPlayer : MonoBehaviour
         if (_firstSkinIsDefault == true && _maleSkins.Length > 0 && _controller.isMale == true)
         {
             // enable this one
-            _maleSkins[0].SetActive(true);
-
-            _currentPartIndex = 0;
+            _maleSkins[_currentPartIndex].SetActive(true);
         }
 
         // For each skin
@@ -79,13 +81,11 @@ public class CustomizationPartOnPlayer : MonoBehaviour
         if (_firstSkinIsDefault == true && _femaleSkins.Length > 0 && _controller.isMale == false)
         {
             // enable this one
-            _femaleSkins[0].SetActive(true);
-
-            _currentPartIndex = 0;
+            _femaleSkins[_currentPartIndex].SetActive(true);
         }
     }
 
-    public void SetPart(uint index)
+    public bool SetPart(uint index)
     {
         if (index < elements.Length)
         {
@@ -102,11 +102,13 @@ public class CustomizationPartOnPlayer : MonoBehaviour
             _skin.index = index;
 
             elements[_currentPartIndex].SetActive(true);
+
+            return true;
         }
-        else
-        {
-            UnityEngine.Debug.LogWarning("Can't find index " + index + " for part " + gameObject.name);
-        }
+
+        UnityEngine.Debug.LogWarning("Can't find index " + index + " for part " + gameObject.name);
+
+        return false;
     }
 
     public void SetMaterial(Material material, bool refreshGrid = true)

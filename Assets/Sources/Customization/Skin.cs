@@ -13,6 +13,13 @@ public class Skin
     {
         return "Part [" + name + "] with index " + index + ".";
     }
+
+    public void Reset()
+    {
+        name = string.Empty;
+        index = 0;
+        material = null;
+    }
 }
 
 [Serializable]

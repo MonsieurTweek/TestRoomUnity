@@ -122,19 +122,20 @@ public class PlayerCustomizationController : MonoBehaviour
                 {
                     materialToApply = skin.material != null ? skin.material : preset.material;
 
-                    part.SetPart(skin.index);
-
-                    if (materialToApply != null)
+                    if (part.SetPart(skin.index) == true)
                     {
-                        part.SetMaterial(materialToApply, false);
-                    }
+                        if (materialToApply != null)
+                        {
+                            part.SetMaterial(materialToApply, false);
+                        }
 
-                    if (outlineMaterialToApply != null)
-                    {
-                        part.SetAdditionalMaterial(outlineMaterialToApply);
-                    }
+                        if (outlineMaterialToApply != null)
+                        {
+                            part.SetAdditionalMaterial(outlineMaterialToApply);
+                        }
 
-                    skinApplied.Add(skin.name);
+                        skinApplied.Add(skin.name);
+                    }
 
                     break;
                 }
