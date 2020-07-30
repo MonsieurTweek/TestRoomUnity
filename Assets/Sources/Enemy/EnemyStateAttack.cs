@@ -14,6 +14,9 @@ public class EnemyStateAttack : CharacterStateAttack
 
     public override void Enter(int type)
     {
+        // Try to resync orientation with player just before attacking
+        ((EnemyFSM)character).LookAtTarget(10f);
+
         character.animator.applyRootMotion = true;
 
         base.Enter(type);

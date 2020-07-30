@@ -31,10 +31,11 @@ public class EnemyStateMove : EnemyStateReaction
 
         character.animator.applyRootMotion = true;
 
-        if (angle >= 90f || angle <= -90f)
+        if (Mathf.Abs(angle) > 35f)
         {
             _isMoving = false;
 
+            character.animator.SetTrigger(ANIMATION_PARAM_TURN);
             character.animator.SetFloat(ANIMATION_PARAM_ANGLE, angle > 0 ? 1f : 0f);
         }
         else
@@ -43,7 +44,6 @@ public class EnemyStateMove : EnemyStateReaction
         }
 
         character.animator.SetBool(ANIMATION_PARAM_MOVE, _isMoving);
-        character.animator.SetBool(ANIMATION_PARAM_TURN, !_isMoving);
     }
 
     public override void OnSingleAnimationEnded()
@@ -53,12 +53,13 @@ public class EnemyStateMove : EnemyStateReaction
 
     public override void Update()
     {
-        base.Update();
-
         ((EnemyFSM)character).LookAtTarget(rotationSpeed);
 
         if (_isMoving == true)
         {
+            // Update reaction state only if not lock by turn animation
+            base.Update();
+
             float speedTreshold = isRunning == true ? 1f : 0f;
 
             character.animator.SetFloat(ANIMATION_PARAM_SPEED, speedTreshold);
@@ -84,6 +85,8 @@ public class EnemyStateMove : EnemyStateReaction
 
         character.animator.SetBool(ANIMATION_PARAM_MOVE, false);
         character.animator.SetBool(ANIMATION_PARAM_TURN, false);
+
+        character.animator.applyRootMotion = false;
 
         character.GetComponent<UnityEngine.AI.NavMeshAgent>().ResetPath();
     }
