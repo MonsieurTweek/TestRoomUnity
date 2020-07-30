@@ -15,8 +15,8 @@ MonoBehaviour:
   title: 
   power: 1
   health: 10
-  energy: 3
-  energyPerSecond: 1
+  energy: 5
+  energyPerSecond: 0.85
   energyForDash: 3
-  energyForLightAttack: 1
-  energyForHeavyAttack: 2
+  energyForLightAttack: 2
+  energyForHeavyAttack: 3
