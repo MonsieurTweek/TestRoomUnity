@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1539263171067532791}
   - component: {fileID: 1539263171067532790}
-  - component: {fileID: 1539263171067532785}
   - component: {fileID: 1539263171067532787}
   - component: {fileID: 5270328199650522399}
   - component: {fileID: 5900142477524457411}
   - component: {fileID: 8987915197510259524}
+  - component: {fileID: 2699444715520086711}
   m_Layer: 16
   m_Name: CM_Brain
   m_TagString: MainCamera
@@ -79,14 +79,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1539263171067532785
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539263171067532786}
-  m_Enabled: 1
 --- !u!114 &1539263171067532787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,3 +203,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2699444715520086711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539263171067532786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44c075545238de4dbc052d847069d7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 106295

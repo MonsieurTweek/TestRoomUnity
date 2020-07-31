@@ -53,7 +53,8 @@ public class CameraHideController : MonoBehaviour
         // Hide objects
         foreach (GameObject gameObjectToHide in objectsToHide)
         {
-            _objectsHiddenToLayer.Add(gameObjectToHide, gameObjectToHide.layer);
+            // TODO : Check why we are adding same object several times
+            _objectsHiddenToLayer[gameObjectToHide] = gameObjectToHide.layer;
 
             // Reassign Hidden layer 
             gameObjectToHide.layer = HIDE_LAYER;
