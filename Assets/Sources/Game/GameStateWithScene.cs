@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameStateWithScene : AbstractFSM.State
 {
     public GameSceneIndexes gameScene = GameSceneIndexes.HOME;
+    public AudioClip music = null;
 
     private List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
 
@@ -15,6 +16,11 @@ public class GameStateWithScene : AbstractFSM.State
         ((GameFSM)owner).RegisterLoadingOperation(SceneManager.LoadSceneAsync((int)gameScene, LoadSceneMode.Additive));
 
         ((GameFSM)owner).StartLoading();
+
+        if (music != null)
+        {
+            AudioManager.instance.PlayMusic(music);
+        }
     }
 
     public override void Exit()
