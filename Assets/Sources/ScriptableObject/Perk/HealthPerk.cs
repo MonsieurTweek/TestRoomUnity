@@ -9,6 +9,9 @@ public class HealthPerk : Perk
     {
         base.Unlock(character);
 
-        character.data.BuffHealth(amount, true);
+        bool isPermanent = type == PerkType.PERMANENT;
+
+        character.data.BuffHealth(amount, isPermanent);
+
     }
 }
