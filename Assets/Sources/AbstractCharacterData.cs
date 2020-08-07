@@ -43,6 +43,9 @@ public class AbstractCharacterData : AbstractUniqueData
         if (isPermanent == true)
         {
             healthMax += amount;
+        } else
+        {
+            health = Math.Min(health, healthMax);
         }
 
         if (onBuffValues != null)
