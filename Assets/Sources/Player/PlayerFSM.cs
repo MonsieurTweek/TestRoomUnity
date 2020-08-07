@@ -332,6 +332,17 @@ public class PlayerFSM : CharacterFSM, ICharacter
     }
 
     /// <summary>
+    /// Animation event triggers a change of animation speed
+    /// </summary>
+    public void OnUpdateAttackSpeed(AnimationEvent animationEvent)
+    {
+        if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
+        {
+            ((PlayerStateAttack)currentState).OnUpdateAttackSpeed(animationEvent.floatParameter);
+        }
+    }
+
+    /// <summary>
     /// Animation has ended
     /// Called from animation event
     /// </summary>
