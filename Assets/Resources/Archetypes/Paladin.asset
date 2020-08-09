@@ -20,6 +20,6 @@ MonoBehaviour:
   configuration: {fileID: 11400000, guid: 24d6d2b49164d004a8e8ec106da5a75e, type: 2}
   animationController: {fileID: 22100000, guid: 3c21dc42a3bbf274891a33e21d97f460,
     type: 2}
-  gearLeft: {fileID: 519053702718917741, guid: fd4df4869ce3c1045ace968111482896, type: 3}
-  gearRight: {fileID: 1408116361102627807, guid: 0b4358b7c1dfde742af8a5488fdd674c,
+  gearLeft: {fileID: 519053702718917741, guid: 060c05e20a5716e4fbaf3e4495c49391, type: 3}
+  gearRight: {fileID: 1408116361102627807, guid: adbc8cd9f39c49544b8a53ba4e6e8dee,
     type: 3}

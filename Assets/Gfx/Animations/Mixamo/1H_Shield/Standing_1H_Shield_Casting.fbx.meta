@@ -91,10 +91,26 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.23343849
+      - time: 0.08309642
+        functionName: OnAnimationPlayFx
+        data: 
+        objectReferenceParameter: {fileID: 4756220788394149497, guid: fe49e20f95a26de4b9290adac50dc4c2,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.23814985
         functionName: OnToggleAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.59881735
+        functionName: OnAnimationPlayFx
+        data: 
+        objectReferenceParameter: {fileID: 4756220788394149497, guid: e5fc730cadc8b3643bc41db64f93d316,
+          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
