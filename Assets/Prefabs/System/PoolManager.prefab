@@ -128,3 +128,7 @@ MonoBehaviour:
     gameObject: {fileID: 4756220788394149497, guid: fe49e20f95a26de4b9290adac50dc4c2,
       type: 3}
     size: 3
+  - tag: FX_Shadow_Circle
+    gameObject: {fileID: 6325439018897186343, guid: 846ac611b496223418e36d12e442c732,
+      type: 3}
+    size: 3

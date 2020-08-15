@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: dcd247632f255b241aed0e2f47a97102
+guid: 5815ff0abfbb4b243bd4802a42a95a93
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Standing_1H_Magic_Attack_01
+    second: Standing_1H_Magic_Attack_EldritchBlast
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Standing_1H_Magic_Attack_01
+      name: Standing_1H_Magic_Attack_EldritchBlast
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
@@ -77,10 +77,24 @@ ModelImporter:
       - time: 0
         functionName: OnAnimationPlayFx
         data: 
-        objectReferenceParameter: {fileID: 4962193528027548667, guid: e184c44ec1b1f144c9c493c898b02196,
+        objectReferenceParameter: {fileID: 6325439018897186343, guid: 846ac611b496223418e36d12e442c732,
           type: 3}
         floatParameter: 0
         intParameter: 1
+        messageOptions: 0
+      - time: 0.080152676
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5038168
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
+        intParameter: 0
         messageOptions: 0
       transformMask: []
       maskType: 3

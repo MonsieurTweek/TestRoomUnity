@@ -15,9 +15,10 @@ MonoBehaviour:
   title: Sorcerer
   description: 
   icon: {fileID: 21300000, guid: 44c04ac908b31dc46b9b260c9c88937d, type: 3}
+  background: {fileID: 0}
   character: 64
   configuration: {fileID: 11400000, guid: 04abb757a63a34443be9a96e1cc79cef, type: 2}
-  animationController: {fileID: 22100000, guid: 21231ad18645d0840827ae686696a76d,
+  animationController: {fileID: 22100000, guid: 80857abf9a95e4c40a395a64d6329ea1,
     type: 2}
   gearLeft: {fileID: 0}
   gearRight: {fileID: 0}

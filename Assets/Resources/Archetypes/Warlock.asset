@@ -15,9 +15,10 @@ MonoBehaviour:
   title: Warlock
   description: 
   icon: {fileID: 21300000, guid: 3987fae0e09db6547af248046030c655, type: 3}
+  background: {fileID: 0}
   character: 128
   configuration: {fileID: 11400000, guid: 04abb757a63a34443be9a96e1cc79cef, type: 2}
-  animationController: {fileID: 22100000, guid: 21231ad18645d0840827ae686696a76d,
+  animationController: {fileID: 22100000, guid: 186cd275f8e834c44aaaecf1958b6318,
     type: 2}
   gearLeft: {fileID: 0}
   gearRight: {fileID: 0}
