@@ -120,8 +120,8 @@ MonoBehaviour:
     gameObject: {fileID: 2552170713262563815, guid: aee9dd0bbc844954ea9adcd2b72dab88,
       type: 3}
     size: 3
-  - tag: FX_ShardMagic_Shooting_Divine_01
-    gameObject: {fileID: 4756220788394149497, guid: e5fc730cadc8b3643bc41db64f93d316,
+  - tag: WP_ShardDivine_Line
+    gameObject: {fileID: 8677309504492095597, guid: dc927095f4402c743af2ca708c8b8b62,
       type: 3}
     size: 3
   - tag: FX_PowerDraw_Divine_01

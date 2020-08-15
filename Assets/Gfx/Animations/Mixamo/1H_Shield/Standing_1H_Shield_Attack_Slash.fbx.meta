@@ -98,6 +98,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.49891776
+        functionName: OnAnimationPlayFx
+        data: 
+        objectReferenceParameter: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.8548896
         functionName: OnToggleAttack
         data: 

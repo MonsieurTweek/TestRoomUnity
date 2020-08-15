@@ -49,7 +49,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
@@ -78,7 +78,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
@@ -97,29 +97,15 @@ ModelImporter:
         objectReferenceParameter: {fileID: 4756220788394149497, guid: fe49e20f95a26de4b9290adac50dc4c2,
           type: 3}
         floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.23814985
-        functionName: OnToggleAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: 0.59881735
-        functionName: OnAnimationPlayFx
+        functionName: OnAnimationSendProjectile
         data: 
-        objectReferenceParameter: {fileID: 4756220788394149497, guid: e5fc730cadc8b3643bc41db64f93d316,
+        objectReferenceParameter: {fileID: 8677309504492095597, guid: dc927095f4402c743af2ca708c8b8b62,
           type: 3}
         floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.6845426
-        functionName: OnToggleAttack
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
       - time: 0.9936909
         functionName: OnSingleAnimationEnded
