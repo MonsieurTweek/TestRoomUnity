@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Standing_1H_Magic_Attack_Firebolt
+    second: Standing_1H_Magic_Attack_Fireball
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Standing_1H_Magic_Attack_Firebolt
+      name: Standing_1H_Magic_Attack_Fireball
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
@@ -77,10 +77,10 @@ ModelImporter:
       - time: 0
         functionName: OnAnimationPlayFx
         data: 
-        objectReferenceParameter: {fileID: 4962193528027548667, guid: e184c44ec1b1f144c9c493c898b02196,
+        objectReferenceParameter: {fileID: 6261445851654422626, guid: a665fb34898232b4d84fb88e27feb459,
           type: 3}
         floatParameter: 0
-        intParameter: 1
+        intParameter: 0
         messageOptions: 0
       transformMask: []
       maskType: 3
