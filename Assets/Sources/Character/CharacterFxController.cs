@@ -56,8 +56,17 @@ public class CharacterFxController : MonoBehaviour
 
     private void UseFx(VisualEffectController fx, bool isRooted, uint stateId)
     {
-        fx.transform.position = isRooted == true ? transform.position : anchor.position;
-        fx.transform.rotation = transform.rotation;
+        
+
+        if (isRooted == false)
+        {
+            fx.AttachToAnchor(anchor);
+        }
+        else
+        {
+            fx.transform.position = transform.position;
+            fx.transform.rotation = transform.rotation;
+        }
 
         fx.Reset(stateId);
 
