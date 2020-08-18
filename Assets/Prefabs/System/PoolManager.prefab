@@ -52,12 +52,12 @@ MonoBehaviour:
     gameObject: {fileID: 4589617513473318289, guid: 6be2189e7110e4b4b8f1428e8a88ebf7,
       type: 3}
     size: 3
-  - tag: FX_Fire_Circle
-    gameObject: {fileID: 4962193528027548667, guid: e184c44ec1b1f144c9c493c898b02196,
+  - tag: FX_Fireball_Casting
+    gameObject: {fileID: 6261445851654422626, guid: a665fb34898232b4d84fb88e27feb459,
       type: 3}
     size: 3
-  - tag: FX_Fire_Explosion
-    gameObject: {fileID: 2057997815331100801, guid: d86de4a626ca5964f86e18634014367b,
+  - tag: FX_Fireball_Explosion
+    gameObject: {fileID: 1682974245938811899, guid: 5f1daf49d57101447b4705d4e0311616,
       type: 3}
     size: 3
   - tag: FX_Freeze
