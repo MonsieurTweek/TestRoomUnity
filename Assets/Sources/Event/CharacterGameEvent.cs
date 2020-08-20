@@ -169,4 +169,22 @@ public class CharacterGameEvent : MonoBehaviour
             onIntroEnded();
         }
     }
+
+    public event Action<Transform> onOutroStarted;
+    public void OutroStart(Transform target)
+    {
+        if (onOutroStarted != null)
+        {
+            onOutroStarted(target);
+        }
+    }
+
+    public event Action onOutroPlaying;
+    public void OutroPlay()
+    {
+        if (onOutroPlaying != null)
+        {
+            onOutroPlaying();
+        }
+    }
 }

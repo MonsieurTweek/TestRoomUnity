@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerFSM : CharacterFSM, ICharacter
 {
     private const uint CAN_ATTACK_MASK = (uint)CharacterStateEnum.MOVE;
     private const uint CAN_HIT_MASK = (uint)(CharacterStateEnum.MOVE | CharacterStateEnum.ATTACK);
-    private const uint CAN_TARGET_MASK = (uint)~CharacterStateEnum.IDLE;
+    private const uint CAN_TARGET_MASK = (uint)~(CharacterStateEnum.IDLE | CharacterStateEnum.DIE);
 
     [Header("References")]
     public Transform model = null;
@@ -68,8 +69,8 @@ public class PlayerFSM : CharacterFSM, ICharacter
         PerkGameEvent.instance.onUnlockStarted += OnPerkUnlockStarted;
 
         // Bind player common inputs
-        InputManager.instance.gameplay.Target.started += ctx => AcquireTarget();
-        InputManager.instance.gameplay.Target.canceled += ctx => ReleaseTarget();
+        InputManager.instance.gameplay.Target.started += OnTargetButtonStarted;
+        InputManager.instance.gameplay.Target.canceled += OnTargetButtonCanceled;
 
         InputManager.instance.gameplay.AttackLight.canceled += ctx => TransitionToAttackLight();
         InputManager.instance.gameplay.AttackHeavy.canceled += ctx => TransitionToAttackHeavy();
@@ -264,6 +265,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
             }
             else
             {
+                CharacterGameEvent.instance.Die(data);
                 TransitionToDie();
             }
 
@@ -293,6 +295,9 @@ public class PlayerFSM : CharacterFSM, ICharacter
         {
             ReleaseTarget();
         }
+
+        InputManager.instance.gameplay.Target.started -= OnTargetButtonStarted;
+        InputManager.instance.gameplay.Target.canceled -= OnTargetButtonCanceled;
     }
 
     private void OnIntroStarted(Transform _, AbstractCharacterData __)
@@ -317,6 +322,16 @@ public class PlayerFSM : CharacterFSM, ICharacter
         }
 
         Instantiate<GameObject>(fxPerkUnlock, transform);
+    }
+
+    private void OnTargetButtonStarted(InputAction.CallbackContext context)
+    {
+        AcquireTarget();
+    }
+
+    private void OnTargetButtonCanceled(InputAction.CallbackContext context)
+    {
+        ReleaseTarget();
     }
 
     /// <summary>
@@ -377,6 +392,12 @@ public class PlayerFSM : CharacterFSM, ICharacter
         if (PerkGameEvent.instance != null)
         {
             PerkGameEvent.instance.onUnlockStarted -= OnPerkUnlockStarted;
+        }
+
+        if (InputManager.instance != null)
+        {
+            InputManager.instance.gameplay.Target.started -= OnTargetButtonStarted;
+            InputManager.instance.gameplay.Target.canceled -= OnTargetButtonCanceled;
         }
     }
 }

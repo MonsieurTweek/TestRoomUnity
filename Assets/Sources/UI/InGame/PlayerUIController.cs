@@ -33,6 +33,8 @@ public class PlayerUIController : MonoBehaviour
         CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
         CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
 
+        CharacterGameEvent.instance.onOutroStarted += OnOutroStarted;
+
         PerkGameEvent.instance.onDisplayed += OnPerkDisplayed;
         PerkGameEvent.instance.onUnlockStarted += OnPerkUnlockStarted;
 
@@ -51,6 +53,11 @@ public class PlayerUIController : MonoBehaviour
     private void OnIntroEnded()
     {
         layout.SetActive(true);
+    }
+
+    private void OnOutroStarted(Transform target)
+    {
+        layout.SetActive(false);
     }
 
     private void OnPerkDisplayed()
@@ -133,6 +140,8 @@ public class PlayerUIController : MonoBehaviour
 
             CharacterGameEvent.instance.onIntroStarted -= OnIntroStarted;
             CharacterGameEvent.instance.onIntroEnded -= OnIntroEnded;
+
+            CharacterGameEvent.instance.onOutroStarted -= OnOutroStarted;
         }
 
         if (PerkGameEvent.instance != null)

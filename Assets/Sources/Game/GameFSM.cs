@@ -10,7 +10,6 @@ public class GameFSM : AbstractFSM
 
     public GameStateWithScene stateCharacterSelection = new GameStateWithScene();
     public GameStateWithScene stateArena = new GameStateWithScene();
-    public GameStateGameOver stateGameOver = new GameStateGameOver();
 
     [Header("Properties")]
     public float fadeOutTime = 0.5f;
@@ -20,12 +19,6 @@ public class GameFSM : AbstractFSM
     public void TransitionToStore() { PrepareToLoadState(stateStore); }
     public void TransitionToCharacterSelection() { PrepareToLoadState(stateCharacterSelection); }
     public void TransitionToArena() { PrepareToLoadState(stateArena); }
-    public void TransitionToGameOver(bool hasWon, int reward)
-    {
-        SaveData.current.playerProfile.currency += reward;
-
-        StartCoroutine("PrepareGameOver", hasWon);
-    }
 
     private List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
     private float _totalSceneProgress = 0f;
@@ -38,7 +31,7 @@ public class GameFSM : AbstractFSM
         GameEvent.instance.onPlayButtonPressed += TransitionToCharacterSelection;
         GameEvent.instance.onResetButtonPressed += ResetProgression;
         GameEvent.instance.onCharacterSelected += TransitionToArena;
-        GameEvent.instance.onGameOver += TransitionToGameOver;
+        GameEvent.instance.onGameOver += PrepareGameOver;
 
         TransitionToHome();
     }
@@ -60,19 +53,6 @@ public class GameFSM : AbstractFSM
         _scenesLoading.Clear();
 
         LoadingGameEvent.instance.Prepare(LoadState);
-    }
-
-    private IEnumerator PrepareGameOver(bool hasWon)
-    {
-        LoadingGameEvent.instance.Prepare(null);
-
-        ChangeState(stateGameOver, hasWon);
-
-        LoadingGameEvent.instance.LoadingProgress(100f);
-
-        yield return new WaitForSeconds(fadeOutTime);
-
-        LoadingGameEvent.instance.LoadingEnded();
     }
 
     private void LoadState()
@@ -124,6 +104,12 @@ public class GameFSM : AbstractFSM
         }
     }
 
+    public void PrepareGameOver(bool hasWon, int reward)
+    {
+        SaveData.current.playerProfile.currency += reward;
+        SaveData.current.playerProfile.lastMatchWon = hasWon;
+    }
+
     private void OnDestroy()
     {
         if (GameEvent.instance != null)
@@ -133,7 +119,7 @@ public class GameFSM : AbstractFSM
             GameEvent.instance.onPlayButtonPressed -= TransitionToCharacterSelection;
             GameEvent.instance.onResetButtonPressed -= ResetProgression;
             GameEvent.instance.onCharacterSelected -= TransitionToArena;
-            GameEvent.instance.onGameOver -= TransitionToGameOver;
+            GameEvent.instance.onGameOver -= PrepareGameOver;
         }
     }
 }

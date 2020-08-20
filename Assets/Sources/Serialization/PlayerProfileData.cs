@@ -19,5 +19,6 @@ public class PlayerProfileData
     }
 
     public int lastCurrency { private set; get; }
+    public bool lastMatchWon = false;
     public uint characters = (uint)CharacterEnum.DEFAULT_UNLOCK;
 }

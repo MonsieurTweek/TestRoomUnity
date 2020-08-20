@@ -11,11 +11,13 @@ public class ArenaManager : MonoBehaviour
 
     private int _currentReward = 0;
     private int _currentEnemyIndex = 0;
+    private uint _lastHitEnemyId = 0;
     private Dictionary<uint, EnemyFSM> _currentEnemies = new Dictionary<uint, EnemyFSM>();
     private List<EnemyFSM> _enemiesToSpawn = new List<EnemyFSM>();
 
     private void Start()
     {
+        CharacterGameEvent.instance.onHit += OnHit;
         CharacterGameEvent.instance.onDied += OnDie;
         PerkGameEvent.instance.onUnlockEnded += OnPerkUnlockEnded;
 
@@ -69,6 +71,17 @@ public class ArenaManager : MonoBehaviour
         enemy.Initialize(player);
 
         _currentEnemies.Add(enemy.data.uniqueId, enemy);
+
+        // Ensure we have a proper last hit registered
+        _lastHitEnemyId = enemy.data.uniqueId;
+    }
+
+    private void OnHit(uint id, int health, int damage)
+    {
+        if (player.data.uniqueId != id)
+        {
+            _lastHitEnemyId = id;
+        }
     }
 
     private void OnDie(uint id, int reward)
@@ -76,6 +89,8 @@ public class ArenaManager : MonoBehaviour
         if (player.data.uniqueId == id)
         {
             // You lose !
+            CharacterGameEvent.instance.OutroStart(_currentEnemies[_lastHitEnemyId].transform);
+
             GameEvent.instance.GameOver(false, _currentReward);
         }
         else
@@ -112,6 +127,9 @@ public class ArenaManager : MonoBehaviour
                 else
                 {
                     // You win !
+                    CharacterGameEvent.instance.Pause(true);
+                    CharacterGameEvent.instance.OutroStart(player.transform);
+
                     GameEvent.instance.GameOver(true, _currentReward);
                 }
             }

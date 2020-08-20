@@ -14,6 +14,38 @@ public class SandboxManager : MonoBehaviour
                 enemies[i].Initialize(player);
             }
         }
+
+        CharacterGameEvent.instance.onDied += OnDie;
+    }
+
+    private void OnDie(uint id, int reward)
+    {
+        EnemyFSM remainingEnemy = null;
+
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            if (enemies[i].data.isAlive == true)
+            {
+                remainingEnemy = enemies[i];
+                break;
+            }
+        }
+
+        if (remainingEnemy == null)
+        {
+            // You win !
+            CharacterGameEvent.instance.Pause(true);
+            CharacterGameEvent.instance.OutroStart(player.transform);
+
+            GameEvent.instance.GameOver(true, 1000);
+        }
+        else if (player.data.uniqueId == id)
+        {
+            // You lose !
+            CharacterGameEvent.instance.OutroStart(remainingEnemy.transform);
+
+            GameEvent.instance.GameOver(false, 500);
+        }
     }
 
     public void KillEnemy()
@@ -27,5 +59,10 @@ public class SandboxManager : MonoBehaviour
     public void KillPlayer()
     {
         player.Hit(Mathf.RoundToInt(player.data.healthMax * 0.5f));
+    }
+
+    private void OnDestroy()
+    {
+        CharacterGameEvent.instance.onDied -= OnDie;
     }
 }

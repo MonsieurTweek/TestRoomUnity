@@ -33,25 +33,32 @@ public class EnemyStateReaction : CharacterFSM.CharacterState
 
     public override void Update()
     {
-        _sqrDistanceToTarget = ((EnemyFSM)character).direction.sqrMagnitude;
+        if (((EnemyFSM)character).target != null)
+        {
+            _sqrDistanceToTarget = ((EnemyFSM)character).direction.sqrMagnitude;
 
-        // Enter range
-        if (_isInRange == false && _sqrDistanceToTarget < range * range)
-        {
-            EnterRange();
-        }
-        // Leave range
-        else if (_isInRange == true && _sqrDistanceToTarget > range * range)
-        {
-            ExitRange();
-        }
+            // Enter range
+            if (_isInRange == false && _sqrDistanceToTarget < range * range)
+            {
+                EnterRange();
+            }
+            // Leave range
+            else if (_isInRange == true && _sqrDistanceToTarget > range * range)
+            {
+                ExitRange();
+            }
 
-        // Target is too far, too long
-        if (onStayOutOfRange != null && _isInRange == false &&
-            _sqrDistanceToTarget > rangedActionDistance * rangedActionDistance &&
-            Time.time - _outOfRangeTime >= rangedActionDelay)
+            // Target is too far, too long
+            if (onStayOutOfRange != null && _isInRange == false &&
+                _sqrDistanceToTarget > rangedActionDistance * rangedActionDistance &&
+                Time.time - _outOfRangeTime >= rangedActionDelay)
+            {
+                onStayOutOfRange.Invoke();
+            }
+        }
+        else
         {
-            onStayOutOfRange.Invoke();
+            _isInRange = false;
         }
     }
 

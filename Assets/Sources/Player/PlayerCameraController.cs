@@ -13,6 +13,8 @@ public class PlayerCameraController : MonoBehaviour
     {
         CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
         CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
+
+        CharacterGameEvent.instance.onOutroStarted += OnOutroStarted;
     }
 
     public void OnIntroStarted(Transform target, AbstractCharacterData _)
@@ -24,6 +26,12 @@ public class PlayerCameraController : MonoBehaviour
     public void OnIntroEnded()
     {
         cameraFree.Priority = 100;
+    }
+
+    public void OnOutroStarted(Transform target)
+    {
+        cameraFree.Priority = 0;
+        cameraTarget.Priority = 0;
     }
 
     public void FollowTarget(Transform target)
@@ -48,6 +56,8 @@ public class PlayerCameraController : MonoBehaviour
         {
             CharacterGameEvent.instance.onIntroStarted -= OnIntroStarted;
             CharacterGameEvent.instance.onIntroEnded -= OnIntroEnded;
+
+            CharacterGameEvent.instance.onOutroStarted -= OnOutroStarted;
         }
     }
 }

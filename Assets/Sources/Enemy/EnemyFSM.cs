@@ -75,8 +75,9 @@ public class EnemyFSM : CharacterFSM, ICharacter
                 {
                     _availablePhases.Add(i);
                 }
-
             }
+
+            CharacterGameEvent.instance.onDying += OnDying;
 
             TransitionToIntro();
         }
@@ -159,6 +160,21 @@ public class EnemyFSM : CharacterFSM, ICharacter
         }
 
         return false;
+    }
+
+    private void OnDying(uint id)
+    {
+        if (data.uniqueId != id)
+        {
+            AbstractCharacterData player = target.GetComponent<PlayerFSM>().data;
+
+            if(player.isAlive == false)
+            {
+                target = null;
+
+                TransitionToIdle();
+            }
+        }
     }
 
     public void EvaluateNextPhase()
@@ -268,6 +284,14 @@ public class EnemyFSM : CharacterFSM, ICharacter
             currentState.Exit();
 
             GameObject.Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (CharacterGameEvent.instance != null)
+        {
+            CharacterGameEvent.instance.onDying -= OnDying;
         }
     }
 }
