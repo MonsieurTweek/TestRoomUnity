@@ -7,6 +7,8 @@ public class AbstractCharacterData : AbstractUniqueData
 {
     public string name { protected set; get; }
 
+    public CharacterTypeEnum type = CharacterTypeEnum.NONE;
+
     public int power { protected set; get; }
     public int health { protected set; get; }
     public int healthMax { protected set; get; }
@@ -21,6 +23,7 @@ public class AbstractCharacterData : AbstractUniqueData
     /// </summary>
     public virtual void Populate(Character configuration)
     {
+        type = configuration.type;
         name = configuration.title;
         power = configuration.power;
         healthMax = configuration.health;

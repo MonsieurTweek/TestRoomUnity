@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95b01661f80e2ac4d8caa94db625afab, type: 3}
   m_Name: Character_Minion_Skeleton
   m_EditorClassIdentifier: 
+  type: 3
   title: Skeleton
   power: 1
   health: 2

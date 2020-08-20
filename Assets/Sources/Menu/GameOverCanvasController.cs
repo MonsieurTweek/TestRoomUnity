@@ -12,6 +12,7 @@ public class GameOverCanvasController : MonoBehaviour
     public Image background = null;
     public Image currency = null;
     public ProgressBarController confirmBar = null;
+    public GameStatisticController statisticController = null;
 
     [Header("Properties")]
     public Color victoryColor = Color.black;
@@ -43,6 +44,8 @@ public class GameOverCanvasController : MonoBehaviour
 
     private void OnOutroPlaying()
     {
+        statisticController.RefreshForSession();
+
         confirmBar.current = 0;
 
         title.text = SaveData.current.playerProfile.lastMatchWon ? victoryText : defeatText;

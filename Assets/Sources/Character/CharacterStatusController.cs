@@ -28,7 +28,7 @@ public class CharacterStatusController : MonoBehaviour
         CharacterGameEvent.instance.onFrozen += OnFrozen;
     }
 
-    private void OnDying(uint uniqueId)
+    private void OnDying(uint uniqueId, CharacterTypeEnum type)
     {
         if (_character.data.uniqueId == uniqueId)
         {

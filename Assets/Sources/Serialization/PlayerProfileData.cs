@@ -3,6 +3,17 @@
 [Serializable]
 public class PlayerProfileData
 {
+    [Serializable]
+    public struct PlayerStatistics
+    {
+        public int countEnemyKilled;
+        public int countDamageInflicted;
+        public int countDamageReceived;
+
+        public float timeAverage;
+        public float timeTotal;
+    }
+
     private int _currency = 999;
     public int currency
     {
@@ -19,6 +30,12 @@ public class PlayerProfileData
     }
 
     public int lastCurrency { private set; get; }
-    public bool lastMatchWon = false;
     public uint characters = (uint)CharacterEnum.DEFAULT_UNLOCK;
+
+    public bool lastMatchWon = false;
+    public int countMatchWon = 0;
+    public int countMatchLost = 0;
+
+    public PlayerStatistics sessionStatistics = new PlayerStatistics();
+    public PlayerStatistics totalStatistics = new PlayerStatistics();
 }

@@ -76,7 +76,7 @@ public class ArenaManager : MonoBehaviour
         _lastHitEnemyId = enemy.data.uniqueId;
     }
 
-    private void OnHit(uint id, int health, int damage)
+    private void OnHit(uint id, CharacterTypeEnum type, int health, int damage)
     {
         if (player.data.uniqueId != id)
         {

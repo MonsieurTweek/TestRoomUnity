@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1930972646891838759}
   - component: {fileID: 8528038019923676922}
   - component: {fileID: 2364741659991306987}
+  - component: {fileID: -8739900024880697743}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -64,21 +65,22 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     gameScene: 1
+    music: {fileID: 0}
   stateStore:
     owner: {fileID: 0}
     flag: 0
     gameScene: 2
+    music: {fileID: 0}
   stateCharacterSelection:
     owner: {fileID: 0}
     flag: 0
     gameScene: 3
+    music: {fileID: 0}
   stateArena:
     owner: {fileID: 0}
     flag: 0
     gameScene: 4
-  stateGameOver:
-    owner: {fileID: 0}
-    flag: 0
+    music: {fileID: 0}
   fadeOutTime: 0.5
 --- !u!114 &1930972646891838759
 MonoBehaviour:
@@ -116,3 +118,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 336c99e62b6985b4387af61b74cbcf37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8739900024880697743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594270086289841447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3327da6da7cac704c962e119a6b14f4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}

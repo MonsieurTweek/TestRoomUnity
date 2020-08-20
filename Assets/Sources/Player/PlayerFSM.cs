@@ -296,8 +296,11 @@ public class PlayerFSM : CharacterFSM, ICharacter
             ReleaseTarget();
         }
 
-        InputManager.instance.gameplay.Target.started -= OnTargetButtonStarted;
-        InputManager.instance.gameplay.Target.canceled -= OnTargetButtonCanceled;
+        if (data.uniqueId == uniqueId)
+        {
+            InputManager.instance.gameplay.Target.started -= OnTargetButtonStarted;
+            InputManager.instance.gameplay.Target.canceled -= OnTargetButtonCanceled;
+        }
     }
 
     private void OnIntroStarted(Transform _, AbstractCharacterData __)

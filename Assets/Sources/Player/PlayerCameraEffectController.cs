@@ -30,7 +30,7 @@ public class PlayerCameraEffectController : MonoBehaviour
         CharacterGameEvent.instance.onHit += OnHit;
     }
 
-    private void OnHit(uint uniqueId, int health, int damage)
+    private void OnHit(uint uniqueId, CharacterTypeEnum type, int health, int damage)
     {
         if (player.data.uniqueId == uniqueId && _vignette != null)
         {

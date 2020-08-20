@@ -98,7 +98,7 @@ public class CharacterGearController : MonoBehaviour
         }
     }
 
-    private void OnDying(uint uniqueId)
+    private void OnDying(uint uniqueId, CharacterTypeEnum type)
     {
         if (owner.data.uniqueId == uniqueId)
         {

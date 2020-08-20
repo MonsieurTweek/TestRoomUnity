@@ -50,12 +50,12 @@ public class CharacterGameEvent : MonoBehaviour
     /// <summary>
     /// When a character is hit BY somebody else
     /// </summary>
-    public event Action<uint, int, int> onHit;
+    public event Action<uint, CharacterTypeEnum, int, int> onHit;
     public void Hit(AbstractCharacterData target, int damage)
     {
         if (onHit != null)
         {
-            onHit(target.uniqueId, target.health, damage);
+            onHit(target.uniqueId, target.type, target.health, damage);
         }
     }
 
@@ -71,12 +71,12 @@ public class CharacterGameEvent : MonoBehaviour
         }
     }
 
-    public event Action<uint> onDying;
+    public event Action<uint, CharacterTypeEnum> onDying;
     public void Die(AbstractCharacterData target)
     {
         if (onDying != null)
         {
-            onDying(target.uniqueId);
+            onDying(target.uniqueId, target.type);
         }
     }
 

@@ -26,6 +26,11 @@ public class GameFSM : AbstractFSM
 
     private void Start()
     {
+        stateHome.flag = (uint)GameStateEnum.HOME;
+        stateStore.flag = (uint)GameStateEnum.STORE;
+        stateCharacterSelection.flag = (uint)GameStateEnum.SELECTION;
+        stateArena.flag = (uint)GameStateEnum.ARENA;
+
         GameEvent.instance.onHomeButtonPressed += TransitionToHome;
         GameEvent.instance.onStoreButtonPressed += TransitionToStore;
         GameEvent.instance.onPlayButtonPressed += TransitionToCharacterSelection;
@@ -108,6 +113,8 @@ public class GameFSM : AbstractFSM
     {
         SaveData.current.playerProfile.currency += reward;
         SaveData.current.playerProfile.lastMatchWon = hasWon;
+
+        GameManager.instance.Save();
     }
 
     private void OnDestroy()

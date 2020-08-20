@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7227f00235cb9ef4e8c8761016afb556, type: 3}
   m_Name: Player_Distance
   m_EditorClassIdentifier: 
+  type: 1
   title: 
   power: 1
   health: 10

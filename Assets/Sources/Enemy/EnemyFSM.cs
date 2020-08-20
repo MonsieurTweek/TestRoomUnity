@@ -162,7 +162,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
         return false;
     }
 
-    private void OnDying(uint id)
+    private void OnDying(uint id, CharacterTypeEnum type)
     {
         if (data.uniqueId != id)
         {

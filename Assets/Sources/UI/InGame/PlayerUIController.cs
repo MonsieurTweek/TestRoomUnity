@@ -102,7 +102,7 @@ public class PlayerUIController : MonoBehaviour
         }
     }
 
-    private void OnCharacterHit(uint id, int health, int damage)
+    private void OnCharacterHit(uint id, CharacterTypeEnum type, int health, int damage)
     {
         if (player.data.uniqueId == id)
         {
