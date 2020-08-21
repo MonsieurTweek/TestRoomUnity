@@ -37,9 +37,6 @@ public class IntroSplashController : MonoBehaviour
         confirmBar.current = 0;
 
         _target = target;
-
-        InputManager.instance.menu.Confirm.started += OnConfirmStarted;
-        InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
     }
 
     private void OnIntroPaused()
@@ -56,6 +53,9 @@ public class IntroSplashController : MonoBehaviour
         LeanTween.moveZ(layout.gameObject, _target.position.z, animationDuration).setEase(animationType).setDelay(0.1f);
 
         layout.gameObject.SetActive(true);
+
+        InputManager.instance.menu.Confirm.started += OnConfirmStarted;
+        InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
     }
 
     private void OnIntroEnded()
