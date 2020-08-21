@@ -71,6 +71,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Wep_Shield_Ornate_01
       objectReference: {fileID: 0}
+    - target: {fileID: 141166, guid: 76e5869740b242247a097e9b9b65e634, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 465364, guid: 76e5869740b242247a097e9b9b65e634, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
