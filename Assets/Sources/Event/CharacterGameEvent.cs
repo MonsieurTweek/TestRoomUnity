@@ -161,6 +161,15 @@ public class CharacterGameEvent : MonoBehaviour
         }
     }
 
+    public event Action onIntroPaused;
+    public void IntroPause()
+    {
+        if (onIntroPaused != null)
+        {
+            onIntroPaused();
+        }
+    }
+
     public event Action onIntroEnded;
     public void IntroEnd()
     {

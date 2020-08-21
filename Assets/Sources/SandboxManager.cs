@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class SandboxManager : MonoBehaviour
 {
@@ -7,6 +8,15 @@ public class SandboxManager : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(Initialize());
+
+        CharacterGameEvent.instance.onDied += OnDie;
+    }
+
+    private IEnumerator Initialize()
+    {
+        yield return new WaitForSeconds(0.25f);
+
         if (player != null)
         {
             for (int i = 0; i < enemies.Length; i++)
@@ -14,8 +24,6 @@ public class SandboxManager : MonoBehaviour
                 enemies[i].Initialize(player);
             }
         }
-
-        CharacterGameEvent.instance.onDied += OnDie;
     }
 
     private void OnDie(uint id, int reward)

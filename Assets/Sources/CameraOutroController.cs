@@ -10,8 +10,12 @@ public class CameraOutroController : MonoBehaviour
     [Header("Properties")]
     public float distanceToTarget = 5f;
 
+    private CinemachineComposer _composer = null;
+
     private void Start()
     {
+        _composer = cameraOutro.GetCinemachineComponent<CinemachineComposer>();
+
         CharacterGameEvent.instance.onOutroStarted += OnOutroStarted;
     }
 
@@ -23,7 +27,8 @@ public class CameraOutroController : MonoBehaviour
 
         cameraOutro.m_LookAt = target;
         cameraOutro.transform.position = cameraPosition;
-        cameraOutro.GetCinemachineComponent<CinemachineComposer>().m_TrackedObjectOffset.y = target.localScale.y;
+
+        _composer.m_TrackedObjectOffset.y = target.localScale.y;
 
         cameraZoom.m_Width = target.localScale.y * 2f;
 
