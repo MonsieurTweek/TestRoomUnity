@@ -134,12 +134,12 @@ public class CharacterGameEvent : MonoBehaviour
         }
     }
 
-    public event Action<uint, int, int> onTargetSelected;
+    public event Action<uint, string, int, int> onTargetSelected;
     public void SelectTarget(AbstractCharacterData data)
     {
         if (onTargetSelected != null)
         {
-            onTargetSelected(data.uniqueId, data.health, data.healthMax);
+            onTargetSelected(data.uniqueId, data.name, data.health, data.healthMax);
         }
     }
 

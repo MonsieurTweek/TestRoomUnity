@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class PlayerUIController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerUIController : MonoBehaviour
     public ResourceGaugeController playerEnergy = null;
     public ResourceGaugeController playerHealth = null;
     public ResourceGaugeController targetHealth = null;
+    public TextMeshProUGUI targetName = null;
     public PerkController[] perks = null;
 
     private int _nextPerkIndex = 0;
@@ -114,11 +116,13 @@ public class PlayerUIController : MonoBehaviour
         }
     }
 
-    private void OnTargetSelected(uint id, int health, int healthMax)
+    private void OnTargetSelected(uint uniqueId, string name, int health, int healthMax)
     {
         targetHealth.Toggle(true);
 
         targetHealth.Refresh(health, healthMax);
+
+        targetName.text = name;
     }
 
     private void OnTargetDeselected(uint id)

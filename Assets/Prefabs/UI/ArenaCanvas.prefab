@@ -516,6 +516,7 @@ MonoBehaviour:
   playerEnergy: {fileID: 3876845525158256543}
   playerHealth: {fileID: 1998135046269360143}
   targetHealth: {fileID: 8226393659046830466}
+  targetName: {fileID: 7293982828538042808}
   perks:
   - {fileID: 3714521970347099319}
   - {fileID: 194802703139378289}
