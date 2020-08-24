@@ -22,7 +22,6 @@ public class PlayerStateMove : CharacterFSM.CharacterState
 
     // Dash properties
     private bool _isDashing = false;
-    private bool _canDash = true;
     private float _dashTime = float.MaxValue;
     private float _energyForDash = 0f;
 
@@ -170,7 +169,6 @@ public class PlayerStateMove : CharacterFSM.CharacterState
             && ((PlayerData)character.data).ConsumeEnergy(_energyForDash) == true)
         {
             _isDashing = true;
-            _canDash = false;
 
             character.StartCoroutine(EvaluateDash());
         }

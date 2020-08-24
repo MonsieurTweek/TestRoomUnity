@@ -12,6 +12,7 @@ public class Archetype : DescriptiveObject
     public Player configuration = null;
 
     public AnimatorOverrideController animationController = null;
+    public PlayerStateAttackEffects attackEffects = null;
 
     public GearController gearLeft = null;
     public GearController gearRight = null;

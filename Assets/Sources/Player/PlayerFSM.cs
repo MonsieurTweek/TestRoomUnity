@@ -361,6 +361,17 @@ public class PlayerFSM : CharacterFSM, ICharacter
     }
 
     /// <summary>
+    /// Animation event triggers a predifined FX to play based on the attack
+    /// </summary>
+    public void OnAttackPlayFx()
+    {
+        if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
+        {
+            ((PlayerStateAttack)currentState).OnAttackPlayFx();
+        }
+    }
+
+    /// <summary>
     /// Animation has ended
     /// Called from animation event
     /// </summary>

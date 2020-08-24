@@ -19,6 +19,8 @@ public class EnemyStateAttack : CharacterStateAttack
 
         character.animator.applyRootMotion = true;
 
+        _currentFxIndex = 0;
+
         base.Enter(type);
     }
 

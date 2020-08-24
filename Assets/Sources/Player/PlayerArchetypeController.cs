@@ -6,11 +6,13 @@ public class PlayerArchetypeController : MonoBehaviour
     public bool loadFromPrefs = false;
 
     private Animator _animator = null;
+    private PlayerFSM _playerFSM = null;
     private CharacterGearController _gearController = null;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _playerFSM = GetComponent<PlayerFSM>();
         _gearController = GetComponent<CharacterGearController>();
     }
 
@@ -38,6 +40,13 @@ public class PlayerArchetypeController : MonoBehaviour
         if (archetype.gearRight != null)
         {
             _gearController.InstantiateGear(archetype.gearRight, _gearController.anchorRight);
+        }
+
+        if (archetype.attackEffects != null)
+        {
+            PlayerStateAttackEffects attackEffects = Instantiate(archetype.attackEffects, transform);
+
+            _playerFSM.stateAttack.SetAttackEffects(attackEffects.effects);
         }
 
         if (CharacterGameEvent.instance != null)

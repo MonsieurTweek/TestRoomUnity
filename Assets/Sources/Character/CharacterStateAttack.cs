@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -16,9 +17,6 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<int>
     private const string ANIMATION_PARAM_ATTACK = "Attack";
     private const string ANIMATION_PARAM_ATTACK_TYPE = "AttackType";
 
-    private const string ANIMATION_PARAM_ATTACK_LIGHT = "AttackLight";
-    private const string ANIMATION_PARAM_ATTACK_HEAVY = "AttackHeavy";
-
     public Transform anchor = null;
     public AttackType type = AttackType.ALT_1;
 
@@ -27,6 +25,7 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<int>
     public override void Enter(int type)
     {
         isEnabled = false;
+        this.type = (AttackType)type;
 
         character.animator.SetTrigger(ANIMATION_PARAM_ATTACK);
         character.animator.SetInteger(ANIMATION_PARAM_ATTACK_TYPE, type);
