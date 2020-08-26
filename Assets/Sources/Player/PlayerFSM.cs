@@ -34,7 +34,6 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
     public CharacterFSM target { private set; get; }
     public bool isGrounded { private set; get; }
-    public bool isInCombo { private set; get; }
     public bool isPaused { private set; get; }
 
     private Vector2 _playerRotation = Vector2.zero;
@@ -144,13 +143,13 @@ public class PlayerFSM : CharacterFSM, ICharacter
         // Player is already doing an attack
         else if (((uint)currentState.flag & (uint)CharacterStateEnum.ATTACK) != 0)
         {
+            PlayerStateAttack state = ((PlayerStateAttack)currentState);
+
             // Player try to perform a different attack
-            if (((CharacterStateAttack)currentState).type != type)
+            if (state.isComboAvailable == true && state.type == type)
             {
                 // Keep track of it to chain the next attack
-                isInCombo = true;
-
-                //TODO : Use it to trigger a new animation on a particular animation event
+                state.TriggerCombo(type);
             }
         }
 
@@ -255,6 +254,12 @@ public class PlayerFSM : CharacterFSM, ICharacter
         // Ensure player is in a state where he can take a hit
         if (((uint)currentState.flag & CAN_HIT_MASK) != 0)
         {
+            // Being in last combo step prevent any damage
+            if (currentState.flag == (uint)CharacterStateEnum.ATTACK && ((PlayerStateAttack)currentState).isComboFinalStep == true)
+            {
+                return false;
+            }
+
             data.ApplyDamage(damage);
 
             CharacterGameEvent.instance.Hit(data, damage);
@@ -368,6 +373,14 @@ public class PlayerFSM : CharacterFSM, ICharacter
         if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
         {
             ((PlayerStateAttack)currentState).OnAttackPlayFx();
+        }
+    }
+
+    public void OnToggleCombo()
+    {
+        if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
+        {
+            ((PlayerStateAttack)currentState).ToggleCombo();
         }
     }
 

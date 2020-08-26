@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -11,7 +10,10 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<int>
 
         ALT_1 = 1,
         ALT_2 = 2,
-        ALT_3 = 3
+        ALT_3 = 3,
+
+        COMBO_1_FINAL = 10,
+        COMBO_2_FINAL = 11,
     }
 
     private const string ANIMATION_PARAM_ATTACK = "Attack";
@@ -53,5 +55,11 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<int>
     public virtual void OnToggleAttack()
     {
         isEnabled = !isEnabled;
+    }
+
+    public override void Exit()
+    {
+        character.animator.speed = 1f;
+        character.animator.applyRootMotion = false;
     }
 }

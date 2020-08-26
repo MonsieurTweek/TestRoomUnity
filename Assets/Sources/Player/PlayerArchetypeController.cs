@@ -32,15 +32,7 @@ public class PlayerArchetypeController : MonoBehaviour
     {
         _animator.runtimeAnimatorController = archetype.animationController;
 
-        if (archetype.gearLeft != null)
-        {
-            _gearController.InstantiateGear(archetype.gearLeft, _gearController.anchorLeft);
-        }
-
-        if (archetype.gearRight != null)
-        {
-            _gearController.InstantiateGear(archetype.gearRight, _gearController.anchorRight);
-        }
+        _gearController.Initialize(archetype.gearLeft, archetype.gearRight);
 
         if (archetype.attackEffects != null)
         {

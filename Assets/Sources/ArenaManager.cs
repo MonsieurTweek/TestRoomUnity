@@ -78,7 +78,8 @@ public class ArenaManager : MonoBehaviour
 
     private void OnHit(uint id, CharacterTypeEnum type, int health, int damage)
     {
-        if (player.data.uniqueId != id)
+        // Get only hit from enemies
+        if (type == CharacterTypeEnum.ENEMY)
         {
             _lastHitEnemyId = id;
         }

@@ -5,6 +5,9 @@ public class WeaponController : GearController
 {
     public int damage = 0;
 
+    public VisualEffectController attackFx = null;
+    public VisualEffectController comboFx = null;
+
     protected BoxCollider _collider = null;
 
     protected override void Awake()

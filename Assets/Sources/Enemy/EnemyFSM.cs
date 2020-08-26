@@ -7,7 +7,7 @@ using UnityEngine;
 /// </summary>
 public class EnemyFSM : CharacterFSM, ICharacter
 {
-    private const uint FLAG_CAN_HIT = (uint)(CharacterStateEnum.IDLE | CharacterStateEnum.MOVE | CharacterStateEnum.ATTACK | CharacterStateEnum.STUN);
+    private const uint FLAG_CAN_HIT = (uint)(CharacterStateEnum.IDLE | CharacterStateEnum.MOVE | CharacterStateEnum.ATTACK | CharacterStateEnum.STUN | CharacterStateEnum.HIT);
 
     [Header("References")]
     public Transform target = null;

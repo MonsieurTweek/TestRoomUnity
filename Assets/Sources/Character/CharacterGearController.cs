@@ -14,22 +14,14 @@ public class CharacterGearController : MonoBehaviour
     public GearController gearLeft = null;
     public GearController gearRight = null;
 
-    private GearController _gearLeftAttached = null;
-    private GearController _gearRightAttached = null;
+    public GearController gearLeftAttached { private set; get; }
+    public GearController gearRightAttached { private set; get; }
 
     private bool _isGearActive = true;
 
     private void Awake()
     {
-        if (gearLeft != null)
-        {
-            _gearLeftAttached = InstantiateGear(gearLeft, anchorLeft);
-        }
-
-        if (gearRight != null)
-        {
-            _gearRightAttached = InstantiateGear(gearRight, anchorRight);
-        }
+        Initialize(gearLeft, gearRight);
 
         if (enableOnAwake == false)
         {
@@ -40,6 +32,19 @@ public class CharacterGearController : MonoBehaviour
     private void Start()
     {
         CharacterGameEvent.instance.onDying += OnDying;
+    }
+
+    public void Initialize(GearController gearLeft, GearController gearRight)
+    {
+        if (gearLeft != null)
+        {
+            gearLeftAttached = InstantiateGear(gearLeft, anchorLeft);
+        }
+
+        if (gearRight != null)
+        {
+            gearRightAttached = InstantiateGear(gearRight, anchorRight);
+        }
     }
 
     public GearController InstantiateGear(GearController prefab, Transform anchor)
@@ -68,12 +73,12 @@ public class CharacterGearController : MonoBehaviour
 
         if (gearLeft != null)
         {
-            _gearLeftAttached.gameObject.SetActive(_isGearActive);
+            gearLeftAttached.gameObject.SetActive(_isGearActive);
         }
 
         if (gearRight != null)
         {
-            _gearRightAttached.gameObject.SetActive(_isGearActive);
+            gearRightAttached.gameObject.SetActive(_isGearActive);
         }
     }
 
@@ -82,19 +87,60 @@ public class CharacterGearController : MonoBehaviour
         switch(gearIndex)
         {
             case 0:
-                if (_gearRightAttached != null)
-                    _gearRightAttached.PlayFx();
+                if (gearRightAttached != null)
+                    gearRightAttached.PlayFx();
             break;
             case 1:
-                if (_gearLeftAttached != null)
-                    _gearLeftAttached.PlayFx();
+                if (gearLeftAttached != null)
+                    gearLeftAttached.PlayFx();
             break;
             case 2:
-                if (_gearRightAttached != null)
-                    _gearRightAttached.PlayFx();
-                if (_gearLeftAttached != null)
-                    _gearLeftAttached.PlayFx();
+                if (gearRightAttached != null)
+                    gearRightAttached.PlayFx();
+                if (gearLeftAttached != null)
+                    gearLeftAttached.PlayFx();
             break;
+        }
+    }
+
+    public void PlayAttackFx()
+    {
+        WeaponController weaponController = (WeaponController)gearRightAttached;
+
+        if (weaponController != null && weaponController.attackFx != null)
+        {
+            weaponController.attackFx.Reset((uint)CharacterStateEnum.ATTACK);
+        }
+    }
+
+    public void StopAttackFx()
+    {
+        WeaponController weaponController = (WeaponController)gearRightAttached;
+
+        if (weaponController != null && weaponController.attackFx != null)
+        {
+            weaponController.attackFx.Stop();
+        }
+    }
+
+    public void PlayComboFx()
+    {
+        WeaponController weaponController = (WeaponController)gearRightAttached;
+
+        if (weaponController != null && weaponController.comboFx != null && weaponController.attackFx != null)
+        {
+            weaponController.comboFx.Reset((uint)CharacterStateEnum.ATTACK);
+            weaponController.attackFx.Stop();
+        }
+    }
+
+    public void StopComboFx()
+    {
+        WeaponController weaponController = (WeaponController)gearRightAttached;
+
+        if (weaponController != null && weaponController.comboFx != null)
+        {
+            weaponController.comboFx.Stop();
         }
     }
 
@@ -102,14 +148,14 @@ public class CharacterGearController : MonoBehaviour
     {
         if (owner.data.uniqueId == uniqueId)
         {
-            if (_gearLeftAttached != null)
+            if (gearLeftAttached != null)
             {
-                Destroy(_gearLeftAttached.gameObject);
+                Destroy(gearLeftAttached.gameObject);
             }
 
-            if (_gearRightAttached != null)
+            if (gearRightAttached != null)
             {
-                Destroy(_gearRightAttached.gameObject);
+                Destroy(gearRightAttached.gameObject);
             }
         }
     }
