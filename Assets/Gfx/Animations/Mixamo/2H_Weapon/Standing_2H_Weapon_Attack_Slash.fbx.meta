@@ -140,7 +140,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.749887
+      - time: 0.7086499
         functionName: OnToggleCombo
         data: 
         objectReferenceParameter: {instanceID: 0}
