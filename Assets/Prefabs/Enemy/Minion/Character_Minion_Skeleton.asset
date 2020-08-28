@@ -15,5 +15,5 @@ MonoBehaviour:
   type: 3
   title: Skeleton
   power: 1
-  health: 2
+  health: 1
   tiers: 1
