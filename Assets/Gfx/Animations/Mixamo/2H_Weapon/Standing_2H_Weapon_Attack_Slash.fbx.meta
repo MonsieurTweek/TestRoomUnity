@@ -70,10 +70,10 @@ ModelImporter:
       name: Standing_2H_Weapon_Attack_Slash
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
+      firstFrame: 17
       lastFrame: 89
       wrapMode: 0
-      orientationOffsetY: 0
+      orientationOffsetY: -30
       level: 0
       cycleOffset: 0
       loop: 0
