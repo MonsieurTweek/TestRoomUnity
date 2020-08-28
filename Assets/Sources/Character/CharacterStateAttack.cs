@@ -12,8 +12,11 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<int>
         ALT_2 = 2,
         ALT_3 = 3,
 
-        COMBO_1_FINAL = 10,
-        COMBO_2_FINAL = 11,
+        COMBO_1 = 10,
+        COMBO_2 = 11,
+
+        COMBO_1_FINAL = 100,
+        COMBO_2_FINAL = 101,
     }
 
     private const string ANIMATION_PARAM_ATTACK = "Attack";

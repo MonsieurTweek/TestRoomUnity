@@ -4673,7 +4673,7 @@ Transform:
   m_Children:
   - {fileID: 3679764039776085189}
   m_Father: {fileID: 5649156064576665430}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7394827888184716517
 MonoBehaviour:
@@ -4720,8 +4720,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3479518937671527226}
-  - {fileID: 3372563531950414233}
   - {fileID: 1666655377501356526}
+  - {fileID: 3372563531950414233}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -220.094, y: 84.689995, z: -64.52899}
@@ -4814,7 +4814,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4856,10 +4856,10 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 12, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 9.038e-42, y: 1.04e-43, z: 6.82e-43, w: -11.951729}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -33039,7 +33039,7 @@ Transform:
   m_Children:
   - {fileID: 5190630814042908327}
   m_Father: {fileID: 5649156064576665430}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1574300376470608557
 MonoBehaviour:

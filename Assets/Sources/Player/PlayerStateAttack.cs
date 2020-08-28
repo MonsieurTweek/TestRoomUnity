@@ -33,24 +33,28 @@ public class PlayerStateAttack : CharacterStateAttack
 
         if (isComboAvailable == true)
         {
-            Time.timeScale = 0.5f;
-            character.gearController.PlayComboFx();
+            ShowComboFeedback();
         }
         else
         {
-            Time.timeScale = 1;
-            character.gearController.StopComboFx();
+            HideComboFeedback();
         }
+    }
+    
+    private void ShowComboFeedback()
+    {
+        Time.timeScale = 0.5f;
+        character.gearController.PlayComboFx();
+    }
+
+    private void HideComboFeedback()
+    {
+        Time.timeScale = 1;
+        character.gearController.StopComboFx();
     }
 
     public void TriggerCombo(AttackType type)
     {
-        // First combo step, save current type
-        if (_currentComboType == AttackType.NONE)
-        {
-            _currentComboType = this.type;
-        }
-
         // Trigger a new animation on the end of this one
         character.animator.SetTrigger(ANIMATION_PARAM_COMBO);
 
@@ -58,35 +62,42 @@ public class PlayerStateAttack : CharacterStateAttack
         _currentFxIndex = 0;
         _currentComboCount++;
 
-        // Switch type to the new one
-        this.type = _currentComboCount < 2 ? type : 
-            // Or to the proper final combo
-            _currentComboType == AttackType.ALT_1 ? AttackType.COMBO_1_FINAL : AttackType.COMBO_2_FINAL;
+        // Switch type 
+        _currentComboType = _currentComboCount == 1 
+            // for the first step to the corresponding combo
+            ? this.type == AttackType.ALT_1 ? AttackType.COMBO_1 : AttackType.COMBO_2
+            // Or for the last step to the proper final combo
+            : this.type == AttackType.ALT_1 ? AttackType.COMBO_1_FINAL : AttackType.COMBO_2_FINAL;
 
-        if (this.type == AttackType.COMBO_1_FINAL || this.type == AttackType.COMBO_2_FINAL)
+        if (_currentComboType == AttackType.COMBO_1_FINAL || _currentComboType == AttackType.COMBO_2_FINAL)
         {
             character.animator.applyRootMotion = true;
-
             isComboFinalStep = true;
         }
+        else
+        {
+            isComboFinalStep = false;
+        }
 
-        isComboFinalStep = false;
+        HideComboFeedback();
     }
     
     public void OnAttackPlayFx()
     {
+        AttackType currentType = _currentComboType == AttackType.NONE ? type : _currentComboType;
+
         if (_effects != null)
         {
-            UnityEngine.Assertions.Assert.IsTrue(_effects.ContainsKey(type) && _effects[type].Count > 0, "Can't find any effects for " + type);
+            UnityEngine.Assertions.Assert.IsTrue(_effects.ContainsKey(currentType) && _effects[currentType].Count > 0, "Can't find any effects for " + currentType);
 
-            if (_currentFxIndex < _effects[type].Count)
+            if (_currentFxIndex < _effects[currentType].Count)
             {
-                _effects[type][_currentFxIndex].Reset((uint)CharacterStateEnum.ATTACK);
+                _effects[currentType][_currentFxIndex].Reset((uint)CharacterStateEnum.ATTACK);
 
                 _currentFxIndex++;
             }
 
-            if (_currentFxIndex >= _effects[type].Count)
+            if (_currentFxIndex >= _effects[currentType].Count)
             {
                 _currentFxIndex = 0;
             }
