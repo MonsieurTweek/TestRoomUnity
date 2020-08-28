@@ -9,6 +9,8 @@ public class PlayerCameraController : MonoBehaviour
 
     public CinemachineTargetGroup targetGroup = null;
 
+    private bool _isInOutro = false;
+
     private void Start()
     {
         CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
@@ -30,6 +32,8 @@ public class PlayerCameraController : MonoBehaviour
 
     public void OnOutroStarted(Transform target)
     {
+        _isInOutro = true;
+
         cameraFree.Priority = 0;
         cameraTarget.Priority = 0;
     }
@@ -46,8 +50,12 @@ public class PlayerCameraController : MonoBehaviour
     {
         targetGroup.RemoveMember(target);
 
-        cameraFree.Priority = 100;
-        cameraTarget.Priority = 0;
+        // Don't change camera priority if already in outro
+        if (_isInOutro == false)
+        {
+            cameraFree.Priority = 100;
+            cameraTarget.Priority = 0;
+        }
     }
 
     private void OnDestroy()
