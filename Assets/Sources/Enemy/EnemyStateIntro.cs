@@ -41,11 +41,12 @@ public class EnemyStateIntro : CharacterFSM.CharacterState
         {
             // Otherwise wait for next call to transition
             hasUnsheatheTrigger = false;
+
+            // Eventually, pause the intro waiting for player's input
+            CharacterGameEvent.instance.IntroPause();
         }
         else
         {
-            // Eventually, pause the intro waiting for player's input
-            CharacterGameEvent.instance.IntroPause();
         }
     }
 

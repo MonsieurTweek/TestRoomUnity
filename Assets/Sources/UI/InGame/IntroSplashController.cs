@@ -1,11 +1,13 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class IntroSplashController : MonoBehaviour
 {
     [Header("References")]
     public RectTransform layout = null;
+    public Image flash = null; 
     public TextMeshProUGUI title = null;
     public ProgressBarController confirmBar = null;
 
@@ -41,6 +43,9 @@ public class IntroSplashController : MonoBehaviour
 
     private void OnIntroPaused()
     {
+        flash.gameObject.SetActive(true);
+        LeanTween.alpha(flash.rectTransform, 1f, 0.15f).setLoopPingPong(1).setEase(LeanTweenType.easeInBack);
+
         // Position is reset to be behind camera
         layout.position = new Vector3(
             _target.position.x - _target.localScale.x - positionOffset.x, 
@@ -50,7 +55,7 @@ public class IntroSplashController : MonoBehaviour
         layout.localRotation = Quaternion.Euler(0f, -Camera.main.transform.localRotation.y, 0f);
         layout.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _target.localScale.x * 2f);
 
-        LeanTween.moveZ(layout.gameObject, _target.position.z, animationDuration).setEase(animationType).setDelay(0.1f);
+        LeanTween.moveZ(layout.gameObject, _target.position.z - _target.transform.forward.z, animationDuration).setEase(animationType).setDelay(0.1f);
 
         layout.gameObject.SetActive(true);
 
@@ -60,6 +65,7 @@ public class IntroSplashController : MonoBehaviour
 
     private void OnIntroEnded()
     {
+        flash.gameObject.SetActive(false);
         layout.gameObject.SetActive(false);
     }
 
