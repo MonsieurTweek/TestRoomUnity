@@ -2119,7 +2119,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _meshRenderers.Array.data[0]
       value: 
-      objectReference: {fileID: 4582480387772437229}
+      objectReference: {fileID: 4581954725840095293}
     - target: {fileID: 8554535455077345077, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: gearRight
@@ -2151,12 +2151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff8b6a3a33548b4ebcdc3d9cf548a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!137 &4582480387772437229 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 60446595006435946, guid: 8a4f8d352dab5174b97522bba0b018dc,
-    type: 3}
-  m_PrefabInstance: {fileID: 4561726931600621703}
-  m_PrefabAsset: {fileID: 0}
 --- !u!137 &4581954725840095293 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 61042642174888122, guid: 8a4f8d352dab5174b97522bba0b018dc,
