@@ -71,7 +71,7 @@ ModelImporter:
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 157
+      lastFrame: 90
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -91,42 +91,42 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.27155173
+      - time: 0.24680947
         functionName: OnUpdateAttackSpeed
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0.5
         intParameter: 0
         messageOptions: 0
-      - time: 0.2824872
+      - time: 0.32784805
         functionName: OnToggleAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.2974138
+      - time: 0.34071276
         functionName: OnUpdateAttackSpeed
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 2
         intParameter: 0
         messageOptions: 0
-      - time: 0.311804
+      - time: 0.35097927
         functionName: OnAttackPlayFx
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.46604937
+      - time: 0.49903908
         functionName: OnToggleAttack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.48060346
+      - time: 0.5115313
         functionName: OnUpdateAttackSpeed
         data: 
         objectReferenceParameter: {instanceID: 0}
