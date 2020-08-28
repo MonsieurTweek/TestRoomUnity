@@ -24,7 +24,7 @@ public class EnemyStateAttack : CharacterStateAttack
         base.Enter(type);
     }
 
-    public GameObject OnAttackSpawnMinion(UnityEngine.Object prefab, float offset)
+    public MinionFSM OnAttackSpawnMinion(UnityEngine.Object prefab, float offset)
     {
         GameObject minion = GamePoolManager.instance.UseFromPool(prefab.name);
         Transform target = ((EnemyFSM)character).target;
@@ -34,12 +34,12 @@ public class EnemyStateAttack : CharacterStateAttack
 
         minion.SetActive(true);
 
-        EnemyFSM enemy = minion.GetComponent<EnemyFSM>();
+        MinionFSM enemy = minion.GetComponent<MinionFSM>();
         PlayerFSM player = target.GetComponent<PlayerFSM>();
 
         enemy.Initialize(player);
 
-        return minion;
+        return enemy;
     }
 
     public void OnAttackPlayFx()

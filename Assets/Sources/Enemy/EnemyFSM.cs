@@ -27,6 +27,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
     public int currentPhaseIndex { private set; get; }
     public Vector3 direction { private set; get; }
+    public List<MinionFSM> minions { private set; get; }
 
     // Phase action modifier
     public Action firstPhaseAttack = null;
@@ -242,7 +243,14 @@ public class EnemyFSM : CharacterFSM, ICharacter
     {
         if (currentState.flag == (uint)CharacterStateEnum.ATTACK)
         {
-            ((EnemyStateAttack)currentState).OnAttackSpawnMinion(animationEvent.objectReferenceParameter, animationEvent.floatParameter);
+            if (minions == null)
+            {
+                minions = new List<MinionFSM>();
+            }
+
+            MinionFSM minion = ((EnemyStateAttack)currentState).OnAttackSpawnMinion(animationEvent.objectReferenceParameter, animationEvent.floatParameter);
+
+            minions.Add(minion);
         }
     }
 

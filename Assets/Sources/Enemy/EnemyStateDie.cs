@@ -14,6 +14,17 @@ public class EnemyStateDie : CharacterFSM.CharacterState
     public override void Enter()
     {
         character.animator.SetTrigger(ANIMATION_PARAM);
+
+        EnemyFSM enemy = (EnemyFSM)character;
+
+        if (character.data.type == CharacterTypeEnum.ENEMY && enemy.minions != null)
+        {
+            foreach (MinionFSM minion in enemy.minions)
+            {
+                minion.data.ApplyDamage(minion.data.healthMax);
+                minion.TransitionToDie();
+            }
+        }
     }
 
     public override void Exit()
