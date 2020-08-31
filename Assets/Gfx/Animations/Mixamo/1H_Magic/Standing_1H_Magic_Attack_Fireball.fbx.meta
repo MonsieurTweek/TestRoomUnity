@@ -39,7 +39,7 @@ ModelImporter:
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 69
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -59,6 +59,22 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0
+        functionName: OnAnimationPlayFx
+        data: 
+        objectReferenceParameter: {fileID: 4962193528027548667, guid: e184c44ec1b1f144c9c493c898b02196,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.08041237
+        functionName: OnAnimationPlayFx
+        data: 
+        objectReferenceParameter: {fileID: 6261445851654422626, guid: a665fb34898232b4d84fb88e27feb459,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.31075695
         functionName: OnAnimationSendProjectile
         data: 
@@ -74,12 +90,25 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0
-        functionName: OnAnimationPlayFx
+      - time: 0.171123
+        functionName: OnUpdateAttackSpeed
         data: 
-        objectReferenceParameter: {fileID: 6261445851654422626, guid: a665fb34898232b4d84fb88e27feb459,
-          type: 3}
-        floatParameter: 0
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.2540107
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1.75
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5775401
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
         intParameter: 0
         messageOptions: 0
       transformMask: []

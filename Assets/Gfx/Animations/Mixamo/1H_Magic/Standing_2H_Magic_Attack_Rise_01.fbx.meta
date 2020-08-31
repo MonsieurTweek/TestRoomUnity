@@ -71,7 +71,7 @@ ModelImporter:
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 130
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -94,7 +94,7 @@ ModelImporter:
       - time: 0
         functionName: OnAnimationPlayFx
         data: 
-        objectReferenceParameter: {fileID: 6325439018897186343, guid: 6d3c078be426b2c44b7f3af93713a758,
+        objectReferenceParameter: {fileID: 3773333858949388356, guid: 917140b6bd8914f4887b48577981c31e,
           type: 3}
         floatParameter: 0
         intParameter: 1

@@ -132,3 +132,11 @@ MonoBehaviour:
     gameObject: {fileID: 6325439018897186343, guid: 846ac611b496223418e36d12e442c732,
       type: 3}
     size: 3
+  - tag: FX_Fire_Circle
+    gameObject: {fileID: 4962193528027548667, guid: e184c44ec1b1f144c9c493c898b02196,
+      type: 3}
+    size: 3
+  - tag: FX_Ice_Circle
+    gameObject: {fileID: 3773333858949388356, guid: 917140b6bd8914f4887b48577981c31e,
+      type: 3}
+    size: 3
