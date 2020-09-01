@@ -1977,11 +1977,6 @@ PrefabInstance:
       objectReference: {fileID: 4499363904270326729}
     - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
-      propertyPath: stateIdle.range
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
-        type: 3}
       propertyPath: phases.Array.data[1].stateMove.speed
       value: 4
       objectReference: {fileID: 0}

@@ -83,7 +83,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     character: {fileID: 0}
-    range: 15
+    range: 20
     rangedActionDelay: 2
     rangedActionDistance: 10
     onEnterRange:
@@ -156,6 +156,7 @@ MonoBehaviour:
           m_Calls: []
       isRunning: 0
       speed: 4
+      rotationSpeed: 1
     stateAttack:
       owner: {fileID: 0}
       flag: 0
