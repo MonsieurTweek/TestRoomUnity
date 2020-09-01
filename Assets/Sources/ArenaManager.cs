@@ -75,6 +75,9 @@ public class ArenaManager : MonoBehaviour
 
         _currentEnemies.Add(enemy.data.uniqueId, enemy);
 
+        Quaternion rotation = Quaternion.LookRotation(enemy.transform.position - player.transform.position);
+        LeanTween.rotate(player.gameObject, rotation.eulerAngles, 0.5f);
+
         // Ensure we have a proper last hit registered
         _lastHitEnemyId = enemy.data.uniqueId;
     }
