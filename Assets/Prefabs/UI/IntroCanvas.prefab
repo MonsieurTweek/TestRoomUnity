@@ -1038,7 +1038,7 @@ MonoBehaviour:
   confirmBar: {fileID: 3923977010627463882}
   animationType: 24
   animationDuration: 0.5
-  positionOffset: {x: 1, y: 0.5, z: 1}
+  positionOffset: {x: 0.75, y: 0.5, z: 1}
   confirmDelay: 0.25
 --- !u!1 &7306748484081594629
 GameObject:
