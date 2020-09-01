@@ -1,6 +1,5 @@
 ﻿using Cinemachine;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerCameraShakeController : MonoBehaviour
 {
@@ -20,15 +19,18 @@ public class PlayerCameraShakeController : MonoBehaviour
     // Update is called once per frame
     public void Shake(float duration)
     {
-        _camera = (CinemachineFreeLook)cinemachineBrain.ActiveVirtualCamera;
+        if (cinemachineBrain.ActiveVirtualCamera != null)
+        {
+            _camera = (CinemachineFreeLook)cinemachineBrain.ActiveVirtualCamera;
 
-        _elapsedTime = duration;
-        _isShaking = true;
+            _elapsedTime = duration;
+            _isShaking = true;
 
-        // Rumble 
-        // the low-frequency (left) motor at 1/4 speed 
-        // the high-frequency (right) motor at 3/4 speed
-        InputManager.instance.SetVibration(0.25f, 0.75f);
+            // Rumble 
+            // the low-frequency (left) motor at 1/4 speed 
+            // the high-frequency (right) motor at 3/4 speed
+            InputManager.instance.SetVibration(0.25f, 0.75f);
+        }
     }
 
     private void ApplyNoise(float amplitude, float frequency)
