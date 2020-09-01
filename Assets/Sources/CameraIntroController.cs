@@ -26,11 +26,14 @@ public class CameraIntroController : MonoBehaviour
     private void OnIntroStarted(Transform target, AbstractCharacterData _)
     {
         Vector3 cameraPosition = target.position + target.forward * distanceToTarget;
+        Quaternion cameraRotation = target.rotation;
 
         cameraPosition.y = Mathf.Max(target.localScale.y, 2f);
+        cameraRotation.y += 180f;
 
-        cameraIntro.m_LookAt = target;
         cameraIntro.transform.position = cameraPosition;
+        cameraIntro.transform.rotation = cameraRotation;
+        cameraIntro.m_LookAt = target;
 
         _composer.m_TrackedObjectOffset.x = 0f;
         _composer.m_TrackedObjectOffset.y = target.localScale.y + 0.5f;

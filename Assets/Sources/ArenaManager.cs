@@ -6,6 +6,7 @@ public class ArenaManager : MonoBehaviour
 {
     [Header("Properties")]
     public PlayerFSM player = null;
+    public List<Transform> spawnPoints = new List<Transform>();
     public List<EnemyFSM> enemies = new List<EnemyFSM>();
     public int enemyPerTiers = 3;
 
@@ -66,14 +67,36 @@ public class ArenaManager : MonoBehaviour
 
     private void SpawnNextEnemy()
     {
-        EnemyFSM enemy = Instantiate<EnemyFSM>(_enemiesToSpawn[_currentEnemyIndex], transform);
+        Transform spawPoint = GetSpawnPoint();
+        EnemyFSM enemy = Instantiate<EnemyFSM>(_enemiesToSpawn[_currentEnemyIndex], spawPoint.position, transform.rotation, transform);
 
+        enemy.transform.LookAt(player.transform);
         enemy.Initialize(player);
 
         _currentEnemies.Add(enemy.data.uniqueId, enemy);
 
         // Ensure we have a proper last hit registered
         _lastHitEnemyId = enemy.data.uniqueId;
+    }
+
+    private Transform GetSpawnPoint()
+    {
+        Transform bestSpawnPoint = null;
+        float currentDistance = 0f;
+
+        for (int i = 0; i < spawnPoints.Count; i++)
+        {
+            Vector3 directionToPlayer = player.transform.position - spawnPoints[i].position;
+            float magnitude = directionToPlayer.magnitude; // Don't use sqrt as not necessary to compare distance
+
+            if (bestSpawnPoint == null || magnitude > currentDistance)
+            {
+                bestSpawnPoint = spawnPoints[i];
+                currentDistance = magnitude;
+            }
+        }
+
+        return bestSpawnPoint;
     }
 
     private void OnHit(uint id, CharacterTypeEnum type, int health, int damage)

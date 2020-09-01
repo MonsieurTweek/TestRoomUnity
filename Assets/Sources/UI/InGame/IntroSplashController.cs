@@ -46,16 +46,21 @@ public class IntroSplashController : MonoBehaviour
         flash.gameObject.SetActive(true);
         LeanTween.alpha(flash.rectTransform, 1f, 0.15f).setLoopPingPong(1).setEase(LeanTweenType.easeInBack);
 
+        Vector3 finalPosition = _target.position 
+            // Up it to the target height
+            + _target.up * (_target.localScale.y + positionOffset.y)
+            // Offset it to be on the left side of the target
+            - _target.right * (_target.localScale.x + positionOffset.x)
+            // Put it a little bit behind the target
+            - _target.forward * (positionOffset.z);
+
         // Position is reset to be behind camera
-        layout.position = new Vector3(
-            _target.position.x - _target.localScale.x - positionOffset.x, 
-            _target.position.y + _target.localScale.y + positionOffset.y, 
-            Camera.main.transform.position.z
-        );
-        layout.localRotation = Quaternion.Euler(0f, -Camera.main.transform.localRotation.y, 0f);
+        layout.position = Camera.main.transform.position - Camera.main.transform.forward;
+
+        layout.localRotation = _target.rotation;
         layout.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _target.localScale.x * 2f);
 
-        LeanTween.moveZ(layout.gameObject, _target.position.z - _target.transform.forward.z, animationDuration).setEase(animationType).setDelay(0.1f);
+        LeanTween.move(layout.gameObject, finalPosition, animationDuration).setEase(animationType).setDelay(0.1f);
 
         layout.gameObject.SetActive(true);
 
