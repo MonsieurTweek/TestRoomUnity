@@ -71,9 +71,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   enemies:
   - {fileID: 8735795099524422305, guid: 82c9033ca59dac447bd5ac8b113aa2a0, type: 3}
   - {fileID: 6995334775875298063, guid: f95e75d35257c0e4ba3f215133bbcb51, type: 3}
+  - {fileID: 1012964192101076563, guid: edd16dc3614252540a36456af68546c5, type: 3}
   enemyPerTiers: 3
 --- !u!114 &8393282205351930032
 MonoBehaviour:

@@ -47,8 +47,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preserveScale: 0
-  damage: 1
-  heavyModifier: 1
+  fx: {fileID: 0}
+  damage: 2
+  attackFx: {fileID: 0}
+  comboFx: {fileID: 0}
 --- !u!65 &5938084251149992599
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -60,8 +62,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.73563075, y: 3.9633927, z: 0.9715402}
-  m_Center: {x: -0.0014627057, y: 0.37832353, z: 0.007143712}
+  m_Size: {x: 1.0770696, y: 5.9394794, z: 0.9715402}
+  m_Center: {x: 0.040123146, y: 0.7240663, z: 0.007143709}
 --- !u!54 &2437480563091986181
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -88,6 +90,10 @@ PrefabInstance:
     - target: {fileID: 1421065191483900, guid: 704f564f768fa18489e32358b77094f3, type: 3}
       propertyPath: m_Name
       value: SM_Wep_ElementalGolem_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421065191483900, guid: 704f564f768fa18489e32358b77094f3, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4331670248254844, guid: 704f564f768fa18489e32358b77094f3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -139,12 +145,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4331670248254844, guid: 704f564f768fa18489e32358b77094f3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4331670248254844, guid: 704f564f768fa18489e32358b77094f3, type: 3}
       propertyPath: m_LocalScale.z
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 23343377222934390, guid: 704f564f768fa18489e32358b77094f3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5a862e7a20e1083488293e4e6aab825b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 704f564f768fa18489e32358b77094f3, type: 3}
 --- !u!4 &6780221174650298383 stripped

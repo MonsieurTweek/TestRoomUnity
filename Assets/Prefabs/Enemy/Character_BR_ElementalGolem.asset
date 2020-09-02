@@ -15,5 +15,5 @@ MonoBehaviour:
   type: 2
   title: Elemental Golem
   power: 1
-  health: 3
+  health: 15
   tiers: 2

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PolygonNature_Snow
+  m_Name: PolygonNature_Snow_Tree
   m_Shader: {fileID: 4800000, guid: 0ed42b95263e7c644b6121f9648bb339, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -86,7 +86,7 @@ Material:
     - _Texture:
         m_Texture: {fileID: 2800000, guid: 2edd58f7c433e934db9029c375173b44, type: 3}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: 0.18, y: 0}
     - _TextureSample0:
         m_Texture: {fileID: 2800000, guid: 4aaf5eafc291ee24ba7cefe12e6677a8, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -112,7 +112,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FallOff: 100
+    - _FallOff: 8.2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1

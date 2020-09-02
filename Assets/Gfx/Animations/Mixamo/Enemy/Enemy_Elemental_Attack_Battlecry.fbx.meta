@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 7a463b98060cd924f83efaa4703dc833
+guid: c2e321177ed93624bb7be189be34e9fe
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Take 001
+    second: ref:Standing Taunt Battlecry
   - first:
       74: -203655887218126122
-    second: Enemy_Base_Roaring
+    second: Enemy_Elemental_Attack_Battlecry
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -38,7 +38,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: ref:Standing Taunt Battlecry
       takeName: Take 001
       internalID: 0
       firstFrame: 2
@@ -67,11 +67,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Enemy_Base_Roaring
+      name: Enemy_Elemental_Attack_Battlecry
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
-      lastFrame: 324
+      firstFrame: 7
+      lastFrame: 138
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -80,9 +80,9 @@ ModelImporter:
       hasAdditiveReferencePose: 0
       loopTime: 0
       loopBlend: 0
-      loopBlendOrientation: 0
+      loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -97,6 +97,38 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
+        messageOptions: 0
+      - time: 0.1701232
+        functionName: OnAnimationSendProjectile
+        data: 
+        objectReferenceParameter: {fileID: 5372511614701019436, guid: 71d1e207cf5667845a9c26189d1f57d1,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.1356383
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {fileID: 5372511614701019436, guid: 71d1e207cf5667845a9c26189d1f57d1,
+          type: 3}
+        floatParameter: 0.5
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.16223404
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {fileID: 5372511614701019436, guid: 71d1e207cf5667845a9c26189d1f57d1,
+          type: 3}
+        floatParameter: 2
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.32978722
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {fileID: 5372511614701019436, guid: 71d1e207cf5667845a9c26189d1f57d1,
+          type: 3}
+        floatParameter: 1
+        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3

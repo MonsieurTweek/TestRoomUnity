@@ -140,3 +140,7 @@ MonoBehaviour:
     gameObject: {fileID: 3773333858949388356, guid: 917140b6bd8914f4887b48577981c31e,
       type: 3}
     size: 3
+  - tag: WP_ShardIce_Area
+    gameObject: {fileID: 5372511614701019436, guid: 71d1e207cf5667845a9c26189d1f57d1,
+      type: 3}
+    size: 3
