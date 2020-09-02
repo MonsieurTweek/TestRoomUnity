@@ -44,8 +44,11 @@ public class CameraHideController : MonoBehaviour
         // Show objects
         foreach (GameObject gameObjectToShow in objectsToShow)
         {
-            // Reassign original layer 
-            gameObjectToShow.layer = _objectsHiddenToLayer[gameObjectToShow];
+            if (gameObjectToShow != null)
+            {
+                // Reassign original layer 
+                gameObjectToShow.layer = _objectsHiddenToLayer[gameObjectToShow];
+            }
 
             _objectsHiddenToLayer.Remove(gameObjectToShow);
         }
