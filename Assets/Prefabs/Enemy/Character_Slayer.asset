@@ -15,5 +15,5 @@ MonoBehaviour:
   type: 2
   title: Slayer
   power: 1
-  health: 15
+  health: 13
   tiers: 3

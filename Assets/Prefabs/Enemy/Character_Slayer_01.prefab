@@ -2048,7 +2048,7 @@ PrefabInstance:
     - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: phases.Array.data[1].name
-      value: Heavy
+      value: Invocation
       objectReference: {fileID: 0}
     - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
@@ -2110,6 +2110,16 @@ PrefabInstance:
       propertyPath: phases.Array.data[0].stateAttack.effects.Array.data[2]
       value: 
       objectReference: {fileID: 5847069216086887089}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[0].name
+      value: Melee
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].isBerserker
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7778028239907775811, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: _meshRenderers.Array.data[0]

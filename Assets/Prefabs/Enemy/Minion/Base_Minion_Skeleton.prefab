@@ -87,6 +87,7 @@ MonoBehaviour:
   phases:
   - name: Simple Attack
     isActive: 1
+    isBerserker: 0
     tresholdMin: 0
     tresholdMax: 100
     stateMove:
@@ -117,7 +118,7 @@ MonoBehaviour:
         m_PersistentCalls:
           m_Calls: []
       isRunning: 1
-      speed: 5
+      speed: 5.5
       rotationSpeed: 1
     stateAttack:
       owner: {fileID: 0}
