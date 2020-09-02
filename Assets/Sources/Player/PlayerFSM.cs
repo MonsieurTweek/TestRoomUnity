@@ -163,12 +163,12 @@ public class PlayerFSM : CharacterFSM, ICharacter
     {
         if (((uint)currentState.flag & CAN_TARGET_MASK) != 0)
         {
-            GameObject[] enemies = FindTargetInRange();
+            EnemyFSM[] enemies = FindTargetInRange();
             EnemyFSM bestTarget = null;
             float closestDistance = Mathf.Infinity;
             Vector3 currentPosition = transform.position;
 
-            foreach (GameObject enemy in enemies)
+            foreach (EnemyFSM enemy in enemies)
             {
                 Vector3 directionToTarget = enemy.transform.position - currentPosition;
                 float magnitude = directionToTarget.magnitude; // Don't use sqrt as not necessary to compare distance
@@ -190,9 +190,9 @@ public class PlayerFSM : CharacterFSM, ICharacter
         }
     }
 
-    private GameObject[] FindTargetInRange()
+    private EnemyFSM[] FindTargetInRange()
     {
-        List<GameObject> potentialTargets = new List<GameObject>();
+        List<EnemyFSM> potentialTargets = new List<EnemyFSM>();
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, rangeForTarget);
 
         int i = 0;
@@ -201,7 +201,12 @@ public class PlayerFSM : CharacterFSM, ICharacter
         {
             if (hitColliders[i].tag == EnemyData.TAG)
             {
-                potentialTargets.Add(hitColliders[i].gameObject);
+                EnemyFSM enemy = hitColliders[i].GetComponent<EnemyFSM>();
+
+                if (enemy.data.isAlive == true)
+                {
+                    potentialTargets.Add(enemy);
+                }
             }
             i++;
         }
