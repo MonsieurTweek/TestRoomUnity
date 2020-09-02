@@ -6,6 +6,7 @@ public class EnemyPhase
     public string name = string.Empty;
 
     public bool isActive = true;
+    public bool isBerserker = false;
     public float tresholdMin = 0f;
     public float tresholdMax = 100f;
 

@@ -144,11 +144,14 @@ public class EnemyFSM : CharacterFSM, ICharacter
 
             if (data.isAlive == true)
             {
-                UpdatePhases();
-
-                if (isBlocking == true)
+                if (phases[currentPhaseIndex].isBerserker == false)
                 {
-                    TransitionToHit();
+                    UpdatePhases();
+
+                    if (isBlocking == true)
+                    {
+                        TransitionToHit();
+                    }
                 }
             }
             else
