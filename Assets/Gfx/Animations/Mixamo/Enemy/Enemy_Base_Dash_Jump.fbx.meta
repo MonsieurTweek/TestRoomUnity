@@ -71,7 +71,7 @@ ModelImporter:
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 222
+      lastFrame: 181
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -91,14 +91,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: OnSingleAnimationEnded
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.15990992
+      - time: 0.19276413
         functionName: OnManualAnimationEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -107,6 +100,13 @@ ModelImporter:
         messageOptions: 0
       - time: 0.42792794
         functionName: OnManualAnimationEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: OnSingleAnimationEnded
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
