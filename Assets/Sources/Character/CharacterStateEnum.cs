@@ -8,5 +8,6 @@
     HIT     = 1 << 3,
     DIE     = 1 << 4,
     STUN    = 1 << 5,
-    INTRO   = 1 << 6
+    INTRO   = 1 << 6,
+    DASH    = 1 << 7
 }

@@ -53,7 +53,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
         stateIdle.flag = (uint)CharacterStateEnum.IDLE;
         stateHit.flag = (uint)CharacterStateEnum.HIT;
         stateDie.flag = (uint)CharacterStateEnum.DIE;
-        stateDash.flag = (uint)CharacterStateEnum.MOVE;
+        stateDash.flag = (uint)CharacterStateEnum.DASH;
 
         data = new EnemyData();
     }
@@ -135,7 +135,7 @@ public class EnemyFSM : CharacterFSM, ICharacter
     /// <param name="isBlocking">Whether it should stop enemy (play animation) or not.</param>
     public bool Hit(int damage, bool isBlocking = true)
     {
-        // Ensure player is in a state where he can take a hit
+        // Ensure enemy is in a state where he can take a hit
         if (((uint)currentState.flag & FLAG_CAN_HIT) != 0)
         {
             data.ApplyDamage(damage);
