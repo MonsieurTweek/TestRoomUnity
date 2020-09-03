@@ -5,6 +5,7 @@ public class ParticleSyncShapeController : MonoBehaviour
 {
     public ParticleSystem system = null;
     public ProjectileWithParticleController projectile = null;
+    public bool disableOnStopped = false;
 
     private List<ParticleSystem.Particle> _particles = new List<ParticleSystem.Particle>();
     private Vector3 _averagePosition = Vector3.zero;
@@ -44,6 +45,14 @@ public class ParticleSyncShapeController : MonoBehaviour
 
             projectile.SyncTrigger(_averagePosition, _averageSize);
 
+        }
+    }
+
+    private void OnParticleSystemStopped()
+    {
+        if (disableOnStopped == true)
+        {
+            projectile.DisableTrigger();
         }
     }
 

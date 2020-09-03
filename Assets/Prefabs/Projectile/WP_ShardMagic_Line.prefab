@@ -30,8 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1008287187790198401}
   - {fileID: 9050957911822684618}
+  - {fileID: 1008287187790198401}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,8 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   preserveScale: 0
+  fx: {fileID: 0}
   damage: 1
-  heavyModifier: 1
+  attackFx: {fileID: 0}
+  comboFx: {fileID: 0}
   speed: 0
   impactFx: {fileID: 0}
   destroyAtImpact: 0
@@ -94,7 +96,6 @@ GameObject:
   - component: {fileID: 2785152663245895346}
   - component: {fileID: 7209772486771503402}
   - component: {fileID: 2385901684588243655}
-  - component: {fileID: 9003882279392110255}
   - component: {fileID: 4368630592785653345}
   m_Layer: 0
   m_Name: TriggerController
@@ -115,7 +116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5383189456256316089}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &2785152663245895346
 ParticleSystemRenderer:
@@ -4956,19 +4957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   system: {fileID: 7209772486771503402}
   projectile: {fileID: 5487912822514957015}
---- !u!114 &9003882279392110255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6536668929879040217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebde526ca4a3daa4f8f4c12e31ea20dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  root: {fileID: 4923976261314013770}
+  disableOnStopped: 1
 --- !u!65 &4368630592785653345
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5023,7 +5012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4094835203522244, guid: 729014ca67ac73040acae7a3ae78a34f, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4094835203522244, guid: 729014ca67ac73040acae7a3ae78a34f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

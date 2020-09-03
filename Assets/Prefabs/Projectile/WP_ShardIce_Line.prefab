@@ -95584,7 +95584,6 @@ GameObject:
   - component: {fileID: 1884857333169715346}
   - component: {fileID: 161884510882719034}
   - component: {fileID: 388368442238804316}
-  - component: {fileID: 1739560405362552893}
   - component: {fileID: 3004609779675853488}
   m_Layer: 17
   m_Name: TriggerController
@@ -100446,19 +100445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   system: {fileID: 161884510882719034}
   projectile: {fileID: 7981767655412374556}
---- !u!114 &1739560405362552893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9061836513528319818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebde526ca4a3daa4f8f4c12e31ea20dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  root: {fileID: 8677309504492095597}
+  disableOnStopped: 1
 --- !u!65 &3004609779675853488
 BoxCollider:
   m_ObjectHideFlags: 0
