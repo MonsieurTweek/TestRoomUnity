@@ -23139,7 +23139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 1214045479}
   nextSceneIndex: 2
-  initialIndex: 2
+  initialIndex: 1
   introCamera: {fileID: 144405537}
   characters:
   - {fileID: 1813287263}
