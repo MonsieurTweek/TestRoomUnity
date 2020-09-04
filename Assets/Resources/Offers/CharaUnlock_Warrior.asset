@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Warrior
   description: Unlock the WARRIOR as new character. For glory ! And blood !
   icon: {fileID: 21300000, guid: e6d72a5564735d844916a42ec9c7aed8, type: 3}
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: c20b81ca976e73444b05d5abbbb9222d, type: 3}
   price: 300
   amount: 1
   character: 256

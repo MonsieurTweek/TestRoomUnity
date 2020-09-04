@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Poison
   description: 
   icon: {fileID: 21300000, guid: 8a219bc46afb6d04da48a4509414b807, type: 3}
-  background: {fileID: 21300000, guid: 47cc9de0d3bd474429860feb0e039cdb, type: 3}
+  background: {fileID: 21300000, guid: 8bcab77d4d9a62c48b194a836d118233, type: 3}
   price: 1000
   amount: 1
   perk: 16

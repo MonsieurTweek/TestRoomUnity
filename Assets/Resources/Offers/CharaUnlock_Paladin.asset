@@ -15,6 +15,7 @@ MonoBehaviour:
   title: Paladin
   description: For the light !
   icon: {fileID: 21300000, guid: a58bcfd9ca02afa40b525bd6ba284048, type: 3}
+  background: {fileID: 21300000, guid: a2a39c8f5635622459547c9da89c06f8, type: 3}
   price: 1000
   amount: 1
   character: 8
