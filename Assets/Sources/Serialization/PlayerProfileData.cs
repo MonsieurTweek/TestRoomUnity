@@ -14,7 +14,7 @@ public class PlayerProfileData
         public float timeTotal;
     }
 
-    private int _currency = 999;
+    private int _currency = 1000;
     public int currency
     {
         get
@@ -31,6 +31,7 @@ public class PlayerProfileData
 
     public int lastCurrency { private set; get; }
     public uint characters = (uint)CharacterEnum.DEFAULT_UNLOCK;
+    public uint perks = (uint)PerkEnum.DEFAULT_UNLOCK;
 
     public bool lastMatchWon = false;
     public int countMatchWon = 0;

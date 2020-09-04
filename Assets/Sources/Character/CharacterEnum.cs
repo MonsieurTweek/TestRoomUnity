@@ -14,5 +14,4 @@
 
 
     DEFAULT_UNLOCK = SORCERER
-
 }

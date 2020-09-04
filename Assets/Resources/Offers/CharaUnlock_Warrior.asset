@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: CharaUnlock_Warrior
   m_EditorClassIdentifier: 
   title: Warrior
-  description: For glory ! And blood !
+  description: Unlock the WARRIOR as new character. For glory ! And blood !
   icon: {fileID: 21300000, guid: e6d72a5564735d844916a42ec9c7aed8, type: 3}
+  background: {fileID: 0}
   price: 300
   amount: 1
   character: 256

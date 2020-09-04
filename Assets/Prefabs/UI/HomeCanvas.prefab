@@ -2113,7 +2113,7 @@ PrefabInstance:
     - target: {fileID: 1725924019986760977, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1725924019986760977, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
@@ -2133,7 +2133,7 @@ PrefabInstance:
     - target: {fileID: 1725924019986760977, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
       propertyPath: m_text
-      value: CAMPAIGN
+      value: ARENA
       objectReference: {fileID: 0}
     - target: {fileID: 1725924019986760977, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
@@ -2542,17 +2542,17 @@ PrefabInstance:
     - target: {fileID: 1503944559768270268, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 22
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 1503944559768270268, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1503944559768270268, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1503944559768270268, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
@@ -2567,7 +2567,7 @@ PrefabInstance:
     - target: {fileID: 1503944559768270268, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}
       propertyPath: m_text
-      value: Buy stuff and fighters
+      value: Buy new characters and perks
       objectReference: {fileID: 0}
     - target: {fileID: 1503944559768270268, guid: 8d4c5cada951a124db29c4a493b86f4f,
         type: 3}

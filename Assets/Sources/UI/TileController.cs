@@ -17,7 +17,7 @@ public class TileController : Button
     public ProgressBarController confirmBar = null;
     public float confirmDelay = 0.25f;
 
-    private LTDescr _confirmAnimation = null;
+    private int _tweenId = -1;
 
     public override void OnSelect(BaseEventData eventData)
     {
@@ -55,7 +55,7 @@ public class TileController : Button
 
     public void ConfirmSelection()
     {
-        _confirmAnimation = LeanTween.value(0f, 100f, confirmDelay).setOnUpdate(ConfirmProgress).setOnComplete(ConfirmComplete);
+        _tweenId = LeanTween.value(0f, 100f, confirmDelay).setOnUpdate(ConfirmProgress).setOnComplete(ConfirmComplete).id;
     }
 
     private void ConfirmProgress(float progress)
@@ -66,13 +66,15 @@ public class TileController : Button
     private void ConfirmComplete()
     {
         onClick.Invoke();
+
+        confirmBar.current = 0;
     }
 
     public void CancelSelection()
     {
-        if (_confirmAnimation != null)
+        if (LeanTween.isTweening(_tweenId) == true)
         {
-            LeanTween.cancel(_confirmAnimation.id);
+            LeanTween.cancel(_tweenId);
 
             confirmBar.current = 0;
         }

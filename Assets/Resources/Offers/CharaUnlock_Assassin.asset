@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: CharaUnlock_Assassin
   m_EditorClassIdentifier: 
   title: Assassin
-  description: Unlock this awesome archetype to strike from the shadows !
+  description: Unlock this awesome character to strike from the shadows !
   icon: {fileID: 21300000, guid: a0939375850c51645ade4e41ce7142db, type: 3}
+  background: {fileID: 0}
   price: 500
   amount: 1
   character: 1

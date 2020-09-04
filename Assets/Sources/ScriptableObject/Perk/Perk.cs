@@ -5,15 +5,17 @@ public abstract class Perk : DescriptiveObject
 {
     public static readonly string AMOUNT_STRING_KEY = "{:amount}";
 
-    public enum PerkType
+    public enum PerkUsage
     {
         INSTANT = 0,
         PERMANENT = 1
     }
 
     public int amount = 0;
-    public PerkType type = PerkType.INSTANT;
+    public PerkEnum type = PerkEnum.NONE;
+    public PerkUsage usage = PerkUsage.INSTANT;
     public bool isCumulative = false;
+    public bool isUnlock { get { return (SaveData.current.playerProfile.perks & (uint)type) != 0; } }
 
     protected CharacterFSM _owner = null;
 

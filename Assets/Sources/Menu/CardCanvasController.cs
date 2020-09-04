@@ -14,6 +14,7 @@ public class CardCanvasController : MonoBehaviour
     public List<Perk> perks = new List<Perk>();
 
     private HashSet<int> _perksToDisplay = new HashSet<int>();
+    private List<Perk> _perksAvailable = new List<Perk>();
     private int _currentCardIndex = 0;
     private int _currentIntroCounter = 0;
 
@@ -28,6 +29,14 @@ public class CardCanvasController : MonoBehaviour
     {
         PerkGameEvent.instance.onDisplayed += OnPerkDisplayed;
         PerkGameEvent.instance.onUnlockStarted += OnPerkUnlockStarted;
+
+        for (int i = 0; i < perks.Count; i++)
+        {
+            if (perks[i].isUnlock == true)
+            {
+                _perksAvailable.Add(perks[i]);
+            }
+        }
     }
 
     private void OnNavigatePerformed(InputAction.CallbackContext context)
@@ -106,13 +115,13 @@ public class CardCanvasController : MonoBehaviour
         {
             do
             {
-                index = Random.Range(0, perks.Count);
+                index = Random.Range(0, _perksAvailable.Count);
             }
-            while (_perksToDisplay.Contains(index) && perks.Count > 1);
+            while (_perksToDisplay.Contains(index) && _perksAvailable.Count > 1);
 
             _perksToDisplay.Add(index);
 
-            cards[i].Initialize(perks[index]);
+            cards[i].Initialize(_perksAvailable[index]);
             cards[i].AnimateIntro(OnIntroCompleted);
         }
     }
@@ -142,7 +151,7 @@ public class CardCanvasController : MonoBehaviour
 
                 if (perk.isCumulative == false)
                 {
-                    perks.Remove(perk);
+                    _perksAvailable.Remove(perk);
                 }
             }
             else

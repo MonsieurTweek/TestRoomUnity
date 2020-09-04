@@ -329,7 +329,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
     {
         perk.Unlock(this);
 
-        if (perk.type == Perk.PerkType.PERMANENT)
+        if (perk.usage == Perk.PerkUsage.PERMANENT)
         {
             _perks.Add(perk);
         }

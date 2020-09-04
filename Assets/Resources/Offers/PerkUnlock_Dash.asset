@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2163300ed4870ac49bcd34a42e99d9c0, type: 3}
-  m_Name: DashPerk
+  m_Script: {fileID: 11500000, guid: 799741940fd14cc418f9921f80421e74, type: 3}
+  m_Name: PerkUnlock_Dash
   m_EditorClassIdentifier: 
   title: Dash
-  description: Dash to get distance and put you in safety
+  description: 
   icon: {fileID: 21300000, guid: 24b92e31a31a6584e9f1d1997fc9cc0a, type: 3}
   background: {fileID: 21300000, guid: 284fc939756704a42996c4a81b947554, type: 3}
-  amount: 0
-  type: 4
-  usage: 0
-  isCumulative: 0
+  price: 1000
+  amount: 1
+  perk: 4
