@@ -449,7 +449,7 @@ public class LeanTween : MonoBehaviour {
         if(tweens[i].toggle){
             tweens[i].toggle = false;
             tweens[i].counter = uint.MaxValue;
-            //logError("Removing tween["+i+"]:"+tweens[i]);
+            // logError("Removing tween["+i+"]:"+tweens[i]);
             if(tweens[i].destroyOnComplete){
 //              Debug.Log("destroying tween.type:"+tween.type+" ltRect"+(tweens[i]._optional.ltRect==null));
                 if(tweens[i]._optional.ltRect!=null){
@@ -618,7 +618,7 @@ public class LeanTween : MonoBehaviour {
                     seq.current = seq.current.previous;
                 }
             } else { // tween
-                // Debug.Log("uniqueId:"+uniqueId+ " id:"+backId +" action:"+(TweenAction)backType + " tweens[id].type:"+tweens[backId].type);
+                 // Debug.Log("uniqueId:"+uniqueId+ " id:"+backId +" tweens[id].type:"+tweens[backId].type);
                 if (tweens[backId].counter == backCounter) {
                     if (callOnComplete && tweens[backId].optional.onComplete != null)
                         tweens[backId].optional.onComplete();
