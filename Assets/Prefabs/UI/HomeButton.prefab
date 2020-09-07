@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b242a4e6a197a548bbb7698dad9b8ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 4243814561542175528}
   confirmBar: {fileID: 7347024424164693621}
   confirmDelay: 0.5
 --- !u!1 &4568015443009169016
@@ -412,6 +413,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626789026262071180, guid: 652f4883abd528444beda1c978b77292,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626789026262071180, guid: 652f4883abd528444beda1c978b77292,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626789026262071180, guid: 652f4883abd528444beda1c978b77292,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7626789026262071180, guid: 652f4883abd528444beda1c978b77292,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 652f4883abd528444beda1c978b77292, type: 3}
