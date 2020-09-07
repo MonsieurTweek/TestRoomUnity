@@ -33,7 +33,7 @@ public class TileController : Button
 
         targetGraphic.color = colors.selectedColor;
 
-        LeanTween.scale(icon.gameObject, Vector3.one * 1.1f, iconAnimationTime).setEase(iconAnimationIn);
+        LeanTween.scale(this.gameObject, Vector3.one * 1.1f, iconAnimationTime).setEase(iconAnimationIn);
     }
 
     public override void OnDeselect(BaseEventData eventData)
@@ -50,7 +50,7 @@ public class TileController : Button
 
         targetGraphic.color = colors.normalColor;
 
-        LeanTween.scale(icon.gameObject, Vector3.one, iconAnimationTime).setEase(iconAnimationOut);
+        LeanTween.scale(this.gameObject, Vector3.one, iconAnimationTime).setEase(iconAnimationOut);
     }
 
     public void ConfirmSelection()
