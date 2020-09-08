@@ -25,3 +25,6 @@ MonoBehaviour:
   gearLeft: {fileID: 519053702718917741, guid: 060c05e20a5716e4fbaf3e4495c49391, type: 3}
   gearRight: {fileID: 1408116361102627807, guid: adbc8cd9f39c49544b8a53ba4e6e8dee,
     type: 3}
+  lightAbilityDescription: Sword attack
+  heavyAbilityDescription: Spell attack
+  passiveAbilityDescription: Can regain health

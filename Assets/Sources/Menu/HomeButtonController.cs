@@ -5,10 +5,14 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class HomeButtonController : MonoBehaviour
 {
+    [Header("References")]
+    public Image icon = null;
     public ProgressBarController confirmBar = null;
+
+    [Header("Properties")]
     public float confirmDelay = 0.25f;
 
-    private LTDescr _confirmAnimation = null;
+    private int _tweenId = -1;
     private Button _button = null;
 
     private void Awake()
@@ -30,7 +34,9 @@ public class HomeButtonController : MonoBehaviour
 
     private void OnBackStarted(InputAction.CallbackContext context)
     {
-        _confirmAnimation = LeanTween.value(0f, 100f, confirmDelay).setOnUpdate(ConfirmProgress).setOnComplete(ConfirmComplete);
+        _tweenId = LeanTween.value(0f, 100f, confirmDelay).setOnUpdate(ConfirmProgress).setOnComplete(ConfirmComplete).id;
+
+        LeanTween.scale(icon.gameObject, icon.transform.localScale * 1.5f, 0.1f).setLoopPingPong(1);
     }
 
     private void ConfirmProgress(float progress)
@@ -45,9 +51,9 @@ public class HomeButtonController : MonoBehaviour
 
     private void OnBackCanceled(InputAction.CallbackContext context)
     {
-        if (_confirmAnimation != null)
+        if (LeanTween.isTweening(_tweenId) == true)
         {
-            LeanTween.cancel(_confirmAnimation.id);
+            LeanTween.cancel(_tweenId);
 
             confirmBar.current = 0;
         }

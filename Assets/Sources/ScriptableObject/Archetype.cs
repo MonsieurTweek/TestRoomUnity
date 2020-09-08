@@ -9,13 +9,19 @@ public class Archetype : DescriptiveObject
 
     public CharacterEnum character = CharacterEnum.NONE;
 
+    [Header("Configuration")]
     public Player configuration = null;
-
     public AnimatorOverrideController animationController = null;
     public PlayerStateAttackEffects attackEffects = null;
 
+    [Header("Gear")]
     public GearController gearLeft = null;
     public GearController gearRight = null;
+
+    [Header("Ability description")]
+    public string lightAbilityDescription = string.Empty;
+    public string heavyAbilityDescription = string.Empty;
+    public string passiveAbilityDescription = string.Empty;
 
     public void Save(string path)
     {

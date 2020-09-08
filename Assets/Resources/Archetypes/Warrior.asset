@@ -25,3 +25,6 @@ MonoBehaviour:
   gearLeft: {fileID: 0}
   gearRight: {fileID: 4433564959580726195, guid: dd568b9cd20a8e64595606dcf02a4ec8,
     type: 3}
+  lightAbilityDescription: Light attack
+  heavyAbilityDescription: Heavy attack
+  passiveAbilityDescription: Can execute combos

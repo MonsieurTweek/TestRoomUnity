@@ -8,17 +8,20 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class CharacterSelectionController : MonoBehaviour
 {
-    [Header("Direct references")]
-    public CharacterSelectionCanvasController canvas = null;
-    public int nextSceneIndex;
-
-    [Space(10)]
-    
-    public int initialIndex = 0;
-    private int _currentIndex = 0;
-
+    [Header("References")]
     public CinemachineVirtualCamera introCamera = null;
+    public CharacterSelectionCanvasController selectionCanvas = null;
+    public CharacterDescriptionCanvasController descriptionCanvas = null;
+    public ProgressBarController confirmBar = null;
+
     public CharacterSelectedController[] characters = null;
+
+    [Header("Properties")]
+    public int initialIndex = 0;
+    public float confirmDelay = 0.25f;
+
+    private int _tweenId = -1;
+    private int _currentIndex = 0;
 
     private void Awake()
     {
@@ -29,24 +32,26 @@ public class CharacterSelectionController : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.instance.menu.Navigate.performed += OnNavigate;
+        InputManager.instance.menu.Navigate.performed += OnNavigatePerformed;
         InputManager.instance.menu.Confirm.started += OnConfirmStarted;
+        InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
     }
 
     private void OnDisable()
     {
-        InputManager.instance.menu.Navigate.performed -= OnNavigate;
+        InputManager.instance.menu.Navigate.performed -= OnNavigatePerformed;
         InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
+        InputManager.instance.menu.Confirm.canceled -= OnConfirmCanceled;
     }
 
-    private void OnNavigate(InputAction.CallbackContext context)
+    private void OnNavigatePerformed(InputAction.CallbackContext context)
     {
         Vector2 input = context.ReadValue<Vector2>();
 
         // Move to next character
         if (input.x < 0f && Mathf.Abs(input.x) > Mathf.Abs(input.y))
         {
-            characters[_currentIndex].Deselect();
+            DeselectCharacter(_currentIndex);
 
             _currentIndex = _currentIndex > 0 ? _currentIndex - 1 : characters.Length - 1;
 
@@ -55,7 +60,7 @@ public class CharacterSelectionController : MonoBehaviour
         // Move to previous character
         else if (input.x > 0f && Mathf.Abs(input.x) > Mathf.Abs(input.y))
         {
-            characters[_currentIndex].Deselect();
+            DeselectCharacter(_currentIndex);
 
             _currentIndex = _currentIndex < characters.Length - 1 ? _currentIndex + 1 : 0;
 
@@ -72,8 +77,40 @@ public class CharacterSelectionController : MonoBehaviour
     {
         if (characters[_currentIndex].Validate() == true)
         {
-            GameEvent.instance.CharacterSelected();
+            _tweenId = LeanTween.value(gameObject, 0f, 100f, confirmDelay).setOnUpdate(ConfirmProgress).setOnComplete(ConfirmComplete).id;
+
+            // Unbind input except Confirm.Canceled so we are sure to don't switch during validation
+            InputManager.instance.menu.Navigate.performed -= OnNavigatePerformed;
+            InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
         }
+    }
+
+    private void ConfirmProgress(float progress)
+    {
+        confirmBar.current = Mathf.RoundToInt(progress);
+    }
+
+    private void ConfirmComplete()
+    {
+        // Unbind Confirm.Canceled as the validation has been done
+        InputManager.instance.menu.Confirm.canceled -= OnConfirmCanceled;
+
+        GameEvent.instance.CharacterSelected();
+    }
+
+    private void OnConfirmCanceled(InputAction.CallbackContext context)
+    {
+        if (LeanTween.isTweening(_tweenId) == true)
+        {
+            LeanTween.cancel(gameObject, _tweenId);
+
+            confirmBar.current = 0;
+        }
+
+        // Rebind input as player can make another selection/confirmation
+        // except Confirm.Canceled still bound
+        InputManager.instance.menu.Navigate.performed += OnNavigatePerformed;
+        InputManager.instance.menu.Confirm.started += OnConfirmStarted;
     }
 
     private IEnumerator WaitForIntro()
@@ -88,6 +125,12 @@ public class CharacterSelectionController : MonoBehaviour
     private void SelectCharacter(int index)
     {
         characters[index].Select();
-        canvas.UpdateContent(characters[index].title, characters[index].icon, characters[index].isUnlock);
+        selectionCanvas.UpdateContent(characters[index].title, characters[index].icon, characters[index].isUnlock);
+        descriptionCanvas.OnCharacterSelected(characters[index]);
+    }
+
+    private void DeselectCharacter(int index)
+    {
+        characters[index].Deselect();
     }
 }

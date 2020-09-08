@@ -6,35 +6,35 @@ using UnityEngine;
 /// </summary>
 public class CharacterSelectedController : MonoBehaviour
 {
-    public string title { get { return _archetype.title; } }
-    public Sprite icon { get { return _archetype.icon; } }
-    public bool isUnlock { get { return (SaveData.current.playerProfile.characters & (uint)_archetype.character) != 0; } }
+    public Archetype archetype = null;
+    public PlayerCustomizationController character = null;
+    public CinemachineVirtualCamera virtualCamera = null;
+    public RectTransform canvasAnchor = null;
 
-    [SerializeField]
-    private Archetype _archetype = null;
-
-    [SerializeField]
-    private PlayerCustomizationController _character = null;
-
-    [SerializeField]
-    private CinemachineVirtualCamera _camera = null;
+    public string title { get { return archetype.title; } }
+    public string description { get { return archetype.description; } }
+    public string lightAbilityDesc { get { return archetype.lightAbilityDescription; } }
+    public string heavyAbilityDesc { get { return archetype.heavyAbilityDescription; } }
+    public string passiveAbilityDesc { get { return archetype.passiveAbilityDescription; } }
+    public Sprite icon { get { return archetype.icon; } }
+    public bool isUnlock { get { return (SaveData.current.playerProfile.characters & (uint)archetype.character) != 0; } }
 
     public void Deselect()
     {
-        _camera.Priority = 10;
+        virtualCamera.Priority = 10;
     }
 
     public void Select()
     {
-        _camera.Priority = 100;
+        virtualCamera.Priority = 100;
     }
 
     public bool Validate()
     {
         if (isUnlock == true)
         {
-            _character.SaveCustomization();
-            _archetype.Save(Archetype.SAVE_PATH);
+            character.SaveCustomization();
+            archetype.Save(Archetype.SAVE_PATH);
 
             return true;
         }
@@ -44,7 +44,7 @@ public class CharacterSelectedController : MonoBehaviour
 
     public void ChangeCustomization()
     {
-        _character.currentCustomizationIndex++;
-        _character.LoadCustomizationFromPreset(_character.customization);
+        character.currentCustomizationIndex++;
+        character.LoadCustomizationFromPreset(character.customization);
     }
 }
