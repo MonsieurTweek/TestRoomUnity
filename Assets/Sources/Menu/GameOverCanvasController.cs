@@ -18,10 +18,12 @@ public class GameOverCanvasController : MonoBehaviour
     public Color victoryColor = Color.black;
     public string victoryText = string.Empty;
     public Sprite victoryImage = null;
+    public AudioClip victorySfx = null;
 
     public Color defeatColor = Color.black;
     public string defeatText = string.Empty;
     public Sprite defeatImage = null;
+    public AudioClip defeatSfx = null;
 
     public LeanTweenType counterEaseType = LeanTweenType.linear;
     public LeanTweenType currencyEaseType = LeanTweenType.linear;
@@ -53,6 +55,8 @@ public class GameOverCanvasController : MonoBehaviour
         background.sprite = SaveData.current.playerProfile.lastMatchWon ? victoryImage : defeatImage;
 
         LeanTween.alphaCanvas(root, 1f, 1f).setOnComplete(StartRewardAnimation);
+
+        AudioManager.instance.PlayMenuSound(SaveData.current.playerProfile.lastMatchWon ? victorySfx : defeatSfx);
 
         InputManager.instance.menu.Confirm.started += OnConfirmStarted;
         InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
@@ -87,6 +91,8 @@ public class GameOverCanvasController : MonoBehaviour
 
     private void ConfirmComplete()
     {
+        AudioManager.instance.PlayMenuSound(AudioManager.instance.menuConfirmationSfx);
+
         GameEvent.instance.HomeButtonPressed();
     }
 

@@ -105,6 +105,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.33245382
+        functionName: OnAnimationPlaySfx
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 93b2a2d0c3a38a0409ac4eaea261cbea,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

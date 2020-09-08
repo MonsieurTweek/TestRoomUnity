@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.InputSystem;
-using System.Collections;
+using UnityEngine.UI;
 
 public class AnimatedPageController : MonoBehaviour
 {
@@ -91,6 +90,8 @@ public class AnimatedPageController : MonoBehaviour
         _currentSelectedChild = index;
 
         _selectableChilds[_currentSelectedChild].OnSelect(null);
+
+        AudioManager.instance.PlayMenuSound(AudioManager.instance.menuNavigationSfx);
     }
 
     public void Show(float time, float delay)

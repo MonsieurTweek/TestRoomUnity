@@ -28,7 +28,7 @@ public class ProjectileController : WeaponController
             impact.transform.position = transform.position;
             impact.transform.rotation = transform.rotation;
 
-            impact.SetActive(true);
+            impact.GetComponent<VisualEffectController>().Reset(owner.currentState.flag);
         }
 
         if (destroyAtImpact == true)

@@ -70,6 +70,8 @@ public class StoreOfferController : MonoBehaviour
     {
         if (IsPurchased() == true || offer.price > SaveData.current.playerProfile.currency)
         {
+            AudioManager.instance.PlayMenuSound(AudioManager.instance.menuConfirmationFailedSfx);
+
             AnimatePrice();
         }
         else

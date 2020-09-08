@@ -16,10 +16,13 @@ public class IntroSplashController : MonoBehaviour
     public float animationDuration = 0.5f;
     public Vector3 positionOffset = Vector3.zero;
     public float confirmDelay = 0.25f;
+    public AudioClip sfx = null;
+    public float sfxDelayRatio = 0.6f;
 
     private int _tweenId = -1;
     private Transform _target = null;
     private Vector3 _originalPosition = Vector3.zero;
+    private bool _hasPlayedSfx = false;
 
     private void Awake()
     {
@@ -39,6 +42,7 @@ public class IntroSplashController : MonoBehaviour
         confirmBar.current = 0;
 
         _target = target;
+        _hasPlayedSfx = false;
     }
 
     private void OnIntroPaused()
@@ -60,12 +64,22 @@ public class IntroSplashController : MonoBehaviour
         layout.localRotation = _target.rotation;
         layout.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, _target.localScale.x * 2f);
 
-        LeanTween.move(layout.gameObject, finalPosition, animationDuration).setEase(animationType).setDelay(0.1f);
+        LeanTween.move(layout.gameObject, finalPosition, animationDuration).setEase(animationType).setOnUpdate(OnSplashUpdated).setDelay(0.1f);
 
         layout.gameObject.SetActive(true);
 
         InputManager.instance.menu.Confirm.started += OnConfirmStarted;
         InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
+    }
+
+    private void OnSplashUpdated(float progress)
+    {
+        if (progress >= sfxDelayRatio && _hasPlayedSfx == false)
+        {
+            AudioManager.instance.PlayInGameSound(sfx);
+
+            _hasPlayedSfx = true;
+        }
     }
 
     private void OnIntroEnded()
@@ -86,6 +100,8 @@ public class IntroSplashController : MonoBehaviour
 
     private void ConfirmComplete()
     {
+        AudioManager.instance.PlayMenuSound(AudioManager.instance.menuConfirmationSfx);
+
         CharacterGameEvent.instance.IntroEnd();
 
         InputManager.instance.menu.Confirm.started -= OnConfirmStarted;

@@ -583,9 +583,11 @@ MonoBehaviour:
   victoryColor: {r: 0.88235295, g: 0.69411767, b: 0.17254902, a: 1}
   victoryText: Victory
   victoryImage: {fileID: 21300000, guid: 5b4dcc1ab4262fc46acd0d7f0400db2b, type: 3}
+  victorySfx: {fileID: 8300000, guid: 39a47a64e2ec9e94fa410ab7b84c94aa, type: 3}
   defeatColor: {r: 0.7607843, g: 0.21176471, b: 0.08627451, a: 1}
   defeatText: Defeat
   defeatImage: {fileID: 21300000, guid: 02ae5a27384a1214baabec352b6ca63a, type: 3}
+  defeatSfx: {fileID: 8300000, guid: 535c548c182c28a40b350a07c00c9143, type: 3}
   counterEaseType: 32
   currencyEaseType: 32
   confirmDelay: 0.25

@@ -65,6 +65,8 @@ public class TileController : Button
 
     private void ConfirmComplete()
     {
+        AudioManager.instance.PlayMenuSound(AudioManager.instance.menuConfirmationSfx);
+
         onClick.Invoke();
 
         confirmBar.current = 0;

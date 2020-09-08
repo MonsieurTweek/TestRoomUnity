@@ -46,6 +46,8 @@ public class HomeButtonController : MonoBehaviour
 
     private void ConfirmComplete()
     {
+        AudioManager.instance.PlayMenuSound(AudioManager.instance.menuBackSfx);
+
         _button.onClick.Invoke();
     }
 

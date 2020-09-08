@@ -90986,6 +90986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   preserveScale: 0
   fx: {fileID: 0}
+  sfx: {fileID: 8300000, guid: 800a60f5e38170a47901edd06f041ac4, type: 3}
   damage: 1
   attackFx: {fileID: 0}
   comboFx: {fileID: 0}

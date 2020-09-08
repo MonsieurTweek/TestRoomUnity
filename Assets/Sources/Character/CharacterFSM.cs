@@ -119,6 +119,15 @@ public class CharacterFSM : AbstractFSM
     }
 
     /// <summary>
+    /// Animation triggers a SFX
+    /// Called from animation event
+    /// </summary>
+    public void OnAnimationPlaySfx(AnimationEvent animationEvent)
+    {
+        AudioManager.instance.PlayInGameSound((AudioClip)animationEvent.objectReferenceParameter);
+    }
+
+    /// <summary>
     /// Animation triggers the gear visual effect
     /// </summary>
     /// <param name="animationEvent">intParameter : 0:right, 1:left, 2:both</param>

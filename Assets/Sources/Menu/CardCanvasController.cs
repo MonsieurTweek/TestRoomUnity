@@ -60,6 +60,8 @@ public class CardCanvasController : MonoBehaviour
             _currentCardIndex = index;
 
             cards[_currentCardIndex].Select();
+
+            AudioManager.instance.PlayMenuSound(AudioManager.instance.menuNavigationSfx);
         }
     }
 
@@ -79,6 +81,8 @@ public class CardCanvasController : MonoBehaviour
 
     private void ConfirmComplete()
     {
+        AudioManager.instance.PlayMenuSound(AudioManager.instance.menuConfirmationSfx);
+
         cards[_currentCardIndex].ConfirmSelection();
 
         // Unbind Confirm.Canceled as the selection has been done

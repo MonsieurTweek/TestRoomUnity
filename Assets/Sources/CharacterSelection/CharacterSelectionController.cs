@@ -95,6 +95,8 @@ public class CharacterSelectionController : MonoBehaviour
         // Unbind Confirm.Canceled as the validation has been done
         InputManager.instance.menu.Confirm.canceled -= OnConfirmCanceled;
 
+        AudioManager.instance.PlayMenuSound(AudioManager.instance.menuConfirmationSfx);
+
         GameEvent.instance.CharacterSelected();
     }
 
@@ -124,6 +126,8 @@ public class CharacterSelectionController : MonoBehaviour
 
     private void SelectCharacter(int index)
     {
+        AudioManager.instance.PlayMenuSound(AudioManager.instance.menuNavigationSfx);
+
         characters[index].Select();
         selectionCanvas.UpdateContent(characters[index].title, characters[index].icon, characters[index].isUnlock);
         descriptionCanvas.OnCharacterSelected(characters[index]);

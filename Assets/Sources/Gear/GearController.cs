@@ -4,6 +4,7 @@ public class GearController : MonoBehaviour
 {
     public bool preserveScale = false;
     public VisualEffectController fx = null;
+    public AudioClip sfx = null;
 
     public CharacterFSM owner { private set; get; }
 
@@ -18,6 +19,11 @@ public class GearController : MonoBehaviour
     public virtual void Attach(CharacterFSM character)
     {
         owner = character;
+
+        if (sfx != null)
+        {
+            AudioManager.instance.PlayInGameSound(sfx);
+        }
     }
 
     public void PlayFx()

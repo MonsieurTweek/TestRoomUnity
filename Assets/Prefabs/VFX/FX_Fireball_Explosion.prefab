@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPersistent: 1
   effect: {fileID: 5665580486653520489}
+  sound: {fileID: 8300000, guid: 7220b815d38e2f441ade090e4f3316b5, type: 3}
 --- !u!1001 &4563341400155658109
 PrefabInstance:
   m_ObjectHideFlags: 0

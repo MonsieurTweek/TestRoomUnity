@@ -4,6 +4,7 @@ public class VisualEffectController : MonoBehaviour
 {
     public bool isPersistent = true;
     public ParticleSystem effect = null;
+    public AudioClip sound = null;
 
     public uint stateId { private set; get; }
 
@@ -36,6 +37,11 @@ public class VisualEffectController : MonoBehaviour
     public void Play()
     {
         gameObject.SetActive(true);
+
+        if (sound != null)
+        {
+            AudioManager.instance.PlayInGameSound(sound);
+        }
 
         effect.Play();
     }
