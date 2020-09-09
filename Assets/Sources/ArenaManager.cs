@@ -5,10 +5,11 @@ using UnityEngine;
 public class ArenaManager : MonoBehaviour
 {
     [Header("Properties")]
+    public AudioClip music = null;
     public PlayerFSM player = null;
-    public List<Transform> spawnPoints = new List<Transform>();
-    public List<EnemyFSM> enemies = new List<EnemyFSM>();
     public int enemyPerTiers = 3;
+    public List<EnemyFSM> enemies = new List<EnemyFSM>();
+    public List<Transform> spawnPoints = new List<Transform>();
 
     private int _currentReward = 0;
     private int _currentEnemyIndex = 0;
@@ -20,19 +21,30 @@ public class ArenaManager : MonoBehaviour
     {
         CharacterGameEvent.instance.onHit += OnHit;
         CharacterGameEvent.instance.onDied += OnDie;
+        CharacterGameEvent.instance.onIntroStarted += OnIntroStarted;
+        CharacterGameEvent.instance.onIntroPaused += OnIntroPaused;
         PerkGameEvent.instance.onUnlockEnded += OnPerkUnlockEnded;
 
-        StartCoroutine(WaitForIntro());
+        // Replace with binding on player intro done
+        LoadingGameEvent.instance.onLoadingEnded += OnLoadingEnded;
     }
 
-    // Replace with binding on player intro done
-    private IEnumerator WaitForIntro()
+    private void OnLoadingEnded()
     {
-        yield return new WaitForSeconds(0.25f);
-
         PrepareEnemies();
 
         SpawnNextEnemy();
+    }
+
+    private void OnIntroStarted(Transform _, AbstractCharacterData __)
+    {
+        AudioManager.instance.FadeOutMusic();
+    }
+
+    private void OnIntroPaused()
+    {
+        AudioManager.instance.PlayMusic(music);
+        AudioManager.instance.FadeInMusic();
     }
 
     private void PrepareEnemies()
@@ -150,6 +162,8 @@ public class ArenaManager : MonoBehaviour
                 {
                     // Show perks
                     PerkGameEvent.instance.Display();
+
+                    AudioManager.instance.FadeOutMusic(0.15f);
                 }
                 else
                 {
@@ -163,8 +177,15 @@ public class ArenaManager : MonoBehaviour
         }
     }
 
-    private void OnPerkUnlockEnded(uint perkId, Perk perk)
+    private void OnPerkUnlockEnded(uint _, Perk __)
     {
+        StartCoroutine(WaitForUnlockFeedback());
+    }
+
+    private IEnumerator WaitForUnlockFeedback()
+    {
+        yield return new WaitForSeconds(0.5f);
+
         SpawnNextEnemy();
     }
 
@@ -172,12 +193,20 @@ public class ArenaManager : MonoBehaviour
     {
         if (CharacterGameEvent.instance != null)
         {
+            CharacterGameEvent.instance.onHit -= OnHit;
             CharacterGameEvent.instance.onDied -= OnDie;
+            CharacterGameEvent.instance.onIntroStarted -= OnIntroStarted;
+            CharacterGameEvent.instance.onIntroPaused -= OnIntroPaused;
         }
 
         if (PerkGameEvent.instance != null)
         {
             PerkGameEvent.instance.onUnlockEnded -= OnPerkUnlockEnded;
+        }
+
+        if (LoadingGameEvent.instance != null)
+        {
+            LoadingGameEvent.instance.onLoadingEnded -= OnLoadingEnded;
         }
     }
 

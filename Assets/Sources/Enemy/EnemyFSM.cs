@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -152,6 +153,11 @@ public class EnemyFSM : CharacterFSM, ICharacter
                     {
                         TransitionToHit();
                     }
+                    else
+                    {
+                        stateHit.ShowFeedback();
+                        StartCoroutine(HideHitFeedback());
+                    }
                 }
             }
             else
@@ -164,6 +170,13 @@ public class EnemyFSM : CharacterFSM, ICharacter
         }
 
         return false;
+    }
+
+    private IEnumerator HideHitFeedback()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        stateHit.outline.Hide();
     }
 
     private void OnDying(uint id, CharacterTypeEnum type)

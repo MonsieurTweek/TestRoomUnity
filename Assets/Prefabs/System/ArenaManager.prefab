@@ -70,17 +70,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d606edbfeb751f549a659a0f0dd2828a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  music: {fileID: 8300000, guid: a189deab275843247aea40c53ec45743, type: 3}
   player: {fileID: 0}
+  enemyPerTiers: 3
+  enemies:
+  - {fileID: 8735795099524422305, guid: 82c9033ca59dac447bd5ac8b113aa2a0, type: 3}
+  - {fileID: 6995334775875298063, guid: f95e75d35257c0e4ba3f215133bbcb51, type: 3}
+  - {fileID: 1012964192101076563, guid: edd16dc3614252540a36456af68546c5, type: 3}
   spawnPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  enemies:
-  - {fileID: 8735795099524422305, guid: 82c9033ca59dac447bd5ac8b113aa2a0, type: 3}
-  - {fileID: 6995334775875298063, guid: f95e75d35257c0e4ba3f215133bbcb51, type: 3}
-  - {fileID: 1012964192101076563, guid: edd16dc3614252540a36456af68546c5, type: 3}
-  enemyPerTiers: 3
 --- !u!114 &8393282205351930032
 MonoBehaviour:
   m_ObjectHideFlags: 0

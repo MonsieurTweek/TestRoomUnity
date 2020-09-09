@@ -17,6 +17,7 @@ public class CardController : MonoBehaviour
 
     private Vector3 _destination = Vector3.zero;
     private Vector3 _rotation = Vector3.zero;
+    private Action _onIntroSwitch = null;
     private Action _onFullIntroCompleted = null;
     private Canvas _canvas = null;
 
@@ -78,8 +79,9 @@ public class CardController : MonoBehaviour
         gameObject.transform.rotation = Quaternion.Euler(_rotation);
     }
 
-    public void AnimateIntro(Action onComplete)
+    public void AnimateIntro(Action onSwitch, Action onComplete)
     {
+        _onIntroSwitch = onSwitch;
         _onFullIntroCompleted = onComplete;
 
         Prepare();
@@ -91,6 +93,8 @@ public class CardController : MonoBehaviour
     {
         LeanTween.scaleX(back, 0f, 0.25f).setOnComplete(ShowFront);
         LeanTween.scaleX(front, 1f, 0.75f);
+
+        _onIntroSwitch.Invoke();
     }
 
     public void AnimateUnlock(Action<object> onComplete)

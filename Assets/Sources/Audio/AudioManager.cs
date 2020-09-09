@@ -55,9 +55,9 @@ public class AudioManager : MonoBehaviour
         LeanTween.value(0f, _musicVolume, 1f).setOnUpdate(OnMusicVolumeUpdated);
     }
 
-    public void FadeOutMusic()
+    public void FadeOutMusic(float volume = 0f)
     {
-        LeanTween.value(_musicVolume, 0f, 1f).setOnUpdate(OnMusicVolumeUpdated);
+        LeanTween.value(musicSource.volume, volume, 1f).setOnUpdate(OnMusicVolumeUpdated);
     }
 
     private void OnMusicVolumeUpdated(float volume)

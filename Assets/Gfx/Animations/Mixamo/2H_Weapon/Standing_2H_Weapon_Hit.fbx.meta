@@ -91,6 +91,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0
+        functionName: OnAnimationPlaySfx
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 9b1365a377566f24884ea1a317b1d5dc,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 1
         functionName: OnSingleAnimationEnded
         data: 

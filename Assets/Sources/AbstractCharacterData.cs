@@ -74,6 +74,6 @@ public class AbstractCharacterData : AbstractUniqueData
 
     public virtual int GetReward()
     {
-        return power * 5;
+        return power * 35;
     }
 }

@@ -1040,7 +1040,7 @@ MonoBehaviour:
   animationDuration: 0.5
   positionOffset: {x: 0.75, y: 0.5, z: 1}
   confirmDelay: 0.25
-  sfx: {fileID: 8300000, guid: 4295f6ffd8e3a0846b7d463eb5ca61c9, type: 3}
+  sfx: {fileID: 8300000, guid: 4c683345748151f4ab350b0d8479fc10, type: 3}
   sfxDelayRatio: 0.5
 --- !u!1 &7306748484081594629
 GameObject:

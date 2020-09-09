@@ -195,7 +195,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: 569ca88a96e6b1e46be2392c53bc8de0, type: 3}
+      objectReference: {fileID: 8300000, guid: d33df8996f12ec34fb9e3d41a0488e26, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2180,6 +2180,16 @@ PrefabInstance:
       propertyPath: stateDash.offset
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateHit.sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1061dc94b744b0d458aa6cb29d0524a6, type: 3}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateDie.sound
+      value: 
+      objectReference: {fileID: 8300000, guid: d7f542802673bb34591245ac914e39d5, type: 3}
     - target: {fileID: 7778028239907775811, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: _meshRenderers.Array.data[0]
@@ -2294,7 +2304,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: 569ca88a96e6b1e46be2392c53bc8de0, type: 3}
+      objectReference: {fileID: 8300000, guid: d33df8996f12ec34fb9e3d41a0488e26, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2481,7 +2491,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: 569ca88a96e6b1e46be2392c53bc8de0, type: 3}
+      objectReference: {fileID: 8300000, guid: d33df8996f12ec34fb9e3d41a0488e26, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2653,7 +2663,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: 569ca88a96e6b1e46be2392c53bc8de0, type: 3}
+      objectReference: {fileID: 8300000, guid: d33df8996f12ec34fb9e3d41a0488e26, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2922,7 +2932,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: 569ca88a96e6b1e46be2392c53bc8de0, type: 3}
+      objectReference: {fileID: 8300000, guid: d33df8996f12ec34fb9e3d41a0488e26, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name

@@ -10,6 +10,8 @@ public class CardCanvasController : MonoBehaviour
     public List<CardController> cards = new List<CardController>();
 
     [Header("Properties")]
+    public AudioClip introStartedSfx = null;
+    public AudioClip introSwitchedSfx = null;
     public float confirmDelay = 0.25f;
     public List<Perk> perks = new List<Perk>();
 
@@ -126,8 +128,15 @@ public class CardCanvasController : MonoBehaviour
             _perksToDisplay.Add(index);
 
             cards[i].Initialize(_perksAvailable[index]);
-            cards[i].AnimateIntro(OnIntroCompleted);
+            cards[i].AnimateIntro(OnIntroSwitched, OnIntroCompleted);
         }
+
+        AudioManager.instance.PlayInGameSound(introStartedSfx);
+    }
+
+    private void OnIntroSwitched()
+    {
+        AudioManager.instance.PlayInGameSound(introSwitchedSfx);
     }
 
     private void OnIntroCompleted()

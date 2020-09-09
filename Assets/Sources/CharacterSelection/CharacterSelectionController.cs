@@ -95,6 +95,7 @@ public class CharacterSelectionController : MonoBehaviour
         // Unbind Confirm.Canceled as the validation has been done
         InputManager.instance.menu.Confirm.canceled -= OnConfirmCanceled;
 
+        AudioManager.instance.FadeOutMusic();
         AudioManager.instance.PlayMenuSound(AudioManager.instance.menuConfirmationSfx);
 
         GameEvent.instance.CharacterSelected();

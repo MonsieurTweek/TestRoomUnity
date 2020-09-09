@@ -30,7 +30,10 @@ public class GameOverCanvasController : MonoBehaviour
 
     public float confirmDelay = 0.25f;
 
+    public AudioClip[] rewardSounds = null;
+
     private int _tweenId = -1;
+    private int _rewardAmount = 0;
 
     private void Awake()
     {
@@ -65,14 +68,19 @@ public class GameOverCanvasController : MonoBehaviour
 
     private void StartRewardAnimation()
     {
-        int amount = SaveData.current.playerProfile.currency - SaveData.current.playerProfile.lastCurrency;
+        _rewardAmount = SaveData.current.playerProfile.currency - SaveData.current.playerProfile.lastCurrency;
 
-        LeanTween.value(0, amount, 0.5f).setOnUpdate(UpdateRewardText).setEase(counterEaseType).setOnComplete(DisplayCurrency);
+        LeanTween.value(0, _rewardAmount, 0.7f).setOnUpdate(UpdateRewardText).setEase(counterEaseType).setOnComplete(DisplayCurrency);
     }
 
     private void UpdateRewardText(float amount)
     {
         counter.text = Mathf.RoundToInt(amount).ToString();
+
+        if (amount > 0)
+        {
+            AudioManager.instance.PlayInGameSound(rewardSounds[Random.Range(0, rewardSounds.Length)]);
+        }
     }
 
     private void DisplayCurrency()

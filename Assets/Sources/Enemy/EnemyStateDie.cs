@@ -8,12 +8,15 @@ using UnityEngine;
 public class EnemyStateDie : CharacterFSM.CharacterState
 {
     public GameObject fx = null;
+    public AudioClip sound = null;
 
     private const string ANIMATION_PARAM = "Die";
 
     public override void Enter()
     {
         character.animator.SetTrigger(ANIMATION_PARAM);
+
+        AudioManager.instance.PlayInGameSound(sound);
 
         EnemyFSM enemy = (EnemyFSM)character;
 

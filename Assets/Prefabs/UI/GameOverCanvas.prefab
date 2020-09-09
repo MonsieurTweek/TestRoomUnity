@@ -591,6 +591,10 @@ MonoBehaviour:
   counterEaseType: 32
   currencyEaseType: 32
   confirmDelay: 0.25
+  rewardSounds:
+  - {fileID: 8300000, guid: de2c9e6ad3c7f5e4583a30869b222c93, type: 3}
+  - {fileID: 8300000, guid: 83cd29c8cdb8f3243bc04039d4b53e1d, type: 3}
+  - {fileID: 8300000, guid: 624ecf701a41e1540ace8dd01dc3f86e, type: 3}
 --- !u!1 &7670480371670594826
 GameObject:
   m_ObjectHideFlags: 0

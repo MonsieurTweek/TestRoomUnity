@@ -11,16 +11,24 @@ public class EnemyStateHit : CharacterFSM.CharacterState
 
     public Transform anchor = null;
     public CharacterOutlineController outline = null;
+    public AudioClip[] sounds = null;
 
     public override void Enter()
     {
         character.animator.SetTrigger(ANIMATION_PARAM);
 
-        outline.Show();
+        ShowFeedback();
     }
 
     public override void Exit()
     {
         outline.Hide();
+    }
+
+    public void ShowFeedback()
+    {
+        AudioManager.instance.PlayInGameSound(sounds[UnityEngine.Random.Range(0, sounds.Length)]);
+
+        outline.Show();
     }
 }

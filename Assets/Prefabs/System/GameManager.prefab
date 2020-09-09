@@ -65,7 +65,7 @@ MonoBehaviour:
     owner: {fileID: 0}
     flag: 0
     gameScene: 1
-    music: {fileID: 0}
+    music: {fileID: 8300000, guid: 56084adaa660f5641a5649f116f3f546, type: 3}
   stateStore:
     owner: {fileID: 0}
     flag: 0
@@ -130,4 +130,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3327da6da7cac704c962e119a6b14f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}

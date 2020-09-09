@@ -130,7 +130,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: 64141d832e4cbb34c82ce4a92dec0bb8, type: 3}
+      objectReference: {fileID: 8300000, guid: d569232d94e887b479b63705bf6303c2, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2125,6 +2125,11 @@ PrefabInstance:
       propertyPath: phases.Array.data[1].isBerserker
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateDie.sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 53e0172bad7a321479c6863d8ab30ba0, type: 3}
     - target: {fileID: 7778028239907775811, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: _meshRenderers.Array.data[0]
@@ -2239,7 +2244,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: 3eabcf16d25fcee41b7919ceef42b121, type: 3}
+      objectReference: {fileID: 8300000, guid: b689cd72ba8d80940ab33de07e652b91, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2556,7 +2561,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: 64141d832e4cbb34c82ce4a92dec0bb8, type: 3}
+      objectReference: {fileID: 8300000, guid: d569232d94e887b479b63705bf6303c2, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name

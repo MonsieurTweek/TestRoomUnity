@@ -1762,6 +1762,11 @@ PrefabInstance:
       propertyPath: phases.Array.data[2].isBerserker
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5287847401422476050, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: stateDie.sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 974acadccf24cc845b3ebb7aaaf2fd8a, type: 3}
     - target: {fileID: 5468088320961797859, guid: d75176adbdc23354487c30334de1592c,
         type: 3}
       propertyPath: m_LocalPosition.x

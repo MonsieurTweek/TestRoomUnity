@@ -117,6 +117,11 @@ MonoBehaviour:
     character: {fileID: 0}
     anchor: {fileID: 81622878346891820}
     outline: {fileID: 7778028239907775811}
+    sounds:
+    - {fileID: 8300000, guid: 1061dc94b744b0d458aa6cb29d0524a6, type: 3}
+    - {fileID: 8300000, guid: 39b14f44fbd4049438be4cb8788bd629, type: 3}
+    - {fileID: 8300000, guid: 03fde6d21a621864882c58cd65441eab, type: 3}
+    - {fileID: 8300000, guid: 974acadccf24cc845b3ebb7aaaf2fd8a, type: 3}
   stateDie:
     owner: {fileID: 0}
     flag: 0

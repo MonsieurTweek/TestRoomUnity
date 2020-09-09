@@ -411,6 +411,8 @@ MonoBehaviour:
   cards:
   - {fileID: 8813558239263596279}
   - {fileID: 2681653816639681791}
+  introStartedSfx: {fileID: 8300000, guid: 95bfaff9c1365cf48bd6530d62ea553a, type: 3}
+  introSwitchedSfx: {fileID: 8300000, guid: 463bfb55ec4643d48a609c9c4e6f084f, type: 3}
   confirmDelay: 0.25
   perks:
   - {fileID: 11400000, guid: 779c96900fe3ad14d9f46b8fa6225735, type: 2}
@@ -588,6 +590,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500218340517950845, guid: ac1a59089700bad449bd32f2bf660079,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500218340517950845, guid: ac1a59089700bad449bd32f2bf660079,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6050209856706752302, guid: ac1a59089700bad449bd32f2bf660079,
         type: 3}
