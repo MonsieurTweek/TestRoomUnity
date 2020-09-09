@@ -20702,7 +20702,7 @@ MonoBehaviour:
   keyboardIcon: {fileID: 8673310554475600528, guid: 2ac2bc7b68350584c9bebd49abd9a789,
     type: 3}
   keyboardText: 
-  gamepadIcon: {fileID: -4455433562554515323, guid: f63ada9592388c943b246448e5537ac4,
+  gamepadIcon: {fileID: 5680766861330256249, guid: f63ada9592388c943b246448e5537ac4,
     type: 3}
   gamepadText: 
 --- !u!114 &1148234289
@@ -29153,7 +29153,7 @@ MonoBehaviour:
   keyboardIcon: {fileID: 8838484976204849169, guid: 2ac2bc7b68350584c9bebd49abd9a789,
     type: 3}
   keyboardText: 
-  gamepadIcon: {fileID: 5680766861330256249, guid: f63ada9592388c943b246448e5537ac4,
+  gamepadIcon: {fileID: 1746024009234177975, guid: f63ada9592388c943b246448e5537ac4,
     type: 3}
   gamepadText: 
 --- !u!114 &1830987776
