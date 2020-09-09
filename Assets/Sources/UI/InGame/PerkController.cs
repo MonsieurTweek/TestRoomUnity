@@ -21,5 +21,7 @@ public class PerkController : MonoBehaviour
 
         background.sprite = perk.background;
         background.enabled = true;
+
+        gameObject.SetActive(true);
     }
 }

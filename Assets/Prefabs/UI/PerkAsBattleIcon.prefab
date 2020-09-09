@@ -83,13 +83,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2482673495307066454}
   - component: {fileID: 4954595626546721895}
+  - component: {fileID: 5610653319816231964}
   m_Layer: 5
   m_Name: PerkAsBattleIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2482673495307066454
 RectTransform:
   m_ObjectHideFlags: 0
@@ -126,6 +127,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 8434044765833275963}
   background: {fileID: 7632783111313530214}
+--- !u!114 &5610653319816231964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4628158695093023979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: 91.25
+  m_MinHeight: 91.25
+  m_PreferredWidth: 91.25
+  m_PreferredHeight: 91.25
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &5907610849863334999
 GameObject:
   m_ObjectHideFlags: 0

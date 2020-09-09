@@ -536,7 +536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1873854700559194183}
   - component: {fileID: 2532341308925280363}
-  - component: {fileID: 1171369574544926658}
+  - component: {fileID: 4827592779651484051}
   m_Layer: 5
   m_Name: Perks
   m_TagString: Untagged
@@ -579,7 +579,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3690507828009873412}
   m_CullTransparentMesh: 0
---- !u!114 &1171369574544926658
+--- !u!114 &4827592779651484051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -588,7 +588,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3690507828009873412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b5e4691718783f48b0134cdac3b9e92, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -596,14 +596,14 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
-  fitType: 3
-  rows: 1
-  columns: 8
-  cellSize: {x: 91.25, y: 91.25}
-  spacing: {x: 10, y: 0}
-  fitX: 1
-  fitY: 0
+  m_ChildAlignment: 4
+  m_Spacing: 8
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
 --- !u!1 &5818462531466956015
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,22 +963,22 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 251.125
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -988,7 +988,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -998,7 +998,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1014,6 +1014,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PerkAsBattleIcon (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628158695093023979, guid: c9d5e53d36e383f4d92fad567f5881a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d5e53d36e383f4d92fad567f5881a2, type: 3}
@@ -1100,22 +1105,22 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 648.125
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1125,7 +1130,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1135,7 +1140,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1151,6 +1156,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PerkAsBattleIcon (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628158695093023979, guid: c9d5e53d36e383f4d92fad567f5881a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d5e53d36e383f4d92fad567f5881a2, type: 3}
@@ -1237,22 +1247,22 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 449.625
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1262,7 +1272,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1272,7 +1282,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1288,6 +1298,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PerkAsBattleIcon (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628158695093023979, guid: c9d5e53d36e383f4d92fad567f5881a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d5e53d36e383f4d92fad567f5881a2, type: 3}
@@ -1769,22 +1784,22 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 350.375
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1794,7 +1809,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1804,7 +1819,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1820,6 +1835,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PerkAsBattleIcon (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628158695093023979, guid: c9d5e53d36e383f4d92fad567f5881a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d5e53d36e383f4d92fad567f5881a2, type: 3}
@@ -1906,22 +1926,22 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 449.625
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1931,7 +1951,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1941,7 +1961,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -1957,6 +1977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PerkAsBattleIcon (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628158695093023979, guid: c9d5e53d36e383f4d92fad567f5881a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d5e53d36e383f4d92fad567f5881a2, type: 3}
@@ -2434,22 +2459,22 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 548.875
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -2459,7 +2484,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -2469,7 +2494,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -2485,6 +2510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PerkAsBattleIcon (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628158695093023979, guid: c9d5e53d36e383f4d92fad567f5881a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d5e53d36e383f4d92fad567f5881a2, type: 3}
@@ -2962,22 +2992,22 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 747.375
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -2987,7 +3017,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -2997,7 +3027,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -3013,6 +3043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PerkAsBattleIcon (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4628158695093023979, guid: c9d5e53d36e383f4d92fad567f5881a2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c9d5e53d36e383f4d92fad567f5881a2, type: 3}
@@ -3099,22 +3134,22 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 91.25
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -3124,7 +3159,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
@@ -3134,7 +3169,7 @@ PrefabInstance:
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2482673495307066454, guid: c9d5e53d36e383f4d92fad567f5881a2,
         type: 3}
