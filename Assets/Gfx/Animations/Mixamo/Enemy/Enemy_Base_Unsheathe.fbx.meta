@@ -91,6 +91,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.0793926
+        functionName: OnAnimationPlaySfx
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: ddc29dc1d9393c34eb441e438c64c0b9,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.21671826
         functionName: ToggleGear
         data: 
@@ -102,14 +110,6 @@ ModelImporter:
         functionName: OnSingleAnimationEnded
         data: 
         objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.33245382
-        functionName: OnAnimationPlaySfx
-        data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 93b2a2d0c3a38a0409ac4eaea261cbea,
-          type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

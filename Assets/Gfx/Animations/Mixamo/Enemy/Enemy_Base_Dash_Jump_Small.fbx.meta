@@ -98,6 +98,14 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.73257524
+        functionName: OnAnimationPlayFx
+        data: 
+        objectReferenceParameter: {fileID: 4351087967616598281, guid: 8fdf4b15c20a7ef42bdb706dc72f9f26,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       - time: 0.7477477
         functionName: OnManualAnimationEvent
         data: 
@@ -111,14 +119,6 @@ ModelImporter:
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
-        messageOptions: 0
-      - time: 0.7529834
-        functionName: OnAnimationPlayFx
-        data: 
-        objectReferenceParameter: {fileID: 4351087967616598281, guid: 8fdf4b15c20a7ef42bdb706dc72f9f26,
-          type: 3}
-        floatParameter: 0
-        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3

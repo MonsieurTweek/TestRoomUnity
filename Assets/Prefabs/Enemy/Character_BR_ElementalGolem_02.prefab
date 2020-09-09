@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 60874936993198017, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7de892450a7c24745a8f993da63da7c5, type: 3}
+    - target: {fileID: 534797358217057868, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7de892450a7c24745a8f993da63da7c5, type: 3}
     - target: {fileID: 706134670073441513, guid: d75176adbdc23354487c30334de1592c,
         type: 3}
       propertyPath: m_IsActive
@@ -1472,6 +1482,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 824bcf1ee1767f449abcf5df2ce899db, type: 2}
+    - target: {fileID: 2559212524159993004, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7de892450a7c24745a8f993da63da7c5, type: 3}
     - target: {fileID: 4275688773961291888, guid: d75176adbdc23354487c30334de1592c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1742,6 +1757,11 @@ PrefabInstance:
       propertyPath: phases.Array.data[2].tresholdMax
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 5287847401422476050, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: phases.Array.data[2].isBerserker
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5468088320961797859, guid: d75176adbdc23354487c30334de1592c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1802,11 +1822,41 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.054
       objectReference: {fileID: 0}
+    - target: {fileID: 5519332227845524791, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: m_Name
+      value: FX
+      objectReference: {fileID: 0}
     - target: {fileID: 5812040892542543842, guid: d75176adbdc23354487c30334de1592c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6777863036620381511, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7de892450a7c24745a8f993da63da7c5, type: 3}
+    - target: {fileID: 7025176074604823189, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7de892450a7c24745a8f993da63da7c5, type: 3}
+    - target: {fileID: 7177143426339871770, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: m_Name
+      value: Attack Alt 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7642468956569220113, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: m_Name
+      value: Attack Alt 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102225504450186149, guid: d75176adbdc23354487c30334de1592c,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 7de892450a7c24745a8f993da63da7c5, type: 3}
     - target: {fileID: 8378763505059968258, guid: d75176adbdc23354487c30334de1592c,
         type: 3}
       propertyPath: m_IsActive

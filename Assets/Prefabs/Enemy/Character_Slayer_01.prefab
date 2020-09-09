@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1925773672351920661}
   m_Layer: 0
-  m_Name: Alt 1
+  m_Name: Attack Alt 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,6 +126,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -40.955
       objectReference: {fileID: 0}
+    - target: {fileID: 1567818520771524567, guid: 80f24e881c630584ba41b8eb3de78503,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 64141d832e4cbb34c82ce4a92dec0bb8, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2230,6 +2235,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -123.85901
       objectReference: {fileID: 0}
+    - target: {fileID: 1567818520771524567, guid: 80f24e881c630584ba41b8eb3de78503,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3eabcf16d25fcee41b7919ceef42b121, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2542,6 +2552,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -223.22499
       objectReference: {fileID: 0}
+    - target: {fileID: 1567818520771524567, guid: 80f24e881c630584ba41b8eb3de78503,
+        type: 3}
+      propertyPath: sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 64141d832e4cbb34c82ce4a92dec0bb8, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name

@@ -16,6 +16,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip menuBackSfx = null;
 
     private int _currentInGameIndex = 0;
+    private float _musicVolume = 0f;
+    private float _sfxVolume = 0f;
 
     private void Awake()
     {
@@ -29,6 +31,9 @@ public class AudioManager : MonoBehaviour
         instance = this;
 
         DontDestroyOnLoad(this);
+
+        _musicVolume = musicSource.volume;
+        _sfxVolume = sfxMenuSource.volume;
     }
 
     public void PlayMusic(AudioClip music)
@@ -43,6 +48,21 @@ public class AudioManager : MonoBehaviour
     public void StopMusic()
     {
         musicSource.Stop();
+    }
+
+    public void FadeInMusic()
+    {
+        LeanTween.value(0f, _musicVolume, 1f).setOnUpdate(OnMusicVolumeUpdated);
+    }
+
+    public void FadeOutMusic()
+    {
+        LeanTween.value(_musicVolume, 0f, 1f).setOnUpdate(OnMusicVolumeUpdated);
+    }
+
+    private void OnMusicVolumeUpdated(float volume)
+    {
+        musicSource.volume = volume;
     }
 
     public void PlayMenuSound(AudioClip sfx)

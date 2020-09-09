@@ -195,7 +195,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: c854ca271d1406740a4bc2be3c79f1b2, type: 3}
+      objectReference: {fileID: 8300000, guid: 569ca88a96e6b1e46be2392c53bc8de0, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2294,7 +2294,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: c854ca271d1406740a4bc2be3c79f1b2, type: 3}
+      objectReference: {fileID: 8300000, guid: 569ca88a96e6b1e46be2392c53bc8de0, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2481,7 +2481,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: c854ca271d1406740a4bc2be3c79f1b2, type: 3}
+      objectReference: {fileID: 8300000, guid: 569ca88a96e6b1e46be2392c53bc8de0, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2653,7 +2653,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: c854ca271d1406740a4bc2be3c79f1b2, type: 3}
+      objectReference: {fileID: 8300000, guid: 569ca88a96e6b1e46be2392c53bc8de0, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name
@@ -2922,7 +2922,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sound
       value: 
-      objectReference: {fileID: 8300000, guid: c854ca271d1406740a4bc2be3c79f1b2, type: 3}
+      objectReference: {fileID: 8300000, guid: 569ca88a96e6b1e46be2392c53bc8de0, type: 3}
     - target: {fileID: 4756220788394149497, guid: 80f24e881c630584ba41b8eb3de78503,
         type: 3}
       propertyPath: m_Name

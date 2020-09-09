@@ -56,6 +56,7 @@ public class GameOverCanvasController : MonoBehaviour
 
         LeanTween.alphaCanvas(root, 1f, 1f).setOnComplete(StartRewardAnimation);
 
+        AudioManager.instance.FadeOutMusic();
         AudioManager.instance.PlayMenuSound(SaveData.current.playerProfile.lastMatchWon ? victorySfx : defeatSfx);
 
         InputManager.instance.menu.Confirm.started += OnConfirmStarted;
@@ -94,6 +95,8 @@ public class GameOverCanvasController : MonoBehaviour
         AudioManager.instance.PlayMenuSound(AudioManager.instance.menuConfirmationSfx);
 
         GameEvent.instance.HomeButtonPressed();
+
+        AudioManager.instance.FadeInMusic();
     }
 
     private void OnConfirmCanceled(InputAction.CallbackContext context)

@@ -91,20 +91,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 1
-        functionName: OnSingleAnimationEnded
+      - time: 0
+        functionName: OnAnimationPlaySfx
         data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.1701232
-        functionName: OnAnimationSendProjectile
-        data: 
-        objectReferenceParameter: {fileID: 5372511614701019436, guid: 71d1e207cf5667845a9c26189d1f57d1,
+        objectReferenceParameter: {fileID: 8300000, guid: d0fc3220703017b40bb6ac16dc60e23b,
           type: 3}
         floatParameter: 0
-        intParameter: 1
+        intParameter: 0
         messageOptions: 0
       - time: 0.1356383
         functionName: OnUpdateAttackSpeed
@@ -122,6 +115,14 @@ ModelImporter:
         floatParameter: 2
         intParameter: 1
         messageOptions: 0
+      - time: 0.1701232
+        functionName: OnAnimationSendProjectile
+        data: 
+        objectReferenceParameter: {fileID: 5372511614701019436, guid: 71d1e207cf5667845a9c26189d1f57d1,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       - time: 0.32978722
         functionName: OnUpdateAttackSpeed
         data: 
@@ -129,6 +130,13 @@ ModelImporter:
           type: 3}
         floatParameter: 1
         intParameter: 1
+        messageOptions: 0
+      - time: 1
+        functionName: OnSingleAnimationEnded
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
         messageOptions: 0
       transformMask: []
       maskType: 3
