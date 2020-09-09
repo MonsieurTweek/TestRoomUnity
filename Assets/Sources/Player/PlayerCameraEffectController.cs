@@ -32,7 +32,7 @@ public class PlayerCameraEffectController : MonoBehaviour
 
     private void OnHit(uint uniqueId, CharacterTypeEnum type, int health, int damage)
     {
-        if (player.data.uniqueId == uniqueId && _vignette != null)
+        if (player.data.uniqueId == uniqueId && _vignette != null && player.stateMove.isDashing == false)
         {
             shakeController.Shake(duration);
             LeanTween.value(0f, _vignetteIntensity, duration).setEase(LeanTweenType.easeShake).setOnUpdate(UpdateVignetteIntensity);

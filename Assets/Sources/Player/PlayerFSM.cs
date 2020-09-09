@@ -49,7 +49,7 @@ public class PlayerFSM : CharacterFSM, ICharacter
         stateHit.flag = (uint)CharacterStateEnum.HIT;
         stateDie.flag = (uint)CharacterStateEnum.DIE;
 
-        CharacterGameEvent.instance.onPlayerLoading += OnArchetypeLoaded;
+        LoadingGameEvent.instance.onPlayerLoading += OnArchetypeLoaded;
     }
 
     private void OnArchetypeLoaded(PlayerData data)
@@ -73,10 +73,10 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
         InputManager.instance.gameplay.AttackLight.canceled += ctx => TransitionToAttackLight();
         InputManager.instance.gameplay.AttackHeavy.canceled += ctx => TransitionToAttackHeavy();
-        
+
         // Unbind archetype loading and complete the loading
-        CharacterGameEvent.instance.onPlayerLoading -= OnArchetypeLoaded;
-        CharacterGameEvent.instance.CompleteLoadingPlayer();
+        LoadingGameEvent.instance.onPlayerLoading -= OnArchetypeLoaded;
+        LoadingGameEvent.instance.CompleteLoadingPlayer();
 
         TransitionToMove();
     }
@@ -412,13 +412,16 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
     private void OnDestroy()
     {
+        if (LoadingGameEvent.instance != null)
+        {
+            LoadingGameEvent.instance.onPlayerLoading -= OnArchetypeLoaded;
+        }
+
         if (CharacterGameEvent.instance != null)
         {
             CharacterGameEvent.instance.onPause -= OnPause;
             CharacterGameEvent.instance.onIntroStarted -= OnIntroStarted;
             CharacterGameEvent.instance.onIntroEnded -= OnIntroEnded;
-
-            CharacterGameEvent.instance.onPlayerLoading -= OnArchetypeLoaded;
         }
 
         if (PerkGameEvent.instance != null)

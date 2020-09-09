@@ -16,12 +16,12 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     private Vector3 _velocity = Vector3.zero;
 
     // Jump properties
-    private bool _isJumping = false;
+    public bool isJumping { private set; get; }
     private bool _isJumpPerformed = false;
     private bool _canJump = true;
 
     // Dash properties
-    private bool _isDashing = false;
+    public bool isDashing { private set; get; }
     private float _dashTime = float.MaxValue;
     private float _energyForDash = 0f;
 
@@ -50,7 +50,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
 
     public override void Update()
     {
-        if (_isDashing == false)
+        if (isDashing == false)
         {
             ((PlayerFSM)character).Rotate();
 
@@ -90,7 +90,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
 
     public override void FixedUpdate()
     {
-        if (_isDashing == false)
+        if (isDashing == false)
         {
             EvaluateMove();
 
@@ -122,9 +122,9 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         {
             _velocity.y = 0f;
 
-            if (_isJumping == true)
+            if (isJumping == true)
             {
-                _isJumping = false;
+                isJumping = false;
                 _canJump = true;
                 character.animator.SetBool(ANIMATION_PARAM_JUMP, false);
             }
@@ -132,7 +132,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
             if (_isJumpPerformed == true)
             {
                 _velocity.y = jumpSpeed;
-                _isJumping = true;
+                isJumping = true;
                 _isJumpPerformed = false;
                 _canJump = false;
 
@@ -140,7 +140,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
             }
         }
 
-        if (((PlayerFSM)character).isGrounded == false || _isJumping == true)
+        if (((PlayerFSM)character).isGrounded == false || isJumping == true)
         {
             // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
             // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
@@ -168,7 +168,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         if ((((PlayerData)character.data).playerAbilitiesMask & (uint)PlayerAbilityEnum.DASH) != 0 
             && ((PlayerData)character.data).ConsumeEnergy(_energyForDash) == true)
         {
-            _isDashing = true;
+            isDashing = true;
 
             character.StartCoroutine(EvaluateDash());
         }
@@ -229,7 +229,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         dashCamera.m_Priority = 0;
         character.animator.SetBool(ANIMATION_PARAM_DASH, false);
 
-        _isDashing = false;
+        isDashing = false;
         _dashTime = Time.time;
 
         CharacterGameEvent.instance.CompleteDash(character.data.uniqueId, _energyForDash);
