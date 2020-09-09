@@ -17,6 +17,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: e6d72a5564735d844916a42ec9c7aed8, type: 3}
   background: {fileID: 0}
   character: 256
+  isPlayable: 1
   configuration: {fileID: 11400000, guid: 24d6d2b49164d004a8e8ec106da5a75e, type: 2}
   animationController: {fileID: 22100000, guid: e01edcd18f7b95d4ca9eb735c0b4f96c,
     type: 2}

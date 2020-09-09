@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class CharacterDescriptionCanvasController : MonoBehaviour
 {
+    private static string COMING_SOON = "Coming soon";
+
     [Header("References")]
     public TextMeshProUGUI title = null;
     public TextMeshProUGUI description = null;
@@ -50,9 +52,12 @@ public class CharacterDescriptionCanvasController : MonoBehaviour
         title.text = _currentCharacter.title;
         lightAbility.text = _currentCharacter.lightAbilityDesc;
         heavyAbility.text = _currentCharacter.heavyAbilityDesc;
-        passiveAbility.text = _currentCharacter.passiveAbilityDesc;
+        passiveAbility.text = _currentCharacter.isPlayable == true ? _currentCharacter.passiveAbilityDesc : COMING_SOON;
 
         icon.sprite = _currentCharacter.icon;
+
+        lightAbility.transform.parent.gameObject.SetActive(_currentCharacter.isPlayable);
+        heavyAbility.transform.parent.gameObject.SetActive(_currentCharacter.isPlayable);
     }
 
     private void UpdatePosition()

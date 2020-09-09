@@ -8,6 +8,7 @@ public class Archetype : DescriptiveObject
     public static readonly string SAVE_PATH = "PLAYER_ARCHETYPE";
 
     public CharacterEnum character = CharacterEnum.NONE;
+    public bool isPlayable = false;
 
     [Header("Configuration")]
     public Player configuration = null;

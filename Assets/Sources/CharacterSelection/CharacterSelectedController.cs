@@ -17,6 +17,7 @@ public class CharacterSelectedController : MonoBehaviour
     public string heavyAbilityDesc { get { return archetype.heavyAbilityDescription; } }
     public string passiveAbilityDesc { get { return archetype.passiveAbilityDescription; } }
     public Sprite icon { get { return archetype.icon; } }
+    public bool isPlayable { get { return archetype.isPlayable; } }
     public bool isUnlock { get { return (SaveData.current.playerProfile.characters & (uint)archetype.character) != 0; } }
 
     public void Deselect()
