@@ -27,6 +27,12 @@ public class ArenaManager : MonoBehaviour
 
         // Replace with binding on player intro done
         LoadingGameEvent.instance.onLoadingEnded += OnLoadingEnded;
+
+        // In case loading is already done
+        if (LoadingGameEvent.instance.isLoading == false)
+        {
+            OnLoadingEnded();
+        }
     }
 
     private void OnLoadingEnded()
@@ -34,6 +40,8 @@ public class ArenaManager : MonoBehaviour
         PrepareEnemies();
 
         SpawnNextEnemy();
+
+        LoadingGameEvent.instance.onLoadingEnded -= OnLoadingEnded;
     }
 
     private void OnIntroStarted(Transform _, AbstractCharacterData __)

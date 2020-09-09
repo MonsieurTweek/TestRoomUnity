@@ -5,6 +5,8 @@ public class LoadingGameEvent : MonoBehaviour
 {
     public static LoadingGameEvent instance { private set; get; }
 
+    public bool isLoading { private set; get; }
+
     private void Awake()
     {
         // First destroy any existing instance of it
@@ -22,6 +24,7 @@ public class LoadingGameEvent : MonoBehaviour
     {
         if (instance.onPrepare != null)
         {
+            isLoading = true;
             instance.onPrepare(callback);
         }
     }
@@ -49,7 +52,26 @@ public class LoadingGameEvent : MonoBehaviour
     {
         if (instance.onLoadingEnded != null)
         {
+            isLoading = false;
             instance.onLoadingEnded();
+        }
+    }
+
+    public event Action<PlayerData> onPlayerLoading;
+    public void LoadingPlayer(PlayerData data)
+    {
+        if (onPlayerLoading != null)
+        {
+            onPlayerLoading(data);
+        }
+    }
+
+    public event Action onPlayerLoaded;
+    public void CompleteLoadingPlayer()
+    {
+        if (onPlayerLoaded != null)
+        {
+            onPlayerLoaded();
         }
     }
 }

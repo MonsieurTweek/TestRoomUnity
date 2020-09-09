@@ -18,8 +18,6 @@ public class LoadingScreenController : MonoBehaviour
     private float _loadingProgress = 0;
     private float _startTime = 0f;
 
-    private bool _isLoading = false;
-
     private void Awake()
     {
         root.SetActive(false);
@@ -46,7 +44,6 @@ public class LoadingScreenController : MonoBehaviour
         // Force progress to zero
         _loadingObjectCount = 1;
         _loadingProgress = 0f;
-        _isLoading = true;
 
         root.SetActive(true);
 
@@ -92,8 +89,6 @@ public class LoadingScreenController : MonoBehaviour
     private void OnLoadingEnded()
     {
         root.SetActive(false);
-
-        _isLoading = false;
     }
 
     /// <summary>
@@ -114,7 +109,7 @@ public class LoadingScreenController : MonoBehaviour
 
     private void Update()
     {
-        if (_isLoading == true)
+        if (LoadingGameEvent.instance.isLoading == true)
         {
             loadingBar.current = Mathf.RoundToInt(((Time.time - _startTime) / loadingMinDuration) * 70f) // 70% of the bar is fake loading to show a progress
                 + Mathf.RoundToInt((_loadingProgress / _loadingObjectCount) * 30f); // 30% of the bar is real loading to finish progress

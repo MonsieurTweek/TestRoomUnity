@@ -11,24 +11,6 @@ public class CharacterGameEvent : MonoBehaviour
         _instance = this;
     }
 
-    public event Action<PlayerData> onPlayerLoading;
-    public void LoadingPlayer(PlayerData data)
-    {
-        if (onPlayerLoading != null)
-        {
-            onPlayerLoading(data);
-        }
-    }
-
-    public event Action onPlayerLoaded;
-    public void CompleteLoadingPlayer()
-    {
-        if (onPlayerLoaded != null)
-        {
-            onPlayerLoaded();
-        }
-    }
-
     public event Action<bool> onPause;
     public void Pause(bool isPauseEnabled)
     {

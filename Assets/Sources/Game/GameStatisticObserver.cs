@@ -6,38 +6,26 @@ public class GameStatisticObserver : MonoBehaviour
     private int _countDamageReceived = 0;
     private int _countDamageInflicted = 0;
 
-    private float _timeOnArenaLoaded = 0f;
+    private float _timeOnPlayerLoaded = 0f;
     private float _timeOnIntroEnded = 0f;
 
     private float _durationEnemy = 0f;
 
     private void Start()
     {
-        LoadingGameEvent.instance.onLoadingEnded += OnLoadingEnded;
+        LoadingGameEvent.instance.onPlayerLoaded += OnPlayerLoaded;
 
         GameEvent.instance.onGameOver += OnGameOver;
     }
 
-    private void OnLoadingEnded()
+    private void OnPlayerLoaded()
     {
-        AbstractFSM.StateBase currentState = GameManager.instance.GetCurrentState();
+        _timeOnPlayerLoaded = Time.time;
 
-        if (currentState.flag == (uint)GameStateEnum.ARENA)
-        {
-            _timeOnArenaLoaded = Time.time;
+        CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
 
-            CharacterGameEvent.instance.onIntroEnded += OnIntroEnded;
-
-            CharacterGameEvent.instance.onHit += OnHit;
-            CharacterGameEvent.instance.onDying += OnDying;
-        }
-        else if (CharacterGameEvent.instance != null)
-        {
-            CharacterGameEvent.instance.onIntroEnded -= OnIntroEnded;
-
-            CharacterGameEvent.instance.onHit -= OnHit;
-            CharacterGameEvent.instance.onDying -= OnDying;
-        }
+        CharacterGameEvent.instance.onHit += OnHit;
+        CharacterGameEvent.instance.onDying += OnDying;
     }
 
     private void OnIntroEnded()
@@ -79,13 +67,24 @@ public class GameStatisticObserver : MonoBehaviour
 
     private void OnGameOver(bool hasWon, int rewards)
     {
+        // Unbind events
+        if (CharacterGameEvent.instance != null)
+        {
+            CharacterGameEvent.instance.onIntroEnded -= OnIntroEnded;
+
+            CharacterGameEvent.instance.onHit -= OnHit;
+            CharacterGameEvent.instance.onDying -= OnDying;
+        }
+
         // Save session statistics
         SaveData.current.playerProfile.sessionStatistics.countEnemyKilled = _countEnemyKilled;
         SaveData.current.playerProfile.sessionStatistics.countDamageInflicted = _countDamageInflicted;
         SaveData.current.playerProfile.sessionStatistics.countDamageReceived = _countDamageReceived;
 
-        SaveData.current.playerProfile.sessionStatistics.timeAverage = _durationEnemy / _countEnemyKilled;
-        SaveData.current.playerProfile.sessionStatistics.timeTotal = Time.time - _timeOnArenaLoaded;
+        SaveData.current.playerProfile.sessionStatistics.timeTotal = Time.time - _timeOnPlayerLoaded;
+        SaveData.current.playerProfile.sessionStatistics.timeAverage = _countEnemyKilled > 0 
+            ? _durationEnemy / _countEnemyKilled 
+            : SaveData.current.playerProfile.sessionStatistics.timeTotal;
 
         // Save total statistics
 
@@ -101,7 +100,7 @@ public class GameStatisticObserver : MonoBehaviour
         SaveData.current.playerProfile.totalStatistics.countDamageReceived += _countDamageReceived;
 
         SaveData.current.playerProfile.totalStatistics.timeAverage = totalAverageTimePerEnemy;
-        SaveData.current.playerProfile.totalStatistics.timeTotal += Time.time - _timeOnArenaLoaded;
+        SaveData.current.playerProfile.totalStatistics.timeTotal += Time.time - _timeOnPlayerLoaded;
 
         if (hasWon == true)
         {
@@ -119,7 +118,7 @@ public class GameStatisticObserver : MonoBehaviour
     {
         if (LoadingGameEvent.instance != null)
         {
-            LoadingGameEvent.instance.onLoadingEnded -= OnLoadingEnded;
+            LoadingGameEvent.instance.onPlayerLoaded -= OnPlayerLoaded;
         }
 
         if (CharacterGameEvent.instance != null)

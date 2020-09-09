@@ -14,14 +14,14 @@ public class PlayerUIController : MonoBehaviour
 
     private int _nextPerkIndex = 0;
 
-    private void Awake()
+    private void Start()
     {
         for (int i = 0; i < perks.Length; i++)
         {
             perks[i].Initialize(i);
         }
 
-        CharacterGameEvent.instance.onPlayerLoaded += OnPlayerLoaded;
+        LoadingGameEvent.instance.onPlayerLoaded += OnPlayerLoaded;
     }
 
     private void OnPlayerLoaded()
@@ -132,10 +132,13 @@ public class PlayerUIController : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (LoadingGameEvent.instance != null)
+        {
+            LoadingGameEvent.instance.onPlayerLoaded -= OnPlayerLoaded;
+        }
+
         if (CharacterGameEvent.instance != null)
         {
-            CharacterGameEvent.instance.onPlayerLoaded -= OnPlayerLoaded;
-
             CharacterGameEvent.instance.onHit -= OnCharacterHit;
             CharacterGameEvent.instance.onEnergyUpdated -= OnEnergyUpdated;
             CharacterGameEvent.instance.onOutOfEnergy -= OnOutOfEnergy;

@@ -10,7 +10,7 @@ public class PlayerPerkSimulator : MonoBehaviour
 #if UNITY_EDITOR
     private void Awake()
     {
-        CharacterGameEvent.instance.onPlayerLoaded += OnPlayerLoaded;
+        LoadingGameEvent.instance.onPlayerLoaded += OnPlayerLoaded;
     }
 
     private void OnPlayerLoaded()
@@ -35,9 +35,9 @@ public class PlayerPerkSimulator : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (CharacterGameEvent.instance != null)
+        if (LoadingGameEvent.instance != null)
         {
-            CharacterGameEvent.instance.onPlayerLoaded -= OnPlayerLoaded;
+            LoadingGameEvent.instance.onPlayerLoaded -= OnPlayerLoaded;
         }
     }
 #endif

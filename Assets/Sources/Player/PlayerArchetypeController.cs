@@ -47,7 +47,7 @@ public class PlayerArchetypeController : MonoBehaviour
 
             data.Populate(archetype.configuration);
 
-            CharacterGameEvent.instance.LoadingPlayer(data);
+            LoadingGameEvent.instance.LoadingPlayer(data);
         }
     }
 }
