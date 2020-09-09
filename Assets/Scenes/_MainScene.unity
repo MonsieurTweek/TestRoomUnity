@@ -213,16 +213,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4931250911300824765, guid: 961b6b86d307fa348bc1c606d17fd6c5,
-        type: 3}
-      propertyPath: stateHome.music
-      value: 
-      objectReference: {fileID: 8300000, guid: 56084adaa660f5641a5649f116f3f546, type: 3}
-    - target: {fileID: 4931250911300824765, guid: 961b6b86d307fa348bc1c606d17fd6c5,
-        type: 3}
-      propertyPath: stateArena.music
-      value: 
-      objectReference: {fileID: 8300000, guid: a189deab275843247aea40c53ec45743, type: 3}
     - target: {fileID: 5594270086289841445, guid: 961b6b86d307fa348bc1c606d17fd6c5,
         type: 3}
       propertyPath: m_LocalPosition.x
