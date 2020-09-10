@@ -20,8 +20,12 @@ public class StoreOfferController : MonoBehaviour
     [Header("Properties")]
     public StoreOffer offer = null;
 
+    private TileController _tile = null;
+
     private void Awake()
     {
+        _tile = GetComponent<TileController>();
+
         if (offer != null)
         {
             // Offer details
@@ -30,25 +34,27 @@ public class StoreOfferController : MonoBehaviour
             icon.sprite = offer.icon;
             background.sprite = offer.background;
 
-            // Price
-            RefreshPrice();
-
-            GetComponent<TileController>().onClick.AddListener(OnClick);
+            // Price and confirmation
+            Refresh();
         }
     }
 
-    private void RefreshPrice()
+    private void Refresh()
     {
         if (IsPurchased() == false)
         {
             priceText.text = offer.price > 0 ? offer.price.ToString() : FREE_LABEL;
 
             priceIcon.gameObject.SetActive(offer.price > 0);
+
+            _tile.onClick.AddListener(OnClick);
         }
         else
         {
             priceText.text = PURCHASED_LABEL;
             priceIcon.gameObject.SetActive(false);
+
+            _tile.DisableConfirmation();
         }
     }
 
@@ -80,7 +86,7 @@ public class StoreOfferController : MonoBehaviour
 
             GameManager.instance.Save();
 
-            RefreshPrice();
+            Refresh();
         }
     }
 

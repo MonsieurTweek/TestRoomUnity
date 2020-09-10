@@ -81,4 +81,9 @@ public class TileController : Button
             confirmBar.current = 0;
         }
     }
+
+    public void DisableConfirmation()
+    {
+        confirmBar.gameObject.SetActive(false);
+    }
 }
