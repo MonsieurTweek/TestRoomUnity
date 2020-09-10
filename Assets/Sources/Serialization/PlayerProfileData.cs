@@ -14,7 +14,7 @@ public class PlayerProfileData
         public float timeTotal;
     }
 
-    private int _currency = 1000;
+    private int _currency = 10;
     public int currency
     {
         get

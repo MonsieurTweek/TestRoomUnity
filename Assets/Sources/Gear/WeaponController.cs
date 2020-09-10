@@ -3,7 +3,7 @@
 [RequireComponent(typeof(BoxCollider))]
 public class WeaponController : GearController
 {
-    public int damage = 0;
+    public int damageBonus = 0;
 
     public VisualEffectController attackFx = null;
     public VisualEffectController comboFx = null;
@@ -35,7 +35,7 @@ public class WeaponController : GearController
 
     public virtual void Hit(ICharacter character, bool isMelee = true)
     {
-        if (character != null && character.Hit(damage) == true)
+        if (character != null && character.Hit(owner.data.damage + damageBonus) == true)
         {
             CharacterFSM target = (CharacterFSM)character;
 

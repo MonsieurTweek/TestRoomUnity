@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7227f00235cb9ef4e8c8761016afb556, type: 3}
-  m_Name: Player_Distance
+  m_Name: Sorcerer_Configuration
   m_EditorClassIdentifier: 
   type: 1
   title: 
   power: 1
-  health: 10
+  health: 38
+  damage: 8
   energy: 3
   energyPerSecond: 1
   energyForDash: 3

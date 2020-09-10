@@ -9,12 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b01661f80e2ac4d8caa94db625afab, type: 3}
-  m_Name: Character_BR_ElementalGolem
+  m_Script: {fileID: 11500000, guid: 7227f00235cb9ef4e8c8761016afb556, type: 3}
+  m_Name: Warrior_Configuration
   m_EditorClassIdentifier: 
-  type: 2
-  title: Elemental Golem
-  power: 28
-  health: 116
-  damage: 9
-  tiers: 2
+  type: 1
+  title: 
+  power: 1
+  health: 58
+  damage: 6
+  energy: 5
+  energyPerSecond: 0.85
+  energyForDash: 3
+  energyForLightAttack: 2
+  energyForHeavyAttack: 3

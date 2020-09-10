@@ -12,6 +12,7 @@ public class AbstractCharacterData : AbstractUniqueData
     public int power { protected set; get; }
     public int health { protected set; get; }
     public int healthMax { protected set; get; }
+    public int damage { protected set; get; }
     public bool isAlive { get { return health > 0; } }
 
     public uint status { protected set; get; }
@@ -28,6 +29,7 @@ public class AbstractCharacterData : AbstractUniqueData
         power = configuration.power;
         healthMax = configuration.health;
         health = healthMax;
+        damage = configuration.damage;
     }
 
     /// <summary>
@@ -74,6 +76,6 @@ public class AbstractCharacterData : AbstractUniqueData
 
     public virtual int GetReward()
     {
-        return power * 35;
+        return power;
     }
 }

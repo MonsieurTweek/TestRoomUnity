@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   title: Slayer
-  power: 1
-  health: 13
+  power: 39
+  health: 146
+  damage: 13
   tiers: 3
