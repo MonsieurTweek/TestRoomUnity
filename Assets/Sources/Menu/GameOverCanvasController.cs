@@ -61,9 +61,6 @@ public class GameOverCanvasController : MonoBehaviour
 
         AudioManager.instance.FadeOutMusic();
         AudioManager.instance.PlayMenuSound(SaveData.current.playerProfile.lastMatchWon ? victorySfx : defeatSfx);
-
-        InputManager.instance.menu.Confirm.started += OnConfirmStarted;
-        InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
     }
 
     private void StartRewardAnimation()
@@ -86,6 +83,10 @@ public class GameOverCanvasController : MonoBehaviour
     private void DisplayCurrency()
     {
         LeanTween.scale(currency.gameObject, Vector3.one, 0.1f).setEase(currencyEaseType);
+
+        // Bind input as the game over animation is done
+        InputManager.instance.menu.Confirm.started += OnConfirmStarted;
+        InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
     }
 
     private void OnConfirmStarted(InputAction.CallbackContext context)
