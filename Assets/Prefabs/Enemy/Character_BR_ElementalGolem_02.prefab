@@ -1766,7 +1766,7 @@ PrefabInstance:
         type: 3}
       propertyPath: stateDie.sound
       value: 
-      objectReference: {fileID: 8300000, guid: 974acadccf24cc845b3ebb7aaaf2fd8a, type: 3}
+      objectReference: {fileID: 8300000, guid: 9b4842acc347bee4d95a129e155fe3e3, type: 3}
     - target: {fileID: 5468088320961797859, guid: d75176adbdc23354487c30334de1592c,
         type: 3}
       propertyPath: m_LocalPosition.x
