@@ -27,21 +27,10 @@ public class CharacterSelectionController : MonoBehaviour
     {
         _currentIndex = initialIndex;
 
-        StartCoroutine(WaitForIntro());
-    }
-
-    private void OnEnable()
-    {
         InputManager.instance.menu.Navigate.performed += OnNavigatePerformed;
         InputManager.instance.menu.Confirm.started += OnConfirmStarted;
-        InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
-    }
 
-    private void OnDisable()
-    {
-        InputManager.instance.menu.Navigate.performed -= OnNavigatePerformed;
-        InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
-        InputManager.instance.menu.Confirm.canceled -= OnConfirmCanceled;
+        StartCoroutine(WaitForIntro());
     }
 
     private void OnNavigatePerformed(InputAction.CallbackContext context)
@@ -82,6 +71,8 @@ public class CharacterSelectionController : MonoBehaviour
             // Unbind input except Confirm.Canceled so we are sure to don't switch during validation
             InputManager.instance.menu.Navigate.performed -= OnNavigatePerformed;
             InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
+
+            InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
         }
     }
 
@@ -111,9 +102,11 @@ public class CharacterSelectionController : MonoBehaviour
         }
 
         // Rebind input as player can make another selection/confirmation
-        // except Confirm.Canceled still bound
         InputManager.instance.menu.Navigate.performed += OnNavigatePerformed;
         InputManager.instance.menu.Confirm.started += OnConfirmStarted;
+
+        // Unbind Confirm.Canceled as the cancelation has been done
+        InputManager.instance.menu.Confirm.canceled -= OnConfirmCanceled;
     }
 
     private IEnumerator WaitForIntro()
@@ -137,5 +130,15 @@ public class CharacterSelectionController : MonoBehaviour
     private void DeselectCharacter(int index)
     {
         characters[index].Deselect();
+    }
+
+    private void OnDestroy()
+    {
+        if (InputManager.instance != null)
+        {
+            InputManager.instance.menu.Navigate.performed -= OnNavigatePerformed;
+            InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
+            InputManager.instance.menu.Confirm.canceled -= OnConfirmCanceled;
+        }
     }
 }
