@@ -1896,6 +1896,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
+      propertyPath: stateHit.sounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
       propertyPath: configuration
       value: 
       objectReference: {fileID: 11400000, guid: b6aa3d2b411faaa4eb7968c084a4c587,
@@ -2129,7 +2134,22 @@ PrefabInstance:
         type: 3}
       propertyPath: stateDie.sound
       value: 
-      objectReference: {fileID: 8300000, guid: 53e0172bad7a321479c6863d8ab30ba0, type: 3}
+      objectReference: {fileID: 8300000, guid: 169b115dbff58a04488158655f2d847c, type: 3}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateHit.sounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 7031c55d2e333104f9fc0f65472cf124, type: 3}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateHit.sounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4dceab3d1da474b46899b6bfa4966f78, type: 3}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: stateHit.sounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: fd2e20e3cf229994fa932572b4e474a4, type: 3}
     - target: {fileID: 7778028239907775811, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: _meshRenderers.Array.data[0]

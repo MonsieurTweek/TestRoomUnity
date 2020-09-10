@@ -101,7 +101,7 @@ ModelImporter:
       - time: 0
         functionName: OnAnimationPlaySfx
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 784a9a55e17a13847a6e7b2282dffc86,
+        objectReferenceParameter: {fileID: 8300000, guid: 49ca9afd96a44d24daeeb42bc6e57312,
           type: 3}
         floatParameter: 0
         intParameter: 0

@@ -71,7 +71,7 @@ ModelImporter:
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 180
+      lastFrame: 130
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -91,10 +91,10 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
+      - time: 0.17043121
         functionName: OnAnimationPlaySfx
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 784a9a55e17a13847a6e7b2282dffc86,
+        objectReferenceParameter: {fileID: 8300000, guid: 5e67f52ac1d162a45b8b9bd60b4f7c9c,
           type: 3}
         floatParameter: 0
         intParameter: 0

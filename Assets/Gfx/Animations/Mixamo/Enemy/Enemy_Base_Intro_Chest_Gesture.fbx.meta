@@ -91,10 +91,34 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
+      - time: 0.08008213
         functionName: OnAnimationPlaySfx
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: 784a9a55e17a13847a6e7b2282dffc86,
+        objectReferenceParameter: {fileID: 8300000, guid: 3f500f0a7ed8ea74e88699333e73cfce,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.268617
+        functionName: OnAnimationPlaySfx
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 881f7efec526ffc439536d15314fab32,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.46276593
+        functionName: OnAnimationPlaySfx
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 881f7efec526ffc439536d15314fab32,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.62234044
+        functionName: OnAnimationPlaySfx
+        data: 
+        objectReferenceParameter: {fileID: 8300000, guid: 881f7efec526ffc439536d15314fab32,
           type: 3}
         floatParameter: 0
         intParameter: 0
