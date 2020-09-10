@@ -18,5 +18,5 @@ MonoBehaviour:
   background: {fileID: 21300000, guid: 8bcab77d4d9a62c48b194a836d118233, type: 3}
   price: 300
   amount: 1
-  purchaseSound: {fileID: 8300000, guid: c61ad620b2212a04e801f8864afcf372, type: 3}
+  purchaseSound: {fileID: 8300000, guid: 9c9e28bb3fce2d143965d0ce82f7ca31, type: 3}
   perk: 32
