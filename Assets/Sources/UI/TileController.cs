@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TileController : Button
 {
+    [Header("References")]
     public Image background = null;
     public TextMeshProUGUI title = null;
     public Color normalTitleColor = Color.white;
@@ -14,6 +15,7 @@ public class TileController : Button
     public LeanTweenType iconAnimationIn = LeanTweenType.linear;
     public LeanTweenType iconAnimationOut = LeanTweenType.linear;
 
+    [Header("Properties")]
     public ProgressBarController confirmBar = null;
     public float confirmDelay = 0.25f;
 

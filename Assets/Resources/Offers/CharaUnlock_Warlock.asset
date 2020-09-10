@@ -15,6 +15,8 @@ MonoBehaviour:
   title: Warlock
   description: Creepy stuff incoming.
   icon: {fileID: 21300000, guid: 3987fae0e09db6547af248046030c655, type: 3}
+  background: {fileID: 0}
   price: 600
   amount: 1
+  purchaseSound: {fileID: 8300000, guid: 9c9e28bb3fce2d143965d0ce82f7ca31, type: 3}
   character: 128

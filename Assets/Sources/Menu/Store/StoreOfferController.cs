@@ -84,6 +84,8 @@ public class StoreOfferController : MonoBehaviour
         {
             offer.Buy();
 
+            AudioManager.instance.PlayInGameSound(offer.purchaseSound);
+
             GameManager.instance.Save();
 
             Refresh();

@@ -7,6 +7,7 @@ public class StoreOffer : DescriptiveObject
 {
     public int price = 1000;
     public int amount = 1;
+    public AudioClip purchaseSound = null;
 
     public virtual void Buy()
     {

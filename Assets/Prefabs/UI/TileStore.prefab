@@ -715,6 +715,7 @@ MonoBehaviour:
   priceText: {fileID: 4319615448472095809}
   priceIcon: {fileID: 991568267204306370}
   offer: {fileID: 0}
+  sound: {fileID: 8300000, guid: 9c9e28bb3fce2d143965d0ce82f7ca31, type: 3}
 --- !u!1 &3926740696986061788
 GameObject:
   m_ObjectHideFlags: 0

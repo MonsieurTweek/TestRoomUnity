@@ -18,4 +18,5 @@ MonoBehaviour:
   background: {fileID: 0}
   price: 500
   amount: 1
+  purchaseSound: {fileID: 8300000, guid: 9c9e28bb3fce2d143965d0ce82f7ca31, type: 3}
   character: 1

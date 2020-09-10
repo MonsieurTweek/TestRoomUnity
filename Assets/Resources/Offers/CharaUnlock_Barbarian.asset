@@ -15,6 +15,8 @@ MonoBehaviour:
   title: Barbarian
   description: Unlock Krat... i mean, the Barbarian !
   icon: {fileID: 21300000, guid: 565933ea2f5abea40ba0347d18ca9fb5, type: 3}
+  background: {fileID: 0}
   price: 450
   amount: 1
+  purchaseSound: {fileID: 8300000, guid: 9c9e28bb3fce2d143965d0ce82f7ca31, type: 3}
   character: 2

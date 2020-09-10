@@ -15,6 +15,8 @@ MonoBehaviour:
   title: Sorcerer
   description: Harry potter you said ?!
   icon: {fileID: 21300000, guid: 44c04ac908b31dc46b9b260c9c88937d, type: 3}
+  background: {fileID: 0}
   price: 600
   amount: 1
+  purchaseSound: {fileID: 8300000, guid: 9c9e28bb3fce2d143965d0ce82f7ca31, type: 3}
   character: 64
