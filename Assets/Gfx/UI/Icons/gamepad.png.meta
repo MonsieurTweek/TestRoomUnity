@@ -1,31 +1,73 @@
 fileFormatVersion: 2
-guid: f63ada9592388c943b246448e5537ac4
+guid: 34df391f02e226b42a4cf3ef9add6d91
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1938205526732721617
-    second: gamepad-light-y
+      213: 4739734133071874972
+    second: gamepad_A
   - first:
-      213: 7838180568100719187
-    second: gamepad-light-x
+      213: 3415669228663963213
+    second: gamepad_Y
   - first:
-      213: 5680766861330256249
-    second: gamepad-dark-y
+      213: -2613664152347529422
+    second: gamepad_Left_Trigger
   - first:
-      213: -4455433562554515323
-    second: gamepad-dark-x
+      213: 2870273685145742545
+    second: gamepad_Right_Trigger
   - first:
-      213: 4086634652267737966
-    second: gamepad-light-a
+      213: 7655623088307215857
+    second: gamepad_Right_Button
   - first:
-      213: 4785442674364830854
-    second: gamepad-light-b
+      213: 2785381197978264378
+    second: gamepad_5
   - first:
-      213: -9088893254508931613
-    second: gamepad-dark-a
+      213: -8207642040050249607
+    second: gamepad_Left_Stick
   - first:
-      213: 1746024009234177975
-    second: gamepad-dark-b
+      213: -7700215885056274460
+    second: gamepad_Right_Stick
+  - first:
+      213: 7477465292012804178
+    second: gamepad_Pad
+  - first:
+      213: 1210330822383940054
+    second: gamepad_B
+  - first:
+      213: 2191934171725157346
+    second: gamepad_X
+  - first:
+      213: -8344352394877605140
+    second: gamepad_Left_Button
+  - first:
+      213: -653288902593548771
+    second: gamepad_12
+  - first:
+      213: 3490836882217855976
+    second: gamepad_0
+  - first:
+      213: 7148088088367521630
+    second: gamepad_1
+  - first:
+      213: -3624310737327429269
+    second: gamepad_2
+  - first:
+      213: 6648485730489855299
+    second: gamepad_3
+  - first:
+      213: 7655623088307215857
+    second: gamepad_4
+  - first:
+      213: -8207642040050249607
+    second: gamepad_6
+  - first:
+      213: -7700215885056274460
+    second: gamepad_7
+  - first:
+      213: 7477465292012804178
+    second: gamepad_8
+  - first:
+      213: -8341613967027160125
+    second: gamepad_9
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -84,7 +126,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -96,7 +138,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -108,7 +150,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -122,169 +164,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gamepad-light-y
+      name: gamepad_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 256
-        height: 256
+        x: 13
+        y: 327
+        width: 81
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1dd4a9258a3e5ea10800000000000000
-      internalID: 1938205526732721617
+      spriteID: 1fd94d833ac3e3a60800000000000000
+      internalID: 7655623088307215857
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gamepad-light-x
+      name: gamepad_5
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 256
-        height: 256
+        x: 108
+        y: 329
+        width: 81
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35a430fb2bfc6cc60800000000000000
-      internalID: 7838180568100719187
+      spriteID: a33eb852179a7a620800000000000000
+      internalID: 2785381197978264378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gamepad-dark-y
+      name: gamepad_6
       rect:
         serializedVersion: 2
-        x: 512
-        y: 256
-        width: 256
-        height: 256
+        x: 14
+        y: 236
+        width: 81
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9719665cc5326de40800000000000000
-      internalID: 5680766861330256249
+      spriteID: 9701e3fec09981e80800000000000000
+      internalID: -8207642040050249607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gamepad-dark-x
+      name: gamepad_7
       rect:
         serializedVersion: 2
-        x: 768
-        y: 256
-        width: 256
-        height: 256
+        x: 107
+        y: 237
+        width: 81
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 580c59fd7ce1b22c0800000000000000
-      internalID: -4455433562554515323
+      spriteID: 4ef86653376532590800000000000000
+      internalID: -7700215885056274460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gamepad-light-a
+      name: gamepad_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 256
+        x: 13
+        y: 144
+        width: 81
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6378377094a6b830800000000000000
-      internalID: 4086634652267737966
+      spriteID: 2585cb6d01b45c760800000000000000
+      internalID: 7477465292012804178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gamepad-light-b
+      name: gamepad_0
       rect:
         serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 256
+        x: 14
+        y: 419
+        width: 81
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 684d28a02ce496240800000000000000
-      internalID: 4785442674364830854
+      spriteID: 8eb6d6d26a1f17030800000000000000
+      internalID: 3490836882217855976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gamepad-dark-a
+      name: gamepad_1
       rect:
         serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 256
+        x: 107
+        y: 420
+        width: 81
+        height: 81
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e51d837db3cdd180800000000000000
-      internalID: -9088893254508931613
+      spriteID: e5fd8528e3c133360800000000000000
+      internalID: 7148088088367521630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gamepad-dark-b
+      name: gamepad_2
       rect:
         serializedVersion: 2
-        x: 768
-        y: 0
-        width: 256
-        height: 256
+        x: 200
+        y: 347
+        width: 123
+        height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bfd4b7e59f1b3810800000000000000
-      internalID: 1746024009234177975
+      spriteID: b69e6f9369cd3bdc0800000000000000
+      internalID: -3624310737327429269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gamepad_3
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 347
+        width: 123
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34de914fb8a244c50800000000000000
+      internalID: 6648485730489855299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gamepad_9
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 146
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cbb8e1fa42ac3c80800000000000000
+      internalID: -8341613967027160125
       vertices: []
       indices: 
       edges: []
@@ -292,7 +376,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 144ff4417eb3cad4188e7bf34d6e1c7d
     internalID: 0
     vertices: []
     indices: 

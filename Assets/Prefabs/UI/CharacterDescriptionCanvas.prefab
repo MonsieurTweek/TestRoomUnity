@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4455433562554515323, guid: f63ada9592388c943b246448e5537ac4,
+  m_Sprite: {fileID: 7148088088367521630, guid: 34df391f02e226b42a4cf3ef9add6d91,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -1728,10 +1728,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 2133966182894088436}
   text: {fileID: 2133966183189838601}
-  keyboardIcon: {fileID: 8673310554475600528, guid: 2ac2bc7b68350584c9bebd49abd9a789,
+  keyboardIcon: {fileID: 1836571632104722114, guid: e7442417d020a8d49b84f97a7d0f12a4,
     type: 3}
   keyboardText: 
-  gamepadIcon: {fileID: 1746024009234177975, guid: f63ada9592388c943b246448e5537ac4,
+  gamepadIcon: {fileID: 2785381197978264378, guid: 34df391f02e226b42a4cf3ef9add6d91,
     type: 3}
   gamepadText: 
 --- !u!114 &2133966182293087814
@@ -2397,7 +2397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4455433562554515323, guid: f63ada9592388c943b246448e5537ac4,
+  m_Sprite: {fileID: 2785381197978264378, guid: 34df391f02e226b42a4cf3ef9add6d91,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -2470,10 +2470,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 2133966181988224715}
   text: {fileID: 2133966181324706335}
-  keyboardIcon: {fileID: 8838484976204849169, guid: 2ac2bc7b68350584c9bebd49abd9a789,
+  keyboardIcon: {fileID: 3643243010867867535, guid: e7442417d020a8d49b84f97a7d0f12a4,
     type: 3}
   keyboardText: 
-  gamepadIcon: {fileID: 5680766861330256249, guid: f63ada9592388c943b246448e5537ac4,
+  gamepadIcon: {fileID: 7148088088367521630, guid: 34df391f02e226b42a4cf3ef9add6d91,
     type: 3}
   gamepadText: 
 --- !u!114 &2133966182977676407

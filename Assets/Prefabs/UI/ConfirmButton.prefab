@@ -35,10 +35,10 @@ RectTransform:
   m_Father: {fileID: 1261878631444538853}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 167.14, y: -33.243027}
-  m_SizeDelta: {x: 0, y: 66.48605}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 167.14, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1169460935907115181
 MonoBehaviour:
@@ -54,9 +54,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 4150031500791060896}
   text: {fileID: 8780176243841665024}
-  keyboardIcon: {fileID: 0}
-  keyboardText: Press Enter
-  gamepadIcon: {fileID: 4086634652267737966, guid: f63ada9592388c943b246448e5537ac4,
+  keyboardIcon: {fileID: -5221031191145572345, guid: e7442417d020a8d49b84f97a7d0f12a4,
+    type: 3}
+  keyboardText: Press
+  gamepadIcon: {fileID: -8207642040050249607, guid: 34df391f02e226b42a4cf3ef9add6d91,
     type: 3}
   gamepadText: Press
 --- !u!114 &6188087582360789556
@@ -492,7 +493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4086634652267737966, guid: f63ada9592388c943b246448e5537ac4,
+  m_Sprite: {fileID: -8207642040050249607, guid: 34df391f02e226b42a4cf3ef9add6d91,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -537,7 +538,7 @@ GameObject:
   - component: {fileID: 4191695173335850021}
   - component: {fileID: 1803512487992004852}
   m_Layer: 5
-  m_Name: Confirm
+  m_Name: ConfirmButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

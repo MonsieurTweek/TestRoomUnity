@@ -27,6 +27,8 @@ public class InputManager : MonoBehaviour
         {
             InitializeControls();
         }
+
+        isKeyboard = Gamepad.current == null;
     }
 
     private void InitializeControls()

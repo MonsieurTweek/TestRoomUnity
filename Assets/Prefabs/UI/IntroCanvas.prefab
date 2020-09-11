@@ -108,7 +108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2.5, y: -0.5}
+  m_AnchoredPosition: {x: 3.38, y: -0.5}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8982611991484258062
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 4086634652267737966, guid: f63ada9592388c943b246448e5537ac4,
+  m_Sprite: {fileID: -8207642040050249607, guid: 34df391f02e226b42a4cf3ef9add6d91,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -277,8 +277,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.5, y: -1}
-  m_SizeDelta: {x: 3, y: 1}
+  m_AnchoredPosition: {x: 3, y: -1}
+  m_SizeDelta: {x: 3.88, y: 1}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &5225209198502088752
 MonoBehaviour:
@@ -294,9 +294,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 7002729337668995389}
   text: {fileID: 2404954450736388253}
-  keyboardIcon: {fileID: 0}
-  keyboardText: Press Enter
-  gamepadIcon: {fileID: 4086634652267737966, guid: f63ada9592388c943b246448e5537ac4,
+  keyboardIcon: {fileID: -5221031191145572345, guid: e7442417d020a8d49b84f97a7d0f12a4,
+    type: 3}
+  keyboardText: Press
+  gamepadIcon: {fileID: -8207642040050249607, guid: 34df391f02e226b42a4cf3ef9add6d91,
     type: 3}
   gamepadText: Press
 --- !u!114 &6335843602316209605
@@ -778,8 +779,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.5, y: -0.5}
-  m_SizeDelta: {x: 3, y: 1}
+  m_AnchoredPosition: {x: 3, y: -0.5}
+  m_SizeDelta: {x: 6, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7047208610818813509
 CanvasRenderer:
@@ -1144,8 +1145,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.99999994, y: 0}
-  m_SizeDelta: {x: 1.9999999, y: 1}
+  m_AnchoredPosition: {x: 1.315, y: 0}
+  m_SizeDelta: {x: 2.63, y: 1}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &49406583498049383
 CanvasRenderer:
@@ -1218,7 +1219,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0

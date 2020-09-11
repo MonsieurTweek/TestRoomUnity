@@ -6,13 +6,19 @@ public class PlayerUIController : MonoBehaviour
     [Header("References")]
     public PlayerFSM player = null;
     public GameObject layout = null;
+    public CanvasGroup inputHint = null;
     public ResourceGaugeController playerEnergy = null;
     public ResourceGaugeController playerHealth = null;
     public ResourceGaugeController targetHealth = null;
     public TextMeshProUGUI targetName = null;
     public PerkController[] perks = null;
 
+    [Header("Properties")]
+    public float hintDuration = 30f;
+    public float hintFadeOutDuration = 10f;
+
     private int _nextPerkIndex = 0;
+    private bool _isInputHintVisible = true;
 
     private void Start()
     {
@@ -55,6 +61,13 @@ public class PlayerUIController : MonoBehaviour
     private void OnIntroEnded()
     {
         layout.SetActive(true);
+
+        if (_isInputHintVisible == true)
+        {
+            _isInputHintVisible = false;
+
+            LeanTween.alphaCanvas(inputHint, 0f, hintFadeOutDuration).setDelay(hintDuration - hintFadeOutDuration);
+        }
     }
 
     private void OnOutroStarted(Transform target)
