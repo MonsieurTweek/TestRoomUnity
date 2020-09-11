@@ -964,6 +964,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Klapaucius"",
+                    ""type"": ""Button"",
+                    ""id"": ""f706f130-9da2-469b-9a6e-7c48b6732adb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -986,6 +994,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Kill_Enemy"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6880790-d768-4d73-95fc-37ea5349045b"",
+                    ""path"": ""<Keyboard>/numpadPlus"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Klapaucius"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1016,6 +1035,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Cheat = asset.FindActionMap("Cheat", throwIfNotFound: true);
         m_Cheat_Kill_Player = m_Cheat.FindAction("Kill_Player", throwIfNotFound: true);
         m_Cheat_Kill_Enemy = m_Cheat.FindAction("Kill_Enemy", throwIfNotFound: true);
+        m_Cheat_Klapaucius = m_Cheat.FindAction("Klapaucius", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1229,12 +1249,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private ICheatActions m_CheatActionsCallbackInterface;
     private readonly InputAction m_Cheat_Kill_Player;
     private readonly InputAction m_Cheat_Kill_Enemy;
+    private readonly InputAction m_Cheat_Klapaucius;
     public struct CheatActions
     {
         private @PlayerControls m_Wrapper;
         public CheatActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Kill_Player => m_Wrapper.m_Cheat_Kill_Player;
         public InputAction @Kill_Enemy => m_Wrapper.m_Cheat_Kill_Enemy;
+        public InputAction @Klapaucius => m_Wrapper.m_Cheat_Klapaucius;
         public InputActionMap Get() { return m_Wrapper.m_Cheat; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1250,6 +1272,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Kill_Enemy.started -= m_Wrapper.m_CheatActionsCallbackInterface.OnKill_Enemy;
                 @Kill_Enemy.performed -= m_Wrapper.m_CheatActionsCallbackInterface.OnKill_Enemy;
                 @Kill_Enemy.canceled -= m_Wrapper.m_CheatActionsCallbackInterface.OnKill_Enemy;
+                @Klapaucius.started -= m_Wrapper.m_CheatActionsCallbackInterface.OnKlapaucius;
+                @Klapaucius.performed -= m_Wrapper.m_CheatActionsCallbackInterface.OnKlapaucius;
+                @Klapaucius.canceled -= m_Wrapper.m_CheatActionsCallbackInterface.OnKlapaucius;
             }
             m_Wrapper.m_CheatActionsCallbackInterface = instance;
             if (instance != null)
@@ -1260,6 +1285,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Kill_Enemy.started += instance.OnKill_Enemy;
                 @Kill_Enemy.performed += instance.OnKill_Enemy;
                 @Kill_Enemy.canceled += instance.OnKill_Enemy;
+                @Klapaucius.started += instance.OnKlapaucius;
+                @Klapaucius.performed += instance.OnKlapaucius;
+                @Klapaucius.canceled += instance.OnKlapaucius;
             }
         }
     }
@@ -1288,5 +1316,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnKill_Player(InputAction.CallbackContext context);
         void OnKill_Enemy(InputAction.CallbackContext context);
+        void OnKlapaucius(InputAction.CallbackContext context);
     }
 }

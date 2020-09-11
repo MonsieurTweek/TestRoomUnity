@@ -17,6 +17,20 @@ public class ArenaManager : MonoBehaviour
     private Dictionary<uint, EnemyFSM> _currentEnemies = new Dictionary<uint, EnemyFSM>();
     private List<EnemyFSM> _enemiesToSpawn = new List<EnemyFSM>();
 
+    public static ArenaManager instance { private set; get; }
+
+    private void Awake()
+    {
+        // First destroy any existing instance of it
+        if (instance != null)
+        {
+            Destroy(instance);
+        }
+
+        // Then reassign a proper one
+        instance = this;
+    }
+
     private void Start()
     {
         CharacterGameEvent.instance.onHit += OnHit;
@@ -220,7 +234,7 @@ public class ArenaManager : MonoBehaviour
 
     public void KillEnemy()
     {
-        foreach (EnemyFSM enemy in _currentEnemies.Values)
+        foreach (EnemyFSM enemy in instance._currentEnemies.Values)
         {
             enemy.Hit(Mathf.RoundToInt(enemy.data.healthMax * 0.5f));
         }
@@ -228,6 +242,9 @@ public class ArenaManager : MonoBehaviour
 
     public void KillPlayer()
     {
-        player.Hit(Mathf.RoundToInt(player.data.healthMax * 0.5f));
+        if (instance.player != null)
+        {
+            instance.player.Hit(Mathf.RoundToInt(instance.player.data.healthMax * 0.5f));
+        }
     }
 }

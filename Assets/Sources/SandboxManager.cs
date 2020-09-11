@@ -6,6 +6,20 @@ public class SandboxManager : MonoBehaviour
     public PlayerFSM player = null;
     public EnemyFSM[] enemies = null;
 
+    public static SandboxManager instance { private set; get; }
+
+    private void Awake()
+    {
+        // First destroy any existing instance of it
+        if (instance != null)
+        {
+            Destroy(instance);
+        }
+
+        // Then reassign a proper one
+        instance = this;
+    }
+
     private void Start()
     {
         StartCoroutine(Initialize());
@@ -58,7 +72,7 @@ public class SandboxManager : MonoBehaviour
 
     public void KillEnemy()
     {
-        foreach (EnemyFSM enemy in enemies)
+        foreach (EnemyFSM enemy in instance.enemies)
         {
             enemy.Hit(Mathf.RoundToInt(enemy.data.healthMax * 0.5f));
         }
@@ -66,7 +80,10 @@ public class SandboxManager : MonoBehaviour
 
     public void KillPlayer()
     {
-        player.Hit(Mathf.RoundToInt(player.data.healthMax * 0.5f));
+        if (instance.player != null)
+        {
+            instance.player.Hit(Mathf.RoundToInt(instance.player.data.healthMax * 0.5f));
+        }
     }
 
     private void OnDestroy()

@@ -951,6 +951,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Klapaucius",
+                    "type": "Button",
+                    "id": "f706f130-9da2-469b-9a6e-7c48b6732adb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -973,6 +981,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Kill_Enemy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f6880790-d768-4d73-95fc-37ea5349045b",
+                    "path": "<Keyboard>/numpadPlus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Klapaucius",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
