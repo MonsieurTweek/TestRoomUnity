@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: PoisonPerk
   m_EditorClassIdentifier: 
   title: Poison
-  description: Give {:amount}% to poison target on hit
+  description: '{:amount}% chances to <color=#E1B12C><b><smallcaps>Poison</smallcaps></b></color>
+    target on hit'
   icon: {fileID: 21300000, guid: 8a219bc46afb6d04da48a4509414b807, type: 3}
   background: {fileID: 21300000, guid: 47cc9de0d3bd474429860feb0e039cdb, type: 3}
   amount: 30

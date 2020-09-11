@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660e280c3d64d7e49bb7e31053c5dadf, type: 3}
   m_Name: FreezePerk
   m_EditorClassIdentifier: 
-  title: Let it go !
-  description: Give {:amount}% to freeze target on hit
+  title: Freeze
+  description: '{:amount}% chances to <color=#E1B12C><b><smallcaps>Freeze</smallcaps></b></color>
+    target on hit'
   icon: {fileID: 21300000, guid: bf462ec7b3198da44a0198617aefd942, type: 3}
   background: {fileID: 21300000, guid: de89b8df67a8cb941b1718c5d2891107, type: 3}
   amount: 30
