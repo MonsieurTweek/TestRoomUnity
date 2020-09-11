@@ -422,10 +422,25 @@ PrefabInstance:
       propertyPath: m_padding
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7397194654201250095, guid: 1e27c9767b2da0045942f65c13448b94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8456481548289962217, guid: 1e27c9767b2da0045942f65c13448b94,
         type: 3}
       propertyPath: loadingDelay
-      value: 0.3
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456481548289962217, guid: 1e27c9767b2da0045942f65c13448b94,
+        type: 3}
+      propertyPath: loadingTipDuration
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456481548289962217, guid: 1e27c9767b2da0045942f65c13448b94,
+        type: 3}
+      propertyPath: loadingMinDuration
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e27c9767b2da0045942f65c13448b94, type: 3}

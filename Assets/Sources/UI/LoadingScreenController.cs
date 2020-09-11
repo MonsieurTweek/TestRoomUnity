@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using System.Threading;
+using TMPro;
 using UnityEngine;
 
 public class LoadingScreenController : MonoBehaviour
@@ -11,12 +13,15 @@ public class LoadingScreenController : MonoBehaviour
     [Header("Properties")]
     public float loadingDelay = 0.3f;
     public float loadingMinDuration = 1f;
+    public GameObject[] tips = null;
 
     private Action _onLoadingPrepared = null;
 
     private int _loadingObjectCount = 0;
     private float _loadingProgress = 0;
     private float _startTime = 0f;
+
+    private int _loadingCurrentTipIndex = 0;
 
     private void Awake()
     {
@@ -44,6 +49,9 @@ public class LoadingScreenController : MonoBehaviour
         // Force progress to zero
         _loadingObjectCount = 1;
         _loadingProgress = 0f;
+
+        // Display a tip during the loading
+        tips[_loadingCurrentTipIndex].SetActive(true);
 
         root.SetActive(true);
 
@@ -89,6 +97,23 @@ public class LoadingScreenController : MonoBehaviour
     private void OnLoadingEnded()
     {
         root.SetActive(false);
+
+        // Prepare tip for the next loading
+        tips[_loadingCurrentTipIndex].SetActive(false);
+
+        PrepareLoadingTip();
+    }
+
+    private void PrepareLoadingTip()
+    {
+        int loadingTipIndex = _loadingCurrentTipIndex;
+
+        while (loadingTipIndex == _loadingCurrentTipIndex)
+        {
+            loadingTipIndex = UnityEngine.Random.Range(0, tips.Length);
+        }
+
+        _loadingCurrentTipIndex = loadingTipIndex;
     }
 
     /// <summary>
