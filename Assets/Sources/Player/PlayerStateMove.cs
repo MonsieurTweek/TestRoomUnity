@@ -42,8 +42,14 @@ public class PlayerStateMove : CharacterFSM.CharacterState
     public override void Enter()
     {
         // Bind controls to actions
-        InputManager.instance.gameplay.Jump.performed += Jump;
-        InputManager.instance.gameplay.Dash.performed += Dash;
+        if ((((PlayerData)character.data).playerAbilitiesMask & (uint)PlayerAbilityEnum.DASH) != 0)
+        {
+            InputManager.instance.gameplay.Jump.performed += Dash;
+        }
+        else
+        {
+            InputManager.instance.gameplay.Jump.performed += Jump;
+        }
 
         _energyForDash = ((PlayerData)character.data).energyForDash;
     }
@@ -245,7 +251,7 @@ public class PlayerStateMove : CharacterFSM.CharacterState
         if (InputManager.instance != null)
         {
             InputManager.instance.gameplay.Jump.performed -= Jump;
-            InputManager.instance.gameplay.Dash.performed -= Dash;
+            InputManager.instance.gameplay.Jump.performed -= Dash;
         }
 
         Animate();

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DashPerk
   m_EditorClassIdentifier: 
   title: Dash
-  description: Dash to get distance and put you in safety
+  description: Press <color=#E1B12C><b><smallcaps>Jump</smallcaps></b></color> to
+    teleport yourself
   icon: {fileID: 21300000, guid: 24b92e31a31a6584e9f1d1997fc9cc0a, type: 3}
   background: {fileID: 21300000, guid: 284fc939756704a42996c4a81b947554, type: 3}
   amount: 0
