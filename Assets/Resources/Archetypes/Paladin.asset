@@ -18,7 +18,7 @@ MonoBehaviour:
   background: {fileID: 0}
   character: 8
   isPlayable: 1
-  configuration: {fileID: 11400000, guid: 24d6d2b49164d004a8e8ec106da5a75e, type: 2}
+  configuration: {fileID: 11400000, guid: 75e5423344250d049bbe67fd7db7c673, type: 2}
   animationController: {fileID: 22100000, guid: 3c21dc42a3bbf274891a33e21d97f460,
     type: 2}
   attackEffects: {fileID: 6831585443734662997, guid: 9e1ee5e8d0c2039478a9718fd1cbf8ad,

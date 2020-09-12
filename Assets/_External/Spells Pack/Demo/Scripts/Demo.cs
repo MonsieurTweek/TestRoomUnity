@@ -213,14 +213,14 @@ public class Demo : MonoBehaviour {
             SelectionBuff.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Back();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            Next();
-        }
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    Back();
+        //}
+        //if (Input.GetKeyDown(KeyCode.D))
+        //{
+        //    Next();
+        //}
 
 
     }

@@ -91,27 +91,47 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.08309642
-        functionName: OnAnimationPlayFx
-        data: 
-        objectReferenceParameter: {fileID: 4756220788394149497, guid: fe49e20f95a26de4b9290adac50dc4c2,
-          type: 3}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: 0.59881735
-        functionName: OnAnimationSendProjectile
-        data: 
-        objectReferenceParameter: {fileID: 8677309504492095597, guid: dc927095f4402c743af2ca708c8b8b62,
-          type: 3}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
       - time: 0.9936909
         functionName: OnSingleAnimationEnded
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.17910448
+        functionName: OnAttackPlayFx
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.588015
+        functionName: OnAnimationSendProjectile
+        data: 
+        objectReferenceParameter: {fileID: 5372511614701019436, guid: 8974b31694187504688052792e1ff9c4,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.45318353
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1.75
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6067416
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6666667
+        functionName: OnUpdateAttackSpeed
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 1
         intParameter: 0
         messageOptions: 0
       transformMask: []
