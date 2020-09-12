@@ -14,10 +14,16 @@ public class PlayerStateAttack : CharacterStateAttack
     private int _currentComboCount = 0;
     private AttackType _currentComboType = AttackType.NONE;
     private SerializableDictionaries.EffectsByAttackType _effects = null;
+    private SerializableDictionaries.StatusByAttackType _status = null;
 
     public void SetAttackEffects(SerializableDictionaries.EffectsByAttackType effects)
     {
         _effects = effects;
+    }
+
+    public void SetAttackStatus(SerializableDictionaries.StatusByAttackType status)
+    {
+        _status = status;
     }
 
     public override void Enter(int type)
@@ -103,6 +109,28 @@ public class PlayerStateAttack : CharacterStateAttack
             }
         }
     }
+
+    public Boolean HasStatus(CharacterStatusEnum status)
+    {
+        AttackType currentType = _currentComboType == AttackType.NONE ? type : _currentComboType;
+
+        if (_status == null)
+        {
+            return false;
+        }
+
+        try
+        {
+            UnityEngine.Assertions.Assert.IsTrue(_status.ContainsKey(currentType), "Can't find any status for " + currentType);
+
+            return _status[currentType] == status;
+        } catch(Exception e)
+        {
+            // The current AttackType doesn't have a status defined. Do nothing
+            return false;
+        }
+
+    }
     
     public override void Exit()
     {
@@ -112,6 +140,7 @@ public class PlayerStateAttack : CharacterStateAttack
 
         character.gearController.StopAttackFx();
         character.fxController.StopFx(fxByState);
+        type = AttackType.NONE;
 
         // Reset combo so we are sure it won't trigger not on purpose
         ResetCombo();

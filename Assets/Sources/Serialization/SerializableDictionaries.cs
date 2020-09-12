@@ -9,4 +9,7 @@ public class SerializableDictionaries : MonoBehaviour
 
     [Serializable]
     public class EffectsByAttackType : SerializableDictionary<CharacterStateAttack.AttackType, List<VisualEffectController>, EffectListStorage> { }
+
+    [Serializable]
+    public class StatusByAttackType : SerializableDictionary<CharacterStateAttack.AttackType, CharacterStatusEnum> { }
 }

@@ -259,11 +259,18 @@ public class PlayerFSM : CharacterFSM, ICharacter
         // Ensure player is in a state where he can take a hit
         if (((uint)currentState.flag & CAN_HIT_MASK) != 0)
         {
-            // Being in last combo step prevent any damage
-            if (currentState.flag == (uint)CharacterStateEnum.ATTACK && ((PlayerStateAttack)currentState).isComboFinalStep == true)
+
+            // Being in berserker mode prevents any damage if an attack is running
+            if (currentState.flag == (uint)CharacterStateEnum.ATTACK && stateAttack.HasStatus(CharacterStatusEnum.BERSERKER) == true)
             {
                 return false;
             }
+
+            // Being in last combo step prevent any damage
+            //if (currentState.flag == (uint)CharacterStateEnum.ATTACK && ((PlayerStateAttack)currentState).isComboFinalStep == true)
+            //{
+            //    return false;
+            //}
 
             data.ApplyDamage(damage);
 
@@ -271,7 +278,11 @@ public class PlayerFSM : CharacterFSM, ICharacter
 
             if (data.isAlive == true)
             {
-                TransitionToHit();
+                // If not attacking or if the attack doesn't provide the status "FOCUSED", take the hit
+                if (currentState.flag != (uint)CharacterStateEnum.ATTACK || stateAttack.HasStatus(CharacterStatusEnum.FOCUSED) == false)
+                {
+                    TransitionToHit();
+                }
             }
             else
             {

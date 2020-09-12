@@ -41,6 +41,13 @@ public class PlayerArchetypeController : MonoBehaviour
             _playerFSM.stateAttack.SetAttackEffects(attackEffects.effects);
         }
 
+        if (archetype.attackStatus != null)
+        {
+            PlayerStateAttackStatus attackStatus = Instantiate(archetype.attackStatus, transform);
+
+            _playerFSM.stateAttack.SetAttackStatus(attackStatus.status);
+        }
+
         if (CharacterGameEvent.instance != null)
         {
             PlayerData data = new PlayerData();

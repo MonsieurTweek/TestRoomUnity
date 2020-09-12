@@ -5,4 +5,7 @@
     STUN = 1 << 0,
     POISON = 1 << 1,
     FREEZE = 1 << 2,
+
+    BERSERKER = 3,
+    FOCUSED = 5,
 }

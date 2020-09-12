@@ -23,7 +23,7 @@ public class CharacterStateAttack : CharacterFSM.CharacterState1Param<int>
     private const string ANIMATION_PARAM_ATTACK_TYPE = "AttackType";
 
     public Transform anchor = null;
-    public AttackType type = AttackType.ALT_1;
+    public AttackType type = AttackType.NONE;
 
     public bool isEnabled { private set; get; }
 

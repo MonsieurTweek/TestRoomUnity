@@ -71,10 +71,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6003190407871246594}
-  - component: {fileID: 6831585443734662997}
   - component: {fileID: -8492587458844105456}
   m_Layer: 13
-  m_Name: PaladinAttackEffects
+  m_Name: WarriorAttackStatus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,25 +95,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6831585443734662997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4361949310052773060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d718f1403eca69043866dcf0753e4130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effects:
-    m_keys: 0100000002000000
-    m_values:
-    - data:
-      - {fileID: 6552654040809280462}
-    - data:
-      - {fileID: 1551412975890298798}
 --- !u!114 &-8492587458844105456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,8 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   status:
-    m_keys: 02000000
-    m_values: 03000000
+    m_keys: 6400000065000000
+    m_values: 0300000003000000
 --- !u!1001 &19627669511602297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -330,18 +310,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 19627669511602297}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1551412975890298798 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1567818520771524567, guid: fe49e20f95a26de4b9290adac50dc4c2,
-    type: 3}
-  m_PrefabInstance: {fileID: 19627669511602297}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b088867a9b3b9f341aabb18f9f00932a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5705416975172920345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -527,15 +495,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5705416975172920345}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6552654040809280462 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1567818520771524567, guid: 80f24e881c630584ba41b8eb3de78503,
-    type: 3}
-  m_PrefabInstance: {fileID: 5705416975172920345}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b088867a9b3b9f341aabb18f9f00932a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

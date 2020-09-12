@@ -13,7 +13,9 @@ public class Archetype : DescriptiveObject
     [Header("Configuration")]
     public Player configuration = null;
     public AnimatorOverrideController animationController = null;
+    // TODO : A regrouper en un même objet options ?
     public PlayerStateAttackEffects attackEffects = null;
+    public PlayerStateAttackStatus attackStatus = null;
 
     [Header("Gear")]
     public GearController gearLeft = null;
