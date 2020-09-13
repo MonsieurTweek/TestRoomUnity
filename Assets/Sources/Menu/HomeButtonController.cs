@@ -11,6 +11,7 @@ public class HomeButtonController : MonoBehaviour
 
     [Header("Properties")]
     public float confirmDelay = 0.25f;
+    public bool useConfirmButton = true;
 
     private int _tweenId = -1;
     private Button _button = null;
@@ -22,14 +23,30 @@ public class HomeButtonController : MonoBehaviour
 
     private void OnEnable()
     {
-        InputManager.instance.menu.Cancel.started += OnBackStarted;
-        InputManager.instance.menu.Cancel.canceled += OnBackCanceled;
+        if (useConfirmButton == true)
+        {
+            InputManager.instance.menu.Confirm.started += OnBackStarted;
+            InputManager.instance.menu.Confirm.canceled += OnBackCanceled;
+        }
+        else
+        {
+            InputManager.instance.menu.Cancel.started += OnBackStarted;
+            InputManager.instance.menu.Cancel.canceled += OnBackCanceled;
+        }
     }
 
     private void OnDisable()
     {
-        InputManager.instance.menu.Cancel.started -= OnBackStarted;
-        InputManager.instance.menu.Cancel.canceled -= OnBackCanceled;
+        if (useConfirmButton == true)
+        {
+            InputManager.instance.menu.Confirm.started -= OnBackStarted;
+            InputManager.instance.menu.Confirm.canceled -= OnBackCanceled;
+        }
+        else
+        {
+            InputManager.instance.menu.Cancel.started -= OnBackStarted;
+            InputManager.instance.menu.Cancel.canceled -= OnBackCanceled;
+        }
     }
 
     private void OnBackStarted(InputAction.CallbackContext context)

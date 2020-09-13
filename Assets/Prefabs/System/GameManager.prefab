@@ -63,25 +63,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6883ebda04e9f0a4088da78523a6dcd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateHome:
+  stateTitle:
     owner: {fileID: 0}
     flag: 0
     gameScene: 1
+    music: {fileID: 0}
+  stateHome:
+    owner: {fileID: 0}
+    flag: 0
+    gameScene: 2
     music: {fileID: 8300000, guid: 56084adaa660f5641a5649f116f3f546, type: 3}
   stateStore:
     owner: {fileID: 0}
     flag: 0
-    gameScene: 2
+    gameScene: 3
     music: {fileID: 0}
   stateCharacterSelection:
     owner: {fileID: 0}
     flag: 0
-    gameScene: 3
+    gameScene: 4
     music: {fileID: 0}
   stateArena:
     owner: {fileID: 0}
     flag: 0
-    gameScene: 4
+    gameScene: 5
     music: {fileID: 0}
   fadeOutTime: 0.5
 --- !u!114 &1930972646891838759

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/_MainScene.unity
     guid: 4f28727e5e25e224cbad804b01dde4a1
   - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: 30c6a693f38d8f943a95c5cc975f21d6
+  - enabled: 1
     path: Assets/Scenes/HomeScene.unity
     guid: 82f378bd6353cfc44b0879344b466146
   - enabled: 1

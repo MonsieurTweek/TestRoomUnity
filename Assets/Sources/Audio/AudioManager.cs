@@ -30,8 +30,6 @@ public class AudioManager : MonoBehaviour
         // Then reassign a proper one
         instance = this;
 
-        DontDestroyOnLoad(this);
-
         _musicVolume = musicSource.volume;
         _sfxVolume = sfxMenuSource.volume;
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameFSM : AbstractFSM
 {
     [Header("States")]
+    public GameStateWithScene stateTitle = new GameStateWithScene();
     public GameStateWithScene stateHome = new GameStateWithScene();
     public GameStateWithScene stateStore = new GameStateWithScene();
 
@@ -15,6 +16,7 @@ public class GameFSM : AbstractFSM
     public float fadeOutTime = 0.5f;
 
     // Transitions to states
+    public void TransitionToTitle() { ChangeState(stateTitle); }
     public void TransitionToHome() { PrepareToLoadState(stateHome); }
     public void TransitionToStore() { PrepareToLoadState(stateStore); }
     public void TransitionToCharacterSelection() { PrepareToLoadState(stateCharacterSelection); }
@@ -26,6 +28,7 @@ public class GameFSM : AbstractFSM
 
     private void Start()
     {
+        stateTitle.flag = (uint)GameStateEnum.TITLE;
         stateHome.flag = (uint)GameStateEnum.HOME;
         stateStore.flag = (uint)GameStateEnum.STORE;
         stateCharacterSelection.flag = (uint)GameStateEnum.SELECTION;
@@ -38,7 +41,7 @@ public class GameFSM : AbstractFSM
         GameEvent.instance.onCharacterSelected += TransitionToArena;
         GameEvent.instance.onGameOver += PrepareGameOver;
 
-        TransitionToHome();
+        TransitionToTitle();
     }
 
     private void ResetProgression()

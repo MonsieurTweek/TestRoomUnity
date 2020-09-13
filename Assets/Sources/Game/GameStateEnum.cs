@@ -6,5 +6,6 @@
     STORE           = 1 << 1,
     SELECTION       = 1 << 2,
     ARENA           = 1 << 3,
-    UNLOCK_PERK     = 1 << 4
+    UNLOCK_PERK     = 1 << 4,
+    TITLE           = 1 << 5,
 }

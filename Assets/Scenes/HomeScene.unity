@@ -197,6 +197,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1604453173288264373, guid: a847fda3c9a4ca5408a2b7059eeeb681,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604453173288264373, guid: a847fda3c9a4ca5408a2b7059eeeb681,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604453173288264373, guid: a847fda3c9a4ca5408a2b7059eeeb681,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709397461488050127, guid: a847fda3c9a4ca5408a2b7059eeeb681,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709397461488050127, guid: a847fda3c9a4ca5408a2b7059eeeb681,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709397461488050127, guid: a847fda3c9a4ca5408a2b7059eeeb681,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709397461639544308, guid: a847fda3c9a4ca5408a2b7059eeeb681,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709397461639544308, guid: a847fda3c9a4ca5408a2b7059eeeb681,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709397461639544308, guid: a847fda3c9a4ca5408a2b7059eeeb681,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2610994985731984130, guid: a847fda3c9a4ca5408a2b7059eeeb681,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -291,6 +336,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HomeCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2627907045209134731, guid: a847fda3c9a4ca5408a2b7059eeeb681,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2627907045209134839, guid: a847fda3c9a4ca5408a2b7059eeeb681,
         type: 3}

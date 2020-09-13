@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
         // Then reassign a proper one
         instance = this;
 
+        DontDestroyOnLoad(this);
+
         Load();
     }
 

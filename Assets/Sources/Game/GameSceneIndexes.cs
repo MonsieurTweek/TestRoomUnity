@@ -2,9 +2,10 @@
 {
     PERSISTENT = 0,
 
-    HOME = 1,
-    STORE = 2,
-    SELECTION = 3,
-    ARENA = 4,
-    GAME_OVER = 5,
+    TITLE = 1,
+    HOME = 2,
+    STORE = 3,
+    SELECTION = 4,
+    ARENA = 5,
+    GAME_OVER = 6,
 }

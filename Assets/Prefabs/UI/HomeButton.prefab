@@ -118,6 +118,7 @@ MonoBehaviour:
   icon: {fileID: 4243814561542175528}
   confirmBar: {fileID: 7347024424164693621}
   confirmDelay: 0.5
+  useConfirmButton: 0
 --- !u!1 &4568015443009169016
 GameObject:
   m_ObjectHideFlags: 0
