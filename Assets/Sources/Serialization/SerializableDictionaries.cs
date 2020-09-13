@@ -12,4 +12,10 @@ public class SerializableDictionaries : MonoBehaviour
 
     [Serializable]
     public class StatusByAttackType : SerializableDictionary<CharacterStateAttack.AttackType, CharacterStatusEnum> { }
+
+    [Serializable]
+    public class DamageByAttackType : SerializableDictionary<CharacterStateAttack.AttackType, int> { }
+
+    [Serializable]
+    public class HealByAttackType : SerializableDictionary<CharacterStateAttack.AttackType, int> { }
 }

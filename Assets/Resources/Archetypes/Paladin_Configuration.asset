@@ -22,3 +22,5 @@ MonoBehaviour:
   energyForDash: 3
   energyForLightAttack: 2
   energyForHeavyAttack: 3
+  attacksConfiguration: {fileID: -7472898080425470175, guid: 211b3274498ab88429b2b7b1da3deb2a,
+    type: 3}

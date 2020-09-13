@@ -32,6 +32,11 @@ public class AbstractCharacterData : AbstractUniqueData
         damage = configuration.damage;
     }
 
+    public virtual void SetDamageByAttackType(CharacterStateAttack.AttackType type)
+    {
+        // Do nothing
+    }
+
     /// <summary>
     /// Apply final damages. No more computation here.
     /// </summary>

@@ -4954,6 +4954,11 @@ PrefabInstance:
       propertyPath: m_BoundingSphereOverride.z
       value: 9.07e-43
       objectReference: {fileID: 0}
+    - target: {fileID: 4737006685299364631, guid: 44cc181682f31bf408c76340d76b0819,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4737006685381839345, guid: 44cc181682f31bf408c76340d76b0819,
         type: 3}
       propertyPath: looping

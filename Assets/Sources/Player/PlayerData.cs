@@ -16,6 +16,8 @@ public class PlayerData : AbstractCharacterData
     public uint playerAbilitiesMask { private set; get; }
 
     private int _tweenId = -1;
+    private PlayerStateAttackConfiguration _stateAttackConfiguration = null;
+    private Player _playerConfiguration = null;
 
     /// <summary>
     /// Populate model with data
@@ -24,15 +26,45 @@ public class PlayerData : AbstractCharacterData
     {
         base.Populate(configuration);
 
-        Player playerConfiguration = ((Player)configuration);
+        _playerConfiguration = ((Player)configuration);
 
-        energy = playerConfiguration.energy;
-        energyMax = playerConfiguration.energy;
-        energyPerSecond = playerConfiguration.energyPerSecond;
+        energy = _playerConfiguration.energy;
+        energyMax = _playerConfiguration.energy;
+        energyPerSecond = _playerConfiguration.energyPerSecond;
 
-        energyForDash = playerConfiguration.energyForDash;
-        energyForLightAttack = playerConfiguration.energyForLightAttack;
-        energyForHeavyAttack = playerConfiguration.energyForHeavyAttack;
+        energyForDash = _playerConfiguration.energyForDash;
+        energyForLightAttack = _playerConfiguration.energyForLightAttack;
+        energyForHeavyAttack = _playerConfiguration.energyForHeavyAttack;
+
+        _stateAttackConfiguration = _playerConfiguration.attacksConfiguration;
+    }
+
+    public override void SetDamageByAttackType(CharacterStateAttack.AttackType type)
+    {
+
+        if (_stateAttackConfiguration == null)
+        {
+            damage = _playerConfiguration.damage;
+            return;
+        }
+
+        try
+        {
+            UnityEngine.Assertions.Assert.IsTrue(_stateAttackConfiguration.damages.ContainsKey(type), "Can't find any damage for " + type);
+
+            damage = _stateAttackConfiguration.damages[type];
+        }
+        catch (System.Exception e)
+        {
+            // The current AttackType doesn't have any override damage defined. Use the base damage value
+            damage = _playerConfiguration.damage;
+            return;
+        }
+    }
+
+    public void SetHealByAttackType()
+    {
+
     }
 
     public bool ConsumeEnergy(float amount)

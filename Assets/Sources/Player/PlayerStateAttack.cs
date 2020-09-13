@@ -31,6 +31,10 @@ public class PlayerStateAttack : CharacterStateAttack
         base.Enter(type);
 
         character.gearController.PlayAttackFx();
+
+        // If there is a damage override on the configuration of this attack, we use it
+        character.data.SetDamageByAttackType((AttackType)type);
+
     }
 
     public void ToggleCombo()
