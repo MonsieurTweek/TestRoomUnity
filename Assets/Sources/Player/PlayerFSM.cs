@@ -401,6 +401,20 @@ public class PlayerFSM : CharacterFSM, ICharacter
     }
 
     /// <summary>
+    /// Trigger heal effect on the attack
+    /// Called from animation event
+    /// </summary>
+    public void OnTriggerHeal()
+    {
+        int heal = data.GetHealByAttackType(((PlayerStateAttack)currentState).type);
+
+        if(heal > 0)
+        {
+            data.BuffHealth(heal, false);
+        }
+    }
+
+    /// <summary>
     /// Animation has ended
     /// Called from animation event
     /// </summary>

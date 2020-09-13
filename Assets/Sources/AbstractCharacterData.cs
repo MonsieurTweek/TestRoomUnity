@@ -37,6 +37,11 @@ public class AbstractCharacterData : AbstractUniqueData
         // Do nothing
     }
 
+    public virtual int GetHealByAttackType(CharacterStateAttack.AttackType type)
+    {
+        return 0;
+    }
+
     /// <summary>
     /// Apply final damages. No more computation here.
     /// </summary>

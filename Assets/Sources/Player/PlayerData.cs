@@ -62,9 +62,24 @@ public class PlayerData : AbstractCharacterData
         }
     }
 
-    public void SetHealByAttackType()
+    public override int GetHealByAttackType(CharacterStateAttack.AttackType type)
     {
+        if (_stateAttackConfiguration == null)
+        {
+            return 0;
+        }
 
+        try
+        {
+            UnityEngine.Assertions.Assert.IsTrue(_stateAttackConfiguration.heals.ContainsKey(type), "Can't find any heal for " + type);
+
+            return _stateAttackConfiguration.heals[type];
+        }
+        catch (System.Exception e)
+        {
+            // The current AttackType doesn't have any heal defined
+            return 0;
+        }
     }
 
     public bool ConsumeEnergy(float amount)
