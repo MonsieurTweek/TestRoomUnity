@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SandboxManager : MonoBehaviour
 {
+    [Header("Properties")]
+    public AudioClip music = null;
     public PlayerFSM player = null;
     public EnemyFSM[] enemies = null;
 
@@ -38,6 +40,9 @@ public class SandboxManager : MonoBehaviour
                 enemies[i].Initialize(player);
             }
         }
+
+        AudioManager.instance.PlayMusic(music);
+        AudioManager.instance.FadeInMusic();
     }
 
     private void OnDie(uint id, int reward)
