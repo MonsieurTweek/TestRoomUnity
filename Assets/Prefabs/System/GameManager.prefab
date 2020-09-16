@@ -89,6 +89,7 @@ MonoBehaviour:
     gameScene: 5
     music: {fileID: 0}
   fadeOutTime: 0.5
+  loadTitleScene: 1
 --- !u!114 &1930972646891838759
 MonoBehaviour:
   m_ObjectHideFlags: 0

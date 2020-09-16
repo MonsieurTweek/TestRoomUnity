@@ -14,6 +14,7 @@ public class GameFSM : AbstractFSM
 
     [Header("Properties")]
     public float fadeOutTime = 0.5f;
+    public bool loadTitleScene = true;
 
     // Transitions to states
     public void TransitionToTitle() { ChangeState(stateTitle); }
@@ -41,7 +42,10 @@ public class GameFSM : AbstractFSM
         GameEvent.instance.onCharacterSelected += TransitionToArena;
         GameEvent.instance.onGameOver += PrepareGameOver;
 
-        TransitionToTitle();
+        if(loadTitleScene == true)
+        {
+            TransitionToTitle();
+        }
     }
 
     private void ResetProgression()
