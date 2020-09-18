@@ -2190,6 +2190,11 @@ PrefabInstance:
       propertyPath: stateDie.sound
       value: 
       objectReference: {fileID: 8300000, guid: d7f542802673bb34591245ac914e39d5, type: 3}
+    - target: {fileID: 6799003408672531336, guid: 8a4f8d352dab5174b97522bba0b018dc,
+        type: 3}
+      propertyPath: phases.Array.data[1].isBerserker
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7778028239907775811, guid: 8a4f8d352dab5174b97522bba0b018dc,
         type: 3}
       propertyPath: _meshRenderers.Array.data[0]
