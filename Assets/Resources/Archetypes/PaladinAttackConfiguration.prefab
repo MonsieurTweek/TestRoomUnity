@@ -108,11 +108,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damages:
-    m_keys: 0100000002000000
-    m_values: 0500000003000000
+    m_keys: 010000000a00000002000000
+    m_values: 030000000500000003000000
   heals:
     m_keys: 02000000
-    m_values: 0a000000
+    m_values: 07000000
 --- !u!1001 &19627669511602297
 PrefabInstance:
   m_ObjectHideFlags: 0
