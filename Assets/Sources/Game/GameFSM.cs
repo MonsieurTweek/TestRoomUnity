@@ -71,6 +71,8 @@ public class GameFSM : AbstractFSM
     {
         ChangeState(_stateToLoad);
 
+        GameEvent.instance.StateChanged((GameStateEnum)currentState.flag, (GameStateEnum)_stateToLoad.flag);
+
         SerializationManager.Save(SaveData.SAVE_NAME, SaveData.current);
     }
 

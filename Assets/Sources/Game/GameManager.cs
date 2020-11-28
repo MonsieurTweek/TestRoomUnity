@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     {
         SaveData save = (SaveData)SerializationManager.Load(SaveData.SAVE_NAME);
         SaveData.current = save != null ? save : new SaveData();
+
+        AnalyticsManager.GameInit(save.isFirstSession);
     }
 
     public void Save()
@@ -46,5 +48,10 @@ public class GameManager : MonoBehaviour
     public AbstractFSM.StateBase GetCurrentState()
     {
         return fsm.currentState;
+    }
+
+    private void OnDestroy()
+    {
+        AnalyticsManager.GameQuit();
     }
 }

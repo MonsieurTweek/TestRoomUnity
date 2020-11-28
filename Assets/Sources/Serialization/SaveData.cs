@@ -28,4 +28,5 @@ public class SaveData
     }
 
     public PlayerProfileData playerProfile = new PlayerProfileData();
+    public bool isFirstSession { get { return playerProfile.totalStatistics.timeTotal == 0f; } }
 }

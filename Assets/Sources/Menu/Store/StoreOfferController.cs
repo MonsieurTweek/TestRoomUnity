@@ -58,6 +58,11 @@ public class StoreOfferController : MonoBehaviour
         }
     }
 
+    private bool CanPurchase()
+    {
+        return IsPurchased() == false && offer.price <= SaveData.current.playerProfile.currency;
+    }
+
     private bool IsPurchased()
     {
         if (offer is CharacterOffer)
@@ -74,7 +79,9 @@ public class StoreOfferController : MonoBehaviour
 
     private void OnClick()
     {
-        if (IsPurchased() == true || offer.price > SaveData.current.playerProfile.currency)
+        AnalyticsManager.StoreItemClick(offer, CanPurchase());
+
+        if (CanPurchase() == false)
         {
             AudioManager.instance.PlayMenuSound(AudioManager.instance.menuConfirmationFailedSfx);
 
@@ -83,6 +90,8 @@ public class StoreOfferController : MonoBehaviour
         else
         {
             offer.Buy();
+
+            AnalyticsManager.StoreItemAcquired(offer);
 
             AudioManager.instance.PlayInGameSound(offer.purchaseSound);
 

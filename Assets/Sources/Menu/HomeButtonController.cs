@@ -5,6 +5,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class HomeButtonController : MonoBehaviour
 {
+    private static readonly string ANALYTICS_UI_ELEMENT = "back";
+
     [Header("References")]
     public Image icon = null;
     public ProgressBarController confirmBar = null;
@@ -54,6 +56,8 @@ public class HomeButtonController : MonoBehaviour
         _tweenId = LeanTween.value(0f, 100f, confirmDelay).setOnUpdate(ConfirmProgress).setOnComplete(ConfirmComplete).id;
 
         LeanTween.scale(icon.gameObject, icon.transform.localScale * 1.5f, 0.1f).setLoopPingPong(1);
+
+        AnalyticsManager.StartConfirmInput(ANALYTICS_UI_ELEMENT);
     }
 
     private void ConfirmProgress(float progress)
@@ -72,6 +76,8 @@ public class HomeButtonController : MonoBehaviour
     {
         if (LeanTween.isTweening(_tweenId) == true)
         {
+            AnalyticsManager.CancelConfirmInput(ANALYTICS_UI_ELEMENT, confirmBar.current);
+
             LeanTween.cancel(_tweenId);
 
             confirmBar.current = 0;

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class IntroSplashController : MonoBehaviour
 {
+    private static readonly string ANALYTICS_UI_ELEMENT = "continue";
+
     [Header("References")]
     public RectTransform layout = null;
     public Image flash = null; 
@@ -91,6 +93,8 @@ public class IntroSplashController : MonoBehaviour
     private void OnConfirmStarted(InputAction.CallbackContext context)
     {
         _tweenId = LeanTween.value(gameObject, 0f, 100f, confirmDelay).setOnUpdate(ConfirmProgress).setOnComplete(ConfirmComplete).id;
+
+        AnalyticsManager.StartConfirmInput(ANALYTICS_UI_ELEMENT);
     }
 
     private void ConfirmProgress(float progress)
@@ -112,6 +116,8 @@ public class IntroSplashController : MonoBehaviour
     {
         if (LeanTween.isTweening(_tweenId) == true)
         {
+            AnalyticsManager.CancelConfirmInput(ANALYTICS_UI_ELEMENT, confirmBar.current);
+
             LeanTween.cancel(gameObject, _tweenId);
 
             confirmBar.current = 0;

@@ -5,6 +5,11 @@ using UnityEngine;
 [Serializable]
 public class CurrencyOffer : StoreOffer
 {
+    public override StoreOfferEnum GetCategory()
+    {
+        return StoreOfferEnum.CURRENCY;
+    }
+
     public override void Buy()
     {
         base.Buy();

@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CardCanvasController : MonoBehaviour
 {
+    private static readonly string ANALYTICS_UI_ELEMENT = "card";
+
     [Header("References")]
     public GameObject root = null;
     public ProgressBarController confirmBar = null;
@@ -29,7 +32,7 @@ public class CardCanvasController : MonoBehaviour
 
     private void Start()
     {
-        PerkGameEvent.instance.onDisplayed += OnPerkDisplayed;
+        PerkGameEvent.instance.onDisplayStarted += OnPerkDisplayed;
         PerkGameEvent.instance.onUnlockStarted += OnPerkUnlockStarted;
 
         for (int i = 0; i < perks.Count; i++)
@@ -74,6 +77,8 @@ public class CardCanvasController : MonoBehaviour
         // Unbind input except Confirm.Canceled so we are sure to don't switch during selection
         InputManager.instance.menu.Navigate.performed -= OnNavigatePerformed;
         InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
+
+        AnalyticsManager.StartConfirmInput(ANALYTICS_UI_ELEMENT);
     }
 
     private void ConfirmProgress(float progress)
@@ -95,6 +100,8 @@ public class CardCanvasController : MonoBehaviour
     {
         if (LeanTween.isTweening(_tweenId) == true)
         {
+            AnalyticsManager.CancelConfirmInput(ANALYTICS_UI_ELEMENT, confirmBar.current);
+
             LeanTween.cancel(gameObject, _tweenId);
 
             confirmBar.current = 0;
@@ -151,6 +158,8 @@ public class CardCanvasController : MonoBehaviour
             InputManager.instance.menu.Navigate.performed += OnNavigatePerformed;
             InputManager.instance.menu.Confirm.started += OnConfirmStarted;
             InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
+
+            PerkGameEvent.instance.EndDisplay(cards.Select(card => (Perk)card.data.descriptiveObject).ToList());
         }
     }
 
@@ -197,7 +206,7 @@ public class CardCanvasController : MonoBehaviour
 
         if (PerkGameEvent.instance != null)
         {
-            PerkGameEvent.instance.onDisplayed -= OnPerkDisplayed;
+            PerkGameEvent.instance.onDisplayStarted -= OnPerkDisplayed;
             PerkGameEvent.instance.onUnlockStarted -= OnPerkUnlockStarted;
         }
     }

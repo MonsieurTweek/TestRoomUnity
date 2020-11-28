@@ -14,10 +14,10 @@ public class PlayerData : AbstractCharacterData
     public float energyForHeavyAttack { private set; get; }
 
     public uint playerAbilitiesMask { private set; get; }
+    public Player playerConfiguration { private set; get; }
 
     private int _tweenId = -1;
     private PlayerStateAttackConfiguration _stateAttackConfiguration = null;
-    private Player _playerConfiguration = null;
 
     /// <summary>
     /// Populate model with data
@@ -26,17 +26,17 @@ public class PlayerData : AbstractCharacterData
     {
         base.Populate(configuration);
 
-        _playerConfiguration = ((Player)configuration);
+        playerConfiguration = ((Player)configuration);
 
-        energy = _playerConfiguration.energy;
-        energyMax = _playerConfiguration.energy;
-        energyPerSecond = _playerConfiguration.energyPerSecond;
+        energy = playerConfiguration.energy;
+        energyMax = playerConfiguration.energy;
+        energyPerSecond = playerConfiguration.energyPerSecond;
 
-        energyForDash = _playerConfiguration.energyForDash;
-        energyForLightAttack = _playerConfiguration.energyForLightAttack;
-        energyForHeavyAttack = _playerConfiguration.energyForHeavyAttack;
+        energyForDash = playerConfiguration.energyForDash;
+        energyForLightAttack = playerConfiguration.energyForLightAttack;
+        energyForHeavyAttack = playerConfiguration.energyForHeavyAttack;
 
-        _stateAttackConfiguration = _playerConfiguration.attacksConfiguration;
+        _stateAttackConfiguration = playerConfiguration.attacksConfiguration;
     }
 
     public override void SetDamageByAttackType(CharacterStateAttack.AttackType type)
@@ -44,7 +44,7 @@ public class PlayerData : AbstractCharacterData
 
         if (_stateAttackConfiguration == null)
         {
-            damage = _playerConfiguration.damage;
+            damage = playerConfiguration.damage;
             return;
         }
 
@@ -54,10 +54,10 @@ public class PlayerData : AbstractCharacterData
 
             damage = _stateAttackConfiguration.damages[type];
         }
-        catch (System.Exception e)
+        catch
         {
             // The current AttackType doesn't have any override damage defined. Use the base damage value
-            damage = _playerConfiguration.damage;
+            damage = playerConfiguration.damage;
             return;
         }
     }
@@ -75,7 +75,7 @@ public class PlayerData : AbstractCharacterData
 
             return _stateAttackConfiguration.heals[type];
         }
-        catch (System.Exception e)
+        catch
         {
             // The current AttackType doesn't have any heal defined
             return 0;

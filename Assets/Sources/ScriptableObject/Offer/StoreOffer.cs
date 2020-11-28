@@ -9,6 +9,16 @@ public class StoreOffer : DescriptiveObject
     public int amount = 1;
     public AudioClip purchaseSound = null;
 
+    public virtual StoreOfferEnum GetCategory()
+    {
+        return StoreOfferEnum.GENERAL;
+    }
+
+    public virtual string GetContentName()
+    {
+        return string.Empty;
+    }
+
     public virtual void Buy()
     {
         SaveData.current.playerProfile.currency -= price;

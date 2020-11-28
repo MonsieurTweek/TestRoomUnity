@@ -128,7 +128,8 @@ public class PlayerStateAttack : CharacterStateAttack
             UnityEngine.Assertions.Assert.IsTrue(_status.ContainsKey(currentType), "Can't find any status for " + currentType);
 
             return _status[currentType] == status;
-        } catch(Exception e)
+        }
+        catch
         {
             // The current AttackType doesn't have a status defined. Do nothing
             return false;

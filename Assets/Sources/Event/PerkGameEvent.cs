@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PerkGameEvent : MonoBehaviour
@@ -11,12 +12,21 @@ public class PerkGameEvent : MonoBehaviour
         _instance = this;
     }
 
-    public event Action onDisplayed;
-    public void Display()
+    public event Action onDisplayStarted;
+    public void StartDisplay()
     {
-        if (onDisplayed != null)
+        if (onDisplayStarted != null)
         {
-            onDisplayed();
+            onDisplayStarted();
+        }
+    }
+
+    public event Action<List<Perk>> onDisplayEnded;
+    public void EndDisplay(List<Perk> perks)
+    {
+        if (onDisplayEnded != null)
+        {
+            onDisplayEnded(perks);
         }
     }
 

@@ -36,6 +36,8 @@ public class TileController : Button
         targetGraphic.color = colors.selectedColor;
 
         LeanTween.scale(this.gameObject, Vector3.one * 1.1f, iconAnimationTime).setEase(iconAnimationIn);
+
+        AnalyticsManager.SelectTile(title.text);
     }
 
     public override void OnDeselect(BaseEventData eventData)
@@ -58,6 +60,8 @@ public class TileController : Button
     public void ConfirmSelection()
     {
         _tweenId = LeanTween.value(0f, 100f, confirmDelay).setOnUpdate(ConfirmProgress).setOnComplete(ConfirmComplete).id;
+
+        AnalyticsManager.StartConfirmInput(title.text);
     }
 
     private void ConfirmProgress(float progress)
@@ -78,6 +82,8 @@ public class TileController : Button
     {
         if (LeanTween.isTweening(_tweenId) == true)
         {
+            AnalyticsManager.CancelConfirmInput(title.text, confirmBar.current);
+
             LeanTween.cancel(_tweenId);
 
             confirmBar.current = 0;

@@ -17,6 +17,15 @@ public class GameEvent : MonoBehaviour
         instance = this;
     }
 
+    public event Action<GameStateEnum, GameStateEnum> onStateChanged;
+    public void StateChanged(GameStateEnum fromState, GameStateEnum toState)
+    {
+        if (instance.onStateChanged != null)
+        {
+            instance.onStateChanged(fromState, toState);
+        }
+    }
+
     public event Action onPlayButtonPressed;
     public void PlayButtonPressed()
     {

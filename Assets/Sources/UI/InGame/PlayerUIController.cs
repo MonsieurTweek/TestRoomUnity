@@ -43,7 +43,7 @@ public class PlayerUIController : MonoBehaviour
 
         CharacterGameEvent.instance.onOutroStarted += OnOutroStarted;
 
-        PerkGameEvent.instance.onDisplayed += OnPerkDisplayed;
+        PerkGameEvent.instance.onDisplayStarted += OnPerkDisplayed;
         PerkGameEvent.instance.onUnlockStarted += OnPerkUnlockStarted;
 
         player.data.onBuffValues += RefreshPlayerData;
@@ -166,7 +166,7 @@ public class PlayerUIController : MonoBehaviour
 
         if (PerkGameEvent.instance != null)
         {
-            PerkGameEvent.instance.onDisplayed -= OnPerkDisplayed;
+            PerkGameEvent.instance.onDisplayStarted -= OnPerkDisplayed;
             PerkGameEvent.instance.onUnlockStarted -= OnPerkUnlockStarted;
         }
 

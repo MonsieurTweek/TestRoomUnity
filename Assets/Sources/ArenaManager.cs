@@ -114,6 +114,8 @@ public class ArenaManager : MonoBehaviour
 
         // Ensure we have a proper last hit registered
         _lastHitEnemyId = enemy.data.uniqueId;
+
+        AnalyticsManager.SpawnEnemy(enemy);
     }
 
     private Transform GetSpawnPoint()
@@ -183,7 +185,7 @@ public class ArenaManager : MonoBehaviour
                 if (_currentEnemyIndex < _enemiesToSpawn.Count)
                 {
                     // Show perks
-                    PerkGameEvent.instance.Display();
+                    PerkGameEvent.instance.StartDisplay();
 
                     AudioManager.instance.FadeOutMusic(0.15f);
                 }

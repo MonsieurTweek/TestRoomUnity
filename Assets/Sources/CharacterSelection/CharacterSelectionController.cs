@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 /// </summary>
 public class CharacterSelectionController : MonoBehaviour
 {
+    private static readonly string ANALYTICS_UI_ELEMENT = "character";
+
     [Header("References")]
     public CinemachineVirtualCamera introCamera = null;
     public CharacterSelectionCanvasController selectionCanvas = null;
@@ -73,6 +75,8 @@ public class CharacterSelectionController : MonoBehaviour
             InputManager.instance.menu.Confirm.started -= OnConfirmStarted;
 
             InputManager.instance.menu.Confirm.canceled += OnConfirmCanceled;
+
+            AnalyticsManager.StartConfirmInput(ANALYTICS_UI_ELEMENT);
         }
     }
 
@@ -96,6 +100,8 @@ public class CharacterSelectionController : MonoBehaviour
     {
         if (LeanTween.isTweening(_tweenId) == true)
         {
+            AnalyticsManager.CancelConfirmInput(ANALYTICS_UI_ELEMENT, confirmBar.current);
+
             LeanTween.cancel(gameObject, _tweenId);
 
             confirmBar.current = 0;
